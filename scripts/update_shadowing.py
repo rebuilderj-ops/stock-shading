@@ -28,7 +28,10 @@ def get_kis_access_token():
     headers = {"content-type": "application/json"}
     body = {"grant_type": "client_credentials", "appkey": KIS_APP_KEY, "appsecret": KIS_APP_SECRET}
     res = requests.post(f"{KIS_URL_BASE}/oauth2/tokenP", headers=headers, data=json.dumps(body))
-    return res.json().get('access_token') if res.status_code == 200 else None
+    if res.status_code != 200:
+        print(f"KIS Token Error: {res.text}")
+        return None
+    return res.json().get('access_token')
 
 def get_surged_stocks_kis(target_date, market_code="0000"):
     token = get_kis_access_token()
@@ -56,7 +59,9 @@ def get_surged_stocks_kis(target_date, market_code="0000"):
         if res.status_code != 200 or data.get('rt_cd') != '0': return []
             
         results = []
-        for item in data.get('output', []):
+        raw_items = data.get('output', [])
+        print(f"[{market_code}] 받은 원본 데이터: {len(raw_items)}개")
+        for item in raw_items:
             name, code = item.get('hts_kor_isnm', ''), item.get('mksc_shrn_iscd', '')
             change_rate = float(item.get('prdy_ctrt', 0))
             vol_krw = int(float(item.get('acml_tr_pbmn', 0)) / 100000000) # 거래대금 (억)
@@ -99,14 +104,18 @@ def analyze_stock_reason(stock_info, target_date):
     if GEMINI_API_KEY and GEMINI_API_KEY != "여기에_키를_입력하세요" and NAVER_CLIENT_ID:
         try:
             genai.configure(api_key=GEMINI_API_KEY)
-            model = genai.GenerativeModel('gemini-1.5-flash')
+            model = genai.GenerativeModel('gemini-2.5-flash')
             
-            query = urllib.parse.quote(stock_info['name'] + " 특징주")
-            req = urllib.request.Request(f"https://openapi.naver.com/v1/search/news?query={query}&display=5")
-            req.add_header("X-Naver-Client-Id", NAVER_CLIENT_ID)
-            req.add_header("X-Naver-Client-Secret", NAVER_CLIENT_SECRET)
-            res_news = urllib.request.urlopen(req)
-            news_titles = " / ".join([item['title'].replace("<b>", "").replace("</b>", "") for item in json.loads(res_news.read().decode('utf-8'))['items']])
+            news_titles = ""
+            try:
+                query = urllib.parse.quote(stock_info['name'] + " 특징주")
+                req = urllib.request.Request(f"https://openapi.naver.com/v1/search/news?query={query}&display=5")
+                req.add_header("X-Naver-Client-Id", NAVER_CLIENT_ID)
+                req.add_header("X-Naver-Client-Secret", NAVER_CLIENT_SECRET)
+                res_news = urllib.request.urlopen(req)
+                news_titles = " / ".join([item['title'].replace("<b>", "").replace("</b>", "") for item in json.loads(res_news.read().decode('utf-8'))['items']])
+            except Exception as ne:
+                print(f"네이버 뉴스 API 일시 장애 (뉴스 없이 자체 지식 추론으로 대체): {ne}")
             
             prompt = get_analysis_prompt(stock_info['name'], stock_info['change_rate'], stock_info['volume_krw'], news_titles)
             response = model.generate_content(prompt)
