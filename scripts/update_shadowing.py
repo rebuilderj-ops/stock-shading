@@ -1,28 +1,22 @@
 import os
-import time
-import requests
 import json
+import time
 import urllib.request
 import urllib.parse
+import xml.etree.ElementTree as ET
 from datetime import datetime
+import requests
+import google.generativeai as genai
 from dotenv import load_dotenv
-
-try:
-    import google.generativeai as genai
-except ImportError:
-    print("google.generativeai 패키지가 설치되어 있지 않습니다.")
 
 load_dotenv('.env.local')
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "여기에_키를_입력하세요")
-NAVER_CLIENT_ID = os.environ.get("NAVER_CLIENT_ID", "")
-NAVER_CLIENT_SECRET = os.environ.get("NAVER_CLIENT_SECRET", "")
-
 KIS_APP_KEY = os.environ.get("KIS_APP_KEY", "")
 KIS_APP_SECRET = os.environ.get("KIS_APP_SECRET", "")
 KIS_URL_BASE = "https://openapi.koreainvestment.com:9443"
 
-EXISTING_KEYWORDS = ["전고체 배터리", "HBM", "기업 밸류업", "우주항공", "개별 호재", "K-방산", "K-조선", "화장품 (K-뷰티)"]
+EXISTING_KEYWORDS = "기업 밸류업 프로그램, 전고체 배터리, HBM (AI 반도체), 우주항공, 전력설비 / 변압기, 유리기판, 비만치료제 (GLP-1), 로봇 / 지능형 AI, 원전 (SMR), CXL 반도체, K-방산 (수출), K-조선 (슈퍼사이클), 화장품 (K-뷰티)"
 
 def get_kis_access_token():
     headers = {"content-type": "application/json"}
@@ -62,12 +56,12 @@ def get_surged_stocks_kis(target_date, market_code="0000"):
         raw_items = data.get('output', [])
         print(f"[{market_code}] 받은 원본 데이터: {len(raw_items)}개")
         for item in raw_items:
-            name, code = item.get('hts_kor_isnm', ''), item.get('mksc_shrn_iscd', '')
+            name = item.get('hts_kor_isnm', '')
+            code = item.get('mksc_shrn_iscd', '')
             change_rate = float(item.get('prdy_ctrt', 0))
-            vol_krw = int(float(item.get('acml_tr_pbmn', 0)) / 100000000) # 거래대금 (억)
-            vol_cnt = int(float(item.get('acml_vol', 0))) # 거래량 (주)
+            vol_krw = int(float(item.get('acml_tr_pbmn', 0)) / 100000000)
+            vol_cnt = int(float(item.get('acml_vol', 0)))
             
-            # 조건: (6% 상승 & 300억) OR (상한가 29.5% 이상) OR (거래량 1000만 주 이상)
             if (change_rate >= 6.0 and vol_krw >= 300) or change_rate >= 29.5 or vol_cnt >= 10000000:
                 results.append({
                     "date": f"{target_date[:4]}-{target_date[4:6]}-{target_date[6:]}",
@@ -79,54 +73,66 @@ def get_surged_stocks_kis(target_date, market_code="0000"):
         print(f"KIS API 에러: {e}")
         return []
 
-def get_analysis_prompt(stock_name, change_rate, volume_krw, news_titles=""):
-    context = f"\n오늘의 보조 뉴스 헤드라인 데이터:\n[{news_titles}]" if news_titles else ""
+def get_google_news(stock_name):
+    query = urllib.parse.quote(stock_name + " 특징주")
+    url = f"https://news.google.com/rss/search?q={query}&hl=ko&gl=KR&ceid=KR:ko"
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req) as response:
+            xml_data = response.read()
+            root = ET.fromstring(xml_data)
+            titles = []
+            for item in root.findall('.//item')[:3]:
+                title = item.find('title').text
+                if ' - ' in title:
+                    title = title.rsplit(' - ', 1)[0]
+                titles.append(title)
+            return " / ".join(titles)
+    except Exception as e:
+        return ""
 
-    prompt = f"""당신은 한국 주식을 다루는 최고 수준의 트레이더입니다.
-종목명 '{stock_name}'이(가) 오늘 {change_rate}% 상승하며 거래대금 {volume_krw}억 규모의 시세 분출을 했습니다.{context}
+def analyze_stocks_batch(stocks):
+    if not GEMINI_API_KEY or GEMINI_API_KEY == "여기에_키를_입력하세요":
+        print("Gemini API 키가 설정되지 않았습니다.")
+        return {s['code']: {"reason": "[API 미설정]", "keyword": "미분류"} for s in stocks}
 
-지시사항:
-1. 해당 종목이 '어떤 재료/이슈/모멘텀'으로 급등했는지 심층 파악하세요.
-2. 분석 사유 맨 앞에 반드시 아래의 매우 상세한 카테고리 태그 모음 중 가장 적합한 1개를 [말머리]로 달아주세요.
-   [정책수혜], [임상통과/신약기대], [실적/어닝서프라이즈], [대규모수주/공급계약], [인수합병/M&A],
-   [유상증자/무상증자], [지분투자/투자유치], [자사주취득/소각], [경영권분쟁/행동주의], [독점/단독보도],
-   [FDA/식약처승인], [지정학적수혜/리스크], [신규사업진출], [품절주/스팩], [수급/테마편승], [기타]
-   (예: "[경영권분쟁] MBK파트너스의 고려아연 공개매수 선언에 따른 지분 경쟁 격화")
-3. 결과는 정확히 1문장(최고 50자 내외)으로 핵심만 간결하게 작성하세요.
-4. 분석 결과의 맥락을 고려하여, 기존 테마 목록({EXISTING_KEYWORDS}) 중 하나를 고르거나 전혀 새로운 테마라면 10자 이내 명사형의 새 테마를 명명하세요.
+    try:
+        genai.configure(api_key=GEMINI_API_KEY)
+        model = genai.GenerativeModel('gemini-2.5-flash')
+        
+        prompt = f"""당신은 한국 주식을 다루는 최고 수준의 트레이더입니다.
+아래는 오늘 필터링된 급등주 목록입니다. (종목코드, 종목명, 상승률, 거래대금, 오늘자 뉴스헤드라인)
 
-오직 다음 JSON 형식으로만 출력해야 합니다:
-{{"reason": "[태그] 요약 사유", "keyword": "명명된 테마"}}
 """
-    return prompt
-
-def analyze_stock_reason(stock_info, target_date):
-    if GEMINI_API_KEY and GEMINI_API_KEY != "여기에_키를_입력하세요" and NAVER_CLIENT_ID:
-        try:
-            genai.configure(api_key=GEMINI_API_KEY)
-            model = genai.GenerativeModel('gemini-2.5-flash')
+        for s in stocks:
+            prompt += f"- {s['code']} {s['name']}: {s['change_rate']}% 상승, {s['volume_krw']}억 거래\n"
+            prompt += f"  뉴스: {s.get('news_titles', '')}\n"
             
-            news_titles = ""
-            try:
-                query = urllib.parse.quote(stock_info['name'] + " 특징주")
-                req = urllib.request.Request(f"https://openapi.naver.com/v1/search/news?query={query}&display=5")
-                req.add_header("X-Naver-Client-Id", NAVER_CLIENT_ID)
-                req.add_header("X-Naver-Client-Secret", NAVER_CLIENT_SECRET)
-                res_news = urllib.request.urlopen(req)
-                news_titles = " / ".join([item['title'].replace("<b>", "").replace("</b>", "") for item in json.loads(res_news.read().decode('utf-8'))['items']])
-            except Exception as ne:
-                print(f"네이버 뉴스 API 일시 장애 (뉴스 없이 자체 지식 추론으로 대체): {ne}")
-            
-            prompt = get_analysis_prompt(stock_info['name'], stock_info['change_rate'], stock_info['volume_krw'], news_titles)
-            response = model.generate_content(prompt)
-            clean_json = response.text.strip().removeprefix("```json").removesuffix("```").strip()
-            time.sleep(1) # Rate limit 방지
-            return json.loads(clean_json)
-        except Exception as e:
-            print("Gemini 분석 중 에러:", e)
-            return {"reason": "[분석실패] 기사 파싱 장애", "keyword": "미분류"}
+        prompt += f"""
+위 종목들을 모두 분석하여, 각 종목마다 '어떤 재료/이슈/모멘텀'으로 급등했는지 심층 파악하세요.
+분석 사유 맨 앞에 반드시 아래의 매우 상세한 카테고리 태그 모음 중 가장 적합한 1개를 [말머리]로 달아주세요.
+[정책수혜], [임상통과/신약기대], [실적/어닝서프라이즈], [대규모수주/공급계약], [인수합병/M&A],
+[유상증자/무상증자], [지분투자/투자유치], [자사주취득/소각], [경영권분쟁/행동주의], [독점/단독보도],
+[FDA/식약처승인], [지정학적수혜/리스크], [신규사업진출], [품절주/스팩], [수급/테마편승], [기타]
 
-    return {"reason": "[API 미설정] Gemini 및 네이버 키 필요", "keyword": "미분류"}
+결과 사유는 정확히 1문장(최고 50자 내외)으로 핵심만 간결하게 작성하세요.
+기존 테마 목록({EXISTING_KEYWORDS}) 중 하나를 고르거나 전혀 새로운 테마라면 10자 이내 명사형의 새 테마를 명명하세요.
+
+오직 다음 JSON 배열(Array) 형식으로만 출력해야 합니다 (기타 마크다운 없이 JSON만 출력):
+[
+  {{"code": "종목코드1", "reason": "[태그] 요약 사유", "keyword": "명명된 테마"}},
+  {{"code": "종목코드2", "reason": "[태그] 요약 사유", "keyword": "명명된 테마"}}
+]
+"""
+        response = model.generate_content(prompt)
+        clean_json = response.text.strip().removeprefix("```json").removesuffix("```").strip()
+        data = json.loads(clean_json)
+        
+        # 배열을 딕셔너리로 변환하여 code로 O(1) 접근
+        return {item["code"]: {"reason": item["reason"], "keyword": item["keyword"]} for item in data}
+    except Exception as e:
+        print("Gemini 일괄 분석 중 에러:", e)
+        return {}
 
 if __name__ == "__main__":
     print("====================================")
@@ -143,12 +149,20 @@ if __name__ == "__main__":
     print(f"\n최종 요약: 총 {len(stocks_to_analyze)}개의 종목이 필터링되었습니다.\n")
     final_output = []
     
+    print(f"구글 뉴스로부터 각 종목당 최신 헤드라인 수집 중...")
     for idx, s in enumerate(stocks_to_analyze):
-        print(f"[{idx+1}/{len(stocks_to_analyze)}] {s['name']} AI 모멘텀 심층 분석 중...")
-        ai_analysis = analyze_stock_reason(s, yyyymmdd)
+        s['news_titles'] = get_google_news(s['name'])
         
-        s['reason'] = ai_analysis.get('reason', '')
-        s['keywordName'] = ai_analysis.get('keyword', '')
+    ai_results = {}
+    if stocks_to_analyze:
+        print("Gemini AI를 이용한 일괄 분석 진행 중... (배치 처리로 통신 1회만 실시하여 API 한도 절약)")
+        ai_results = analyze_stocks_batch(stocks_to_analyze)
+        
+    for s in stocks_to_analyze:
+        res = ai_results.get(s['code'], {})
+        s['reason'] = res.get('reason', '[분석실패] 기사 파싱 장애')
+        s['keywordName'] = res.get('keyword', '미분류')
+        # 모델의 뉴스 출력을 확인하려면 원본도 남겨둠. (UI엔 안 보임)
         final_output.append(s)
         
     output_filename = 'src/data/shadowing_real_history.json'
@@ -161,7 +175,7 @@ if __name__ == "__main__":
             except:
                 pass
                 
-    # 오늘 생성된 데이터를 기존 데이터 뒤에 추가 (중복 날짜 제거 등은 생략하거나 필요시 추가)
+    # 오늘 생성된 데이터를 기존 데이터 뒤에 추가
     # 날짜 중복 시 덮어쓰는 로직: 오늘 날짜의 데이터가 이미 있으면 지우고 새로 추가
     existing_data = [d for d in existing_data if d.get('date') != yyyymmdd_formatted]
     existing_data.extend(final_output)
