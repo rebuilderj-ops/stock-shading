@@ -17,7 +17,8 @@ const COLOR_MAP = {
   indigo: "bg-indigo-500/20 text-indigo-400 border-indigo-500/30",
   red: "bg-red-500/20 text-red-400 border-red-500/30",
   sky: "bg-sky-500/20 text-sky-400 border-sky-500/30",
-  rose: "bg-rose-500/20 text-rose-400 border-rose-500/30"
+  rose: "bg-rose-500/20 text-rose-400 border-rose-500/30",
+  slate: "bg-slate-500/20 text-slate-400 border-slate-500/30"
 };
 
 const LandingPage = () => {
