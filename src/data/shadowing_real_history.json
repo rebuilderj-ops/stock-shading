@@ -1,1 +1,182 @@
-[]
+[
+    {
+        "date": "2026-04-17",
+        "code": "005930",
+        "name": "삼성전자",
+        "change_rate": -0.69,
+        "volume_krw": 33643,
+        "volume_cnt": 15537867,
+        "reason": "[분석실패] 기사 파싱 장애",
+        "keywordName": "미분류"
+    },
+    {
+        "date": "2026-04-17",
+        "code": "047040",
+        "name": "대우건설",
+        "change_rate": 0.35,
+        "volume_krw": 8124,
+        "volume_cnt": 28565475,
+        "reason": "[분석실패] 기사 파싱 장애",
+        "keywordName": "미분류"
+    },
+    {
+        "date": "2026-04-17",
+        "code": "017900",
+        "name": "광전자",
+        "change_rate": 7.05,
+        "volume_krw": 7982,
+        "volume_cnt": 59681382,
+        "reason": "[분석실패] 기사 파싱 장애",
+        "keywordName": "미분류"
+    },
+    {
+        "date": "2026-04-17",
+        "code": "093370",
+        "name": "후성",
+        "change_rate": 22.3,
+        "volume_krw": 4246,
+        "volume_cnt": 31327210,
+        "reason": "[분석실패] 기사 파싱 장애",
+        "keywordName": "미분류"
+    },
+    {
+        "date": "2026-04-17",
+        "code": "010820",
+        "name": "퍼스텍",
+        "change_rate": 14.92,
+        "volume_krw": 3564,
+        "volume_cnt": 26624593,
+        "reason": "[분석실패] 기사 파싱 장애",
+        "keywordName": "미분류"
+    },
+    {
+        "date": "2026-04-17",
+        "code": "082740",
+        "name": "한화엔진",
+        "change_rate": 16.39,
+        "volume_krw": 2873,
+        "volume_cnt": 5143586,
+        "reason": "[분석실패] 기사 파싱 장애",
+        "keywordName": "미분류"
+    },
+    {
+        "date": "2026-04-17",
+        "code": "077970",
+        "name": "STX엔진",
+        "change_rate": 29.99,
+        "volume_krw": 1516,
+        "volume_cnt": 3620387,
+        "reason": "[분석실패] 기사 파싱 장애",
+        "keywordName": "미분류"
+    },
+    {
+        "date": "2026-04-17",
+        "code": "009580",
+        "name": "무림P&P",
+        "change_rate": -2.16,
+        "volume_krw": 1285,
+        "volume_cnt": 33888555,
+        "reason": "[분석실패] 기사 파싱 장애",
+        "keywordName": "미분류"
+    },
+    {
+        "date": "2026-04-17",
+        "code": "018880",
+        "name": "한온시스템",
+        "change_rate": 1.84,
+        "volume_krw": 1090,
+        "volume_cnt": 25905260,
+        "reason": "[분석실패] 기사 파싱 장애",
+        "keywordName": "미분류"
+    },
+    {
+        "date": "2026-04-17",
+        "code": "011930",
+        "name": "신성이엔지",
+        "change_rate": -2.91,
+        "volume_krw": 1020,
+        "volume_cnt": 24345092,
+        "reason": "[분석실패] 기사 파싱 장애",
+        "keywordName": "미분류"
+    },
+    {
+        "date": "2026-04-17",
+        "code": "019170",
+        "name": "신풍제약",
+        "change_rate": 26.48,
+        "volume_krw": 781,
+        "volume_cnt": 5739779,
+        "reason": "[분석실패] 기사 파싱 장애",
+        "keywordName": "미분류"
+    },
+    {
+        "date": "2026-04-17",
+        "code": "005880",
+        "name": "대한해운",
+        "change_rate": -4.01,
+        "volume_krw": 692,
+        "volume_cnt": 24832039,
+        "reason": "[분석실패] 기사 파싱 장애",
+        "keywordName": "미분류"
+    },
+    {
+        "date": "2026-04-17",
+        "code": "017550",
+        "name": "수산세보틱스",
+        "change_rate": 8.43,
+        "volume_krw": 607,
+        "volume_cnt": 18428509,
+        "reason": "[분석실패] 기사 파싱 장애",
+        "keywordName": "미분류"
+    },
+    {
+        "date": "2026-04-17",
+        "code": "008350",
+        "name": "남선알미늄",
+        "change_rate": -2.77,
+        "volume_krw": 368,
+        "volume_cnt": 14824585,
+        "reason": "[분석실패] 기사 파싱 장애",
+        "keywordName": "미분류"
+    },
+    {
+        "date": "2026-04-17",
+        "code": "015260",
+        "name": "에이엔피",
+        "change_rate": -6.15,
+        "volume_krw": 247,
+        "volume_cnt": 25809983,
+        "reason": "[분석실패] 기사 파싱 장애",
+        "keywordName": "미분류"
+    },
+    {
+        "date": "2026-04-17",
+        "code": "348950",
+        "name": "제이알글로벌리츠",
+        "change_rate": -13.52,
+        "volume_krw": 137,
+        "volume_cnt": 12005646,
+        "reason": "[분석실패] 기사 파싱 장애",
+        "keywordName": "미분류"
+    },
+    {
+        "date": "2026-04-17",
+        "code": "011000",
+        "name": "진원생명과학",
+        "change_rate": 29.89,
+        "volume_krw": 66,
+        "volume_cnt": 6692436,
+        "reason": "[분석실패] 기사 파싱 장애",
+        "keywordName": "미분류"
+    },
+    {
+        "date": "2026-04-17",
+        "code": "118000",
+        "name": "메타케어",
+        "change_rate": 6.19,
+        "volume_krw": 33,
+        "volume_cnt": 13159253,
+        "reason": "[분석실패] 기사 파싱 장애",
+        "keywordName": "미분류"
+    }
+]
