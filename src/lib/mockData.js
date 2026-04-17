@@ -217,6 +217,68 @@ function generateQuarterData() {
   return records;
 }
 
-export const INITIAL_DAILY_RECORDS = realHistoryData && realHistoryData.length > 0 
-  ? realHistoryData 
-  : generateQuarterData();
+// 마지막에 실데이터 매핑 로직 추가
+const finalDailyRecords = [];
+const mockQuarterData = generateQuarterData();
+
+if (realHistoryData && realHistoryData.length > 0) {
+  let maxKwId = Math.max(...INITIAL_KEYWORDS.map(k=>k.id));
+  let maxStId = Math.max(...INITIAL_STOCKS.map(k=>k.id));
+
+  const realDates = new Set(realHistoryData.map(r => r.date));
+  
+  // 기존 모의 데이터 중 날짜가 겹치지 않는 것만 보존
+  const filteredMock = mockQuarterData.filter(m => !realDates.has(m.date));
+  finalDailyRecords.push(...filteredMock);
+
+  realHistoryData.forEach((item, idx) => {
+    // 1. 키워드 매핑 (없으면 생성)
+    let kw = INITIAL_KEYWORDS.find(k => k.name === item.keywordName);
+    if (!kw) {
+      maxKwId++;
+      kw = {
+        id: maxKwId,
+        name: item.keywordName || "미분류",
+        description: "AI 자동 분석 시스템에 의해 생성된 테마",
+        color: ["amber","emerald","blue","violet","orange","cyan","pink","lime","yellow","indigo","red","sky","rose"][maxKwId % 13],
+        created_at: item.date
+      };
+      INITIAL_KEYWORDS.push(kw);
+    }
+
+    // 2. 종목 매핑 (없으면 생성)
+    let stock = INITIAL_STOCKS.find(s => s.code === item.code);
+    if (!stock) {
+      maxStId++;
+      stock = {
+        id: maxStId,
+        keyword_id: kw.id,
+        name: item.name,
+        code: item.code,
+        reason: item.reason,
+        is_leader: false
+      };
+      INITIAL_STOCKS.push(stock);
+    }
+
+    // 3. 데일리 레코드에 표준 포맷으로 삽입
+    finalDailyRecords.push({
+      id: 900000 + idx,
+      date: item.date,
+      stock_id: stock.id,
+      change_rate: item.change_rate,
+      volume_krw: item.volume_krw,
+      volume_cnt: item.volume_cnt,
+      keyword_id: kw.id,
+      reason: item.reason,
+      // ShadowingDashboard 호환을 위한 잉여 속성 보존
+      name: item.name,
+      code: item.code,
+      keywordName: item.keywordName
+    });
+  });
+} else {
+  finalDailyRecords.push(...mockQuarterData);
+}
+
+export const INITIAL_DAILY_RECORDS = finalDailyRecords;
