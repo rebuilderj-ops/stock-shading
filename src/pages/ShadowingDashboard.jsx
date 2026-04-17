@@ -190,10 +190,11 @@ const ShadowingDashboard = () => {
                 <tbody className="divide-y divide-slate-700/50">
                   {selectedDateRecords.length > 0 ? selectedDateRecords.map((record, index) => {
                     const { category, text } = parseReason(record.reason || "");
+                    const isHighVolume = record.volume_cnt >= 10000000;
                     const formattedVolCnt = record.volume_cnt ? record.volume_cnt.toLocaleString() : "-";
                     
                     return (
-                      <tr key={record.id} className="hover:bg-slate-800/60 transition-colors group">
+                      <tr key={record.id} className={`transition-colors group ${isHighVolume ? 'bg-amber-900/10 hover:bg-amber-900/20' : 'hover:bg-slate-800/60'}`}>
                         <td className="py-2 px-3 text-center text-slate-500 text-xs">{index + 1}</td>
                         <td className="py-2 px-3">
                           <div className="flex flex-col gap-0.5">
@@ -217,7 +218,7 @@ const ShadowingDashboard = () => {
                           </span>
                         </td>
                         <td className="py-2 px-3 text-right">
-                          <span className="font-semibold text-slate-400 text-[11px] tabular-nums tracking-tight">
+                          <span className={`font-semibold text-[11px] tabular-nums tracking-tight ${isHighVolume ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30 px-1.5 py-0.5 rounded shadow-sm' : 'text-slate-400'}`}>
                             {formattedVolCnt}
                           </span>
                         </td>

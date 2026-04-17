@@ -62,7 +62,7 @@ def get_surged_stocks_kis(target_date, market_code="0000"):
             vol_krw = int(float(item.get('acml_tr_pbmn', 0)) / 100000000)
             vol_cnt = int(float(item.get('acml_vol', 0)))
             
-            if (change_rate >= 6.0 and vol_krw >= 300) or change_rate >= 29.5 or vol_cnt >= 10000000:
+            if (change_rate >= 6.0 and vol_krw >= 300) or change_rate >= 29.5:
                 results.append({
                     "date": f"{target_date[:4]}-{target_date[4:6]}-{target_date[6:]}",
                     "code": code, "name": name, "change_rate": round(change_rate, 2), 
