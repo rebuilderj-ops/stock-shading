@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;     /* #0F172A - Slate 900 */
+    --foreground: 210 40% 98%;     /* #F8FAFC - Slate 50 */
+    --card: 222 47% 15%;           /* #1E293B - Slate 800 */
+    --card-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;        /* #3B82F6 - Blue 500 */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 160 84% 39%;      /* #10B981 - Emerald 500 (For positive stocks) */
+    --secondary-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;      /* Red 500 (For negative stocks) */
+    --destructive-foreground: 210 40% 98%;
+    --accent: 262 83% 58%;         /* #8B5CF6 - Violet 500 */
+    --accent-foreground: 210 40% 98%;
+    --muted: 217 19% 27%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --border: 217 19% 27%;
+  }
+
+  body {
+    @apply bg-[#0F172A] text-slate-50 font-sans antialiased;
+  }
+}
+
+/* Custom Scrollbar for elegant look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-700 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-600;
+}
+
+/* Glassmorphism utilities */
+.glass-panel {
+  @apply bg-slate-800/50 backdrop-blur-md border border-slate-700/50 shadow-xl;
+}

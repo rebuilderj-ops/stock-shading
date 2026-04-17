@@ -1,0 +1,38 @@
+[
+    {
+        "date": "2026-04-17",
+        "code": "017900",
+        "name": "광전자",
+        "change_rate": 9.84,
+        "volume_krw": 3718,
+        "reason": "뉴스 수집 에러",
+        "keywordName": "미분류"
+    },
+    {
+        "date": "2026-04-17",
+        "code": "093370",
+        "name": "후성",
+        "change_rate": 18.63,
+        "volume_krw": 2014,
+        "reason": "뉴스 수집 에러",
+        "keywordName": "미분류"
+    },
+    {
+        "date": "2026-04-17",
+        "code": "010820",
+        "name": "퍼스텍",
+        "change_rate": 11.76,
+        "volume_krw": 1345,
+        "reason": "뉴스 수집 에러",
+        "keywordName": "미분류"
+    },
+    {
+        "date": "2026-04-17",
+        "code": "019170",
+        "name": "신풍제약",
+        "change_rate": 18.58,
+        "volume_krw": 475,
+        "reason": "뉴스 수집 에러",
+        "keywordName": "미분류"
+    }
+]
