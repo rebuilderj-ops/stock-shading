@@ -18,14 +18,22 @@ KIS_URL_BASE = "https://openapi.koreainvestment.com:9443"
 
 EXISTING_KEYWORDS = "기업 밸류업 프로그램, 전고체 배터리, HBM (AI 반도체), 우주항공, 전력설비 / 변압기, 유리기판, 비만치료제 (GLP-1), 로봇 / 지능형 AI, 원전 (SMR), CXL 반도체, K-방산 (수출), K-조선 (슈퍼사이클), 화장품 (K-뷰티)"
 
+_kis_token = None
+
 def get_kis_access_token():
+    global _kis_token
+    if _kis_token is not None:
+        return _kis_token
+        
     headers = {"content-type": "application/json"}
     body = {"grant_type": "client_credentials", "appkey": KIS_APP_KEY, "appsecret": KIS_APP_SECRET}
     res = requests.post(f"{KIS_URL_BASE}/oauth2/tokenP", headers=headers, data=json.dumps(body))
     if res.status_code != 200:
         print(f"KIS Token Error: {res.text}")
         return None
-    return res.json().get('access_token')
+        
+    _kis_token = res.json().get('access_token')
+    return _kis_token
 
 def get_surged_stocks_kis(target_date, market_code="0000"):
     token = get_kis_access_token()
