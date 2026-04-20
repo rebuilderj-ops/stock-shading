@@ -77,7 +77,7 @@ def analyze_stocks_batch(stocks):
 
     try:
         genai.configure(api_key=GEMINI_API_KEY)
-        model = genai.GenerativeModel('gemini-2.5-flash')
+        model = genai.GenerativeModel('gemini-2.0-flash')
         
         prompt = f"""당신은 한국 주식을 다루는 최고 수준의 트레이더입니다.
 아래는 오늘 필터링된 급등주 목록입니다. (종목코드, 종목명, 상승률, 거래대금, 오늘자 뉴스헤드라인)
@@ -136,10 +136,39 @@ if __name__ == "__main__":
         print("Gemini AI를 이용한 일괄 분석 진행 중... (배치 처리로 통신 1회만 실시하여 API 한도 절약)")
         ai_results = analyze_stocks_batch(stocks_to_analyze)
         
+    keyword_rules = {
+        'HBM (AI 반도체)': ['반도체', 'AI', 'HBM', '엔비디아', '마이크론', 'TSMC', 'CXL'],
+        '유리기판 / 디스플레이': ['디스플레이', 'LED', 'OLED', '유리기판', '모니터'],
+        '제약/바이오': ['제약', '바이오', '신약', '임상', 'FDA', '항암', '치료제', '코로나', '엠폭스'],
+        '로봇 / 지능형 AI': ['로봇', '자율주행', '지능형', '인공지능', '자동화'],
+        '원전 (SMR)': ['원전', 'SMR', '체코', '탈원전'],
+        '화장품 (K-뷰티)': ['화장품', '뷰티', '미용', '화장'],
+        '전력설비 / 변압기': ['전력', '변압기', '전선', '송전', '그리드', '전기'],
+        'K-조선/해운': ['조선', '선박', '해운', '항만', '호르무즈', '운임'],
+        '우주항공': ['우주', '항공', '위성', '스페이스', '드론'],
+        '이차전지/배터리': ['배터리', '2차전지', '전고체', '리튬', '에코프로', '수산화리튬'],
+        'K-방산': ['방산', '무기', '국방', '미사일', '자주포']
+    }
+
     for s in stocks_to_analyze:
         res = ai_results.get(s['code'], {})
-        s['reason'] = res.get('reason', '[분석실패] 기사 파싱 장애')
-        s['keywordName'] = res.get('keyword', '미분류')
+        
+        # AI 결과가 없거나 실패했을 경우 Rule-based로 실제 뉴스 텍스트에서 키워드 추출
+        if 'reason' not in res or res.get('keyword', '미분류') == '미분류':
+            news = s.get('news_titles', '')
+            found_kw = '개별이슈'
+            for kw, rules in keyword_rules.items():
+                if any(r in news for r in rules):
+                    found_kw = kw
+                    break
+            
+            reason_text = news.split('/')[0] if news else '차트 급등 (주요 뉴스 미발견)'
+            s['reason'] = f'[{found_kw}] {reason_text[:40].strip()}...'
+            s['keywordName'] = found_kw
+        else:
+            s['reason'] = res['reason']
+            s['keywordName'] = res['keyword']
+            
         # 모델의 뉴스 출력을 확인하려면 원본도 남겨둠. (UI엔 안 보임)
         final_output.append(s)
         
