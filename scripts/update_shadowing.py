@@ -7,78 +7,49 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 import requests
 import google.generativeai as genai
+import FinanceDataReader as fdr
+import pandas as pd
 from dotenv import load_dotenv
 
 load_dotenv('.env.local')
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "여기에_키를_입력하세요")
+# KIS API 설정은 더 이상 사용하지 않지만 호환성을 위해 남겨둠
 KIS_APP_KEY = os.environ.get("KIS_APP_KEY", "")
 KIS_APP_SECRET = os.environ.get("KIS_APP_SECRET", "")
-KIS_URL_BASE = "https://openapi.koreainvestment.com:9443"
 
 EXISTING_KEYWORDS = "기업 밸류업 프로그램, 전고체 배터리, HBM (AI 반도체), 우주항공, 전력설비 / 변압기, 유리기판, 비만치료제 (GLP-1), 로봇 / 지능형 AI, 원전 (SMR), CXL 반도체, K-방산 (수출), K-조선 (슈퍼사이클), 화장품 (K-뷰티)"
 
-_kis_token = None
-
-def get_kis_access_token():
-    global _kis_token
-    if _kis_token is not None:
-        return _kis_token
-        
-    headers = {"content-type": "application/json"}
-    body = {"grant_type": "client_credentials", "appkey": KIS_APP_KEY, "appsecret": KIS_APP_SECRET}
-    res = requests.post(f"{KIS_URL_BASE}/oauth2/tokenP", headers=headers, data=json.dumps(body))
-    if res.status_code != 200:
-        print(f"KIS Token Error: {res.text}")
-        return None
-        
-    _kis_token = res.json().get('access_token')
-    return _kis_token
-
-def get_surged_stocks_kis(target_date, market_code="0000"):
-    token = get_kis_access_token()
-    if not token: return []
-    print(f"[{market_code}] 한국투자증권 API 통신 시작...")
+def get_surged_stocks_fdr(target_date):
+    print("FinanceDataReader를 통해 코스피/코스닥 전 종목 시세 수집 시작...")
+    results = []
     
-    headers = {
-        "Content-Type": "application/json; charset=utf-8",
-        "authorization": f"Bearer {token}",
-        "appkey": KIS_APP_KEY,
-        "appsecret": KIS_APP_SECRET,
-        "tr_id": "FHPST01710000",
-        "custtype": "P"
-    }
-    params = {
-        "FID_COND_MRKT_DIV_CODE": "J", "FID_COND_SCR_DIV_CODE": "20171",
-        "FID_INPUT_ISCD": market_code, "FID_DIV_CLS_CODE": "0", "FID_BLNG_CLS_CODE": "0",
-        "FID_TRGT_CLS_CODE": "111111111", "FID_TRGT_EXLS_CLS_CODE": "000000",
-        "FID_INPUT_PRICE_1": "", "FID_INPUT_PRICE_2": "", "FID_VOL_CNT": "", "FID_INPUT_DATE_1": ""
-    }
-
     try:
-        res = requests.get(f"{KIS_URL_BASE}/uapi/domestic-stock/v1/quotations/volume-rank", headers=headers, params=params)
-        data = res.json()
-        if res.status_code != 200 or data.get('rt_cd') != '0': return []
-            
-        results = []
-        raw_items = data.get('output', [])
-        print(f"[{market_code}] 받은 원본 데이터: {len(raw_items)}개")
-        for item in raw_items:
-            name = item.get('hts_kor_isnm', '')
-            code = item.get('mksc_shrn_iscd', '')
-            change_rate = float(item.get('prdy_ctrt', 0))
-            vol_krw = int(float(item.get('acml_tr_pbmn', 0)) / 100000000)
-            vol_cnt = int(float(item.get('acml_vol', 0)))
+        df_kospi = fdr.StockListing('KOSPI')
+        df_kosdaq = fdr.StockListing('KOSDAQ')
+        df = pd.concat([df_kospi, df_kosdaq])
+        
+        for _, row in df.iterrows():
+            code = str(row['Code'])
+            name = str(row['Name'])
+            change_rate = float(row['ChagesRatio']) if not pd.isna(row['ChagesRatio']) else 0.0
+            amount = float(row['Amount']) if not pd.isna(row['Amount']) else 0.0
+            vol_krw = int(amount / 100000000)
+            vol_cnt = int(row['Volume']) if not pd.isna(row['Volume']) else 0
             
             if (change_rate >= 6.0 and vol_krw >= 300) or change_rate >= 29.5:
                 results.append({
                     "date": f"{target_date[:4]}-{target_date[4:6]}-{target_date[6:]}",
-                    "code": code, "name": name, "change_rate": round(change_rate, 2), 
-                    "volume_krw": vol_krw, "volume_cnt": vol_cnt
+                    "code": code,
+                    "name": name,
+                    "change_rate": round(change_rate, 2),
+                    "volume_krw": vol_krw,
+                    "volume_cnt": vol_cnt
                 })
+        print(f"전 종목 조회 성공! 필터링된 종목 수: {len(results)}개")
         return results
     except Exception as e:
-        print(f"KIS API 에러: {e}")
+        print(f"FinanceDataReader 데이터 수집 에러: {e}")
         return []
 
 def get_google_news(stock_name):
@@ -150,8 +121,7 @@ if __name__ == "__main__":
     yyyymmdd = datetime.now().strftime("%Y%m%d")
     yyyymmdd_formatted = datetime.now().strftime("%Y-%m-%d")
     
-    stocks_to_analyze = get_surged_stocks_kis(yyyymmdd, market_code="0001")
-    stocks_to_analyze += get_surged_stocks_kis(yyyymmdd, market_code="0002")
+    stocks_to_analyze = get_surged_stocks_fdr(yyyymmdd)
     stocks_to_analyze.sort(key=lambda x: x['volume_krw'], reverse=True)
     
     print(f"\n최종 요약: 총 {len(stocks_to_analyze)}개의 종목이 필터링되었습니다.\n")

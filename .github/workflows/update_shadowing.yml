@@ -28,7 +28,7 @@ jobs:
       - name: 필수 패키지 설치
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; else pip install requests python-dotenv google-generativeai; fi
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; else pip install requests python-dotenv google-generativeai finance-datareader pandas; fi
 
       - name: 주식 쉐도잉 파이썬 로봇 구동
         env:
