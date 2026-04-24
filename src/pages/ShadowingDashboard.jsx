@@ -180,7 +180,7 @@ const ShadowingDashboard = () => {
                   <tr className="bg-slate-900/50 text-slate-400 text-xs border-b border-slate-700 select-none">
                     <th className="py-2.5 px-3 font-semibold text-center w-[40px]">No</th>
                     <th className="py-2.5 px-3 font-semibold w-[140px]">종목명</th>
-                    <th className="py-2.5 px-3 font-semibold text-right w-[80px]">현재/종가</th>
+                    <th className="py-2.5 px-3 font-semibold text-right w-[90px]">현재/종가</th>
                     <th className="py-2.5 px-3 font-semibold text-right w-[80px]">등락률</th>
                     <th className="py-2.5 px-3 font-semibold text-right w-[90px]">거래대금</th>
                     <th className="py-2.5 px-3 font-semibold text-right w-[90px]">거래량(주)</th>
@@ -208,8 +208,10 @@ const ShadowingDashboard = () => {
                             <span className="text-[10px] text-slate-500 font-mono">{record.stockCode}</span>
                           </div>
                         </td>
-                        <td className="py-2 px-3 text-right font-mono text-slate-300">
-                          {record.close_price ? (record.close_price).toLocaleString() + "원" : "-"}
+                        <td className="py-2 px-3 text-right">
+                          <span className="font-semibold text-[11px] tabular-nums tracking-tight text-slate-300">
+                            {record.close_price ? (record.close_price).toLocaleString() + "원" : "-"}
+                          </span>
                         </td>
                         <td className="py-2 px-3 text-right">
                           <span className={`font-bold text-[13px] ${record.change_rate >= 0 ? 'text-red-500' : 'text-blue-500'}`}>
