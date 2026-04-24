@@ -134,15 +134,15 @@ const LandingPage = () => {
               </p>
             </div>
 
-            {/* 10-Point Checklist UI */}
+            {/* 11-Point Checklist UI */}
             <div className="mb-6 flex-1">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-bold text-slate-400 tracking-wide uppercase">10-Point Checklist</span>
+                <span className="text-xs font-bold text-slate-400 tracking-wide uppercase">11-Point Checklist</span>
                 <span className={`text-[11px] font-black px-2 py-0.5 rounded shadow ${
                   rec.totalScore >= 80 ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 
                   'bg-blue-500/20 text-blue-400 border border-blue-500/30'
                 }`}>
-                  Score: {rec.totalScore}/100
+                  Score: {rec.totalScore}/110
                 </span>
               </div>
               
@@ -163,10 +163,10 @@ const LandingPage = () => {
 
             <div className="flex justify-between items-center pt-4 border-t border-slate-800/80">
               <div>
-                <p className="text-xs text-slate-500 mb-1">단기 목표가 (추정)</p>
+                <p className="text-xs text-slate-500 mb-1">당일 종가 (Close)</p>
                 <div className="flex items-center gap-1.5 text-blue-400 font-bold text-[15px]">
                   <Target size={16} />
-                  {rec.targetPrice}원
+                  {rec.close_price?.toLocaleString() || "-"}원
                 </div>
               </div>
               <div className="text-right">

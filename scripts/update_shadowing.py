@@ -32,16 +32,23 @@ def get_surged_stocks_fdr(target_date):
         for _, row in df.iterrows():
             code = str(row['Code'])
             name = str(row['Name'])
+            
+            # 스팩주 원천 차단
+            if '스팩' in name or 'SPAC' in name.upper():
+                continue
+                
             change_rate = float(row['ChagesRatio']) if not pd.isna(row['ChagesRatio']) else 0.0
             amount = float(row['Amount']) if not pd.isna(row['Amount']) else 0.0
             vol_krw = int(amount / 100000000)
             vol_cnt = int(row['Volume']) if not pd.isna(row['Volume']) else 0
+            close_price = int(row['Close']) if not pd.isna(row['Close']) else 0
             
             if (change_rate >= 6.0 and vol_krw >= 300) or change_rate >= 29.5:
                 results.append({
                     "date": f"{target_date[:4]}-{target_date[4:6]}-{target_date[6:]}",
                     "code": code,
                     "name": name,
+                    "close_price": close_price,
                     "change_rate": round(change_rate, 2),
                     "volume_krw": vol_krw,
                     "volume_cnt": vol_cnt

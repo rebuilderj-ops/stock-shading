@@ -68,8 +68,12 @@ export function generateDailyRecommendations(dailyRecords, allStocks, allKeyword
     let totalScore = 0;
     const checks = {
       c1: false, c2: false, c3: false, c4: false, c5: false,
-      c6: false, c7: false, c8: false, c9: false, c10: false
+      c6: false, c7: false, c8: false, c9: false, c10: false, c11: false
     };
+
+    // Calculate Prev Close
+    const prevClose = record.close_price ? (record.close_price / (1 + (record.change_rate/100))) : 0;
+    if (prevClose >= 5000) { checks.c11 = true; totalScore += 10; }
 
     // 1. [테마 지속성 (1~5일)]
     const daysVisible = keywordDaysMap[record.keyword_id] ? keywordDaysMap[record.keyword_id].size : 0;
@@ -119,6 +123,7 @@ export function generateDailyRecommendations(dailyRecords, allStocks, allKeyword
   });
 
   // 점수 내림차순 -> 거래대금 내림차순 소팅
-  const sorted = scoredStocks.sort((a, b) => b.totalScore - a.totalScore || b.volume_krw - a.volume_krw);
+  const qualified = scoredStocks.filter(s => s.checks.c1 && !s.stockName.includes('스팩'));
+  const sorted = qualified.sort((a, b) => b.totalScore - a.totalScore || b.volume_krw - a.volume_krw);
   return sorted.slice(0, 3);
 }
