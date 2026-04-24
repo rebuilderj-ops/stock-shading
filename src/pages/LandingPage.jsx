@@ -163,7 +163,7 @@ const LandingPage = () => {
 
             <div className="flex justify-between items-center pt-4 border-t border-slate-800/80">
               <div>
-                <p className="text-xs text-slate-500 mb-1">당일 종가 (Close)</p>
+                <p className="text-xs text-slate-500 mb-1">현재/종가 (Close)</p>
                 <div className="flex items-center gap-1.5 text-blue-400 font-bold text-[15px]">
                   <Target size={16} />
                   {rec.close_price?.toLocaleString() || "-"}원

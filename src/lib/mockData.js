@@ -1,4 +1,5 @@
 // src/lib/mockData.js
+// FORCE RELOAD FOR VITE JSON CACHE
 import realHistoryData from "../data/shadowing_real_history.json";
 export const INITIAL_KEYWORDS = [
   { id: 1, name: "기업 밸류업 프로그램", description: "정부 코리아 디스카운트 해소 테마. 저PBR, 은행, 지주사 중심.", color: "amber", created_at: "2026-01-10" },

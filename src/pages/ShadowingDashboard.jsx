@@ -180,7 +180,7 @@ const ShadowingDashboard = () => {
                   <tr className="bg-slate-900/50 text-slate-400 text-xs border-b border-slate-700 select-none">
                     <th className="py-2.5 px-3 font-semibold text-center w-[40px]">No</th>
                     <th className="py-2.5 px-3 font-semibold w-[140px]">종목명</th>
-                    <th className="py-2.5 px-3 font-semibold text-right w-[80px]">당일 종가</th>
+                    <th className="py-2.5 px-3 font-semibold text-right w-[80px]">현재/종가</th>
                     <th className="py-2.5 px-3 font-semibold text-right w-[80px]">등락률</th>
                     <th className="py-2.5 px-3 font-semibold text-right w-[90px]">거래대금</th>
                     <th className="py-2.5 px-3 font-semibold text-right w-[90px]">거래량(주)</th>
