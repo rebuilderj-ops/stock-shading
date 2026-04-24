@@ -275,7 +275,8 @@ if (realHistoryData && realHistoryData.length > 0) {
       // ShadowingDashboard 호환을 위한 잉여 속성 보존
       name: item.name,
       code: item.code,
-      keywordName: item.keywordName
+      keywordName: item.keywordName,
+      close_price: item.close_price
     });
   });
 } else {
