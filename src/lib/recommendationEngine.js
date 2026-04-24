@@ -131,7 +131,7 @@ export function generateDailyRecommendations(dailyRecords, allStocks, allKeyword
     };
   });
 
-  const qualified = scoredStocks.filter(s => s.checks.c1 && s.checks.c11 && !s.stockName.includes('스팩'));
+  const qualified = scoredStocks.filter(s => s.checks.c1 && !s.stockName.includes('스팩'));
   const sorted = qualified.sort((a, b) => b.totalScore - a.totalScore || b.volume_krw - a.volume_krw);
   return sorted.slice(0, 3);
 }
