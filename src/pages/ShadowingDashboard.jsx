@@ -15,7 +15,7 @@ const ShadowingDashboard = () => {
         stockName: record.name || stock?.name || "알수없음",
         stockCode: record.code || stock?.code || "",
         isLeader: record.is_leader || stock?.is_leader || false,
-        keywordName: record.keywordName || keyword?.name || "개별재료"
+        keywordName: record.keywordName || keyword?.name || "특징주"
       };
     });
   }, []);

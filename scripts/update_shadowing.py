@@ -102,6 +102,7 @@ def analyze_stocks_batch(stocks):
 [FDA/식약처승인], [지정학적수혜/리스크], [신규사업진출], [품절주/스팩], [수급/테마편승], [기타]
 
 결과 사유는 정확히 1문장(최고 50자 내외)으로 핵심만 간결하게 작성하세요.
+절대로 '개별이슈', '기타', '미분류' 와 같은 모호하고 포괄적인 단어를 테마명으로 사용하지 마세요. 반드시 구체적인 산업이나 재료(예: '폐배터리', '보안/양자암호', '경영권 분쟁' 등)를 테마명으로 특정해 주세요.
 기존 테마 목록({EXISTING_KEYWORDS}) 중 하나를 고르거나 전혀 새로운 테마라면 10자 이내 명사형의 새 테마를 명명하세요.
 
 오직 다음 JSON 배열(Array) 형식으로만 출력해야 합니다 (기타 마크다운 없이 JSON만 출력):
@@ -204,7 +205,6 @@ if __name__ == "__main__":
                         found_kw = kw
                         break
             
-            # 3. KRX-DESC 매칭
             if not found_kw:
                 industry_info = desc_dict.get(s['code'], '')
                 for kw, rules in keyword_rules.items():
@@ -212,7 +212,12 @@ if __name__ == "__main__":
                         found_kw = kw
                         break
                         
-            found_kw = found_kw or '개별이슈'
+            if not found_kw:
+                industry_info = desc_dict.get(s['code'], '')
+                if industry_info and len(industry_info) > 2:
+                    found_kw = industry_info.split()[0]
+                else:
+                    found_kw = '특징주'
             reason_text = news.split('/')[0] if news else '차트 급등 (주요 뉴스 미발견)'
             s['reason'] = f'[{found_kw}] {reason_text[:40].strip()}...'
             s['keywordName'] = found_kw
