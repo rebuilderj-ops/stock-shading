@@ -77,7 +77,7 @@ def get_google_news(stock_name):
     except Exception as e:
         return ""
 
-def analyze_stocks_batch(stocks):
+def analyze_stocks_batch(stocks, naver_themes):
     if not GEMINI_API_KEY or GEMINI_API_KEY == "여기에_키를_입력하세요":
         print("Gemini API 키가 설정되지 않았습니다.")
         return {s['code']: {"reason": "[API 미설정]", "keyword": "미분류"} for s in stocks}
@@ -91,8 +91,10 @@ def analyze_stocks_batch(stocks):
 
 """
         for s in stocks:
+            nt = naver_themes.get(s['code'], [])
+            nt_str = f" (네이버 공식 지정 테마: {', '.join(nt)})" if nt else ""
             prompt += f"- {s['code']} {s['name']}: {s['change_rate']}% 상승, {s['volume_krw']}억 거래\n"
-            prompt += f"  뉴스: {s.get('news_titles', '')}\n"
+            prompt += f"  뉴스: {s.get('news_titles', '')}{nt_str}\n"
             
         prompt += f"""
 위 종목들을 모두 분석하여, 각 종목마다 '어떤 재료/이슈/모멘텀'으로 급등했는지 심층 파악하세요.
@@ -139,10 +141,17 @@ if __name__ == "__main__":
     for idx, s in enumerate(stocks_to_analyze):
         s['news_titles'] = get_google_news(s['name'])
         
+    naver_themes = {}
+    try:
+        with open('src/data/naver_themes.json', 'r', encoding='utf-8') as f:
+            naver_themes = json.load(f)
+    except:
+        print("네이버 테마 캐시를 찾을 수 없습니다. 기본 분석을 진행합니다.")
+
     ai_results = {}
     if stocks_to_analyze:
         print("Gemini AI를 이용한 일괄 분석 진행 중... (배치 처리로 통신 1회만 실시하여 API 한도 절약)")
-        ai_results = analyze_stocks_batch(stocks_to_analyze)
+        ai_results = analyze_stocks_batch(stocks_to_analyze, naver_themes)
         
     output_filename = 'src/data/shadowing_real_history.json'
     existing_data = []
@@ -198,6 +207,10 @@ if __name__ == "__main__":
             if s['code'] in theme_cache:
                 found_kw = theme_cache[s['code']]
             
+            # 1.5. 네이버 공식 테마 확인
+            if not found_kw and s['code'] in naver_themes and naver_themes[s['code']]:
+                found_kw = naver_themes[s['code']][0]
+                
             # 2. 뉴스 매칭
             if not found_kw:
                 for kw, rules in keyword_rules.items():

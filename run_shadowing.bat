@@ -5,6 +5,9 @@ echo Stock Shadowing Data Crawling Automation (4:00 PM)
 echo =========================================
 cd /d "C:\Users\metu9\OneDrive\Desktop\JM"
 
+echo Fetching Naver Themes Cache...
+py scripts\update_naver_themes.py
+
 echo Running python script...
 py scripts\update_shadowing.py
 
