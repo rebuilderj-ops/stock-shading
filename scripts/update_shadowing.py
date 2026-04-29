@@ -18,6 +18,13 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "여기에_키를_입력하세
 KIS_APP_KEY = os.environ.get("KIS_APP_KEY", "")
 KIS_APP_SECRET = os.environ.get("KIS_APP_SECRET", "")
 
+# [추가됨] FinanceDataReader가 환경변수의 KIS API 키를 감지하고 자체적으로 KIS API를 호출하다가 
+# 토큰 발급 제한(1분 1회)에 걸리는 에러("EGW00133")를 방지하기 위해 환경변수에서 KIS 키를 제거합니다.
+if 'KIS_APP_KEY' in os.environ:
+    del os.environ['KIS_APP_KEY']
+if 'KIS_APP_SECRET' in os.environ:
+    del os.environ['KIS_APP_SECRET']
+
 EXISTING_KEYWORDS = "기업 밸류업 프로그램, 전고체 배터리, HBM (AI 반도체), 우주항공, 전력설비 / 변압기, 유리기판, 비만치료제 (GLP-1), 로봇 / 지능형 AI, 원전 (SMR), CXL 반도체, K-방산 (수출), K-조선 (슈퍼사이클), 화장품 (K-뷰티)"
 
 def get_surged_stocks_fdr(target_date):
@@ -84,7 +91,8 @@ def analyze_stocks_batch(stocks, naver_themes):
 
     try:
         genai.configure(api_key=GEMINI_API_KEY)
-        model = genai.GenerativeModel('gemini-2.0-flash')
+        # 무료 티어 한도가 넉넉한 최신 gemini-2.5-flash 모델로 변경합니다.
+        model = genai.GenerativeModel('gemini-2.5-flash')
         
         prompt = f"""당신은 한국 주식을 다루는 최고 수준의 트레이더입니다.
 아래는 오늘 필터링된 급등주 목록입니다. (종목코드, 종목명, 상승률, 거래대금, 오늘자 뉴스헤드라인)
@@ -113,12 +121,21 @@ def analyze_stocks_batch(stocks, naver_themes):
   {{"code": "종목코드2", "reason": "[태그] 요약 사유", "keyword": "명명된 테마"}}
 ]
 """
-        response = model.generate_content(prompt)
-        clean_json = response.text.strip().removeprefix("```json").removesuffix("```").strip()
-        data = json.loads(clean_json)
-        
-        # 배열을 딕셔너리로 변환하여 code로 O(1) 접근
-        return {item["code"]: {"reason": item["reason"], "keyword": item["keyword"]} for item in data}
+        max_retries = 3
+        for attempt in range(max_retries):
+            try:
+                response = model.generate_content(prompt)
+                clean_json = response.text.strip().removeprefix("```json").removesuffix("```").strip()
+                data = json.loads(clean_json)
+                
+                # 배열을 딕셔너리로 변환하여 code로 O(1) 접근
+                return {item["code"]: {"reason": item["reason"], "keyword": item["keyword"]} for item in data}
+            except Exception as e:
+                if '429' in str(e) and attempt < max_retries - 1:
+                    print(f"Gemini API 호출 제한(Rate Limit) 도달. 40초 후 재시도합니다... ({attempt+1}/{max_retries})")
+                    time.sleep(40)
+                else:
+                    raise e
     except Exception as e:
         print("Gemini 일괄 분석 중 에러:", e)
         return {}
@@ -226,8 +243,8 @@ if __name__ == "__main__":
                         break
                         
             if not found_kw:
-                industry_info = desc_dict.get(s['code'], '')
-                if industry_info and len(industry_info) > 2:
+                industry_info = str(desc_dict.get(s['code'], ''))
+                if industry_info and len(industry_info) > 2 and 'nan' not in industry_info.lower():
                     found_kw = industry_info.split()[0]
                 else:
                     found_kw = '특징주'

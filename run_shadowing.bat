@@ -18,7 +18,7 @@ git stash pop
 
 echo Pushing data to Vercel via GitHub...
 git add src/data/shadowing_real_history.json
-git commit -m "🤖 [Local Bot] Daily Stock Shadowing Updated (Local Task)"
+git commit -m "?? [Local Bot] Daily Stock Shadowing Updated (Local Task)"
 git push origin main
 
 echo Finished cleanly.
