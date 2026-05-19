@@ -10,6 +10,9 @@ git stash
 git pull --rebase origin main
 git stash pop
 
+echo Resolving any potential JSON merge conflicts...
+py scripts\resolve_json_conflict.py
+
 echo Fetching Naver Themes Cache...
 py scripts\update_naver_themes.py
 
