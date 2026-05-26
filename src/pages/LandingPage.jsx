@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import { INITIAL_STOCKS, INITIAL_KEYWORDS, INITIAL_DAILY_RECORDS } from '../lib/mockData';
 import { generateDailyRecommendations } from '../lib/recommendationEngine';
 import { Target, Zap, Clock, Calendar as CalendarIcon, Flame, ChevronRight, CheckCircle2, XCircle } from 'lucide-react';
