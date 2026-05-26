@@ -1,12 +1,15 @@
 import React, { useState, useMemo } from 'react';
 import { INITIAL_DAILY_RECORDS, INITIAL_STOCKS, INITIAL_KEYWORDS } from '../lib/mockData';
-import { Search, TrendingUp, DollarSign, Calendar, Tag, Activity, ChevronRight, Hash } from 'lucide-react';
+import { Search, TrendingUp, DollarSign, Calendar, Activity, ChevronRight, X, Brain } from 'lucide-react';
 
 const ShadowingDashboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
   
   // 모바일/태블릿 화면에서 날짜 목록이 길게 늘어지는 것을 방지하기 위한 아코디언 접기 상태입니다.
   const [isDateListExpanded, setIsDateListExpanded] = useState(false);
+
+  // 모바일/태블릿용 AI 상세 모멘텀 미니 팝업 상태 (선택된 record 객체 또는 null)
+  const [activeReasonRecord, setActiveReasonRecord] = useState(null);
 
   // 매핑 함수
   const enhancedRecords = useMemo(() => {
@@ -77,7 +80,7 @@ const ShadowingDashboard = () => {
   };
 
   return (
-    <div className="space-y-6 pb-20">
+    <div className="space-y-5 pb-20">
       <header className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
         <div>
           <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 text-transparent bg-clip-text">
@@ -167,23 +170,27 @@ const ShadowingDashboard = () => {
 
         {/* Right Panel: Daily Dashboard Details */}
         <div className="flex-1 min-w-0 space-y-4">
-          {/* Daily Stats Summary */}
+          
+          {/* [피드백 반영] 세로로 길던 카드 4개 대신, 납작하게 가로 1줄로 압축 통합된 당일 요약 통계 바 */}
           {dailyStats && (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              <div className="glass-panel py-3 px-4 rounded-xl border border-slate-700">
-                <p className="text-[11px] text-slate-400 mb-0.5 flex items-center gap-1"><Activity size={12}/> 충족 종목수</p>
-                <p className="text-lg font-bold text-slate-100">{dailyStats.count} <span className="text-xs font-normal text-slate-500">개</span></p>
+            <div className="glass-panel py-2.5 px-4 rounded-xl border border-slate-700/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs select-none">
+              <div className="flex items-center gap-2">
+                <Activity size={14} className="text-blue-400" />
+                <span className="text-slate-400 font-semibold">충족 종목수:</span>
+                <strong className="text-slate-100 font-extrabold text-[13px]">{dailyStats.count}개</strong>
               </div>
-              <div className="glass-panel py-3 px-4 rounded-xl border border-slate-700 col-span-2 md:col-span-2">
-                <p className="text-[11px] text-slate-400 mb-0.5 flex items-center gap-1"><DollarSign size={12}/> 당일 최대 거래대금 (1위)</p>
-                <div className="flex items-end gap-2 truncate">
-                  <p className="text-lg font-bold text-slate-100 truncate">{dailyStats.maxVolStock.stockName}</p>
-                  <p className="text-xs text-blue-400 font-medium pb-[3px] truncate">{dailyStats.maxVolStock.volume_krw.toLocaleString()}억</p>
-                </div>
+              
+              <div className="flex items-center gap-2 border-slate-800 sm:border-l sm:pl-4">
+                <DollarSign size={14} className="text-emerald-400" />
+                <span className="text-slate-400 font-semibold">거래대금 1위:</span>
+                <strong className="text-slate-100 font-extrabold text-[13px]">{dailyStats.maxVolStock.stockName}</strong>
+                <span className="text-blue-400 font-bold font-mono">({dailyStats.maxVolStock.volume_krw.toLocaleString()}억)</span>
               </div>
-              <div className="glass-panel py-3 px-4 rounded-xl border border-slate-700">
-                <p className="text-[11px] text-slate-400 mb-0.5 flex items-center gap-1"><TrendingUp size={12}/> 평균 상승률</p>
-                <p className="text-lg font-bold text-red-500">+{dailyStats.avgChange}%</p>
+
+              <div className="flex items-center gap-2 border-slate-800 sm:border-l sm:pl-4">
+                <TrendingUp size={14} className="text-red-400" />
+                <span className="text-slate-400 font-semibold">평균 상승률:</span>
+                <strong className="text-red-500 font-extrabold text-[13px] font-mono">+{dailyStats.avgChange}%</strong>
               </div>
             </div>
           )}
@@ -191,75 +198,100 @@ const ShadowingDashboard = () => {
           {/* Table */}
           <div className="glass-panel rounded-xl overflow-hidden border border-slate-700">
             <div className="bg-slate-800/80 p-3 border-b border-slate-700/50 flex flex-wrap items-center justify-between gap-2">
-              <h2 className="text-base font-bold text-slate-100 flex items-center gap-2">
+              <h2 className="text-sm md:text-base font-bold text-slate-100 flex items-center gap-2">
                 <span className="bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded text-xs font-mono border border-blue-500/30">
                   {selectedDate}
                 </span>
                 주도주 쉐도잉 리스트
               </h2>
-              <span className="text-xs text-slate-500 tracking-tight">수급과 거래량 중심의 한눈에 보기 표</span>
+              <span className="text-[11px] text-slate-500 tracking-tight">수급과 거래량 중심의 한눈에 보기 표</span>
             </div>
             
+            {/* [피드백 반영] 패딩 폭 축소 및 모바일 가독성 극대화 표 */}
             <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse min-w-[700px]">
+              <table className="w-full text-left border-collapse min-w-[500px]">
                 <thead>
-                  <tr className="bg-slate-900/50 text-slate-400 text-xs border-b border-slate-700 select-none">
-                    <th className="py-2.5 px-3 font-semibold text-center w-[40px]">No</th>
-                    <th className="py-2.5 px-3 font-semibold w-[140px]">종목명</th>
-                    <th className="py-2.5 px-3 font-semibold text-right w-[90px]">현재/종가</th>
-                    <th className="py-2.5 px-3 font-semibold text-right w-[80px]">등락률</th>
-                    <th className="py-2.5 px-3 font-semibold text-right w-[90px]">거래대금</th>
-                    <th className="py-2.5 px-3 font-semibold text-right w-[90px]">거래량(주)</th>
-                    <th className="py-2.5 px-4 font-semibold w-[120px]">테마/섹터</th>
-                    <th className="py-2.5 px-3 font-semibold">AI 상세 모멘텀 (급등사유)</th>
+                  <tr className="bg-slate-900/50 text-slate-400 text-[10px] md:text-xs border-b border-slate-700 select-none">
+                    <th className="py-2 px-2.5 font-semibold text-center w-[35px]">No</th>
+                    <th className="py-2 px-2 font-semibold w-[120px] md:w-[140px]">종목명</th>
+                    <th className="py-2 px-2 font-semibold text-right w-[80px]">종가</th>
+                    <th className="py-2 px-2 font-semibold text-right w-[70px]">등락률</th>
+                    <th className="py-2 px-2 font-semibold text-right w-[80px]">거래대금</th>
+                    <th className="py-2 px-2 font-semibold text-right w-[80px] hidden sm:table-cell">거래량</th>
+                    <th className="py-2 px-3 font-semibold w-[100px]">테마/섹터</th>
+                    {/* PC/태블릿 넓은 화면에서만 AI 상세 모멘텀 유지 */}
+                    <th className="py-2 px-2.5 font-semibold hidden md:table-cell">AI 상세 모멘텀 (급등사유)</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-700/50">
+                <tbody className="divide-y divide-slate-700/30">
                   {selectedDateRecords.length > 0 ? selectedDateRecords.map((record, index) => {
                     const { category, text } = parseReason(record.reason || "");
                     const isHighVolume = record.volume_cnt >= 10000000;
                     const formattedVolCnt = record.volume_cnt ? record.volume_cnt.toLocaleString() : "-";
                     
                     return (
-                      <tr key={record.id} className={`transition-colors group ${isHighVolume ? 'bg-amber-900/10 hover:bg-amber-900/20' : 'hover:bg-slate-800/60'}`}>
-                        <td className="py-2 px-3 text-center text-slate-500 text-xs">{index + 1}</td>
-                        <td className="py-2 px-3">
+                      <tr key={record.id} className={`transition-colors group ${isHighVolume ? 'bg-amber-900/10 hover:bg-amber-900/20' : 'hover:bg-slate-800/40'}`}>
+                        {/* 1. 번호 (행 높이 py-1.5로 줄임) */}
+                        <td className="py-1.5 px-2.5 text-center text-slate-500 text-[11px]">{index + 1}</td>
+                        
+                        {/* 2. 종목명 */}
+                        <td className="py-1.5 px-2">
                           <div className="flex flex-col gap-0.5">
-                            <div className="flex items-center gap-1.5">
-                              <strong className="text-slate-100 text-[13px] tracking-tight">{record.stockName}</strong>
+                            <div className="flex items-center gap-1.5 flex-wrap">
+                              <strong className="text-slate-100 text-[12px] tracking-tight">{record.stockName}</strong>
                               {record.isLeader && (
-                                <span className="px-1 py-[1px] rounded text-[9px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 whitespace-nowrap leading-none">대장주</span>
+                                <span className="px-1 py-[0.5px] rounded text-[8px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 whitespace-nowrap leading-none">대장</span>
                               )}
+                              
+                              {/* [피드백 반영] 모바일 전용 AI 사유 미니 팝업 버튼 */}
+                              <button 
+                                onClick={() => setActiveReasonRecord(record)}
+                                className="md:hidden px-1 py-0.5 rounded text-[8px] font-bold bg-blue-500/15 hover:bg-blue-500/25 text-blue-400 border border-blue-500/20 cursor-pointer whitespace-nowrap"
+                              >
+                                사유
+                              </button>
                             </div>
-                            <span className="text-[10px] text-slate-500 font-mono">{record.stockCode}</span>
+                            <span className="text-[9px] text-slate-500 font-mono leading-none">{record.stockCode}</span>
                           </div>
                         </td>
-                        <td className="py-2 px-3 text-right">
+                        
+                        {/* 3. 현재/종가 */}
+                        <td className="py-1.5 px-2 text-right">
                           <span className="font-semibold text-[11px] tabular-nums tracking-tight text-slate-300">
                             {record.close_price ? (record.close_price).toLocaleString() + "원" : "-"}
                           </span>
                         </td>
-                        <td className="py-2 px-3 text-right">
-                          <span className={`font-bold text-[13px] ${record.change_rate >= 0 ? 'text-red-500' : 'text-blue-500'}`}>
+                        
+                        {/* 4. 등락률 */}
+                        <td className="py-1.5 px-2 text-right">
+                          <span className={`font-black text-[12px] tabular-nums ${record.change_rate >= 0 ? 'text-red-500' : 'text-blue-500'}`}>
                             {record.change_rate > 0 ? '+' : ''}{record.change_rate}%
                           </span>
                         </td>
-                        <td className="py-2 px-3 text-right">
-                          <span className="font-bold text-slate-200 text-sm tracking-tight">
-                            {record.volume_krw.toLocaleString()}<span className="text-[10px] text-slate-500 font-normal ml-0.5">억</span>
+                        
+                        {/* 5. 거래대금 (1줄에 최소 5대 칼럼이 깨짐없이 시원하게 들어갑니다) */}
+                        <td className="py-1.5 px-2 text-right">
+                          <span className="font-bold text-slate-200 text-[12px] tracking-tight">
+                            {record.volume_krw.toLocaleString()}<span className="text-[9px] text-slate-500 font-normal ml-0.5">억</span>
                           </span>
                         </td>
-                        <td className="py-2 px-3 text-right">
-                          <span className={`font-semibold text-[11px] tabular-nums tracking-tight ${isHighVolume ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30 px-1.5 py-0.5 rounded shadow-sm' : 'text-slate-400'}`}>
+                        
+                        {/* 6. 거래량 (모바일은 숨기고 태블릿 이상에서만 노출) */}
+                        <td className="py-1.5 px-2 text-right hidden sm:table-cell">
+                          <span className={`font-medium text-[10px] tabular-nums tracking-tight ${isHighVolume ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30 px-1 py-0.5 rounded shadow-sm' : 'text-slate-400'}`}>
                             {formattedVolCnt}
                           </span>
                         </td>
-                        <td className="py-2 px-4">
-                          <span className="inline-flex items-center gap-1 text-[11px] font-bold bg-slate-800/80 border border-slate-700 text-slate-300 px-2. py-0.5 rounded shadow-sm whitespace-nowrap">
+                        
+                        {/* 7. 테마/섹터 */}
+                        <td className="py-1.5 px-3">
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold bg-slate-800 border border-slate-700/60 text-slate-300 px-1.5 py-[1px] rounded shadow-sm whitespace-nowrap">
                             {record.keywordName}
                           </span>
                         </td>
-                        <td className="py-2 px-3">
+                        
+                        {/* 8. AI 모멘텀 (모바일에선 숨기고 PC 화면에선 셀 안에 그대로 출력) */}
+                        <td className="py-1.5 px-2.5 hidden md:table-cell">
                           <div className="text-[11px] text-slate-300 leading-tight">
                             {category && (
                               <span className="font-bold text-fuchsia-400 mr-1.5 inline-block">{category}</span>
@@ -271,7 +303,7 @@ const ShadowingDashboard = () => {
                     );
                   }) : (
                     <tr>
-                      <td colSpan="7" className="p-8 text-center text-slate-500 text-sm">
+                      <td colSpan="8" className="p-8 text-center text-slate-500 text-xs">
                         선택한 날짜에 필터링된 기록이 없습니다.
                       </td>
                     </tr>
@@ -283,6 +315,78 @@ const ShadowingDashboard = () => {
         </div>
 
       </div>
+
+      {/* [피드백 반영] 모바일 및 태블릿용 AI 상세 모멘텀 미니 팝업 모달 */}
+      {activeReasonRecord && (() => {
+        const { category, text } = parseReason(activeReasonRecord.reason || "");
+        return (
+          <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+            <div className="bg-slate-800 border border-slate-700 rounded-2xl shadow-2xl w-full max-w-sm overflow-hidden">
+              
+              <div className="flex justify-between items-center p-4 border-b border-slate-700 bg-slate-900/30">
+                <div className="flex items-center gap-2">
+                  <Brain className="text-fuchsia-400 animate-pulse" size={16} />
+                  <h3 className="text-sm font-bold text-slate-200">
+                    {activeReasonRecord.stockName} 모멘텀 분석
+                  </h3>
+                  <span className="text-[9px] font-mono text-slate-500">({activeReasonRecord.stockCode})</span>
+                </div>
+                <button 
+                  onClick={() => setActiveReasonRecord(null)}
+                  className="text-slate-400 hover:text-slate-200 cursor-pointer"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+
+              <div className="p-5 space-y-4">
+                <div className="flex justify-between items-center text-[10px] text-slate-400">
+                  <span>날짜: <strong className="font-mono text-slate-300">{activeReasonRecord.date}</strong></span>
+                  <span className="bg-slate-900/60 border border-slate-800 px-2 py-0.5 rounded text-slate-300 font-bold">
+                    {activeReasonRecord.keywordName} 테마
+                  </span>
+                </div>
+
+                <div className="space-y-1">
+                  <span className="text-[10px] font-bold text-slate-500 tracking-wide uppercase">상세 급등 사유</span>
+                  <div className="bg-slate-900/60 rounded-xl p-3.5 border border-slate-800/80 shadow-inner">
+                    <p className="text-xs leading-relaxed text-slate-200 font-medium">
+                      {category && <span className="text-fuchsia-400 font-extrabold block mb-1">{category}</span>}
+                      <span className="opacity-95">{text}</span>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2 text-center pt-2">
+                  <div className="bg-slate-900/30 p-2 rounded-lg border border-slate-800/50">
+                    <span className="text-[9px] text-slate-500 block">당일 등락률</span>
+                    <strong className={`text-sm font-black ${activeReasonRecord.change_rate >= 0 ? 'text-red-500' : 'text-blue-500'}`}>
+                      {activeReasonRecord.change_rate > 0 ? '+' : ''}{activeReasonRecord.change_rate}%
+                    </strong>
+                  </div>
+                  <div className="bg-slate-900/30 p-2 rounded-lg border border-slate-800/50">
+                    <span className="text-[9px] text-slate-500 block">당일 거래대금</span>
+                    <strong className="text-sm font-black text-slate-200">
+                      {activeReasonRecord.volume_krw.toLocaleString()}<span className="text-[10px] font-normal text-slate-500 ml-0.5">억</span>
+                    </strong>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-4 border-t border-slate-700 bg-slate-800/80 flex justify-end">
+                <button 
+                  onClick={() => setActiveReasonRecord(null)}
+                  className="px-5 py-1.5 rounded-xl font-bold bg-blue-600 hover:bg-blue-500 text-slate-100 shadow transition-all cursor-pointer text-xs"
+                >
+                  확인
+                </button>
+              </div>
+
+            </div>
+          </div>
+        );
+      })()}
+      
     </div>
   );
 };
