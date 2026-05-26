@@ -21,7 +21,7 @@ const COLOR_MAP = {
 };
 
 const KeywordCalendar = () => {
-  const [currentDate, setCurrentDate] = useState(new Date('2026-03-01')); 
+  const [currentDate, setCurrentDate] = useState(new Date()); 
   const [schedules, setSchedules] = useState(INITIAL_SCHEDULES);
   
   // Modal State
@@ -174,8 +174,8 @@ const KeywordCalendar = () => {
             <button onClick={handlePrevMonth} className="p-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg border border-slate-600 transition-colors cursor-pointer">
               <ChevronLeft size={20} />
             </button>
-            <button onClick={() => setCurrentDate(new Date('2026-03-01'))} className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-medium rounded-lg border border-slate-600 transition-colors cursor-pointer">
-              26년 3월 이동
+            <button onClick={() => setCurrentDate(new Date())} className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-medium rounded-lg border border-slate-600 transition-colors cursor-pointer">
+              이번 달 이동
             </button>
             <button onClick={handleNextMonth} className="p-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg border border-slate-600 transition-colors cursor-pointer">
               <ChevronRight size={20} />
