@@ -209,16 +209,16 @@ const ShadowingDashboard = () => {
             
             {/* [피드백 반영] 패딩 폭 축소 및 모바일 가독성 극대화 표 */}
             <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse min-w-[500px]">
+              <table className="w-full text-left border-collapse min-w-[22.8rem] md:min-w-[31.25rem]">
                 <thead>
                   <tr className="bg-slate-900/50 text-slate-400 text-[10px] md:text-xs border-b border-slate-700 select-none">
-                    <th className="py-2 px-2.5 font-semibold text-center w-[35px]">No</th>
-                    <th className="py-2 px-2 font-semibold w-[120px] md:w-[140px]">종목명</th>
-                    <th className="py-2 px-2 font-semibold text-right w-[80px]">종가</th>
-                    <th className="py-2 px-2 font-semibold text-right w-[70px]">등락률</th>
-                    <th className="py-2 px-2 font-semibold text-right w-[80px]">거래대금</th>
-                    <th className="py-2 px-2 font-semibold text-right w-[80px] hidden sm:table-cell">거래량</th>
-                    <th className="py-2 px-3 font-semibold w-[100px]">테마/섹터</th>
+                    <th className="py-2 px-2.5 font-semibold text-center w-[1.6rem]">No</th>
+                    <th className="py-2 px-2 font-semibold w-[6rem] md:w-[8.75rem]">종목명</th>
+                    <th className="py-2 px-2 font-semibold text-right w-[3.6rem] md:w-[5rem]">종가</th>
+                    <th className="py-2 px-2 font-semibold text-right w-[3.2rem] md:w-[4.4rem]">등락률</th>
+                    <th className="py-2 px-2 font-semibold text-right w-[3.6rem] md:w-[5rem]">거래대금</th>
+                    <th className="py-2 px-2 font-semibold text-right w-[3.6rem] md:w-[5rem] hidden sm:table-cell">거래량</th>
+                    <th className="py-2 px-3 font-semibold w-[4.8rem] md:w-[6.25rem]">테마/섹터</th>
                     {/* PC/태블릿 넓은 화면에서만 AI 상세 모멘텀 유지 */}
                     <th className="py-2 px-2.5 font-semibold hidden md:table-cell">AI 상세 모멘텀 (급등사유)</th>
                   </tr>

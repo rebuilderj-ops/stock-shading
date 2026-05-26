@@ -9,8 +9,12 @@ const Layout = () => {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   // 테마 상태 (dark 또는 light)
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
-  // 화면 배율 크기 상태 (80% ~ 150% 사이, 기본값 100%)
-  const [scale, setScale] = useState(parseInt(localStorage.getItem('ui-scale')) || 100);
+  // 화면 배율 크기 상태 (80% ~ 120% 사이, 기본값 100%)
+  const [scale, setScale] = useState(() => {
+    const saved = parseInt(localStorage.getItem('ui-scale'));
+    if (isNaN(saved)) return 100;
+    return Math.min(Math.max(saved, 80), 120);
+  });
 
   // 테마 변경 효과 적용
   useEffect(() => {
@@ -36,9 +40,9 @@ const Layout = () => {
     { path: '/calendar', name: '키워드 캘린더', icon: <CalendarDays size={20} /> },
   ];
 
-  // 화면 배율 증가 함수 (최대 150%)
+  // 화면 배율 증가 함수 (최대 120%)
   const handleZoomIn = () => {
-    if (scale < 150) {
+    if (scale < 120) {
       setScale(scale + 10);
     }
   };
@@ -54,8 +58,7 @@ const Layout = () => {
   const getScaleLabel = (currentScale) => {
     if (currentScale === 100) return "100% (기본값)";
     if (currentScale < 100) return `${currentScale}% (작게 보기)`;
-    if (currentScale >= 120 && currentScale < 140) return `${currentScale}% (눈이 편안함)`;
-    if (currentScale >= 140) return `${currentScale}% (크게 보기)`;
+    if (currentScale >= 120) return `${currentScale}% (눈이 편안함/최대)`;
     return `${currentScale}%`;
   };
 
@@ -200,7 +203,7 @@ const Layout = () => {
 
               {/* 2. [신규 피드백 반영] 전체 화면 크기 (돋보기 배율) 설정 단추 */}
               <div className="space-y-2.5 border-t border-slate-700/60 pt-4">
-                <label className="block text-xs font-bold text-slate-400 tracking-wider uppercase">화면 크기 설정 (80% ~ 150%)</label>
+                <label className="block text-xs font-bold text-slate-400 tracking-wider uppercase">화면 크기 설정 (80% ~ 120%)</label>
                 
                 <div className="flex items-center justify-between gap-3 bg-slate-900/40 p-2.5 rounded-xl border border-slate-800">
                   {/* 축소 버튼 */}
@@ -224,9 +227,9 @@ const Layout = () => {
                   {/* 확대 버튼 */}
                   <button 
                     onClick={handleZoomIn}
-                    disabled={scale >= 150}
+                    disabled={scale >= 120}
                     className={`p-2 rounded-lg border transition-all cursor-pointer flex items-center justify-center ${
-                      scale >= 150 
+                      scale >= 120 
                         ? 'text-slate-600 border-slate-800/80 bg-slate-950/20 cursor-not-allowed' 
                         : 'bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700'
                     }`}
