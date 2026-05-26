@@ -209,14 +209,19 @@ const ShadowingDashboard = () => {
             
             {/* [피드백 반영] 패딩 폭 축소 및 모바일 가독성 극대화 표 */}
             <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse min-w-[22.8rem] md:min-w-[31.25rem]">
+              <table className="w-full text-left border-collapse min-w-[21.3rem] md:min-w-[31.25rem]">
                 <thead>
                   <tr className="bg-slate-900/50 text-slate-400 text-[10px] md:text-xs border-b border-slate-700 select-none">
                     <th className="py-2 px-2.5 font-semibold text-center w-[1.6rem]">No</th>
-                    <th className="py-2 px-2 font-semibold w-[6rem] md:w-[8.75rem]">종목명</th>
+                    <th className="py-2 px-2 font-semibold w-[7.5rem] md:w-[8.75rem]">종목명</th>
                     <th className="py-2 px-2 font-semibold text-right w-[3.6rem] md:w-[5rem]">종가</th>
-                    <th className="py-2 px-2 font-semibold text-right w-[3.2rem] md:w-[4.4rem]">등락률</th>
-                    <th className="py-2 px-2 font-semibold text-right w-[3.6rem] md:w-[5rem]">거래대금</th>
+                    <th className="py-2 px-2 font-semibold text-right w-[3.8rem] md:w-[4.4rem]">
+                      <div className="flex flex-col items-end">
+                        <span>등락률</span>
+                        <span className="text-[8px] font-medium text-slate-500 block sm:hidden leading-none mt-0.5">(거래대금)</span>
+                      </div>
+                    </th>
+                    <th className="py-2 px-2 font-semibold text-right w-[3.6rem] md:w-[5rem] hidden sm:table-cell">거래대금</th>
                     <th className="py-2 px-2 font-semibold text-right w-[3.6rem] md:w-[5rem] hidden sm:table-cell">거래량</th>
                     <th className="py-2 px-3 font-semibold w-[4.8rem] md:w-[6.25rem]">테마/섹터</th>
                     {/* PC/태블릿 넓은 화면에서만 AI 상세 모멘텀 유지 */}
@@ -264,13 +269,19 @@ const ShadowingDashboard = () => {
                         
                         {/* 4. 등락률 */}
                         <td className="py-1.5 px-2 text-right">
-                          <span className={`font-black text-[12px] tabular-nums ${record.change_rate >= 0 ? 'text-red-500' : 'text-blue-500'}`}>
-                            {record.change_rate > 0 ? '+' : ''}{record.change_rate}%
-                          </span>
+                          <div className="flex flex-col items-end">
+                            <span className={`font-black text-[12px] tabular-nums ${record.change_rate >= 0 ? 'text-red-500' : 'text-blue-500'}`}>
+                              {record.change_rate > 0 ? '+' : ''}{record.change_rate}%
+                            </span>
+                            {/* 모바일 한정으로 등락률 아래에 괄호로 거래대금 표기 */}
+                            <span className="text-[9px] font-bold text-slate-400 font-mono block sm:hidden leading-none mt-0.5">
+                              ({record.volume_krw.toLocaleString()}억)
+                            </span>
+                          </div>
                         </td>
                         
-                        {/* 5. 거래대금 (1줄에 최소 5대 칼럼이 깨짐없이 시원하게 들어갑니다) */}
-                        <td className="py-1.5 px-2 text-right">
+                        {/* 5. 거래대금 (모바일 자동 숨김, sm 이상에서 노출) */}
+                        <td className="py-1.5 px-2 text-right hidden sm:table-cell">
                           <span className="font-bold text-slate-200 text-[12px] tracking-tight">
                             {record.volume_krw.toLocaleString()}<span className="text-[9px] text-slate-500 font-normal ml-0.5">억</span>
                           </span>
