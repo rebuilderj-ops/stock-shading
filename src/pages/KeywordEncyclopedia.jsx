@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Plus, Trash2, Edit, Tag, X, TrendingUp } from 'lucide-react';
+import { Search, Plus, Trash2, Edit, Tag, X, TrendingUp, Info } from 'lucide-react';
 import { INITIAL_KEYWORDS, INITIAL_STOCKS } from '../lib/mockData';
 
 const KeywordEncyclopedia = () => {
@@ -7,6 +7,9 @@ const KeywordEncyclopedia = () => {
   const [stocks, setStocks] = useState(INITIAL_STOCKS);
   const [searchTerm, setSearchTerm] = useState('');
   
+  // 모바일 화면 가로보기 권장 뱃지 상태
+  const [isBannerClosed, setIsBannerClosed] = useState(false);
+
   // Modals
   const [isFormModalOpen, setIsFormModalOpen] = useState(false);
   const [newKeyword, setNewKeyword] = useState({ name: '', description: '' });
@@ -95,6 +98,24 @@ const KeywordEncyclopedia = () => {
           </button>
         </div>
       </header>
+
+      {/* 모바일 가로보기 순화 권장 배너 */}
+      {!isBannerClosed && (
+        <div className="md:hidden glass-panel border border-blue-500/20 rounded-xl p-3 bg-blue-900/10 flex items-start gap-2.5 shadow animate-pulse">
+          <Info className="text-blue-400 flex-shrink-0 mt-0.5" size={16} />
+          <div className="flex-1">
+            <p className="text-[11px] text-slate-300 leading-relaxed font-medium">
+              💡 차트를 넓고 시원하게 비교하고 싶으신 분들은 스마트폰을 가로 모드로 눕혀서 보시는 것을 권장해 드립니다.
+            </p>
+          </div>
+          <button 
+            onClick={() => setIsBannerClosed(true)}
+            className="text-slate-500 hover:text-slate-200 cursor-pointer p-0.5"
+          >
+            <X size={14} />
+          </button>
+        </div>
+      )}
 
       {/* Keywords List (Grid Table View) */}
       <div className="space-y-10">

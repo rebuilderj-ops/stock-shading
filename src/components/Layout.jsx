@@ -9,8 +9,6 @@ const Layout = () => {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   // 테마 상태 (dark 또는 light)
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
-  // 가로보기 추천 배너 닫힘 상태
-  const [isBannerClosed, setIsBannerClosed] = useState(false);
 
   // 테마 변경 효과 적용
   useEffect(() => {
@@ -117,26 +115,6 @@ const Layout = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/20 via-[#0F172A]/0 to-[#0F172A]/0 pointer-events-none"></div>
         
         <div className="p-5 md:p-10 relative z-10 max-w-7xl mx-auto space-y-6">
-          
-          {/* [모바일 가로 회전 추천 배너] 모바일 화면(md 미만)에서 가로보기 조언 알림 */}
-          {!isBannerClosed && (
-            <div className="md:hidden glass-panel border border-blue-500/30 rounded-xl p-4 bg-blue-900/10 flex items-start gap-3 shadow-lg animate-pulse">
-              <Info className="text-blue-400 flex-shrink-0 mt-0.5" size={18} />
-              <div className="flex-1">
-                <h4 className="text-xs font-bold text-blue-300">화면 회전 추천!</h4>
-                <p className="text-[11px] text-slate-400 leading-relaxed mt-0.5">
-                  차트 및 캘린더 등 다양한 데이터를 더 한눈에 풍성하게 비교해 보려면 스마트폰을 **가로(가로 모드)**로 돌려 보시는 것을 강력 권장해 드립니다.
-                </p>
-              </div>
-              <button 
-                onClick={() => setIsBannerClosed(true)}
-                className="text-slate-500 hover:text-slate-200 cursor-pointer p-0.5"
-              >
-                <X size={16} />
-              </button>
-            </div>
-          )}
-
           <Outlet />
         </div>
       </main>

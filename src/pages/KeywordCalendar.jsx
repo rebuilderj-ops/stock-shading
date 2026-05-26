@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Calendar as CalendarIcon, Tag, Plus, X, Flame } from 'lucide-react';
+import React, { useState, useMemo } from 'react';
+import { ChevronLeft, ChevronRight, Calendar as CalendarIcon, Tag, Plus, X, Flame, Info } from 'lucide-react';
 import { INITIAL_KEYWORDS, INITIAL_SCHEDULES, INITIAL_DAILY_RECORDS } from '../lib/mockData';
 
 // Tailwind CSS purged class helper
@@ -24,8 +24,19 @@ const KeywordCalendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date()); 
   const [schedules, setSchedules] = useState(INITIAL_SCHEDULES);
   
+  // 모바일 화면 가로보기 권장 뱃지 상태
+  const [isBannerClosed, setIsBannerClosed] = useState(false);
+
   // 터치 및 클릭 반응형 상세 판넬을 위한 선택된 날짜 상태입니다. 기본값은 오늘 날짜입니다.
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
+
+  // [신규] 최근 5영업일 동안의 날짜들을 가동하여 5일간 자금 쏠림의 거시적 이동 트렌드를 추출합니다.
+  const last5Dates = useMemo(() => {
+    const dates = [...new Set(INITIAL_DAILY_RECORDS.map(r => r.date))];
+    dates.sort((a, b) => new Date(b) - new Date(a));
+    // 최근 5개 영업일만 오름차순(시간 흐름 순: 월 -> 화 -> 수 -> 목 -> 금)으로 역순 슬라이싱 정렬합니다.
+    return dates.slice(0, 5).reverse();
+  }, []);
 
   // Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -182,6 +193,69 @@ const KeywordCalendar = () => {
           <Plus size={18} /> 일정 등록
         </button>
       </header>
+
+      {/* 모바일 가로보기 순화 권장 배너 */}
+      {!isBannerClosed && (
+        <div className="md:hidden glass-panel border border-blue-500/20 rounded-xl p-3 bg-blue-900/10 flex items-start gap-2.5 shadow animate-pulse">
+          <Info className="text-blue-400 flex-shrink-0 mt-0.5" size={16} />
+          <div className="flex-1">
+            <p className="text-[11px] text-slate-300 leading-relaxed font-medium">
+              💡 거래대금이 포함된 테마의 추이를 한눈에 확인하고 싶으신 분들은 스마트폰을 가로 모드로 눕혀서 보시는 것을 권장해 드립니다.
+            </p>
+          </div>
+          <button 
+            onClick={() => setIsBannerClosed(true)}
+            className="text-slate-500 hover:text-slate-200 cursor-pointer p-0.5"
+          >
+            <X size={14} />
+          </button>
+        </div>
+      )}
+
+      {/* [신규] 최근 5영업일 동안의 자금 대이동 트렌드 한눈에 보기 트래커 */}
+      <section className="glass-panel border border-slate-700/80 rounded-2xl p-4 md:p-6 space-y-4">
+        <div className="flex items-center gap-2">
+          <Flame className="text-orange-500 animate-pulse" size={20} />
+          <h2 className="text-sm md:text-base font-bold text-slate-100">
+            🔥 최근 5영업일 시장 주도 섹터 흐름 (거시 추세 분석)
+          </h2>
+        </div>
+
+        <div className="overflow-x-auto pb-2 -mx-4 px-4 md:mx-0 md:px-0 custom-scrollbar">
+          <div className="flex gap-3.5 min-w-[800px] md:min-w-0 md:grid md:grid-cols-5">
+            {last5Dates.map(dateStr => {
+              const top5 = getTop5SectorsForDate(dateStr);
+              const dateObj = new Date(dateStr);
+              const formattedDate = `${dateObj.getMonth() + 1}/${dateObj.getDate()} (${['일','월','화','수','목','금','토'][dateObj.getDay()]})`;
+              
+              return (
+                <div 
+                  key={dateStr} 
+                  className={`flex-1 min-w-[145px] md:min-w-0 bg-slate-900/60 border rounded-xl p-3 flex flex-col gap-2 hover:border-slate-600 transition-colors shadow-inner
+                    ${selectedDate === dateStr ? 'border-violet-500/50 bg-slate-900/90' : 'border-slate-800'}`}
+                >
+                  <div className="border-b border-slate-800 pb-1.5 flex justify-between items-center">
+                    <span className="text-[11px] font-black text-slate-400 font-mono">{formattedDate}</span>
+                    <span className={`w-1.5 h-1.5 rounded-full ${selectedDate === dateStr ? 'bg-violet-400 animate-ping' : 'bg-slate-700'}`}></span>
+                  </div>
+                  
+                  <div className="flex flex-col gap-1.5">
+                    {top5.map((sector) => (
+                      <div key={sector.rank} className={`flex items-center justify-between text-[10px] border rounded px-1.5 py-1 font-bold ${sector.colorClass}`} title={`거래대금 ${sector.vol.toLocaleString()}억`}>
+                        <span className="truncate flex-1 max-w-[80px]">{sector.name}</span>
+                        <span className="opacity-75 font-mono text-[9px] font-normal">{sector.vol}억</span>
+                      </div>
+                    ))}
+                    {top5.length === 0 && (
+                      <span className="text-[10px] text-slate-600 italic py-4 text-center">휴일 또는 데이터 없음</span>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
       <div className="glass-panel p-4 md:p-6 rounded-2xl relative overflow-hidden border border-slate-700">
         {/* Calendar Header */}

@@ -4,6 +4,9 @@ import { Search, TrendingUp, DollarSign, Calendar, Tag, Activity, ChevronRight, 
 
 const ShadowingDashboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  
+  // 모바일/태블릿 화면에서 날짜 목록이 길게 늘어지는 것을 방지하기 위한 아코디언 접기 상태입니다.
+  const [isDateListExpanded, setIsDateListExpanded] = useState(false);
 
   // 매핑 함수
   const enhancedRecords = useMemo(() => {
@@ -100,23 +103,46 @@ const ShadowingDashboard = () => {
       {/* Main Layout: Left Date Picker, Right Data Table */}
       <div className="flex flex-col lg:flex-row gap-6">
         
-        {/* Left Panel: Date List */}
+        {/* Left Panel: Date List (모바일에서는 아코디언 접힘 지원) */}
         <div className="w-full lg:w-[220px] flex-shrink-0">
           <div className="glass-panel rounded-xl border border-slate-700 overflow-hidden sticky top-6">
-            <div className="bg-slate-800/80 p-3 border-b border-slate-700/50">
+            
+            {/* 모바일 아코디언 토글을 지원하는 영업일 목록 헤더 */}
+            <div 
+              onClick={() => setIsDateListExpanded(!isDateListExpanded)}
+              className="bg-slate-800/80 p-3 border-b border-slate-700/50 flex justify-between items-center cursor-pointer select-none"
+            >
               <h3 className="font-bold text-sm text-slate-100 flex items-center gap-2">
                 <Calendar size={16} className="text-blue-400" />
-                영업일 목록
+                영업일 선택
               </h3>
+              
+              {/* 모바일 화면에서만 노출되는 현재 선택된 일자 뱃지 및 토글 텍스트 */}
+              <div className="lg:hidden flex items-center gap-2 text-xs text-blue-400 font-bold">
+                <span className="bg-slate-900/60 border border-slate-700/40 px-2 py-0.5 rounded text-[10px] text-slate-300 font-mono">
+                  {selectedDate}
+                </span>
+                <span className="text-[11px] font-semibold opacity-95">
+                  {isDateListExpanded ? "목록 닫기 ▲" : "날짜 변경 ▼"}
+                </span>
+              </div>
             </div>
-            <div className="max-h-[700px] overflow-y-auto custom-scrollbar p-1.5 space-y-0.5">
+
+            {/* 날짜 아코디언 바디 (모바일에선 isDateListExpanded에 따라 노출, PC에선 항상 노출) */}
+            <div className={`overflow-y-auto custom-scrollbar p-1.5 space-y-0.5 transition-all duration-300
+              ${isDateListExpanded ? 'max-h-[320px] block' : 'hidden lg:block'} 
+              lg:max-h-[700px]`}
+            >
               {uniqueDates.map(dateStr => {
                 const isSelected = selectedDate === dateStr;
                 const dailyCount = enhancedRecords.filter(r => r.date === dateStr).length;
                 return (
                   <button
                     key={dateStr}
-                    onClick={() => setSelectedDate(dateStr)}
+                    onClick={() => {
+                      setSelectedDate(dateStr);
+                      setIsDateListExpanded(false); // 선택 후 자동으로 리스트를 접어 공간을 극대화합니다.
+                    }}
                     className={`w-full text-left px-3 py-2 rounded-lg flex items-center justify-between transition-all duration-200 cursor-pointer ${
                       isSelected 
                         ? 'bg-blue-600/20 border border-blue-500/50 shadow-sm' 
@@ -133,7 +159,7 @@ const ShadowingDashboard = () => {
                     </div>
                     {isSelected && <ChevronRight size={14} className="text-blue-400" />}
                   </button>
-                )
+                );
               })}
             </div>
           </div>
