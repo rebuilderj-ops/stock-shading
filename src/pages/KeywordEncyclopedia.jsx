@@ -133,8 +133,8 @@ const KeywordEncyclopedia = () => {
                 </div>
               </div>
 
-              {/* Stocks Table (All Charts side-by-side) */}
-              <div className="overflow-x-auto">
+              {/* 데스크톱 전용 테이블 뷰 (태블릿/PC 화면에서만 표시) */}
+              <div className="hidden md:block overflow-x-auto">
                 <table className="w-full text-left border-collapse">
                   <thead>
                     <tr className="bg-slate-900/50 text-slate-300 text-sm border-b border-slate-700">
@@ -202,6 +202,73 @@ const KeywordEncyclopedia = () => {
                     )}
                   </tbody>
                 </table>
+              </div>
+
+              {/* 모바일 및 태블릿 전용 카드형 뷰 (스마트폰 화면에서 가독성을 높임) */}
+              <div className="block md:hidden divide-y divide-slate-700/50">
+                {keywordStocks.length > 0 ? keywordStocks.map(stock => (
+                  <div key={stock.id} className="p-4 space-y-3 hover:bg-slate-800/20 transition-colors">
+                    {/* 종목 및 리더 정보 */}
+                    <div className="flex items-center gap-2">
+                      {stock.is_leader && (
+                        <span className="px-2 py-0.5 rounded text-[9px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">대장주</span>
+                      )}
+                      <strong className="text-base text-slate-100">{stock.name}</strong>
+                      <span className="text-xs text-slate-500 font-mono">{stock.code}</span>
+                    </div>
+
+                    {/* 편입 사유/재료 */}
+                    <div className="bg-slate-900/50 p-3 rounded-lg border border-slate-800">
+                      <p className="text-xs text-slate-300 leading-relaxed">
+                        {stock.reason}
+                      </p>
+                    </div>
+
+                    {/* 모바일 차트 3종 나란히 그리드 배열 (한 손에 쏙 들어오게 스펙 다운) */}
+                    <div className="grid grid-cols-3 gap-2 pt-1">
+                      <div className="flex flex-col gap-1">
+                        <span className="text-[10px] text-center text-slate-500 font-semibold">3개월</span>
+                        {stock.code && stock.code.length === 6 ? (
+                          <div className="bg-white rounded p-0.5 border border-slate-600 h-[65px] flex items-center justify-center overflow-hidden relative">
+                            <img 
+                              src={`https://ssl.pstatic.net/imgfinance/chart/item/area/month3/${stock.code}.png?sidcode=${Date.now()}`} 
+                              alt="3개월" 
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        ) : <span className="text-[10px] text-slate-600 text-center block leading-[65px]">없음</span>}
+                      </div>
+                      <div className="flex flex-col gap-1">
+                        <span className="text-[10px] text-center text-slate-500 font-semibold">1년</span>
+                        {stock.code && stock.code.length === 6 ? (
+                          <div className="bg-white rounded p-0.5 border border-slate-600 h-[65px] flex items-center justify-center overflow-hidden relative">
+                            <img 
+                              src={`https://ssl.pstatic.net/imgfinance/chart/item/area/year/${stock.code}.png?sidcode=${Date.now()}`} 
+                              alt="1년" 
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        ) : <span className="text-[10px] text-slate-600 text-center block leading-[65px]">없음</span>}
+                      </div>
+                      <div className="flex flex-col gap-1">
+                        <span className="text-[10px] text-center text-slate-500 font-semibold">3년</span>
+                        {stock.code && stock.code.length === 6 ? (
+                          <div className="bg-white rounded p-0.5 border border-slate-600 h-[65px] flex items-center justify-center overflow-hidden relative">
+                            <img 
+                              src={`https://ssl.pstatic.net/imgfinance/chart/item/area/year3/${stock.code}.png?sidcode=${Date.now()}`} 
+                              alt="3년" 
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        ) : <span className="text-[10px] text-slate-600 text-center block leading-[65px]">없음</span>}
+                      </div>
+                    </div>
+                  </div>
+                )) : (
+                  <div className="p-8 text-center text-slate-500 text-sm">
+                    등록된 종목이 없습니다.
+                  </div>
+                )}
               </div>
             </div>
           );

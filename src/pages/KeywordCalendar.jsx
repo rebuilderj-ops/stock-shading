@@ -24,6 +24,9 @@ const KeywordCalendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date()); 
   const [schedules, setSchedules] = useState(INITIAL_SCHEDULES);
   
+  // 터치 및 클릭 반응형 상세 판넬을 위한 선택된 날짜 상태입니다. 기본값은 오늘 날짜입니다.
+  const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
+
   // Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newSchedule, setNewSchedule] = useState({ date: '', title: '', keyword_id: '' });
@@ -79,7 +82,7 @@ const KeywordCalendar = () => {
     const cells = [];
     // Previous month blanks
     for (let i = 0; i < firstDayOfMonth; i++) {
-      cells.push(<div key={`prev-${i}`} className="min-h-[170px] p-2 border-b border-r border-slate-800/50 bg-slate-900/30 opacity-50"></div>);
+      cells.push(<div key={`prev-${i}`} className="min-h-[60px] md:min-h-[170px] p-2 border-b border-r border-slate-800/50 bg-slate-900/30 opacity-50"></div>);
     }
     
     // Current month days
@@ -89,17 +92,26 @@ const KeywordCalendar = () => {
       const top5Sectors = getTop5SectorsForDate(dateStr);
       
       const isToday = new Date().toISOString().split('T')[0] === dateStr;
+      const isSelected = selectedDate === dateStr;
 
       cells.push(
-        <div key={`day-${day}`} className={`min-h-[170px] p-2 border-b border-r border-slate-800/50 transition-colors hover:bg-slate-700/30 relative flex flex-col gap-1 ${isToday ? 'bg-blue-900/10' : 'bg-slate-800/10'}`}>
+        <div key={`day-${day}`} 
+             onClick={() => setSelectedDate(dateStr)}
+             className={`min-h-[60px] md:min-h-[170px] p-1.5 md:p-2 border-b border-r border-slate-800/50 transition-all hover:bg-slate-700/30 relative flex flex-col gap-1 cursor-pointer ${
+               isToday ? 'bg-blue-900/15 ring-1 ring-inset ring-blue-500/30' : 
+               isSelected ? 'bg-slate-700/40 ring-1 ring-inset ring-violet-500/50' : 'bg-slate-800/10'
+             }`}>
           <div className="flex justify-between items-start mb-0.5">
-            <span className={`text-sm font-bold w-6 h-6 flex items-center justify-center rounded-full ${isToday ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/50' : 'text-slate-400'}`}>
+            <span className={`text-xs md:text-sm font-bold w-5 h-5 md:w-6 md:h-6 flex items-center justify-center rounded-full ${
+              isToday ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/50' : 
+              isSelected ? 'bg-violet-500 text-white shadow-sm' : 'text-slate-400'
+            }`}>
               {day}
             </span>
           </div>
           
-          {/* 달력 속: 예정된 스케줄 */}
-          <div className="space-y-1 mb-1">
+          {/* 달력 속: 예정된 스케줄 (PC 화면에서만 다 보이고 모바일에선 컴팩트 도트로 축소) */}
+          <div className="hidden md:block space-y-1 mb-1">
             {daySchedules.map(sch => {
               const kw = INITIAL_KEYWORDS.find(k => k.id === sch.keyword_id);
               const colorCls = kw && kw.color && COLOR_MAP[kw.color] ? COLOR_MAP[kw.color] : "bg-slate-700 text-slate-300";
@@ -112,9 +124,19 @@ const KeywordCalendar = () => {
             })}
           </div>
 
-          {/* 달력 속: 당일 주도 Top 5 섹터 기록 (고유 색상) */}
+          {/* 모바일 전용 초소형 알림 도트 표시기 (비좁은 격자를 깔끔하게 지켜줍니다) */}
+          <div className="md:hidden flex gap-1 mt-auto">
+            {daySchedules.length > 0 && (
+              <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" title="등록된 일정 있음"></span>
+            )}
+            {top5Sectors.length > 0 && (
+              <span className="w-1.5 h-1.5 rounded-full bg-orange-400" title="당일 주도 섹터 있음"></span>
+            )}
+          </div>
+ 
+          {/* 달력 속: 당일 주도 Top 5 섹터 기록 (PC 화면에서만 고유 테마별 박스로 큼직하게 노출) */}
           {top5Sectors.length > 0 && (
-            <div className="mt-auto flex flex-col gap-[3px]">
+            <div className="hidden md:flex mt-auto flex-col gap-[3px]">
               <div className="text-[10px] text-slate-400 font-bold flex items-center gap-1 mb-0.5 opacity-80 decoration-slate-600 underline underline-offset-2">
                 <Flame size={12} className="text-orange-500" /> 주도 섹터
               </div>
@@ -138,7 +160,7 @@ const KeywordCalendar = () => {
     // Next month blanks
     const remainingCells = (Math.ceil((firstDayOfMonth + daysInMonth) / 7) * 7) - (firstDayOfMonth + daysInMonth);
     for (let i = 0; i < remainingCells; i++) {
-      cells.push(<div key={`next-${i}`} className="min-h-[170px] p-2 border-b border-r border-slate-800/50 bg-slate-900/30 opacity-50"></div>);
+      cells.push(<div key={`next-${i}`} className="min-h-[60px] md:min-h-[170px] p-2 border-b border-r border-slate-800/50 bg-slate-900/30 opacity-50"></div>);
     }
     
     return cells;
@@ -166,19 +188,19 @@ const KeywordCalendar = () => {
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center gap-4">
             <CalendarIcon className="text-violet-400" size={28} />
-            <h2 className="text-3xl font-bold text-slate-100 tracking-tight">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-100 tracking-tight">
               {currentYear}년 {currentMonth + 1}월
             </h2>
           </div>
-          <div className="flex gap-2">
-            <button onClick={handlePrevMonth} className="p-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg border border-slate-600 transition-colors cursor-pointer">
-              <ChevronLeft size={20} />
+          <div className="flex gap-1.5 md:gap-2">
+            <button onClick={handlePrevMonth} className="p-1.5 md:p-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg border border-slate-600 transition-colors cursor-pointer">
+              <ChevronLeft size={16} md:size={20} />
             </button>
-            <button onClick={() => setCurrentDate(new Date())} className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-medium rounded-lg border border-slate-600 transition-colors cursor-pointer">
-              이번 달 이동
+            <button onClick={() => setCurrentDate(new Date())} className="px-2.5 py-1.5 md:px-4 md:py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs md:text-sm font-medium rounded-lg border border-slate-600 transition-colors cursor-pointer">
+              이번 달
             </button>
-            <button onClick={handleNextMonth} className="p-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg border border-slate-600 transition-colors cursor-pointer">
-              <ChevronRight size={20} />
+            <button onClick={handleNextMonth} className="p-1.5 md:p-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg border border-slate-600 transition-colors cursor-pointer">
+              <ChevronRight size={16} md:size={20} />
             </button>
           </div>
         </div>
@@ -187,7 +209,7 @@ const KeywordCalendar = () => {
         <div className="bg-slate-900 border border-slate-800/50 rounded-xl overflow-hidden shadow-2xl">
           <div className="grid grid-cols-7 border-b border-slate-700 bg-slate-800">
             {['일', '월', '화', '수', '목', '금', '토'].map(day => (
-              <div key={day} className="py-3 text-center text-sm font-bold text-slate-400">
+              <div key={day} className="py-2.5 md:py-3 text-center text-xs md:text-sm font-bold text-slate-400">
                 {day}
               </div>
             ))}
@@ -196,6 +218,78 @@ const KeywordCalendar = () => {
             {renderCells()}
           </div>
         </div>
+
+        {/* 모바일 및 태블릿 전용 하단 터치식 상세 판넬 (모바일 최적화 UX 핵심) */}
+        {(() => {
+          const selDateObj = new Date(selectedDate);
+          const selDaySchedules = schedules.filter(s => s.date === selectedDate);
+          const selTop5Sectors = getTop5SectorsForDate(selectedDate);
+          
+          // 한국형 날짜 요일 포맷
+          const dayName = ['일','월','화','수','목','금','토'][selDateObj.getDay()];
+          const formattedDate = `${selDateObj.getMonth() + 1}월 ${selDateObj.getDate()}일 (${dayName})`;
+
+          return (
+            <div className="md:hidden mt-6 bg-slate-950/60 border border-slate-800 rounded-xl p-4 space-y-4">
+              <div className="border-b border-slate-800 pb-2.5 flex justify-between items-center">
+                <h3 className="text-sm font-black text-violet-400 flex items-center gap-1.5">
+                  <CalendarIcon size={14} />
+                  {formattedDate} 상세 흐름
+                </h3>
+                <span className="text-[10px] bg-slate-900 text-slate-500 px-2 py-0.5 rounded border border-slate-800">
+                  날짜를 터치하면 변경됩니다
+                </span>
+              </div>
+
+              {/* 해당 날짜 일정 */}
+              <div className="space-y-1.5">
+                <span className="text-[11px] font-bold text-slate-400 block tracking-wider uppercase">일정 및 브리핑</span>
+                {selDaySchedules.length > 0 ? (
+                  <div className="space-y-1.5">
+                    {selDaySchedules.map(sch => {
+                      const kw = INITIAL_KEYWORDS.find(k => k.id === sch.keyword_id);
+                      const colorCls = kw && kw.color && COLOR_MAP[kw.color] ? COLOR_MAP[kw.color] : "bg-slate-700 text-slate-300";
+                      return (
+                        <div key={sch.id} className={`border rounded-lg p-2.5 text-xs font-semibold flex items-center gap-2 ${colorCls}`}>
+                          <CalendarIcon size={12} className="opacity-80" />
+                          <span>{sch.title}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <p className="text-[11px] text-slate-600 italic pl-1">이날 등록된 일정이 없습니다.</p>
+                )}
+              </div>
+
+              {/* 당일 거래대금 기반 5대 주도섹터 */}
+              <div className="space-y-2">
+                <span className="text-[11px] font-bold text-slate-400 flex items-center gap-1 block tracking-wider uppercase">
+                  <Flame size={13} className="text-orange-500" /> 오늘의 5대 주도 섹터
+                </span>
+                {selTop5Sectors.length > 0 ? (
+                  <div className="space-y-1.5">
+                    {selTop5Sectors.map((sector) => (
+                      <div key={sector.rank} className={`flex items-center justify-between text-xs border rounded-lg p-2.5 font-bold ${sector.colorClass}`}>
+                        <div className="flex items-center gap-2">
+                          <span className="w-5 h-5 flex items-center justify-center rounded-full bg-slate-950/70 text-[10px] text-slate-300">
+                            {sector.rank}
+                          </span>
+                          <span className="text-slate-100">{sector.name}</span>
+                        </div>
+                        <span className="text-[10px] opacity-90 bg-slate-950/50 px-2 py-0.5 rounded font-mono">
+                          {sector.vol.toLocaleString()}억
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-[11px] text-slate-600 italic pl-1">수집된 주도 섹터 데이터가 없는 날(주말/휴일)입니다.</p>
+                )}
+              </div>
+            </div>
+          );
+        })()}
       </div>
 
       {/* Add Schedule Modal */}
