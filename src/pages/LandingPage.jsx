@@ -53,8 +53,13 @@ const LandingPage = () => {
     const volumeByKeyword = {};
     
     dailyRecords.forEach(r => {
-      if (!volumeByKeyword[r.keyword_id]) volumeByKeyword[r.keyword_id] = 0;
-      volumeByKeyword[r.keyword_id] += r.volume_krw;
+      const stock = INITIAL_STOCKS.find(s => s.id === r.stock_id);
+      const keywordIds = stock?.keyword_ids || (r.keyword_id ? [r.keyword_id] : (stock?.keyword_id ? [stock.keyword_id] : []));
+      
+      keywordIds.forEach(kwId => {
+        if (!volumeByKeyword[kwId]) volumeByKeyword[kwId] = 0;
+        volumeByKeyword[kwId] += r.volume_krw;
+      });
     });
 
     const sortedKeywords = Object.entries(volumeByKeyword)
@@ -97,7 +102,7 @@ const LandingPage = () => {
           모닝 트레이딩 브리핑
         </h1>
         <p className="text-slate-400 text-lg max-w-2xl mt-2 leading-relaxed">
-          어제 자 쉐도잉 데이터를 10단계 알고리즘으로 채점하여 가장 폭발력이 높은 <strong className="text-slate-200">Top 3 관심종목</strong>을 선정했습니다.
+          어제 자 주도주 분석 데이터를 10단계 알고리즘으로 채점하여 가장 폭발력이 높은 <strong className="text-slate-200">Top 3 관심종목</strong>을 선정했습니다.
         </p>
       </header>
 

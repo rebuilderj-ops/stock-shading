@@ -69,8 +69,13 @@ const KeywordCalendar = () => {
 
     const volumeByKeyword = {};
     dailyRecords.forEach(r => {
-      if (!volumeByKeyword[r.keyword_id]) volumeByKeyword[r.keyword_id] = 0;
-      volumeByKeyword[r.keyword_id] += r.volume_krw;
+      const stock = INITIAL_STOCKS.find(s => s.id === r.stock_id);
+      const keywordIds = stock?.keyword_ids || (r.keyword_id ? [r.keyword_id] : (stock?.keyword_id ? [stock.keyword_id] : []));
+      
+      keywordIds.forEach(kwId => {
+        if (!volumeByKeyword[kwId]) volumeByKeyword[kwId] = 0;
+        volumeByKeyword[kwId] += r.volume_krw;
+      });
     });
 
     const sortedKeywords = Object.entries(volumeByKeyword)
@@ -182,7 +187,7 @@ const KeywordCalendar = () => {
       <header className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
         <div>
           <h1 className="text-3xl font-bold bg-gradient-to-r from-violet-400 to-fuchsia-400 text-transparent bg-clip-text">
-            키워드 캘린더
+            테마 캘린더
           </h1>
           <p className="text-slate-400 mt-2">일정 체크 및 매일 시장을 주도한 Top 5 섹터 흐름을 파악하세요.</p>
         </div>

@@ -35,9 +35,9 @@ const Layout = () => {
 
   const navItems = [
     { path: '/', name: '모닝 브리핑 홈', icon: <LayoutDashboard size={20} /> },
-    { path: '/shadowing', name: '주식쉐도잉 뱅크', icon: <Activity size={20} /> },
-    { path: '/encyclopedia', name: '키워드 백과사전', icon: <BookOpen size={20} /> },
-    { path: '/calendar', name: '키워드 캘린더', icon: <CalendarDays size={20} /> },
+    { path: '/shadowing', name: '일일 주도주 분석', icon: <Activity size={20} /> },
+    { path: '/encyclopedia', name: '테마별 종목 추이', icon: <BookOpen size={20} /> },
+    { path: '/calendar', name: '테마 캘린더', icon: <CalendarDays size={20} /> },
   ];
 
   // 화면 배율 증가 함수 (최대 120%)
@@ -68,7 +68,7 @@ const Layout = () => {
       {/* 모바일용 상단 헤더바 */}
       <header className="lg:hidden flex items-center justify-between px-6 py-4 bg-slate-900 border-b border-slate-800/80 absolute top-0 left-0 right-0 z-30 shadow-md">
         <h1 className="text-xl font-black tracking-tighter bg-gradient-to-br from-white to-slate-400 text-transparent bg-clip-text">
-          StockTheme
+          Indie Investors
         </h1>
         <button 
           onClick={() => setIsSidebarOpen(true)}
@@ -94,7 +94,7 @@ const Layout = () => {
         <div className="p-4 py-5 flex justify-between items-center border-b border-slate-800/40 lg:border-b-0">
           <div>
             <h1 className="text-2xl font-black tracking-tighter bg-gradient-to-br from-white to-slate-400 text-transparent bg-clip-text">
-              StockTheme
+              Indie Investors
             </h1>
             <p className="text-xs text-slate-500 font-medium tracking-wide mt-1 uppercase">Pro Dashboard</p>
           </div>

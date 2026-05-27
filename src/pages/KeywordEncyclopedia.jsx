@@ -59,14 +59,20 @@ const KeywordEncyclopedia = () => {
 
   const handleDeleteKeyword = (id) => {
     setKeywords(keywords.filter(k => k.id !== id));
-    setStocks(stocks.filter(s => s.keyword_id !== id));
+    setStocks(stocks.filter(s => {
+      const ids = s.keyword_ids || [s.keyword_id];
+      return !ids.includes(id);
+    }));
   };
 
   // Filter logic
   const filteredKeywords = keywords.filter(k => 
     k.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     k.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    stocks.some(s => s.keyword_id === k.id && s.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    stocks.some(s => {
+      const ids = s.keyword_ids || [s.keyword_id];
+      return ids.includes(k.id) && s.name.toLowerCase().includes(searchTerm.toLowerCase());
+    })
   );
 
   return (
@@ -74,7 +80,7 @@ const KeywordEncyclopedia = () => {
       <header className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
         <div>
           <h1 className="text-3xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 text-transparent bg-clip-text">
-            키워드 백과사전
+            테마별 종목 추이
           </h1>
           <p className="text-slate-400 mt-2">같은 섹터 종목들의 차트 흐름을 한눈에 비교하여 테마의 움직임을 파악하세요.</p>
         </div>
@@ -120,7 +126,10 @@ const KeywordEncyclopedia = () => {
       {/* Keywords List (Grid Table View) */}
       <div className="space-y-10">
         {filteredKeywords.map(keyword => {
-          const keywordStocks = stocks.filter(s => s.keyword_id === keyword.id);
+          const keywordStocks = stocks.filter(s => {
+            const ids = s.keyword_ids || [s.keyword_id];
+            return ids.includes(keyword.id);
+          });
           // Sort to show leaders first
           keywordStocks.sort((a, b) => (b.is_leader ? 1 : 0) - (a.is_leader ? 1 : 0));
 

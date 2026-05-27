@@ -33,7 +33,8 @@ export const INITIAL_KEYWORDS = [
   { id: 28, name: "메타버스", description: "VR, AR, XR 가상 현실 기기 및 메타버스 플랫폼 기술", color: "purple", created_at: "2026-01-01" },
   { id: 29, name: "유통", description: "편의점, 대형 유통, 백화점 및 온라인 커머스 소비 유통 채널", color: "amber", created_at: "2026-01-01" },
   { id: 30, name: "패션", description: "브랜드 의류, 신발, 패션 잡화 수출 및 내수 브랜드 성장", color: "pink", created_at: "2026-01-01" },
-  { id: 31, name: "기타", description: "기타 개별 호재 및 30대 거시 테마 외 분류 테마", color: "gray", created_at: "2026-01-01" }
+  { id: 31, name: "기타", description: "기타 개별 호재 및 30대 거시 테마 외 분류 테마", color: "gray", created_at: "2026-01-01" },
+  { id: 32, name: "인테리어", description: "리모델링, 가구 및 친환경 인테리어 자재 관련주", color: "amber", created_at: "2026-01-01" }
 ];
 
 export const INITIAL_STOCKS = [
@@ -64,7 +65,8 @@ export const INITIAL_STOCKS = [
   { id: 24, keyword_id: 8, name: "HD한국조선해양", code: "009540", reason: "친환경 선박 교체 싸이클에 따른 어닝 서프라이즈", is_leader: true },
   { id: 25, keyword_id: 8, name: "한화오션", code: "042660", reason: "특수선 위주 선별 수주 랠리 탑승", is_leader: false },
   { id: 26, keyword_id: 6, name: "실리콘투", code: "257720", reason: "미국 K-뷰티 침투율 확대 최대 마진 달성", is_leader: true },
-  { id: 27, keyword_id: 6, name: "브이티", code: "018290", reason: "리들샷 일본 대흥행 및 미국 진출 모멘텀", is_leader: false }
+  { id: 27, keyword_id: 6, name: "브이티", code: "018290", reason: "리들샷 일본 대흥행 및 미국 진출 모멘텀", is_leader: false },
+  { id: 28, keyword_id: 26, keyword_ids: [26, 1], name: "디바이스", code: "187870", reason: "디스플레이 및 반도체 장비 전문", is_leader: false }
 ];
 
 export const INITIAL_SCHEDULES = [

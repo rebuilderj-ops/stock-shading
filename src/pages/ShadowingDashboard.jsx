@@ -16,12 +16,19 @@ const ShadowingDashboard = () => {
     return INITIAL_DAILY_RECORDS.map(record => {
       const stock = INITIAL_STOCKS.find(s => s.id === record.stock_id);
       const keyword = INITIAL_KEYWORDS.find(k => k.id === record.keyword_id);
+      
+      // Support multiple keywords!
+      const keywordIds = stock?.keyword_ids || (record.keyword_id ? [record.keyword_id] : (stock?.keyword_id ? [stock.keyword_id] : []));
+      const keywords = keywordIds.map(id => INITIAL_KEYWORDS.find(k => k.id === id)).filter(Boolean);
+      const keywordNames = keywords.map(k => k.name);
+
       return {
         ...record,
         stockName: record.name || stock?.name || "알수없음",
         stockCode: record.code || stock?.code || "",
         isLeader: record.is_leader || stock?.is_leader || false,
-        keywordName: record.keywordName || keyword?.name || "특징주"
+        keywordName: record.keywordName || keyword?.name || "특징주",
+        keywordNames: keywordNames.length > 0 ? keywordNames : [record.keywordName || keyword?.name || "특징주"]
       };
     });
   }, []);
@@ -43,7 +50,7 @@ const ShadowingDashboard = () => {
     if (searchTerm) {
       records = records.filter(r => 
         r.stockName.includes(searchTerm) ||
-        r.keywordName.includes(searchTerm) ||
+        r.keywordNames.some(name => name.includes(searchTerm)) ||
         r.reason.includes(searchTerm)
       );
     }
@@ -84,7 +91,7 @@ const ShadowingDashboard = () => {
       <header className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
         <div>
           <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 text-transparent bg-clip-text">
-            주식쉐도잉 대시보드
+            일일 주도주 분석
           </h1>
           <p className="text-slate-400 mt-2">
             매일 업데이트되는 급등/거래대금 집중 종목 (조건: 상승률 6% 이상, 거래대금 300억 이상)
@@ -202,7 +209,7 @@ const ShadowingDashboard = () => {
                 <span className="bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded text-xs font-mono border border-blue-500/30">
                   {selectedDate}
                 </span>
-                주도주 쉐도잉 리스트
+                일일 주도주 분석 리스트
               </h2>
               <span className="text-[11px] text-slate-500 tracking-tight">수급과 거래량 중심의 한눈에 보기 표</span>
             </div>
@@ -287,9 +294,13 @@ const ShadowingDashboard = () => {
                         
                         {/* 7. 테마/섹터 */}
                         <td className="py-1.5 px-3">
-                          <span className="inline-flex items-center gap-1 text-[10px] font-bold bg-slate-800 border border-slate-700/60 text-slate-300 px-1.5 py-[1px] rounded shadow-sm whitespace-nowrap">
-                            {record.keywordName}
-                          </span>
+                          <div className="flex flex-col gap-1 items-start">
+                            {record.keywordNames.map((name, i) => (
+                              <span key={i} className="inline-flex items-center gap-1 text-[10px] font-bold bg-slate-800 border border-slate-700/60 text-slate-300 px-1.5 py-[1px] rounded shadow-sm whitespace-nowrap">
+                                {name}
+                              </span>
+                            ))}
+                          </div>
                         </td>
                         
                         {/* 8. AI 모멘텀 (모바일에선 숨기고 PC 화면에선 셀 안에 그대로 출력) */}
@@ -345,7 +356,7 @@ const ShadowingDashboard = () => {
                 <div className="flex justify-between items-center text-[10px] text-slate-400">
                   <span>날짜: <strong className="font-mono text-slate-300">{activeReasonRecord.date}</strong></span>
                   <span className="bg-slate-900/60 border border-slate-800 px-2 py-0.5 rounded text-slate-300 font-bold">
-                    {activeReasonRecord.keywordName} 테마
+                    {activeReasonRecord.keywordNames.join(', ')} 테마
                   </span>
                 </div>
 
