@@ -66,7 +66,7 @@ const Layout = () => {
     <div className="flex h-screen bg-[#0F172A] text-slate-50 overflow-hidden relative">
       
       {/* 모바일용 상단 헤더바 */}
-      <header className="md:hidden flex items-center justify-between px-6 py-4 bg-slate-900 border-b border-slate-800/80 absolute top-0 left-0 right-0 z-30 shadow-md">
+      <header className="lg:hidden flex items-center justify-between px-6 py-4 bg-slate-900 border-b border-slate-800/80 absolute top-0 left-0 right-0 z-30 shadow-md">
         <h1 className="text-xl font-black tracking-tighter bg-gradient-to-br from-white to-slate-400 text-transparent bg-clip-text">
           StockTheme
         </h1>
@@ -82,16 +82,16 @@ const Layout = () => {
       {isSidebarOpen && (
         <div 
           onClick={() => setIsSidebarOpen(false)}
-          className="md:hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-40"
+          className="lg:hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-40"
         />
       )}
 
       {/* Sidebar */}
-      <aside className={`fixed inset-y-0 left-0 w-64 glass-panel border-r border-slate-800/60 flex flex-col z-50 transition-transform duration-300 transform 
+      <aside className={`fixed inset-y-0 left-0 w-52 glass-panel border-r border-slate-800/60 flex flex-col z-50 transition-transform duration-300 transform 
         ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} 
-        md:translate-x-0 md:static md:w-64 md:flex`}
+        lg:translate-x-0 lg:static lg:w-52 lg:flex`}
       >
-        <div className="p-6 flex justify-between items-center border-b border-slate-800/40 md:border-b-0">
+        <div className="p-4 py-5 flex justify-between items-center border-b border-slate-800/40 lg:border-b-0">
           <div>
             <h1 className="text-2xl font-black tracking-tighter bg-gradient-to-br from-white to-slate-400 text-transparent bg-clip-text">
               StockTheme
@@ -100,20 +100,20 @@ const Layout = () => {
           </div>
           <button 
             onClick={() => setIsSidebarOpen(false)}
-            className="md:hidden p-1.5 text-slate-400 hover:text-slate-100 hover:bg-slate-800 rounded-lg cursor-pointer"
+            className="lg:hidden p-1.5 text-slate-400 hover:text-slate-100 hover:bg-slate-800 rounded-lg cursor-pointer"
           >
             <X size={20} />
           </button>
         </div>
 
-        <nav className="flex-1 px-4 mt-6 space-y-2">
+        <nav className="flex-1 px-3 mt-4 space-y-1">
           {navItems.map((item) => (
             <NavLink
               key={item.path}
               to={item.path}
               onClick={() => setIsSidebarOpen(false)}
               className={({ isActive }) =>
-                `flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${
+                `flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 group ${
                   isActive
                     ? 'bg-blue-600/10 text-blue-400 font-medium border border-blue-500/20'
                     : 'text-slate-400 hover:bg-slate-800/50 hover:text-slate-200'
@@ -129,13 +129,13 @@ const Layout = () => {
         </nav>
 
         {/* 설정 버튼 */}
-        <div className="p-4 border-t border-slate-800/50 mt-auto">
+        <div className="p-3 border-t border-slate-800/50 mt-auto">
           <button 
             onClick={() => {
               setIsSettingsOpen(true);
               setIsSidebarOpen(false);
             }}
-            className="flex items-center gap-3 px-4 py-3 rounded-xl w-full text-slate-400 hover:bg-slate-800/50 hover:text-slate-200 transition-colors cursor-pointer"
+            className="flex items-center gap-3 px-3 py-2.5 rounded-xl w-full text-slate-400 hover:bg-slate-800/50 hover:text-slate-200 transition-colors cursor-pointer"
           >
             <Settings size={20} />
             <span>설정 (크기/테마)</span>
@@ -144,7 +144,7 @@ const Layout = () => {
       </aside>
 
       {/* Main Content Area */}
-      <main className="flex-1 relative overflow-y-auto pt-[72px] md:pt-0">
+      <main className="flex-1 relative overflow-y-auto pt-[72px] lg:pt-0">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/20 via-[#0F172A]/0 to-[#0F172A]/0 pointer-events-none"></div>
         
         <div className="p-5 md:p-10 relative z-10 max-w-7xl mx-auto space-y-6">

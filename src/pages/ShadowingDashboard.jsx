@@ -107,7 +107,7 @@ const ShadowingDashboard = () => {
       <div className="flex flex-col lg:flex-row gap-6">
         
         {/* Left Panel: Date List (모바일에서는 아코디언 접힘 지원) */}
-        <div className="w-full lg:w-[220px] flex-shrink-0">
+        <div className="w-full lg:w-[180px] flex-shrink-0">
           <div className="glass-panel rounded-xl border border-slate-700 overflow-hidden sticky top-6">
             
             {/* 모바일 아코디언 토글을 지원하는 영업일 목록 헤더 */}
@@ -213,15 +213,14 @@ const ShadowingDashboard = () => {
                 <thead>
                   <tr className="bg-slate-900/50 text-slate-400 text-[10px] md:text-xs border-b border-slate-700 select-none">
                     <th className="py-2 px-2.5 font-semibold text-center w-[1.6rem]">No</th>
-                    <th className="py-2 px-2 font-semibold w-[7.5rem] md:w-[8.75rem]">종목명</th>
-                    <th className="py-2 px-2 font-semibold text-right w-[3.6rem] md:w-[5rem]">종가</th>
-                    <th className="py-2 px-2 font-semibold text-right w-[3.8rem] md:w-[4.4rem]">
+                    <th className="py-2 px-2 font-semibold w-[7.5rem] lg:w-[9rem]">종목명</th>
+                    <th className="py-2 px-2 font-semibold text-right w-[3.6rem] md:w-[4.8rem]">종가</th>
+                    <th className="py-2 px-2 font-semibold text-right w-[4.2rem] md:w-[5rem]">
                       <div className="flex flex-col items-end">
                         <span>등락률</span>
-                        <span className="text-[8px] font-medium text-slate-500 block sm:hidden leading-none mt-0.5">(거래대금)</span>
+                        <span className="text-[8px] font-semibold text-slate-500 leading-none mt-0.5">(거래대금)</span>
                       </div>
                     </th>
-                    <th className="py-2 px-2 font-semibold text-right w-[3.6rem] md:w-[5rem] hidden sm:table-cell">거래대금</th>
                     <th className="py-2 px-2 font-semibold text-right w-[3.6rem] md:w-[5rem] hidden sm:table-cell">거래량</th>
                     <th className="py-2 px-3 font-semibold w-[4.8rem] md:w-[6.25rem]">테마/섹터</th>
                     {/* PC/태블릿 넓은 화면에서만 AI 상세 모멘텀 유지 */}
@@ -270,21 +269,13 @@ const ShadowingDashboard = () => {
                         {/* 4. 등락률 */}
                         <td className="py-1.5 px-2 text-right">
                           <div className="flex flex-col items-end">
-                            <span className={`font-black text-[12px] tabular-nums ${record.change_rate >= 0 ? 'text-red-500' : 'text-blue-500'}`}>
+                            <span className={`font-black text-[12px] md:text-[13px] tabular-nums ${record.change_rate >= 0 ? 'text-red-500' : 'text-blue-500'}`}>
                               {record.change_rate > 0 ? '+' : ''}{record.change_rate}%
                             </span>
-                            {/* 모바일 한정으로 등락률 아래에 괄호로 거래대금 표기 */}
-                            <span className="text-[9px] font-bold text-slate-400 font-mono block sm:hidden leading-none mt-0.5">
+                            <span className="text-[9px] font-bold text-slate-400 font-mono leading-none mt-0.5">
                               ({record.volume_krw.toLocaleString()}억)
                             </span>
                           </div>
-                        </td>
-                        
-                        {/* 5. 거래대금 (모바일 자동 숨김, sm 이상에서 노출) */}
-                        <td className="py-1.5 px-2 text-right hidden sm:table-cell">
-                          <span className="font-bold text-slate-200 text-[12px] tracking-tight">
-                            {record.volume_krw.toLocaleString()}<span className="text-[9px] text-slate-500 font-normal ml-0.5">억</span>
-                          </span>
                         </td>
                         
                         {/* 6. 거래량 (모바일은 숨기고 태블릿 이상에서만 노출) */}

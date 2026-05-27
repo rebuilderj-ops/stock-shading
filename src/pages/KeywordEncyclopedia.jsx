@@ -134,9 +134,6 @@ const KeywordEncyclopedia = () => {
                       <Tag size={20} className="text-emerald-400" />
                       {keyword.name}
                     </h2>
-                    <span className="text-xs font-medium text-slate-400 border border-slate-600 bg-slate-700/50 px-2 py-0.5 rounded-md">
-                      {keyword.created_at}
-                    </span>
                   </div>
                   <p className="text-slate-400 text-sm">{keyword.description}</p>
                 </div>
@@ -159,7 +156,7 @@ const KeywordEncyclopedia = () => {
                 <table className="w-full text-left border-collapse">
                   <thead>
                     <tr className="bg-slate-900/50 text-slate-300 text-sm border-b border-slate-700">
-                      <th className="p-4 font-semibold w-1/4">종목명 및 재료</th>
+                      <th className="p-4 font-semibold w-1/4">종목명</th>
                       <th className="p-4 font-semibold w-1/4 text-center">3개월 차트</th>
                       <th className="p-4 font-semibold w-1/4 text-center">1년 차트</th>
                       <th className="p-4 font-semibold w-1/4 text-center">3년 차트</th>
@@ -168,17 +165,14 @@ const KeywordEncyclopedia = () => {
                   <tbody className="divide-y divide-slate-700/50">
                     {keywordStocks.length > 0 ? keywordStocks.map(stock => (
                       <tr key={stock.id} className="hover:bg-slate-800/30 transition-colors">
-                        <td className="p-4 align-top">
-                          <div className="flex items-center gap-2 mb-2">
+                        <td className="p-4 align-middle">
+                          <div className="flex items-center gap-2">
                             {stock.is_leader && (
                               <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">대장주</span>
                             )}
                             <strong className="text-lg text-slate-100">{stock.name}</strong>
                             <span className="text-sm text-slate-500">{stock.code}</span>
                           </div>
-                          <p className="text-sm text-slate-400 leading-relaxed bg-slate-900/50 p-2 rounded-lg border border-slate-800">
-                            {stock.reason}
-                          </p>
                         </td>
                         <td className="p-4">
                           {stock.code && stock.code.length === 6 ? (
@@ -238,12 +232,7 @@ const KeywordEncyclopedia = () => {
                       <span className="text-xs text-slate-500 font-mono">{stock.code}</span>
                     </div>
 
-                    {/* 편입 사유/재료 */}
-                    <div className="bg-slate-900/50 p-3 rounded-lg border border-slate-800">
-                      <p className="text-xs text-slate-300 leading-relaxed">
-                        {stock.reason}
-                      </p>
-                    </div>
+
 
                     {/* 모바일 차트 3종 나란히 그리드 배열 (한 손에 쏙 들어오게 스펙 다운) */}
                     <div className="grid grid-cols-3 gap-2 pt-1">
