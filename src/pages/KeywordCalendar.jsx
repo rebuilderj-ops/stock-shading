@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { ChevronLeft, ChevronRight, Calendar as CalendarIcon, Tag, Plus, X, Flame, Info } from 'lucide-react';
-import { INITIAL_KEYWORDS, INITIAL_SCHEDULES, INITIAL_DAILY_RECORDS } from '../lib/mockData';
+import { INITIAL_KEYWORDS, INITIAL_SCHEDULES, INITIAL_DAILY_RECORDS, INITIAL_STOCKS } from '../lib/mockData';
 
 // Tailwind CSS purged class helper
 const COLOR_MAP = {
