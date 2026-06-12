@@ -1,5 +1,6 @@
 @echo off
 chcp 65001 > nul
+set PYTHONUTF8=1
 echo =========================================
 echo Stock Shadowing Data Crawling Automation (4:00 PM)
 echo =========================================

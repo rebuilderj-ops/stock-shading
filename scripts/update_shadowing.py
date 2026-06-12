@@ -27,6 +27,105 @@ if 'KIS_APP_SECRET' in os.environ:
 
 EXISTING_KEYWORDS = "뷰티, 방산, 조선, 원전, 반도체, 건설, 우주항공, 게임, 로봇, AI, 바이오, 전력설비, 통신, 드론, 자동차, 2차전지, 금융, 신재생에너지, 양자암호, 엔터, 식음료, 철강, 화학, 해운, IT, 디스플레이, 기계, 메타버스, 유통, 패션"
 
+def get_surged_stocks_naver(target_date):
+    print("네이버 증권을 통해 실시간 급등주 수집 시작 (Fallback)...")
+    results = []
+    
+    # krx_desc.json에서 종목코드 -> 종목명 매핑 정보 로드 (한글 깨짐 방지 및 보조용)
+    code_to_name = {}
+    try:
+        if os.path.exists('krx_desc.json'):
+            with open('krx_desc.json', 'r', encoding='utf-8') as f:
+                desc_list = json.load(f)
+                for item in desc_list:
+                    if 'Code' in item and 'Name' in item:
+                        code_to_name[str(item['Code']).zfill(6)] = str(item['Name'])
+    except Exception as e:
+        print(f"krx_desc.json 로드 실패: {e}")
+
+    # sosok=0 (코스피), sosok=1 (코스닥)
+    for sosok in [0, 1]:
+        page = 1
+        while True:
+            url = f"https://finance.naver.com/sise/sise_rise.naver?sosok={sosok}&page={page}"
+            try:
+                req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+                html = urllib.request.urlopen(req, timeout=10).read()
+                # 네이버 금융은 EUC-KR 인코딩이므로 EUC-KR로 디코딩
+                html_str = html.decode('euc-kr', errors='replace')
+                
+                from bs4 import BeautifulSoup
+                soup = BeautifulSoup(html_str, 'html.parser')
+                
+                rows = soup.find_all('tr')
+                page_results = []
+                
+                for tr in rows:
+                    a_tag = tr.find('a', class_='tltle')
+                    if not a_tag:
+                        continue
+                    
+                    href = a_tag.get('href', '')
+                    if 'code=' not in href:
+                        continue
+                    code = href.split('code=')[1].strip()
+                    
+                    # 스크랩된 종목명 확보 및 캐시 대조
+                    scraped_name = a_tag.text.strip()
+                    name = code_to_name.get(code, scraped_name)
+                    
+                    # 스팩주 필터링
+                    if '스팩' in name or 'SPAC' in name.upper():
+                        continue
+                        
+                    tds = tr.find_all('td')
+                    if len(tds) < 6:
+                        continue
+                        
+                    try:
+                        # td[2] = 현재가, td[4] = 등락률, td[5] = 거래량
+                        close_price = int(tds[2].text.strip().replace(',', ''))
+                        change_rate = float(tds[4].text.strip().replace(',', '').replace('%', '').replace('+', ''))
+                        vol_cnt = int(tds[5].text.strip().replace(',', ''))
+                    except ValueError:
+                        continue
+                        
+                    # 거래대금(억 원) = (거래량 * 현재가) / 100,000,000
+                    vol_krw = int((vol_cnt * close_price) / 100000000)
+                    
+                    page_results.append({
+                        "date": f"{target_date[:4]}-{target_date[4:6]}-{target_date[6:]}",
+                        "code": code,
+                        "name": name,
+                        "close_price": close_price,
+                        "change_rate": round(change_rate, 2),
+                        "volume_krw": vol_krw,
+                        "volume_cnt": vol_cnt
+                    })
+                
+                if not page_results:
+                    break
+                    
+                # 필터링 조건 (상승률 6% 이상 & 거래대금 300억 이상, 또는 상한가 29.5% 이상)
+                for r in page_results:
+                    if (r['change_rate'] >= 6.0 and r['volume_krw'] >= 300) or r['change_rate'] >= 29.5:
+                        results.append(r)
+                        
+                # 페이지 내 최소 등락률이 6.0% 미만이면 다음 페이지 탐색 종료
+                lowest_change = min(r['change_rate'] for r in page_results)
+                if lowest_change < 6.0:
+                    break
+                    
+                page += 1
+                time.sleep(0.1)
+                
+            except Exception as e:
+                print(f"네이버 크롤링 중 에러 (Page {page}): {e}")
+                break
+                
+    print(f"네이버 크롤링 완료! 필터링된 종목 수: {len(results)}개")
+    return results
+
 def get_surged_stocks_fdr(target_date):
     print("FinanceDataReader를 통해 코스피/코스닥 전 종목 시세 수집 시작...")
     results = []
@@ -34,6 +133,11 @@ def get_surged_stocks_fdr(target_date):
     try:
         df_kospi = fdr.StockListing('KOSPI')
         df_kosdaq = fdr.StockListing('KOSDAQ')
+        
+        if df_kospi.empty and df_kosdaq.empty:
+            print("FinanceDataReader 결과가 비어 있습니다. 예비 네이버 수집기를 작동합니다.")
+            return get_surged_stocks_naver(target_date)
+            
         df = pd.concat([df_kospi, df_kosdaq])
         
         for _, row in df.iterrows():
@@ -64,7 +168,9 @@ def get_surged_stocks_fdr(target_date):
         return results
     except Exception as e:
         print(f"FinanceDataReader 데이터 수집 에러: {e}")
-        return []
+        print("예비 네이버 수집기(Fallback)를 작동합니다...")
+        return get_surged_stocks_naver(target_date)
+
 
 def get_google_news(stock_name):
     query = urllib.parse.quote(stock_name + " 특징주")
