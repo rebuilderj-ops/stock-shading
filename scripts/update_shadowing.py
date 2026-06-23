@@ -4,12 +4,14 @@ import time
 import urllib.request
 import urllib.parse
 import xml.etree.ElementTree as ET
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
+from email.utils import parsedate_to_datetime
 import requests
 import google.generativeai as genai
 import FinanceDataReader as fdr
 import pandas as pd
 from dotenv import load_dotenv
+from bs4 import BeautifulSoup
 
 load_dotenv('.env.local')
 
@@ -172,23 +174,79 @@ def get_surged_stocks_fdr(target_date):
         return get_surged_stocks_naver(target_date)
 
 
-def get_google_news(stock_name):
-    query = urllib.parse.quote(stock_name + " 특징주")
-    url = f"https://news.google.com/rss/search?q={query}&hl=ko&gl=KR&ceid=KR:ko"
+def get_naver_board_titles(code):
+    """네이버 페이 증권 종목 토론실의 최신 게시글 제목 15개를 긁어옵니다."""
+    url = f"https://finance.naver.com/item/board.naver?code={code}"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    }
+    titles = []
     try:
-        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-        with urllib.request.urlopen(req) as response:
-            xml_data = response.read()
-            root = ET.fromstring(xml_data)
-            titles = []
-            for item in root.findall('.//item')[:3]:
-                title = item.find('title').text
-                if ' - ' in title:
-                    title = title.rsplit(' - ', 1)[0]
-                titles.append(title)
-            return " / ".join(titles)
+        req = urllib.request.Request(url, headers=headers)
+        html = urllib.request.urlopen(req, timeout=5).read()
+        html_str = html.decode('euc-kr', errors='replace')
+        
+        soup = BeautifulSoup(html_str, 'html.parser')
+        table = soup.find('table', class_='type2')
+        if table:
+            rows = table.find_all('td', class_='title')
+            for row in rows[:15]:
+                a_tag = row.find('a')
+                if a_tag:
+                    title = a_tag.get('title') or a_tag.text.strip()
+                    titles.append(title)
     except Exception as e:
-        return ""
+        print(f"네이버 토론실 크롤링 실패 ({code}): {e}")
+    return " / ".join(titles)
+
+def get_refined_stock_news_and_board(stock_name, code):
+    """구글 뉴스에서 최근 3일 이내의 기사만 필터링하고 네이버 종목 토론실 제목들과 병합하여 반환합니다."""
+    # 1. 구글 뉴스 수집 (1차: 종목명 + 특징주)
+    queries = [f"{stock_name} 특징주", stock_name]
+    valid_articles = []
+    now_dt = datetime.now(timezone.utc)
+    
+    headers = {'User-Agent': 'Mozilla/5.0'}
+    
+    for q in queries:
+        # 이미 3일 이내 기사가 3개 이상 모였다면 추가 검색 생략
+        if len(valid_articles) >= 3:
+            break
+            
+        query = urllib.parse.quote(q)
+        url = f"https://news.google.com/rss/search?q={query}&hl=ko&gl=KR&ceid=KR:ko"
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=5) as response:
+                xml_data = response.read()
+                root = ET.fromstring(xml_data)
+                for item in root.findall('.//item')[:15]:  # 상위 15개 훑기
+                    title = item.find('title').text
+                    pub_date = item.find('pubDate').text
+                    
+                    try:
+                        # RFC 822 날짜 포맷 파싱
+                        pub_date_dt = parsedate_to_datetime(pub_date)
+                        # 최근 3일 이내 발행 여부 검사 (과거 낡은 기사 원천 차단)
+                        diff = now_dt - pub_date_dt
+                        if diff.days <= 3:
+                            if ' - ' in title:
+                                title = title.rsplit(' - ', 1)[0]
+                            if title not in valid_articles:
+                                valid_articles.append(title)
+                    except Exception as date_err:
+                        # 파싱 에러 시 안전하게 스킵
+                        continue
+        except Exception as e:
+            print(f"구글 뉴스 수집 중 에러 ({q}): {e}")
+            
+    news_text = " / ".join(valid_articles[:5]) if valid_articles else "최근 3일 내 특징주 기사 없음"
+    
+    # 2. 네이버 토론실 제목 수집
+    board_text = get_naver_board_titles(code)
+    
+    # 두 소스 융합 반환
+    return f"[최신 뉴스] {news_text} [토론방 의견] {board_text}"
 
 def analyze_stocks_batch(stocks, naver_themes):
     if not GEMINI_API_KEY or GEMINI_API_KEY == "여기에_키를_입력하세요":
@@ -211,8 +269,10 @@ def analyze_stocks_batch(stocks, naver_themes):
             prompt += f"  뉴스: {s.get('news_titles', '')}{nt_str}\n"
             
         prompt += f"""
-위 종목들을 모두 분석하여, 각 종목마다 '어떤 재료/이슈/모멘텀'으로 급등했는지 심층 파악하세요.
-분석 사유 맨 앞에 종목의 급등 사유를 한 문장으로 요약하되, [스페이스X], [마켓컬리], [어닝서프라이즈] 와 같은 구체적인 재료나 개별 키워드를 [말머리]로 달아주세요.
+위 종목들의 뉴스 헤드라인과 네이버 토론실 실시간 여론을 꼼꼼하게 대조하여, 각 종목마다 '오늘(2026년) 어떤 구체적인 재료/이슈/모멘텀'으로 급등했는지 정확한 실시간 사유를 파악하세요.
+반드시 제공된 최신 3일치 뉴스 및 실시간 토론글을 기준으로 삼으세요. 수년 전의 낡은 뉴스나 과거 테마(예: 2018년 남북러 가스관 사업)가 오늘자 급등 사유로 둔갑하지 않도록 각별히 필터링해야 합니다.
+
+분석 사유 맨 앞에 종목의 급등 사유를 한 문장으로 요약하되, [스페이스X], [마켓컬리], [탈모 급여화] 와 같은 구체적인 오늘자 핵심 재료나 개별 키워드를 [말머리]로 달아주세요.
 결과 사유는 정확히 1문장(최고 50자 내외)으로 핵심만 간결하게 작성하세요.
 
 그리고 각 종목의 'keyword' 속성에는 반드시 아래의 '핵심 테마' 30개 중 가장 적합한 1개만 골라서 넣어주세요.
@@ -273,9 +333,9 @@ if __name__ == "__main__":
     print(f"\n최종 요약: 총 {len(stocks_to_analyze)}개의 종목이 필터링되었습니다.\n")
     final_output = []
     
-    print(f"구글 뉴스로부터 각 종목당 최신 헤드라인 수집 중...")
+    print(f"최근 3일치 뉴스와 네이버 종목 토론방 여론 분석 데이터 수집 중...")
     for idx, s in enumerate(stocks_to_analyze):
-        s['news_titles'] = get_google_news(s['name'])
+        s['news_titles'] = get_refined_stock_news_and_board(s['name'], s['code'])
         
     naver_themes = {}
     try:
