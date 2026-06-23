@@ -34,11 +34,11 @@ const Layout = () => {
   }, [scale]);
 
   const navItems = [
-    { path: '/', name: '홈 (대시보드)', icon: <LayoutDashboard size={20} /> },
-    { path: '/daily-briefing', name: '데일리 마켓 브리핑', icon: <Globe size={20} /> },
-    { path: '/shadowing', name: '일일 주도주 분석', icon: <Activity size={20} /> },
-    { path: '/encyclopedia', name: '테마별 종목 추이', icon: <BookOpen size={20} /> },
-    { path: '/calendar', name: '테마 캘린더', icon: <CalendarDays size={20} /> },
+    { path: '/', name: '모닝 브리핑 홈', icon: <LayoutDashboard size={18} /> },
+    { path: '/daily-briefing', name: '데일리 마켓 브리핑', icon: <Globe size={18} /> },
+    { path: '/shadowing', name: '일일 주도주 분석', icon: <Activity size={18} /> },
+    { path: '/encyclopedia', name: '테마별 종목 추이', icon: <BookOpen size={18} /> },
+    { path: '/calendar', name: '테마 캘린더', icon: <CalendarDays size={18} /> },
   ];
 
   // 화면 배율 증가 함수 (최대 120%)
@@ -107,16 +107,16 @@ const Layout = () => {
           </button>
         </div>
 
-        <nav className="flex-1 px-3 mt-4 space-y-1">
+        <nav className="flex-1 px-2.5 mt-4 space-y-1">
           {navItems.map((item) => (
             <NavLink
               key={item.path}
               to={item.path}
               onClick={() => setIsSidebarOpen(false)}
               className={({ isActive }) =>
-                `flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 group ${
+                `flex items-center gap-2 px-2.5 py-2.5 rounded-xl transition-all duration-200 group text-xs font-semibold whitespace-nowrap ${
                   isActive
-                    ? 'bg-blue-600/10 text-blue-400 font-medium border border-blue-500/20'
+                    ? 'bg-blue-600/10 text-blue-400 border border-blue-500/20 shadow-sm'
                     : 'text-slate-400 hover:bg-slate-800/50 hover:text-slate-200'
                 }`
               }
