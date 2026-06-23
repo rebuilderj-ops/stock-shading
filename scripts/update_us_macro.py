@@ -3,10 +3,11 @@ import json
 import urllib.request
 import urllib.parse
 import xml.etree.ElementTree as ET
-from datetime import datetime
+from datetime import datetime, timedelta
 import yfinance as yf
 import google.generativeai as genai
 from dotenv import load_dotenv
+import subprocess
 
 # 환경변수 로드
 load_dotenv('.env.local')
@@ -17,12 +18,10 @@ def get_yfinance_data(ticker_symbol):
     """yfinance를 활용해 최근 가격과 전일 대비 등락률을 안전하게 구합니다."""
     try:
         ticker = yf.Ticker(ticker_symbol)
-        # 최근 5일치 데이터를 불러와 마지막 2일치로 등락률 계산
         df = ticker.history(period="5d")
         if df.empty or len(df) < 2:
             return {"price": 0.0, "change": 0.0, "status": "No Data"}
         
-        # 마지막 행(오늘 또는 최근 마감일)과 직전 행 비교
         last_row = df.iloc[-1]
         prev_row = df.iloc[-2]
         
@@ -76,7 +75,6 @@ def generate_morning_briefing(kr_data, us_market_info, us_news):
         genai.configure(api_key=GEMINI_API_KEY)
         model = genai.GenerativeModel('gemini-2.5-flash')
         
-        # 어제 한국장 데이터 보기 쉽게 포맷
         kr_str = f"날짜: {kr_data.get('date')}\n"
         kr_str += "--- 주도 테마 ---\n"
         for t in kr_data.get("top_sectors", []):
@@ -86,7 +84,6 @@ def generate_morning_briefing(kr_data, us_market_info, us_news):
             kr_str += f"- {a.get('name')}({a.get('code')}): {a.get('change_rate')} - {a.get('reason')}\n"
         kr_str += f"\n국내 마켓 요약: {kr_data.get('market_summary')}"
         
-        # 미국/선물 데이터 포맷
         us_str = json.dumps(us_market_info, ensure_ascii=False, indent=2)
         
         prompt = f"""당신은 국내외 주식 시장의 거시 경제 흐름과 데이트레이딩 기법에 정통한 투자 전문가입니다.
@@ -132,15 +129,68 @@ def generate_morning_briefing(kr_data, us_market_info, us_news):
             "watchlist": []
         }
 
+def get_last_business_day(ref_date):
+    """주말(토, 일)을 고려하여 기준일 직전 최근 영업일 날짜를 YYYY-MM-DD 형식으로 구합니다."""
+    # 오늘이 월요일(0)이면 직전 영업일은 금요일(오늘 - 3일)
+    # 오늘이 일요일(6)이면 직전 영업일은 금요일(오늘 - 2일)
+    # 오늘이 토요일(5)이면 직전 영업일은 금요일(오늘 - 1일)
+    # 그 외 평일은 어제(오늘 - 1일)
+    weekday = ref_date.weekday()
+    if weekday == 0:  # 월요일
+        return (ref_date - timedelta(days=3)).strftime("%Y-%m-%d")
+    elif weekday == 6:  # 일요일
+        return (ref_date - timedelta(days=2)).strftime("%Y-%m-%d")
+    elif weekday == 5:  # 토요일
+        return (ref_date - timedelta(days=1)).strftime("%Y-%m-%d")
+    else:  # 화~금요일
+        return (ref_date - timedelta(days=1)).strftime("%Y-%m-%d")
+
+def check_and_backfill_kr_data():
+    """어제 저녁 분석(KR) 데이터가 없거나 오래되었을 경우, 자동으로 저녁 분석 스크립트를 먼저 실행합니다."""
+    briefing_file = 'src/data/daily_briefing.json'
+    today = datetime.now()
+    expected_kr_date = get_last_business_day(today)
+    
+    need_backfill = False
+    
+    # 1. 파일 자체가 없는 경우
+    if not os.path.exists(briefing_file):
+        print("[Backfill] daily_briefing.json 파일이 존재하지 않아 백필을 가동합니다.")
+        need_backfill = True
+    else:
+        # 2. 파일은 있으나 kr_data의 날짜가 최근 영업일과 다른 경우 (어제 오후 9시 수집 누락)
+        try:
+            with open(briefing_file, 'r', encoding='utf-8') as f:
+                full_data = json.load(f)
+                kr_date = full_data.get("kr_data", {}).get("date", "")
+                if kr_date != expected_kr_date:
+                    print(f"[Backfill] 어제자 취합 날짜 불일치 포착 (예상: {expected_kr_date} / 실제: {kr_date}). 백필을 가동합니다.")
+                    need_backfill = True
+        except Exception as e:
+            print(f"[Backfill] 파일 읽기 에러로 백필을 안전하게 가동합니다: {e}")
+            need_backfill = True
+            
+    if need_backfill:
+        print("[Backfill] 9:00 PM 국내장/시간외 분석 스크립트(update_kr_briefing.py)를 자동 실행합니다...")
+        try:
+            # subprocess를 사용해 동기적으로 국내장 분석 스크립트 실행
+            result = subprocess.run(["py", "scripts/update_kr_briefing.py"], capture_output=True, text=True, check=True)
+            print("[Backfill] 실행 성공!")
+            print(result.stdout)
+        except Exception as e:
+            print(f"[Backfill] 백필 스크립트 실행 실패: {e}")
+
 def main():
     print("====================================")
     print(" [오전 8시] 글로벌 선물 및 미국장 시황 분석 파이프라인 가동 ")
     print("====================================")
     
+    # [백필 엔진 작동] 어제 저녁 수집 데이터를 검사하고 누락되었으면 먼저 갱신합니다.
+    check_and_backfill_kr_data()
+    
     # 1. 기존 저녁 국내 분석 자료 로드
     briefing_file = 'src/data/daily_briefing.json'
     if not os.path.exists(briefing_file):
-        print("어제 저녁 국내장 데이터(daily_briefing.json)가 발견되지 않았습니다. 기본 형태로 초기화 후 진행합니다.")
         kr_data = {
             "date": datetime.now().strftime("%Y-%m-%d"),
             "top_sectors": [],
@@ -155,13 +205,11 @@ def main():
     # 2. 글로벌 금융 지표 & 선물 데이터 수집
     print("yfinance로부터 글로벌 금융 시장 데이터 수집 중...")
     
-    # 미국 3대 지수 및 반도체
     sp500 = get_yfinance_data("^GSPC")
     nasdaq = get_yfinance_data("^NDX")
     dow = get_yfinance_data("^DJI")
     sox = get_yfinance_data("^SOX")
     
-    # 글로벌 6대 선물/자산
     nasdaq_fut = get_yfinance_data("NQ=F")
     gold = get_yfinance_data("GC=F")
     oil = get_yfinance_data("CL=F")
@@ -169,7 +217,6 @@ def main():
     usdjpy = get_yfinance_data("USDJPY=X")
     eurusd = get_yfinance_data("EURUSD=X")
     
-    # 한국 관련 매크로
     usdkrw = get_yfinance_data("USDKRW=X")
     ewy = get_yfinance_data("EWY")
     
@@ -203,8 +250,19 @@ def main():
     us_analysis = generate_morning_briefing(kr_data, us_market_info, us_news)
     
     # 5. daily_briefing.json에 통합 업데이트
+    # 파일이 백필되었을 수 있으므로 기존 파일에서 갱신 시간을 다시 가져옵니다.
+    last_kr_time = datetime.now().strftime("%Y-%m-%d 21:00:00")
+    if os.path.exists(briefing_file):
+        try:
+            with open(briefing_file, 'r', encoding='utf-8') as f:
+                temp_data = json.load(f)
+                last_kr_time = temp_data.get("last_updated_kr", last_kr_time)
+                kr_data = temp_data.get("kr_data", kr_data)  # 최신 백필된 kr_data로 동기화
+        except:
+            pass
+
     full_briefing = {
-        "last_updated_kr": full_data.get("last_updated_kr", "") if os.path.exists(briefing_file) else datetime.now().strftime("%Y-%m-%d 21:00:00"),
+        "last_updated_kr": last_kr_time,
         "last_updated_us": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "kr_data": kr_data,
         "us_data": {
