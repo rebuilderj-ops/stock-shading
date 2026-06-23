@@ -184,7 +184,7 @@ def get_naver_board_titles(code):
     try:
         req = urllib.request.Request(url, headers=headers)
         html = urllib.request.urlopen(req, timeout=5).read()
-        html_str = html.decode('euc-kr', errors='replace')
+        html_str = html.decode('utf-8', errors='replace')
         
         soup = BeautifulSoup(html_str, 'html.parser')
         table = soup.find('table', class_='type2')
@@ -256,7 +256,7 @@ def analyze_stocks_batch(stocks, naver_themes):
     try:
         genai.configure(api_key=GEMINI_API_KEY)
         # 무료 티어 한도가 넉넉한 최신 gemini-2.5-flash 모델로 변경합니다.
-        model = genai.GenerativeModel('gemini-2.5-flash')
+        model = genai.GenerativeModel('gemini-flash-lite-latest')
         
         prompt = f"""당신은 한국 주식을 다루는 최고 수준의 트레이더입니다.
 아래는 오늘 필터링된 급등주 목록입니다. (종목코드, 종목명, 상승률, 거래대금, 오늘자 뉴스헤드라인)
@@ -271,6 +271,7 @@ def analyze_stocks_batch(stocks, naver_themes):
         prompt += f"""
 위 종목들의 뉴스 헤드라인과 네이버 토론실 실시간 여론을 꼼꼼하게 대조하여, 각 종목마다 '오늘(2026년) 어떤 구체적인 재료/이슈/모멘텀'으로 급등했는지 정확한 실시간 사유를 파악하세요.
 반드시 제공된 최신 3일치 뉴스 및 실시간 토론글을 기준으로 삼으세요. 수년 전의 낡은 뉴스나 과거 테마(예: 2018년 남북러 가스관 사업)가 오늘자 급등 사유로 둔갑하지 않도록 각별히 필터링해야 합니다.
+특히 구글 뉴스 헤드라인에 오래된 과거 테마가 잡히거나 날짜 왜곡이 있더라도, 네이버 토론방 의견에서 실시간 새로운 호재(예: 부국철강의 전남 반도체 공장 유치 및 장성 부지 보유 이슈 등)가 일관되게 언급된다면 과거 뉴스의 낡은 테마를 배제하고 토론방의 실시간 호재 정보를 우선하여 요약 사유와 테마 키워드를 작성하세요.
 
 분석 사유 맨 앞에 종목의 급등 사유를 한 문장으로 요약하되, [스페이스X], [마켓컬리], [탈모 급여화] 와 같은 구체적인 오늘자 핵심 재료나 개별 키워드를 [말머리]로 달아주세요.
 결과 사유는 정확히 1문장(최고 50자 내외)으로 핵심만 간결하게 작성하세요.

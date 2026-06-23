@@ -1,5 +1,6 @@
 import os
 import json
+import time
 import urllib.request
 import urllib.parse
 import xml.etree.ElementTree as ET
@@ -57,16 +58,16 @@ def analyze_kr_market(today_stocks, after_market_news):
             "market_summary": "Gemini API 키 미설정으로 요약이 누락되었습니다."
         }
 
-    try:
-        genai.configure(api_key=GEMINI_API_KEY)
-        model = genai.GenerativeModel('gemini-2.5-flash')
+    genai.configure(api_key=GEMINI_API_KEY)
+    # 한도 회피를 위해 안정적인 gemini-flash-lite-latest 모델을 사용합니다.
+    model = genai.GenerativeModel('gemini-flash-lite-latest')
+    
+    # 1차 가공 데이터 문자열화
+    stocks_str = ""
+    for s in today_stocks:
+        stocks_str += f"- {s.get('name')}({s.get('code')}): 등락률 {s.get('change_rate')}%, 거래대금 {s.get('volume_krw')}억, 테마: {s.get('keywordName')}, 사유: {s.get('reason')}\n"
         
-        # 1차 가공 데이터 문자열화
-        stocks_str = ""
-        for s in today_stocks:
-            stocks_str += f"- {s.get('name')}({s.get('code')}): 등락률 {s.get('change_rate')}%, 거래대금 {s.get('volume_krw')}억, 테마: {s.get('keywordName')}, 사유: {s.get('reason')}\n"
-            
-        prompt = f"""당신은 한국 주식 데이트레이딩 분야의 인공지능 수석 분석가입니다.
+    prompt = f"""당신은 한국 주식 데이트레이딩 분야의 인공지능 수석 분석가입니다.
 오늘 장 마감 후 취합된 국내 정규장 주도주 정보와 시간외/공시 뉴스 목록을 바탕으로 핵심 투자 리포트를 작성해야 합니다.
 
 [오늘 정규장 급등 주도주 목록]
@@ -101,16 +102,25 @@ def analyze_kr_market(today_stocks, after_market_news):
   "market_summary": "오늘 전체 한국 시장 흐름과 데이트레이더가 내일 아침 집중해야 할 공략 포인트 요약 리포트 (공백 제외 150자 내외로 상세하게)"
 }}
 """
-        response = model.generate_content(prompt)
-        clean_json = response.text.strip().removeprefix("```json").removesuffix("```").strip()
-        return json.loads(clean_json)
-    except Exception as e:
-        print(f"Gemini 분석 중 에러 발생: {e}")
-        return {
-            "top_sectors": [{"sector": "분석 실패", "reason": "AI 분석 도중 예외가 발생했습니다."}],
-            "after_market_stocks": [],
-            "market_summary": "데이터 처리에 오류가 발생했습니다. 로그를 확인해 주세요."
-        }
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            response = model.generate_content(prompt)
+            clean_json = response.text.strip().removeprefix("```json").removesuffix("```").strip()
+            return json.loads(clean_json)
+        except Exception as e:
+            print(f"Gemini 분석 중 에러 발생 (시도 {attempt+1}/{max_retries}): {e}")
+            if attempt < max_retries - 1:
+                print("5초 후 재시도합니다...")
+                time.sleep(5)
+            else:
+                import traceback
+                traceback.print_exc()
+                return {
+                    "top_sectors": [{"sector": "분석 실패", "reason": "AI 분석 도중 예외가 발생했습니다."}],
+                    "after_market_stocks": [],
+                    "market_summary": "데이터 처리에 오류가 발생했습니다. 로그를 확인해 주세요."
+                }
 
 def main():
     print("====================================")
