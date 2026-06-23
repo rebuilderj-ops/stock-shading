@@ -13,7 +13,7 @@ echo Running python script (Morning US & Macro Briefing Analysis)...
 py scripts\update_us_macro.py
 
 echo Pushing briefing report to Vercel via GitHub...
-git add src/data/daily_briefing.json
+git add public/data/daily_briefing.json
 git commit -m "☀️ [Local Bot] Morning Global Briefing Updated (Daily Task)"
 git push origin main
 

@@ -135,7 +135,7 @@ def main():
     analysis_result = analyze_kr_market(today_stocks, combined_news)
     
     # 4. 독립적인 daily_briefing.json 파일 관리
-    briefing_file = 'src/data/daily_briefing.json'
+    briefing_file = 'public/data/daily_briefing.json'
     briefing_data = {
         "last_updated_kr": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "last_updated_us": "",

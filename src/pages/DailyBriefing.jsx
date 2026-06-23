@@ -11,22 +11,13 @@ const DailyBriefing = () => {
   useEffect(() => {
     const fetchBriefing = async () => {
       try {
-        // public/data 또는 src/data 경로에서 dynamic import나 fetch 수행
-        // Vite 빌드 환경에서는 src/data/daily_briefing.json을 직접 fetch하거나 dynamic import로 가져옵니다.
-        // 여기서는 캐시 방지 파라미터를 추가하여 fetch로 가져오는 것이 확실합니다.
-        const response = await fetch('/src/data/daily_briefing.json?t=' + Date.now());
+        // public/data 디렉토리에 빌드된 정적 JSON 파일을 캐시 우회 파라미터와 함께 읽어옵니다.
+        const response = await fetch('/data/daily_briefing.json?t=' + Date.now());
         if (response.ok) {
           const json = await response.json();
           setData(json);
         } else {
-          // Fallback: public 디렉토리나 상대경로 체크
-          const fallbackResponse = await fetch('/data/daily_briefing.json?t=' + Date.now());
-          if (fallbackResponse.ok) {
-            const json = await fallbackResponse.json();
-            setData(json);
-          } else {
-            setError(true);
-          }
+          setError(true);
         }
       } catch (err) {
         console.error("브리핑 데이터 로드 실패:", err);

@@ -147,7 +147,7 @@ def get_last_business_day(ref_date):
 
 def check_and_backfill_kr_data():
     """어제 저녁 분석(KR) 데이터가 없거나 오래되었을 경우, 자동으로 저녁 분석 스크립트를 먼저 실행합니다."""
-    briefing_file = 'src/data/daily_briefing.json'
+    briefing_file = 'public/data/daily_briefing.json'
     today = datetime.now()
     expected_kr_date = get_last_business_day(today)
     
@@ -189,7 +189,7 @@ def main():
     check_and_backfill_kr_data()
     
     # 1. 기존 저녁 국내 분석 자료 로드
-    briefing_file = 'src/data/daily_briefing.json'
+    briefing_file = 'public/data/daily_briefing.json'
     if not os.path.exists(briefing_file):
         kr_data = {
             "date": datetime.now().strftime("%Y-%m-%d"),
