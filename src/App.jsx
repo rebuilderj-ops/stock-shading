@@ -5,6 +5,7 @@ import LandingPage from './pages/LandingPage';
 import ShadowingDashboard from './pages/ShadowingDashboard';
 import KeywordEncyclopedia from './pages/KeywordEncyclopedia';
 import KeywordCalendar from './pages/KeywordCalendar';
+import DailyBriefing from './pages/DailyBriefing';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<LandingPage />} />
+          <Route path="daily-briefing" element={<DailyBriefing />} />
           <Route path="shadowing" element={<ShadowingDashboard />} />
           <Route path="encyclopedia" element={<KeywordEncyclopedia />} />
           <Route path="calendar" element={<KeywordCalendar />} />

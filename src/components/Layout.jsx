@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { LayoutDashboard, BookOpen, CalendarDays, Settings, Activity, Menu, X, Sun, Moon, Minus, Plus } from 'lucide-react';
+import { LayoutDashboard, BookOpen, CalendarDays, Settings, Activity, Menu, X, Sun, Moon, Minus, Plus, Globe } from 'lucide-react';
 
 const Layout = () => {
   // 모바일 사이드바 열림/닫힘 상태
@@ -34,7 +34,8 @@ const Layout = () => {
   }, [scale]);
 
   const navItems = [
-    { path: '/', name: '모닝 브리핑 홈', icon: <LayoutDashboard size={20} /> },
+    { path: '/', name: '홈 (대시보드)', icon: <LayoutDashboard size={20} /> },
+    { path: '/daily-briefing', name: '데일리 마켓 브리핑', icon: <Globe size={20} /> },
     { path: '/shadowing', name: '일일 주도주 분석', icon: <Activity size={20} /> },
     { path: '/encyclopedia', name: '테마별 종목 추이', icon: <BookOpen size={20} /> },
     { path: '/calendar', name: '테마 캘린더', icon: <CalendarDays size={20} /> },
