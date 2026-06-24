@@ -1,6 +1,6 @@
 {
   "last_updated_kr": "2026-06-23 23:34:25",
-  "last_updated_us": "2026-06-24 09:01:08",
+  "last_updated_us": "2026-06-24 09:14:55",
   "kr_data": {
     "date": "2026-06-23",
     "top_sectors": [
@@ -37,9 +37,9 @@
         "change": -1.44,
         "status": "Success"
       },
-      "Nasdaq100": {
-        "price": 29347.27,
-        "change": -3.29,
+      "Nasdaq": {
+        "price": 25587.04,
+        "change": -2.21,
         "status": "Success"
       },
       "Dow30": {
@@ -55,28 +55,28 @@
     },
     "futures": {
       "Nasdaq_100_Futures": {
-        "price": 29736.25,
-        "change": -2.99,
+        "price": 29750.25,
+        "change": -2.95,
         "status": "Success"
       },
       "Gold_Futures": {
-        "price": 4112.6,
-        "change": -1.66,
+        "price": 4120.3,
+        "change": -1.47,
         "status": "Success"
       },
       "Crude_Oil_Futures": {
-        "price": 72.73,
-        "change": -2.79,
+        "price": 72.82,
+        "change": -2.67,
         "status": "Success"
       },
       "Bitcoin_USD": {
-        "price": 62671.87,
-        "change": -2.0,
+        "price": 62752.2,
+        "change": -1.88,
         "status": "Success"
       },
       "USD_JPY": {
         "price": 161.58,
-        "change": 0.01,
+        "change": 0.0,
         "status": "Success"
       },
       "EUR_USD": {
@@ -87,8 +87,8 @@
     },
     "macro": {
       "USD_KRW": {
-        "price": 1534.28,
-        "change": -0.31,
+        "price": 1534.58,
+        "change": -0.29,
         "status": "Success"
       },
       "MSCI_South_Korea_ETF(EWY)": {
@@ -97,8 +97,71 @@
         "status": "Success"
       }
     },
-    "us_market_summary": "글로벌 금융 시장 요약 로딩에 실패했습니다.",
-    "today_strategy": "장 시작 전 뉴스 및 수급 흐름을 직접 체크하시기 바랍니다.",
-    "watchlist": []
+    "large_caps": {
+      "Apple (AAPL)": {
+        "price": 294.3,
+        "change": -0.91,
+        "status": "Success"
+      },
+      "Microsoft (MSFT)": {
+        "price": 373.94,
+        "change": 1.8,
+        "status": "Success"
+      },
+      "NVIDIA (NVDA)": {
+        "price": 200.04,
+        "change": -4.13,
+        "status": "Success"
+      },
+      "Alphabet (GOOGL)": {
+        "price": 346.13,
+        "change": -1.02,
+        "status": "Success"
+      },
+      "Amazon (AMZN)": {
+        "price": 234.11,
+        "change": 0.57,
+        "status": "Success"
+      },
+      "Meta (META)": {
+        "price": 562.2,
+        "change": -0.29,
+        "status": "Success"
+      },
+      "Berkshire (BRK-B)": {
+        "price": 492.81,
+        "change": 0.84,
+        "status": "Success"
+      },
+      "Eli Lilly (LLY)": {
+        "price": 1107.08,
+        "change": 0.45,
+        "status": "Success"
+      },
+      "Broadcom (AVGO)": {
+        "price": 380.15,
+        "change": -3.06,
+        "status": "Success"
+      },
+      "Tesla (TSLA)": {
+        "price": 381.61,
+        "change": -5.79,
+        "status": "Success"
+      }
+    },
+    "us_market_summary": "마이크론 폭락으로 필라델피아 반도체 지수(-7.87%)가 급락하며 기술주 중심의 나스닥(-2.21%)이 크게 조정을 받았습니다. AI 랠리에 제동이 걸리며 주요 반도체주가 약세를 보였고, 달러 강세와 더불어 원유(-2.67%), 비트코인 등 위험자산 전반에 투자심리가 위축되었습니다.",
+    "today_strategy": "미국발 반도체 쇼크로 인한 시초가 갭하락 출발이 불가피합니다. AI 서버 관련주라 하더라도 기술적 반등보다는 낙폭 과대주나 지수 하락 방어주인 소프트웨어·보안 섹터로의 수급 쏠림을 확인해야 합니다. 무리한 추격 매수보다는 9시 30분 이후 수급이 안정화되는 구간에서 기술적 반등을 노리는 단기 전략이 유효합니다.",
+    "watchlist": [
+      {
+        "name": "IBM(미국 연동 보안주)",
+        "code": "000000",
+        "reason": "오픈AI 보안 서비스 협력이라는 강력한 개별 재료를 보유해 반도체 급락장에서도 상대적 강세가 예상됩니다."
+      },
+      {
+        "name": "HPE(AI서버 테마)",
+        "code": "000000",
+        "reason": "미국 시간외 30% 폭등의 강력한 모멘텀으로, 반도체 섹터의 투매 속에서도 수급 방어력이 가장 높을 것으로 판단됩니다."
+      }
+    ]
   }
 }

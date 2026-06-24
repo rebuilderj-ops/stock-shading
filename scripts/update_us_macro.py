@@ -1,5 +1,6 @@
 import os
 import json
+import time
 import urllib.request
 import urllib.parse
 import xml.etree.ElementTree as ET
@@ -61,6 +62,32 @@ def get_google_news_rss(query_str, limit=5):
         print(f"뉴스 수집 실패 ({query_str}): {e}")
     return " / ".join(titles)
 
+def is_risky_stock(name, code, reason):
+    """상장폐지 우려 종목이거나 1,000원 미만의 동전주인지 검사합니다."""
+    # 1. 관리종목, 정리매매, 상장폐지 등 리스크 키워드 검사
+    risky_keywords = ["관리", "정리매매", "상장폐지", "환기", "락인", "상폐", "상장 폐지"]
+    for kw in risky_keywords:
+        if kw in name or kw in reason:
+            print(f"[Filter] 리스크 키워드 포착으로 제외: {name}({code}) - 사유: {reason}")
+            return True
+            
+    # 2. 동전주 검사 (주가가 1000원 미만인 경우)
+    try:
+        history_file = 'src/data/shadowing_real_history.json'
+        if os.path.exists(history_file):
+            with open(history_file, 'r', encoding='utf-8') as f:
+                history_data = json.load(f)
+                matching_records = [r for r in history_data if r.get('code') == code]
+                if matching_records:
+                    latest_record = matching_records[-1]
+                    close_price = latest_record.get('close_price', 0)
+                    if close_price > 0 and close_price < 1000:
+                        print(f"[Filter] 동전주(1000원 미만) 제외: {name}({code}) 종가 {close_price}원")
+                        return True
+    except Exception as e:
+        print(f"동전주 필터링 검사 중 오류: {e}")
+    return False
+
 def generate_morning_briefing(kr_data, us_market_info, us_news):
     """Gemini API를 사용하여 어제 국내장 정보와 오늘 아침 미국/선물 지표를 종합 분석합니다."""
     if not GEMINI_API_KEY:
@@ -73,15 +100,23 @@ def generate_morning_briefing(kr_data, us_market_info, us_news):
         
     try:
         genai.configure(api_key=GEMINI_API_KEY)
-        model = genai.GenerativeModel('gemini-2.5-flash')
+        # 쿼터 안전성을 위해 gemini-flash-lite-latest 모델을 사용합니다.
+        model = genai.GenerativeModel('gemini-flash-lite-latest')
         
         kr_str = f"날짜: {kr_data.get('date')}\n"
         kr_str += "--- 주도 테마 ---\n"
         for t in kr_data.get("top_sectors", []):
             kr_str += f"- {t.get('sector')}: {t.get('reason')}\n"
-        kr_str += "\n--- 시간외/공시 포착 종목 ---\n"
+            
+        kr_str += "\n--- 시간외/공시 포착 종목 (고위험 동전주/상폐이슈주 사전 제외됨) ---\n"
         for a in kr_data.get("after_market_stocks", []):
-            kr_str += f"- {a.get('name')}({a.get('code')}): {a.get('change_rate')} - {a.get('reason')}\n"
+            code = a.get('code', '')
+            name = a.get('name', '')
+            reason = a.get('reason', '')
+            # [필터링 적용] 동전주나 상폐 이슈 종목은 분석 대상에서부터 제외합니다.
+            if not is_risky_stock(name, code, reason):
+                kr_str += f"- {name}({code}): {a.get('change_rate')} - {reason}\n"
+            
         kr_str += f"\n국내 마켓 요약: {kr_data.get('market_summary')}"
         
         us_str = json.dumps(us_market_info, ensure_ascii=False, indent=2)
@@ -99,6 +134,8 @@ def generate_morning_briefing(kr_data, us_market_info, us_news):
 {us_news}
 
 위 글로벌 매크로와 선물 지표, 그리고 전날 국내장 및 시간외 상승 종목의 흐름을 토대로 분석을 수행하고 반드시 아래 JSON 형식으로만 응답해 주세요. (JSON 이외의 텍스트나 마크다운 기호 금지)
+
+* 중요 지침: 최종 오늘의 데이트레이딩 관심종목(watchlist)을 선정할 때, 주가 1000원 미만의 초저가 동전주나 상장폐지, 정리매매, 관리종목 등 고위험 요인이 있는 종목은 절대 포함하지 마십시오. 오로지 재료와 수급이 튼튼하고 안전성이 담보된 주도주 위주로만 추천 목록을 구성해야 합니다.
 
 [출력 JSON 형식]
 {{
@@ -118,11 +155,23 @@ def generate_morning_briefing(kr_data, us_market_info, us_news):
   ]
 }}
 """
-        response = model.generate_content(prompt)
-        clean_json = response.text.strip().removeprefix("```json").removesuffix("```").strip()
-        return json.loads(clean_json)
+        max_retries = 3
+        for attempt in range(max_retries):
+            try:
+                response = model.generate_content(prompt)
+                clean_json = response.text.strip().removeprefix("```json").removesuffix("```").strip()
+                return json.loads(clean_json)
+            except Exception as e:
+                print(f"Gemini 아침 브리핑 분석 중 에러 (시도 {attempt+1}/{max_retries}): {e}")
+                if attempt < max_retries - 1:
+                    print("5초 후 재시도합니다...")
+                    time.sleep(5)
+                else:
+                    raise e
     except Exception as e:
-        print(f"Gemini 아침 브리핑 분석 중 에러: {e}")
+        import traceback
+        traceback.print_exc()
+        print(f"Gemini 아침 브리핑 최종 실패: {e}")
         return {
             "us_market_summary": "글로벌 금융 시장 요약 로딩에 실패했습니다.",
             "today_strategy": "장 시작 전 뉴스 및 수급 흐름을 직접 체크하시기 바랍니다.",
@@ -206,7 +255,8 @@ def main():
     print("yfinance로부터 글로벌 금융 시장 데이터 수집 중...")
     
     sp500 = get_yfinance_data("^GSPC")
-    nasdaq = get_yfinance_data("^NDX")
+    # [수정됨] Nasdaq100(^NDX) 대신 Nasdaq 종합지수(^IXIC)를 수집합니다.
+    nasdaq = get_yfinance_data("^IXIC")
     dow = get_yfinance_data("^DJI")
     sox = get_yfinance_data("^SOX")
     
@@ -220,10 +270,29 @@ def main():
     usdkrw = get_yfinance_data("USDKRW=X")
     ewy = get_yfinance_data("EWY")
     
+    # [추가됨] 미국 시가총액 상위 10대 대형주 정보 수집
+    print("미국 시총 상위 10대 대형주 종가 수집 중...")
+    LARGE_CAPS = {
+        "Apple (AAPL)": "AAPL",
+        "Microsoft (MSFT)": "MSFT",
+        "NVIDIA (NVDA)": "NVDA",
+        "Alphabet (GOOGL)": "GOOGL",
+        "Amazon (AMZN)": "AMZN",
+        "Meta (META)": "META",
+        "Berkshire (BRK-B)": "BRK-B",
+        "Eli Lilly (LLY)": "LLY",
+        "Broadcom (AVGO)": "AVGO",
+        "Tesla (TSLA)": "TSLA"
+    }
+    large_caps_data = {}
+    for name, ticker in LARGE_CAPS.items():
+        large_caps_data[name] = get_yfinance_data(ticker)
+        time.sleep(0.1) # 과도한 API 호출 방지
+    
     us_market_info = {
         "indices": {
             "S&P500": sp500,
-            "Nasdaq100": nasdaq,
+            "Nasdaq": nasdaq,
             "Dow30": dow,
             "Semiconductor(SOX)": sox
         },
@@ -238,7 +307,8 @@ def main():
         "macro": {
             "USD_KRW": usdkrw,
             "MSCI_South_Korea_ETF(EWY)": ewy
-        }
+        },
+        "large_caps": large_caps_data
     }
     
     # 3. 미국 시황 관련 아침 뉴스 취합
@@ -270,6 +340,7 @@ def main():
             "indices": us_market_info["indices"],
             "futures": us_market_info["futures"],
             "macro": us_market_info["macro"],
+            "large_caps": us_market_info["large_caps"],
             "us_market_summary": us_analysis.get("us_market_summary", ""),
             "today_strategy": us_analysis.get("today_strategy", ""),
             "watchlist": us_analysis.get("watchlist", [])

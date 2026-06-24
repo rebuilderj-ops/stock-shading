@@ -202,6 +202,24 @@ const DailyBriefing = () => {
 
           </div>
 
+          {/* 미국 대형주 시총 상위 10선 현황 */}
+          {us_data.large_caps && Object.keys(us_data.large_caps).length > 0 && (
+            <div className="glass-panel border border-slate-800/80 rounded-2xl p-5 space-y-4">
+              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b border-slate-800 pb-2">미국 시총 상위 10대 대형주 현황</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-3.5">
+                {Object.entries(us_data.large_caps).map(([name, item]) => (
+                  <div key={name} className="bg-slate-900/40 p-3 rounded-xl border border-slate-800/40 flex flex-col gap-1">
+                    <span className="text-xs font-bold text-slate-300 truncate">{name}</span>
+                    <div className="flex justify-between items-center mt-1">
+                      <span className="font-mono text-sm font-semibold text-slate-200">${item.price?.toLocaleString()}</span>
+                      {getChangeBadge(item.change)}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* AI 미국 마감 분석 및 아침 매매 시나리오 */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
