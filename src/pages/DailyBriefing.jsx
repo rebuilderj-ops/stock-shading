@@ -249,46 +249,6 @@ const DailyBriefing = () => {
 
           </div>
 
-          {/* 데이트레이딩 관심 종목 Watchlist */}
-          <div className="glass-panel border border-slate-800/80 rounded-2xl p-6 space-y-4">
-            <h3 className="text-sm font-bold text-slate-100 flex items-center gap-2">
-              <Award size={18} className="text-yellow-400" />
-              오늘의 데이트레이딩 핵심 관심종목 (Watchlist)
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {us_data.watchlist && us_data.watchlist.length > 0 ? (
-                us_data.watchlist.map((item, idx) => (
-                  <div key={idx} className="bg-slate-900/60 hover:bg-slate-900/80 border border-slate-800 rounded-xl p-4.5 transition-all flex flex-col gap-2">
-                    <div className="flex justify-between items-center">
-                      <div className="flex items-center gap-2">
-                        <span className="w-5 h-5 bg-blue-600/10 text-blue-400 border border-blue-500/20 text-xs font-bold rounded flex items-center justify-center">
-                          {idx + 1}
-                        </span>
-                        <h4 className="font-bold text-slate-200 text-base">{item.name}</h4>
-                      </div>
-                      
-                      {/* 종목코드 복사 단추 */}
-                      {item.code && (
-                        <button
-                          onClick={() => handleCopyCode(item.code)}
-                          className="flex items-center gap-1 px-2 py-1 rounded bg-slate-800/80 hover:bg-slate-800 text-[10px] font-mono text-slate-400 hover:text-slate-200 transition-colors"
-                        >
-                          {item.code}
-                          {copiedCode === item.code ? <Check size={11} className="text-emerald-400" /> : <Copy size={11} />}
-                        </button>
-                      )}
-                    </div>
-                    <p className="text-xs text-slate-400 leading-relaxed font-medium bg-slate-950/40 p-2.5 rounded-lg border border-slate-800/40">
-                      {item.reason}
-                    </p>
-                  </div>
-                ))
-              ) : (
-                <p className="text-slate-500 text-xs col-span-2">생성된 관심종목 리스트가 없습니다.</p>
-              )}
-            </div>
-          </div>
-
         </section>
       ) : (
         // 아침 미국장 업데이트 이전 상태 안내

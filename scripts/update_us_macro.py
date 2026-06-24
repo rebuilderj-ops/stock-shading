@@ -88,41 +88,24 @@ def is_risky_stock(name, code, reason):
         print(f"동전주 필터링 검사 중 오류: {e}")
     return False
 
-def generate_morning_briefing(kr_data, us_market_info, us_news):
-    """Gemini API를 사용하여 어제 국내장 정보와 오늘 아침 미국/선물 지표를 종합 분석합니다."""
-    if not GEMINI_API_KEY:
-        print("Gemini API 키가 없습니다.")
-        return {
-            "us_market_summary": "Gemini API 키 미설정으로 아침 브리핑 요약이 누락되었습니다.",
-            "today_strategy": "API 키를 확인해 주세요.",
-            "watchlist": []
-        }
-        
-    try:
-        genai.configure(api_key=GEMINI_API_KEY)
-        # 쿼터 안전성을 위해 gemini-flash-lite-latest 모델을 사용합니다.
-        model = genai.GenerativeModel('gemini-flash-lite-latest')
-        
-        kr_str = f"날짜: {kr_data.get('date')}\n"
-        kr_str += "--- 주도 테마 ---\n"
-        for t in kr_data.get("top_sectors", []):
-            kr_str += f"- {t.get('sector')}: {t.get('reason')}\n"
+def generate_bull_perspective(kr_data, us_market_info, us_news, model):
+    """황소(Bull) 에이전트: 시장의 긍정적인 면과 상승 모멘텀을 극대화하여 낙관적인 시나리오를 구상합니다."""
+    kr_str = f"날짜: {kr_data.get('date')}\n"
+    kr_str += "--- 주도 테마 ---\n"
+    for t in kr_data.get("top_sectors", []):
+        kr_str += f"- {t.get('sector')}: {t.get('reason')}\n"
+    kr_str += "\n--- 시간외/공시 포착 종목 (고위험주 제외됨) ---\n"
+    for a in kr_data.get("after_market_stocks", []):
+        code = a.get('code', '')
+        name = a.get('name', '')
+        reason = a.get('reason', '')
+        if not is_risky_stock(name, code, reason):
+            kr_str += f"- {name}({code}): {a.get('change_rate')} - {reason}\n"
             
-        kr_str += "\n--- 시간외/공시 포착 종목 (고위험 동전주/상폐이슈주 사전 제외됨) ---\n"
-        for a in kr_data.get("after_market_stocks", []):
-            code = a.get('code', '')
-            name = a.get('name', '')
-            reason = a.get('reason', '')
-            # [필터링 적용] 동전주나 상폐 이슈 종목은 분석 대상에서부터 제외합니다.
-            if not is_risky_stock(name, code, reason):
-                kr_str += f"- {name}({code}): {a.get('change_rate')} - {reason}\n"
-            
-        kr_str += f"\n국내 마켓 요약: {kr_data.get('market_summary')}"
-        
-        us_str = json.dumps(us_market_info, ensure_ascii=False, indent=2)
-        
-        prompt = f"""당신은 국내외 주식 시장의 거시 경제 흐름과 데이트레이딩 기법에 정통한 투자 전문가입니다.
-어제 저녁 분석한 한국 시장 정보와 오늘 아침 마감된 미국장 지표, 글로벌 핵심 선물 지표들을 융합하여 오늘 개장(오전 9시) 직전 데이트레이더를 위한 최종 브리핑 리포트를 작성해 주세요.
+    us_str = json.dumps(us_market_info, ensure_ascii=False, indent=2)
+    
+    prompt = f"""당신은 시장의 긍정적인 면(성장 동력, 유동성, 재료, 호재 공시 등)을 적극적으로 발굴하는 황소(Bull) 관점의 수석 투자전략가입니다.
+아래 데이터를 보고 오늘 한국 증시 개장 시 시초가 상승 요인과 개장 직후 강하게 상승 랠리를 보여줄 주도 테마/종목의 시나리오를 최대한 긍정적이고 설득력 있게 작성하세요.
 
 [어제자 한국 증시 요약 데이터]
 {kr_str}
@@ -133,14 +116,136 @@ def generate_morning_briefing(kr_data, us_market_info, us_news):
 [오늘 아침 미국 증시 뉴스 헤드라인]
 {us_news}
 
-위 글로벌 매크로와 선물 지표, 그리고 전날 국내장 및 시간외 상승 종목의 흐름을 토대로 분석을 수행하고 반드시 아래 JSON 형식으로만 응답해 주세요. (JSON 이외의 텍스트나 마크다운 기호 금지)
+작성 규칙:
+- 부정적인 리스크 요소는 모두 최소화하고, 왜 오늘 매수세가 붙을 수 있는지 긍정적인 상승 전술 위주로 한글 150자 내외로 상세히 논술하세요.
+- 마크다운 기호 없이 순수 텍스트로만 설명하세요.
+"""
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            response = model.generate_content(prompt)
+            return response.text.strip()
+        except Exception as e:
+            print(f"[Bull Agent] 에러 발생 (시도 {attempt+1}/{max_retries}): {e}")
+            if attempt < max_retries - 1:
+                time.sleep(5)
+            else:
+                return "황소 에이전트 분석 불가 (한도 초과)"
 
-* 중요 지침: 최종 오늘의 데이트레이딩 관심종목(watchlist)을 선정할 때, 주가 1000원 미만의 초저가 동전주나 상장폐지, 정리매매, 관리종목 등 고위험 요인이 있는 종목은 절대 포함하지 마십시오. 오로지 재료와 수급이 튼튼하고 안전성이 담보된 주도주 위주로만 추천 목록을 구성해야 합니다.
+def generate_bear_perspective(kr_data, us_market_info, us_news, model):
+    """곰(Bear) 에이전트: 시장의 하방 압력, 고평가 부담, 매크로 리스크를 극대화하여 보수적인 시나리오를 구상합니다."""
+    kr_str = f"날짜: {kr_data.get('date')}\n"
+    kr_str += "--- 주도 테마 ---\n"
+    for t in kr_data.get("top_sectors", []):
+        kr_str += f"- {t.get('sector')}: {t.get('reason')}\n"
+    kr_str += "\n--- 시간외/공시 포착 종목 (고위험주 제외됨) ---\n"
+    for a in kr_data.get("after_market_stocks", []):
+        code = a.get('code', '')
+        name = a.get('name', '')
+        reason = a.get('reason', '')
+        if not is_risky_stock(name, code, reason):
+            kr_str += f"- {name}({code}): {a.get('change_rate')} - {reason}\n"
+            
+    us_str = json.dumps(us_market_info, ensure_ascii=False, indent=2)
+    
+    prompt = f"""당신은 시장의 리스크(고평가 부담, 긴축, 금리 인상 우려, 환율 급등, 차익 실현 투매 등)를 경고하는 곰(Bear) 관점의 보수적인 위험관리 전문가입니다.
+아래 데이터를 보고 오늘 한국 증시 개장 시 시초가 하락/급락 위험 및 장중 투매가 출현할 수 있는 리스크 요인과 보수적인 대기 전술 시나리오를 최대한 경계심을 담아 작성하세요.
+
+[어제자 한국 증시 요약 데이터]
+{kr_str}
+
+[오늘 아침 글로벌 금융 지표 데이터]
+{us_str}
+
+[오늘 아침 미국 증시 뉴스 헤드라인]
+{us_news}
+
+작성 규칙:
+- 낙관적인 상승 요소는 배제하고, 데이트레이더가 오늘 개장 직후 겪을 수 있는 위험 요소와 보수적인 현금 확보/대응 가이드 위주로 한글 150자 내외로 상세히 논술하세요.
+- 마크다운 기호 없이 순수 텍스트로만 설명하세요.
+"""
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            response = model.generate_content(prompt)
+            return response.text.strip()
+        except Exception as e:
+            print(f"[Bear Agent] 에러 발생 (시도 {attempt+1}/{max_retries}): {e}")
+            if attempt < max_retries - 1:
+                time.sleep(5)
+            else:
+                return "곰 에이전트 분석 불가 (한도 초과)"
+
+def generate_morning_briefing(kr_data, us_market_info, us_news):
+    """수석 모더레이터(Moderator) 에이전트: 황소와 곰의 의견 대립을 중재 및 조율하여 최종 데이트레이딩 시나리오와 Watchlist를 JSON으로 도출합니다."""
+    if not GEMINI_API_KEY:
+        print("Gemini API 키가 없습니다.")
+        return {
+            "us_market_summary": "Gemini API 키 미설정으로 아침 브리핑 요약이 누락되었습니다.",
+            "today_strategy": "API 키를 확인해 주세요.",
+            "watchlist": []
+        }
+        
+    try:
+        genai.configure(api_key=GEMINI_API_KEY)
+        model = genai.GenerativeModel('gemini-flash-lite-latest')
+        
+        # 1. 황소 에이전트 관점 도출
+        print("[AI 토론] 황소 에이전트가 시장 상승 모멘텀을 분석 중...")
+        bull_opinion = generate_bull_perspective(kr_data, us_market_info, us_news, model)
+        print(f">> 황소 의견 수집 완료: {bull_opinion[:60]}...")
+        time.sleep(2)  # 단기간 API 과부하 분산 딜레이
+        
+        # 2. 곰 에이전트 관점 도출
+        print("[AI 토론] 곰 에이전트가 시장 하방 리스크를 분석 중...")
+        bear_opinion = generate_bear_perspective(kr_data, us_market_info, us_news, model)
+        print(f">> 곰 의견 수집 완료: {bear_opinion[:60]}...")
+        time.sleep(2)  # 단기간 API 과부하 분산 딜레이
+        
+        # 3. 수석 조정자(Moderator) 분석 및 최종 리포트 합산
+        print("[AI 토론] 수석 조정자 에이전트가 토론 요약 및 최종 매매 시나리오를 구성 중...")
+        
+        kr_str = f"날짜: {kr_data.get('date')}\n"
+        kr_str += "--- 주도 테마 ---\n"
+        for t in kr_data.get("top_sectors", []):
+            kr_str += f"- {t.get('sector')}: {t.get('reason')}\n"
+        kr_str += "\n--- 시간외/공시 포착 종목 (고위험주 제외됨) ---\n"
+        for a in kr_data.get("after_market_stocks", []):
+            code = a.get('code', '')
+            name = a.get('name', '')
+            reason = a.get('reason', '')
+            if not is_risky_stock(name, code, reason):
+                kr_str += f"- {name}({code}): {a.get('change_rate')} - {reason}\n"
+        kr_str += f"\n국내 마켓 요약: {kr_data.get('market_summary')}"
+        
+        us_str = json.dumps(us_market_info, ensure_ascii=False, indent=2)
+        
+        prompt = f"""당신은 시장을 냉철하고 다각도로 분석하여 최종 데이트레이더를 위한 현실적인 대응 시나리오를 조율하는 수석 펀드매니저이자 중립 모더레이터입니다.
+상승 모멘텀을 강조한 황소 에이전트의 관점과 리스크를 경고한 곰 에이전트의 관점을 냉정하게 비교하여 오늘 개장(오전 9시) 직전 최고의 매매 전략과 관심 종목을 도출하세요.
+
+[황소 에이전트의 낙관론 의견]
+{bull_opinion}
+
+[곰 에이전트의 비관론 의견]
+{bear_opinion}
+
+[오늘 아침 글로벌 금융 지표 데이터]
+{us_str}
+
+[오늘 아침 미국 증시 뉴스 헤드라인]
+{us_news}
+
+[어제자 한국 증시 요약 데이터]
+{kr_str}
+
+위 토론 및 데이터를 토대로 분석을 수행하고 반드시 아래 JSON 형식으로만 응답해 주세요. (JSON 이외의 텍스트나 마크다운 기호 금지)
+
+* 중요 지침: 최종 오늘의 데이트레이딩 관심종목(watchlist)을 선정할 때, 주가 1000원 미만의 초저가 동전주나 상장폐지, 정리매매, 관리종목 등 고위험 요인이 있는 종목은 절대 포함하지 마십시오. 오로지 재료와 수급이 튼튼하고 안전성이 담보된 우량 주도주 위주로만 추천 목록을 구성해야 합니다.
 
 [출력 JSON 형식]
 {{
   "us_market_summary": "새벽 미국 증시 마감 상황 및 글로벌 주요 선물시장(금, 원유, 비트코인 등)의 특이점 요약 (공백 제외 150자 내외)",
-  "today_strategy": "오늘 아침 한국 증시 개장 시 시초가 방향(갭상승/갭하락 예상)과 장중 어떤 자금 흐름을 주의 깊게 보아야 하는지 대응 전략 요약 (150자 내외)",
+  "today_strategy": "황소와 곰의 의견을 현실적으로 절충하여, 오늘 아침 한국 증시 개장 시 시초가 방향(갭상승/갭하락 예상)과 장중 어떤 자금 흐름을 주의 깊게 보아야 하는지 대응 전략 요약 (150자 내외)",
   "watchlist": [
     {{
       "name": "오늘 시초가~장중 공략 가능한 데이트레이딩 관심 종목명 (어제 주도주 또는 시간외 종목 중 선정)",
@@ -162,9 +267,8 @@ def generate_morning_briefing(kr_data, us_market_info, us_news):
                 clean_json = response.text.strip().removeprefix("```json").removesuffix("```").strip()
                 return json.loads(clean_json)
             except Exception as e:
-                print(f"Gemini 아침 브리핑 분석 중 에러 (시도 {attempt+1}/{max_retries}): {e}")
+                print(f"[Moderator Agent] 에러 발생 (시도 {attempt+1}/{max_retries}): {e}")
                 if attempt < max_retries - 1:
-                    print("5초 후 재시도합니다...")
                     time.sleep(5)
                 else:
                     raise e
