@@ -1,6 +1,6 @@
 @echo off
 echo =======================================================
-echo Global Market Macro & US Briefing Automation (Morning)
+echo Global Market Macro and US Briefing Automation (Morning)
 echo =======================================================
 cd /d "C:\Users\metu9\OneDrive\Desktop\JM"
 
@@ -9,7 +9,7 @@ git stash
 git pull --rebase origin main
 git stash pop
 
-echo Running python script (Morning US & Macro Briefing Analysis)...
+echo Running python script (Morning US and Macro Briefing Analysis)...
 py scripts\update_us_macro.py
 
 echo Pushing briefing report to Vercel via GitHub...
