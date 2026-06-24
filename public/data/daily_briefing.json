@@ -1,16 +1,16 @@
 {
-  "last_updated_kr": "2026-06-23 23:30:37",
-  "last_updated_us": "",
+  "last_updated_kr": "2026-06-23 23:34:25",
+  "last_updated_us": "2026-06-24 09:01:08",
   "kr_data": {
     "date": "2026-06-23",
     "top_sectors": [
       {
         "sector": "반도체/건설",
-        "reason": "호남 지역 반도체 공장 유치설과 건설 경기 회복 기대감이 맞물리며 관련 보유 부지 기업 및 소부장 종목들이 테마를 형성하며 급등세를 주도함."
+        "reason": "호남 지역 반도체 공장 유치설과 건설 경기 회복 기대감이 맞물리며 관련 보유 부지 테마 및 소부장 기업으로 수급이 강하게 집중됨."
       },
       {
-        "sector": "바이오",
-        "reason": "탈모 치료제 건보 적용 검토와 바이오USA 기대감이 복합적으로 작용하며 제약·바이오 섹터 전반으로 수급이 확산되는 모습."
+        "sector": "바이오/제약",
+        "reason": "탈모 건보 적용 검토와 바이오USA 기대감이 작용하며 관련주들이 장중 강한 거래대금을 동반해 상승세를 주도함."
       }
     ],
     "after_market_stocks": [
@@ -18,10 +18,87 @@
         "name": "IBM",
         "code": "",
         "change_rate": "3% 상승",
-        "reason": "오픈AI와 신규 보안 서비스 출시 소식에 따른 시간외 강세 기록."
+        "reason": "오픈AI와 새로운 보안 서비스를 출시했다는 소식이 전해지며 미국 시간외 시장에서 강세를 보임."
+      },
+      {
+        "name": "HPE",
+        "code": "",
+        "change_rate": "30% 폭등",
+        "reason": "AI 서버 수요가 호조를 보이면서 미국 시간외 시장에서 폭발적인 상승세를 기록함."
       }
     ],
-    "market_summary": "오늘 시장은 반도체 공장 유치설 및 건설 경기 회복 기대감 등 지역/정책 이슈에 기반한 테마주들이 상한가를 대거 점유하며 강력한 순환매를 보였습니다. 거래대금이 집중된 JW신약, 엑스게이트 등 주도주를 중심으로 변동성이 확대되었습니다. 내일은 시간외 시장의 미국 기술주 흐름을 확인하는 한편, 상한가 종목들의 기술적 조정 시 단기 눌림목 공략과 수급이 몰리는 반도체/바이오 테마의 연속성 유무를 최우선적으로 체크해야 합니다."
+    "market_summary": "금일 시장은 반도체·건설 부지 보유 테마와 바이오 섹터로 대규모 거래대금이 쏠리며 급등락이 반복되었습니다. 정규장 이후 미 증시에서 AI 서버 관련주(HPE)의 시간외 급등과 보안 이슈(IBM)가 부각된 점이 내일 아침 국내 시장에 긍정적인 투자 심리를 자극할 전망입니다. 데이트레이더는 변동성이 큰 테마주 추격 매수보다는 시간외 특징주와 연동된 AI 관련 반도체 및 보안주 중심의 시초가 갭 상승 흐름을 면밀히 관찰하며 대응해야 합니다."
   },
-  "us_data": null
+  "us_data": {
+    "date": "2026-06-24",
+    "indices": {
+      "S&P500": {
+        "price": 7365.46,
+        "change": -1.44,
+        "status": "Success"
+      },
+      "Nasdaq100": {
+        "price": 29347.27,
+        "change": -3.29,
+        "status": "Success"
+      },
+      "Dow30": {
+        "price": 51666.84,
+        "change": -0.09,
+        "status": "Success"
+      },
+      "Semiconductor(SOX)": {
+        "price": 13482.51,
+        "change": -7.87,
+        "status": "Success"
+      }
+    },
+    "futures": {
+      "Nasdaq_100_Futures": {
+        "price": 29736.25,
+        "change": -2.99,
+        "status": "Success"
+      },
+      "Gold_Futures": {
+        "price": 4112.6,
+        "change": -1.66,
+        "status": "Success"
+      },
+      "Crude_Oil_Futures": {
+        "price": 72.73,
+        "change": -2.79,
+        "status": "Success"
+      },
+      "Bitcoin_USD": {
+        "price": 62671.87,
+        "change": -2.0,
+        "status": "Success"
+      },
+      "USD_JPY": {
+        "price": 161.58,
+        "change": 0.01,
+        "status": "Success"
+      },
+      "EUR_USD": {
+        "price": 1.14,
+        "change": -0.4,
+        "status": "Success"
+      }
+    },
+    "macro": {
+      "USD_KRW": {
+        "price": 1534.28,
+        "change": -0.31,
+        "status": "Success"
+      },
+      "MSCI_South_Korea_ETF(EWY)": {
+        "price": 192.2,
+        "change": -12.25,
+        "status": "Success"
+      }
+    },
+    "us_market_summary": "글로벌 금융 시장 요약 로딩에 실패했습니다.",
+    "today_strategy": "장 시작 전 뉴스 및 수급 흐름을 직접 체크하시기 바랍니다.",
+    "watchlist": []
+  }
 }
