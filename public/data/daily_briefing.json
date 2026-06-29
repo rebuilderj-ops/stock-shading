@@ -1,6 +1,6 @@
 {
   "last_updated_kr": "2026-06-29 23:44:53",
-  "last_updated_us": "2026-06-29 23:45:31",
+  "last_updated_us": "2026-06-30 08:32:32",
   "kr_data": {
     "date": "2026-06-29",
     "top_sectors": [
@@ -46,137 +46,137 @@
     "market_summary": "금일 시장은 주도주 중심의 폭발적 상승을 보였으나, 단기 과열 신호가 명확합니다. 내일 아침은 '와이즈넛'과 같은 재료 보유주로 단기 수익을 추구하되, '삼성E&A'처럼 검증된 모멘텀 종목을 눌림목에서 분할 매수하는 보수적 접근을 권합니다. 특히 반도체 악재와 곰 에이전트의 경고를 고려하여 추격 매수는 지양하고, 상한가 근처에서의 뇌동매매를 삼가며 철저히 손절가를 준수하는 리스크 관리형 전략을 유지하십시오."
   },
   "us_data": {
-    "date": "2026-06-29",
+    "date": "2026-06-30",
     "indices": {
       "S&P500": {
-        "price": 7400.53,
-        "change": 0.63,
+        "price": 7440.43,
+        "change": 1.18,
         "status": "Success"
       },
       "Nasdaq": {
-        "price": 25542.89,
-        "change": 0.97,
+        "price": 25820.14,
+        "change": 2.07,
         "status": "Success"
       },
       "Dow30": {
-        "price": 52236.99,
-        "change": 0.7,
+        "price": 52182.74,
+        "change": 0.59,
         "status": "Success"
       },
       "Semiconductor(SOX)": {
-        "price": 13126.41,
-        "change": -0.58,
+        "price": 13709.66,
+        "change": 3.83,
         "status": "Success"
       }
     },
     "futures": {
       "Nasdaq_100_Futures": {
-        "price": 29633.5,
-        "change": 0.9,
+        "price": 30034.75,
+        "change": 2.27,
         "status": "Success"
       },
       "Gold_Futures": {
-        "price": 4041.0,
-        "change": -0.92,
+        "price": 4034.0,
+        "change": -1.1,
         "status": "Success"
       },
       "Crude_Oil_Futures": {
-        "price": 70.39,
-        "change": 1.68,
+        "price": 70.23,
+        "change": 1.44,
         "status": "Success"
       },
       "Bitcoin_USD": {
-        "price": 59220.6,
-        "change": -0.52,
+        "price": 60173.72,
+        "change": 1.08,
         "status": "Success"
       },
       "USD_JPY": {
         "price": 161.92,
-        "change": 0.07,
+        "change": 0.08,
         "status": "Success"
       },
       "EUR_USD": {
         "price": 1.14,
-        "change": 0.52,
+        "change": 0.35,
         "status": "Success"
       }
     },
     "macro": {
       "USD_KRW": {
-        "price": 1543.93,
-        "change": -0.16,
+        "price": 1535.24,
+        "change": -0.73,
         "status": "Success"
       },
       "MSCI_South_Korea_ETF(EWY)": {
-        "price": 190.74,
-        "change": -3.32,
+        "price": 197.5,
+        "change": 0.11,
         "status": "Success"
       }
     },
     "large_caps": {
       "Apple (AAPL)": {
-        "price": 281.58,
-        "change": -0.78,
+        "price": 281.74,
+        "change": -0.72,
         "status": "Success"
       },
       "Microsoft (MSFT)": {
-        "price": 376.28,
-        "change": 0.89,
+        "price": 368.57,
+        "change": -1.18,
         "status": "Success"
       },
       "NVIDIA (NVDA)": {
-        "price": 194.43,
-        "change": 0.99,
+        "price": 194.97,
+        "change": 1.27,
         "status": "Success"
       },
       "Alphabet (GOOGL)": {
-        "price": 349.9,
-        "change": 3.71,
+        "price": 353.65,
+        "change": 4.82,
         "status": "Success"
       },
       "Amazon (AMZN)": {
-        "price": 244.57,
-        "change": 5.11,
+        "price": 240.14,
+        "change": 3.2,
         "status": "Success"
       },
       "Meta (META)": {
-        "price": 567.75,
-        "change": 3.18,
+        "price": 562.6,
+        "change": 2.24,
         "status": "Success"
       },
       "Berkshire (BRK-B)": {
-        "price": 498.25,
-        "change": -0.08,
+        "price": 496.0,
+        "change": -0.53,
         "status": "Success"
       },
       "Eli Lilly (LLY)": {
-        "price": 1225.65,
-        "change": 1.45,
+        "price": 1229.93,
+        "change": 1.81,
         "status": "Success"
       },
       "Broadcom (AVGO)": {
-        "price": 368.91,
-        "change": 1.07,
+        "price": 372.45,
+        "change": 2.04,
         "status": "Success"
       },
       "Tesla (TSLA)": {
-        "price": 395.71,
-        "change": 4.22,
+        "price": 411.84,
+        "change": 8.46,
         "status": "Success"
       }
     },
-    "us_market_summary": "나스닥은 기술주 강세로 상승했으나 필라델피아 반도체 지수의 하락과 애플 약세가 혼조세를 유발했습니다. 고환율 상황 속 MSCI 한국 지수의 급락은 국내 증시의 외국인 매도 압력을 예고합니다. 비트코인 약세와 유가 상승 등 원자재 변동성이 확대되는 가운데 기술적 경계감이 높아진 시장입니다.",
-    "today_strategy": "MSCI 한국 지수 급락의 여파로 시초가 갭하락 출발이 유력합니다. 외국인 수급 이탈 가능성이 높은 만큼 추격 매수는 피하고, 시초가 투매 이후 낙폭을 줄이는 반등 구간에서의 대응이 중요합니다. 반도체 관련주는 선별적으로 접근하며, 재료가 명확한 AI 및 건설주 중심의 눌림목 공략 전략을 권장합니다.",
+    "us_market_summary": "나스닥이 반도체주 중심의 강력한 매수세로 2.07% 급등하며 마감했습니다. 필라델피아 반도체 지수가 3.83% 상승하며 AI 모멘텀을 주도했으나, 애플과 MS 등 일부 빅테크의 차익 실현 매물로 혼조세를 보였습니다. 달러/원 환율이 1,530원대를 유지하는 가운데, 국제유가는 상승하고 금값은 하락하는 등 위험 자산 선호 심리가 다소 우세한 상황입니다.",
+    "today_strategy": "반도체 훈풍으로 국내 증시는 강력한 갭상승 출발이 예상됩니다. 그러나 1,530원대 환율이 외국인 수급의 발목을 잡을 수 있어 시초가 추격 매수는 위험합니다. 갭상승 후 차익 실현 물량이 나오는 오전 9시 30분 전후를 경계하며, 거래량이 실리는 주도주 중심의 단기 트레이딩과 현금 비중 70% 유지를 병행하는 보수적 전략을 권고합니다.",
     "watchlist": [
       {
         "name": "와이즈넛",
         "code": "096250",
-        "reason": "공공 AI 사업 수주라는 확실한 재료 보유로 개별 테마 성격이 강해 지수 하락기 상대적 강세를 기대합니다."
+        "reason": "공공 AI 플랫폼 수주 모멘텀이 강력하며, 장 초반 수급이 집중되는 단기 트레이딩 최적 종목입니다."
       },
       {
         "name": "삼성E&A",
         "code": "028050",
-        "reason": "대규모 수주 모멘텀과 기관 수급이 뒷받침되는 종목으로, 지수 조정 시 분할 매수 관점에서 안전합니다."
+        "reason": "반도체 팹 건설 및 대규모 수주 기대감이 유효하여, 눌림목 구간에서 분할 매수 시 안정적 수익 기대됩니다."
       }
     ]
   }
