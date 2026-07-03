@@ -1,6 +1,6 @@
 {
   "last_updated_kr": "2026-07-02 23:01:33",
-  "last_updated_us": "2026-07-03 08:53:54",
+  "last_updated_us": "2026-07-03 16:14:27",
   "kr_data": {
     "date": "2026-07-02",
     "top_sectors": [
@@ -51,139 +51,139 @@
     "date": "2026-07-03",
     "indices": {
       "S&P500": {
-        "price": 7483.24,
+        "price": 0.0,
         "change": 0.0,
-        "status": "Success"
+        "status": "No Data"
       },
       "Nasdaq": {
-        "price": 25832.67,
-        "change": -0.8,
-        "status": "Success"
+        "price": 0.0,
+        "change": 0.0,
+        "status": "No Data"
       },
       "Dow30": {
-        "price": 52900.07,
-        "change": 1.14,
-        "status": "Success"
+        "price": 0.0,
+        "change": 0.0,
+        "status": "No Data"
       },
       "Semiconductor(SOX)": {
-        "price": 12626.22,
-        "change": -5.44,
-        "status": "Success"
+        "price": 0.0,
+        "change": 0.0,
+        "status": "No Data"
       }
     },
     "futures": {
       "Nasdaq_100_Futures": {
-        "price": 29572.0,
-        "change": -1.74,
-        "status": "Success"
+        "price": 0.0,
+        "change": 0.0,
+        "status": "No Data"
       },
       "Gold_Futures": {
-        "price": 4134.0,
-        "change": 1.61,
-        "status": "Success"
+        "price": 0.0,
+        "change": 0.0,
+        "status": "No Data"
       },
       "Crude_Oil_Futures": {
-        "price": 68.47,
-        "change": -0.16,
-        "status": "Success"
+        "price": 0.0,
+        "change": 0.0,
+        "status": "No Data"
       },
       "Bitcoin_USD": {
-        "price": 61511.93,
-        "change": 2.51,
-        "status": "Success"
+        "price": 0.0,
+        "change": 0.0,
+        "status": "No Data"
       },
       "USD_JPY": {
-        "price": 161.39,
-        "change": -0.7,
-        "status": "Success"
+        "price": 0.0,
+        "change": 0.0,
+        "status": "No Data"
       },
       "EUR_USD": {
-        "price": 1.14,
-        "change": 0.43,
-        "status": "Success"
+        "price": 0.0,
+        "change": 0.0,
+        "status": "No Data"
       }
     },
     "macro": {
       "USD_KRW": {
-        "price": 1551.81,
-        "change": 0.21,
-        "status": "Success"
+        "price": 0.0,
+        "change": 0.0,
+        "status": "No Data"
       },
       "MSCI_South_Korea_ETF(EWY)": {
-        "price": 180.14,
-        "change": -2.89,
-        "status": "Success"
+        "price": 0.0,
+        "change": 0.0,
+        "status": "No Data"
       }
     },
     "large_caps": {
       "Apple (AAPL)": {
-        "price": 308.63,
-        "change": 4.84,
-        "status": "Success"
+        "price": 0.0,
+        "change": 0.0,
+        "status": "No Data"
       },
       "Microsoft (MSFT)": {
-        "price": 390.49,
-        "change": 1.62,
-        "status": "Success"
+        "price": 0.0,
+        "change": 0.0,
+        "status": "No Data"
       },
       "NVIDIA (NVDA)": {
-        "price": 194.83,
-        "change": -1.39,
-        "status": "Success"
+        "price": 0.0,
+        "change": 0.0,
+        "status": "No Data"
       },
       "Alphabet (GOOGL)": {
-        "price": 359.91,
-        "change": -0.36,
-        "status": "Success"
+        "price": 0.0,
+        "change": 0.0,
+        "status": "No Data"
       },
       "Amazon (AMZN)": {
-        "price": 242.67,
-        "change": 0.4,
-        "status": "Success"
+        "price": 0.0,
+        "change": 0.0,
+        "status": "No Data"
       },
       "Meta (META)": {
-        "price": 582.9,
-        "change": -4.9,
-        "status": "Success"
+        "price": 0.0,
+        "change": 0.0,
+        "status": "No Data"
       },
       "Berkshire (BRK-B)": {
-        "price": 507.78,
-        "change": 1.61,
-        "status": "Success"
+        "price": 0.0,
+        "change": 0.0,
+        "status": "No Data"
       },
       "Eli Lilly (LLY)": {
-        "price": 1213.91,
-        "change": 1.86,
-        "status": "Success"
+        "price": 0.0,
+        "change": 0.0,
+        "status": "No Data"
       },
       "Broadcom (AVGO)": {
-        "price": 360.45,
-        "change": -2.41,
-        "status": "Success"
+        "price": 0.0,
+        "change": 0.0,
+        "status": "No Data"
       },
       "Tesla (TSLA)": {
-        "price": 393.45,
-        "change": -7.49,
-        "status": "Success"
+        "price": 0.0,
+        "change": 0.0,
+        "status": "No Data"
       }
     },
-    "us_market_summary": "뉴욕증시는 다우가 신고가를 경신했으나 필라델피아 반도체 지수(-5.44%)와 나스닥이 기술주 약세로 하락하며 혼조 마감했습니다. 테슬라 급락과 환율 급등(1,551원)이 시장 심리를 위축시키고 있으며, 안전자산 선호 심리로 금 선물은 상승 중입니다.",
-    "today_strategy": "반도체주 폭락과 환율 부담으로 국내 증시는 갭하락 출발이 유력합니다. 기술주 투매에 휩쓸리지 말고, 수주 모멘텀이 확실한 삼성E&A 등 실적 기반 종목의 낙폭 과대 구간을 분할 매수로 대응하며 지수 반등 시 단기 차익을 실현하는 방어적 전략이 필요합니다.",
+    "us_market_summary": "글로벌 데이터 부재로 방향성 예측은 어렵으나, 지정학적 리스크와 매크로 지표 변동성이 상존합니다. 주요 자산은 관망세가 짙으며, 국내 증시는 대외 변수보다 자체 수주 모멘텀과 실적 가시성이 높은 섹터로 수급 쏠림이 발생할 가능성이 큽니다.",
+    "today_strategy": "개장 직후 삼성E&A 등 수주 모멘텀 보유주의 갭상승이 예상되나 추격 매수는 자제하십시오. 시초가 이후 30분간의 외국인 순매수 강도를 확인하고, 지지선 이탈 시 기계적 손절을 원칙으로 하는 짧은 단타 대응이 유효합니다.",
     "watchlist": [
       {
         "name": "삼성E&A",
         "code": "028050",
-        "reason": "중동 수주 재료가 확실하고 기관 수급이 뒷받침되어 시장 하락 시 상대적 방어력과 반등 탄력이 기대됩니다."
+        "reason": "중동 수처리 수주와 하반기 반도체 팹 기대감이 더해져 외국인 수급이 견고한 주도주입니다."
       },
       {
         "name": "한화오션",
         "code": "044660",
-        "reason": "KDDX 우선협상대상자 선정이라는 강력한 방산 모멘텀이 유지되고 있어 조정 시 저가 매수 기회로 활용 가능합니다."
+        "reason": "KDDX 우선협상대상자 선정에 따른 방산 섹터 내 강력한 모멘텀으로 단기 변동성 활용이 가능합니다."
       },
       {
         "name": "유아이디",
         "code": "069330",
-        "reason": "자동차 전장 사업 다각화 재료로 시간외 강세를 보였으며, 신사업 기대감이 투심을 견인할 것으로 판단됩니다."
+        "reason": "전장 사업 다각화를 위한 지분 인수라는 확실한 성장 동력이 확보되어 수급 유입이 기대됩니다."
       }
     ]
   }
