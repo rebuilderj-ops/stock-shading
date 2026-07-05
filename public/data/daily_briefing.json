@@ -1,6 +1,6 @@
 {
   "last_updated_kr": "2026-07-03 16:15:07",
-  "last_updated_us": "2026-07-03 16:14:27",
+  "last_updated_us": "2026-07-05 09:34:45",
   "kr_data": {
     "date": "2026-07-03",
     "top_sectors": [
@@ -36,142 +36,137 @@
     "market_summary": "시장은 현재 반도체 섹터의 기술적 반등과 이차전지의 유증 악재가 충돌하는 극도의 변동성 구간입니다. 단기 데이트레이더는 SK하이닉스를 필두로 한 반도체 섹터의 분할 매수 기회를 포착하되, 에코프로 그룹주의 투매가 불러올 지수 전체의 변동성 확대를 반드시 경계해야 합니다. 기술적 반등 시 추격 매수보다는 익절 구간을 짧게 잡는 보수적 대응이 유리하며, 시장의 방향성이 확정되기 전까지는 현금 비중을 유지하며 철저한 리스크 관리를 병행하십시오."
   },
   "us_data": {
-    "date": "2026-07-03",
+    "date": "2026-07-05",
     "indices": {
       "S&P500": {
-        "price": 0.0,
+        "price": 7483.24,
         "change": 0.0,
-        "status": "No Data"
+        "status": "Success"
       },
       "Nasdaq": {
-        "price": 0.0,
-        "change": 0.0,
-        "status": "No Data"
+        "price": 25832.67,
+        "change": -0.8,
+        "status": "Success"
       },
       "Dow30": {
-        "price": 0.0,
-        "change": 0.0,
-        "status": "No Data"
+        "price": 52900.07,
+        "change": 1.14,
+        "status": "Success"
       },
       "Semiconductor(SOX)": {
-        "price": 0.0,
-        "change": 0.0,
-        "status": "No Data"
+        "price": 12626.22,
+        "change": -5.44,
+        "status": "Success"
       }
     },
     "futures": {
       "Nasdaq_100_Futures": {
-        "price": 0.0,
-        "change": 0.0,
-        "status": "No Data"
+        "price": 29901.75,
+        "change": 1.17,
+        "status": "Success"
       },
       "Gold_Futures": {
-        "price": 0.0,
-        "change": 0.0,
-        "status": "No Data"
+        "price": 4187.3,
+        "change": 1.81,
+        "status": "Success"
       },
       "Crude_Oil_Futures": {
-        "price": 0.0,
-        "change": 0.0,
-        "status": "No Data"
+        "price": 68.78,
+        "change": 0.13,
+        "status": "Success"
       },
       "Bitcoin_USD": {
-        "price": 0.0,
-        "change": 0.0,
-        "status": "No Data"
+        "price": 62957.99,
+        "change": 0.66,
+        "status": "Success"
       },
       "USD_JPY": {
-        "price": 0.0,
-        "change": 0.0,
-        "status": "No Data"
+        "price": 161.34,
+        "change": -0.74,
+        "status": "Success"
       },
       "EUR_USD": {
-        "price": 0.0,
-        "change": 0.0,
-        "status": "No Data"
+        "price": 1.14,
+        "change": 0.55,
+        "status": "Success"
       }
     },
     "macro": {
       "USD_KRW": {
-        "price": 0.0,
-        "change": 0.0,
-        "status": "No Data"
+        "price": 1530.15,
+        "change": -1.4,
+        "status": "Success"
       },
       "MSCI_South_Korea_ETF(EWY)": {
-        "price": 0.0,
-        "change": 0.0,
-        "status": "No Data"
+        "price": 180.14,
+        "change": -2.89,
+        "status": "Success"
       }
     },
     "large_caps": {
       "Apple (AAPL)": {
-        "price": 0.0,
-        "change": 0.0,
-        "status": "No Data"
+        "price": 308.63,
+        "change": 4.84,
+        "status": "Success"
       },
       "Microsoft (MSFT)": {
-        "price": 0.0,
-        "change": 0.0,
-        "status": "No Data"
+        "price": 390.49,
+        "change": 1.62,
+        "status": "Success"
       },
       "NVIDIA (NVDA)": {
-        "price": 0.0,
-        "change": 0.0,
-        "status": "No Data"
+        "price": 194.83,
+        "change": -1.39,
+        "status": "Success"
       },
       "Alphabet (GOOGL)": {
-        "price": 0.0,
-        "change": 0.0,
-        "status": "No Data"
+        "price": 359.91,
+        "change": -0.36,
+        "status": "Success"
       },
       "Amazon (AMZN)": {
-        "price": 0.0,
-        "change": 0.0,
-        "status": "No Data"
+        "price": 242.67,
+        "change": 0.4,
+        "status": "Success"
       },
       "Meta (META)": {
-        "price": 0.0,
-        "change": 0.0,
-        "status": "No Data"
+        "price": 582.9,
+        "change": -4.9,
+        "status": "Success"
       },
       "Berkshire (BRK-B)": {
-        "price": 0.0,
-        "change": 0.0,
-        "status": "No Data"
+        "price": 507.78,
+        "change": 1.61,
+        "status": "Success"
       },
       "Eli Lilly (LLY)": {
-        "price": 0.0,
-        "change": 0.0,
-        "status": "No Data"
+        "price": 1213.91,
+        "change": 1.86,
+        "status": "Success"
       },
       "Broadcom (AVGO)": {
-        "price": 0.0,
-        "change": 0.0,
-        "status": "No Data"
+        "price": 360.45,
+        "change": -2.41,
+        "status": "Success"
       },
       "Tesla (TSLA)": {
-        "price": 0.0,
-        "change": 0.0,
-        "status": "No Data"
+        "price": 393.45,
+        "change": -7.49,
+        "status": "Success"
       }
     },
-    "us_market_summary": "글로벌 데이터 부재로 방향성 예측은 어렵으나, 지정학적 리스크와 매크로 지표 변동성이 상존합니다. 주요 자산은 관망세가 짙으며, 국내 증시는 대외 변수보다 자체 수주 모멘텀과 실적 가시성이 높은 섹터로 수급 쏠림이 발생할 가능성이 큽니다.",
-    "today_strategy": "개장 직후 삼성E&A 등 수주 모멘텀 보유주의 갭상승이 예상되나 추격 매수는 자제하십시오. 시초가 이후 30분간의 외국인 순매수 강도를 확인하고, 지지선 이탈 시 기계적 손절을 원칙으로 하는 짧은 단타 대응이 유효합니다.",
+    "us_market_summary": "미국 증시는 필라델피아 반도체 지수의 5%대 급락과 테슬라의 7%대 폭락으로 기술주 중심의 약세를 보였습니다. 다만 애플이 4.8% 급등하며 나스닥 방어를 시도했고, 나스닥 100 선물은 1.17% 상승 반전하며 기술적 반등 기대감을 남겼습니다. 환율 하락과 금/비트코인 등 안전자산 및 위험자산이 동반 강세를 보여 투심 회복 가능성을 시사합니다.",
+    "today_strategy": "필라델피아 반도체 지수 폭락 여파로 시초가는 갭하락 출발이 유력합니다. 그러나 원달러 환율 하락과 나스닥 선물 강세는 저가 매수세를 유인할 것입니다. 지수 하락 시 반도체 대장주를 중심으로 한 분할 매수 전략이 유효하며, 이차전지 섹터의 투매가 지수 전체로 확산되는지 여부를 최우선으로 체크해야 합니다.",
     "watchlist": [
       {
-        "name": "삼성E&A",
-        "code": "028050",
-        "reason": "중동 수처리 수주와 하반기 반도체 팹 기대감이 더해져 외국인 수급이 견고한 주도주입니다."
+        "name": "SK하이닉스",
+        "code": "000660",
+        "reason": "필라델피아 반도체 지수 급락에 따른 갭하락 시, 애플 강세와 AI 모멘텀을 활용한 저점 분할 매수 타점 포착이 유효합니다."
       },
       {
-        "name": "한화오션",
-        "code": "044660",
-        "reason": "KDDX 우선협상대상자 선정에 따른 방산 섹터 내 강력한 모멘텀으로 단기 변동성 활용이 가능합니다."
-      },
-      {
-        "name": "유아이디",
-        "code": "069330",
-        "reason": "전장 사업 다각화를 위한 지분 인수라는 확실한 성장 동력이 확보되어 수급 유입이 기대됩니다."
+        "name": "삼성전자",
+        "code": "005930",
+        "reason": "시장 전체 투매 발생 시 지수 방어 및 외국인 수급 복귀를 동반한 기술적 반등이 예상되는 안전한 대형주입니다."
       }
     ]
   }
