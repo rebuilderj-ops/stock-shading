@@ -176,12 +176,15 @@ const DailyBriefing = () => {
 
             {/* 한국 야간 관련 지표 */}
             <div className="glass-panel border border-slate-800/80 rounded-2xl p-5 space-y-4">
-              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b border-slate-800 pb-2">한국 투자 심리 지표</h3>
+              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider border-b border-slate-800 pb-2">글로벌 리스크 & 한국 투자 심리 지표</h3>
               <div className="space-y-3.5">
                 {Object.entries(us_data.macro || {}).map(([name, item]) => {
                   const labelMap = {
                     "USD_KRW": "원달러 환율",
-                    "MSCI_South_Korea_ETF(EWY)": "MSCI 한국 ETF (EWY)"
+                    "MSCI_South_Korea_ETF(EWY)": "MSCI 한국 ETF (EWY)",
+                    "VIX": "VIX 변동성(공포) 지수",
+                    "US10Y_Yield": "美 10년물 국채수익률",
+                    "Dollar_Index": "달러 인덱스(DXY)"
                   };
                   return (
                     <div key={name} className="flex justify-between items-center text-sm">
@@ -263,7 +266,7 @@ const DailyBriefing = () => {
         <div className="flex items-center gap-2 border-t border-slate-800/80 pt-8">
           <TrendingUp className="text-emerald-400" size={20} />
           <h2 className="text-lg md:text-xl font-bold tracking-tight text-slate-100">
-            어제자 국내 증시 & 시간외 거래 분석 ({kr_data.date || today_formatted})
+            어제자 국내 증시 & 시간외 거래 분석 ({kr_data.date || '취합 대기중'})
           </h2>
         </div>
 
@@ -305,11 +308,12 @@ const DailyBriefing = () => {
                         {item.name}
                         {item.code && <span className="text-[10px] font-mono text-slate-500">({item.code})</span>}
                       </span>
-                      {item.change_rate && (
-                        <span className="text-[11px] font-bold px-2 py-0.5 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20">
-                          {item.change_rate}
-                        </span>
-                      )}
+                      <div className="flex items-center gap-2">
+                        {item.price !== undefined && item.price !== null && (
+                          <span className="font-mono text-[11px] text-slate-400">{item.price.toLocaleString()}원</span>
+                        )}
+                        {getChangeBadge(item.change)}
+                      </div>
                     </div>
                     <p className="text-xs text-slate-400 leading-relaxed font-medium">
                       {item.reason}
@@ -317,7 +321,7 @@ const DailyBriefing = () => {
                   </div>
                 ))
               ) : (
-                <p className="text-slate-500 text-xs">시간외 단일가 포착 기사가 없습니다.</p>
+                <p className="text-slate-500 text-xs">실제 체결이 확인된 시간외 특징주가 없습니다.</p>
               )}
             </div>
           </div>

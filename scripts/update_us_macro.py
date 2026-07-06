@@ -9,6 +9,7 @@ import yfinance as yf
 import google.generativeai as genai
 from dotenv import load_dotenv
 import subprocess
+from json_utils import extract_json_from_text, trim_to_length
 
 # 환경변수 로드
 load_dotenv('.env.local')
@@ -264,8 +265,11 @@ def generate_morning_briefing(kr_data, us_market_info, us_news):
         for attempt in range(max_retries):
             try:
                 response = model.generate_content(prompt)
-                clean_json = response.text.strip().removeprefix("```json").removesuffix("```").strip()
-                return json.loads(clean_json)
+                clean_json = extract_json_from_text(response.text)
+                result = json.loads(clean_json)
+                result["us_market_summary"] = trim_to_length(result.get("us_market_summary", ""), 200)
+                result["today_strategy"] = trim_to_length(result.get("today_strategy", ""), 200)
+                return result
             except Exception as e:
                 print(f"[Moderator Agent] 에러 발생 (시도 {attempt+1}/{max_retries}): {e}")
                 if attempt < max_retries - 1:
@@ -324,10 +328,16 @@ def check_and_backfill_kr_data():
             need_backfill = True
             
     if need_backfill:
-        print("[Backfill] 9:00 PM 국내장/시간외 분석 스크립트(update_kr_briefing.py)를 자동 실행합니다...")
+        print(f"[Backfill] 9:00 PM 국내장/시간외 분석 스크립트(update_kr_briefing.py)를 대상 날짜 {expected_kr_date}로 자동 실행합니다...")
         try:
-            # subprocess를 사용해 동기적으로 국내장 분석 스크립트 실행
-            result = subprocess.run(["py", "scripts/update_kr_briefing.py"], capture_output=True, text=True, check=True)
+            # [수정] 대상 날짜를 인자로 명시적으로 전달합니다.
+            # 인자 없이 실행하면 update_kr_briefing.py가 datetime.now()(=오늘, 아직 개장 전)를
+            # 기준으로 삼아 존재하지 않는 오늘자 정규장 데이터를 찾다가 빈 결과를 만들어내는
+            # 문제가 있었습니다. 백필은 항상 '누락된 직전 영업일' 날짜로 실행해야 합니다.
+            result = subprocess.run(
+                ["py", "scripts/update_kr_briefing.py", expected_kr_date],
+                capture_output=True, text=True, check=True
+            )
             print("[Backfill] 실행 성공!")
             print(result.stdout)
         except Exception as e:
@@ -373,6 +383,13 @@ def main():
     
     usdkrw = get_yfinance_data("USDKRW=X")
     ewy = get_yfinance_data("EWY")
+
+    # [추가됨] 시장 리스크/위험선호 심리를 보여주는 핵심 매크로 지표
+    # (기존에는 지수/선물만 있어 '오늘 개장전 매매 시나리오'가 공포지수나 금리
+    #  흐름을 전혀 반영하지 못했습니다.)
+    vix = get_yfinance_data("^VIX")       # 변동성(공포) 지수
+    us10y = get_yfinance_data("^TNX")     # 미국 10년물 국채수익률
+    dxy = get_yfinance_data("DX-Y.NYB")   # 달러 인덱스
     
     # [추가됨] 미국 시가총액 상위 10대 대형주 정보 수집
     print("미국 시총 상위 10대 대형주 종가 수집 중...")
@@ -410,7 +427,10 @@ def main():
         },
         "macro": {
             "USD_KRW": usdkrw,
-            "MSCI_South_Korea_ETF(EWY)": ewy
+            "MSCI_South_Korea_ETF(EWY)": ewy,
+            "VIX": vix,
+            "US10Y_Yield": us10y,
+            "Dollar_Index": dxy
         },
         "large_caps": large_caps_data
     }

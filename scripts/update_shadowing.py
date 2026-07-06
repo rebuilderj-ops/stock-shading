@@ -12,6 +12,7 @@ import FinanceDataReader as fdr
 import pandas as pd
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
+from json_utils import extract_json_from_text
 
 load_dotenv('.env.local')
 
@@ -181,22 +182,27 @@ def get_naver_board_titles(code):
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     }
     titles = []
-    try:
-        req = urllib.request.Request(url, headers=headers)
-        html = urllib.request.urlopen(req, timeout=5).read()
-        html_str = html.decode('utf-8', errors='replace')
-        
-        soup = BeautifulSoup(html_str, 'html.parser')
-        table = soup.find('table', class_='type2')
-        if table:
-            rows = table.find_all('td', class_='title')
-            for row in rows[:15]:
-                a_tag = row.find('a')
-                if a_tag:
-                    title = a_tag.get('title') or a_tag.text.strip()
-                    titles.append(title)
-    except Exception as e:
-        print(f"네이버 토론실 크롤링 실패 ({code}): {e}")
+    max_retries = 2
+    for attempt in range(max_retries):
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            html = urllib.request.urlopen(req, timeout=8).read()
+            html_str = html.decode('utf-8', errors='replace')
+
+            soup = BeautifulSoup(html_str, 'html.parser')
+            table = soup.find('table', class_='type2')
+            if table:
+                rows = table.find_all('td', class_='title')
+                for row in rows[:15]:
+                    a_tag = row.find('a')
+                    if a_tag:
+                        title = a_tag.get('title') or a_tag.text.strip()
+                        titles.append(title)
+            break
+        except Exception as e:
+            print(f"네이버 토론실 크롤링 실패 ({code}, 시도 {attempt+1}/{max_retries}): {e}")
+            if attempt < max_retries - 1:
+                time.sleep(1.5)
     return " / ".join(titles)
 
 def get_refined_stock_news_and_board(stock_name, code):
@@ -217,7 +223,7 @@ def get_refined_stock_news_and_board(stock_name, code):
         url = f"https://news.google.com/rss/search?q={query}&hl=ko&gl=KR&ceid=KR:ko"
         try:
             req = urllib.request.Request(url, headers=headers)
-            with urllib.request.urlopen(req, timeout=5) as response:
+            with urllib.request.urlopen(req, timeout=8) as response:
                 xml_data = response.read()
                 root = ET.fromstring(xml_data)
                 for item in root.findall('.//item')[:15]:  # 상위 15개 훑기
@@ -292,7 +298,7 @@ def analyze_stocks_batch(stocks, naver_themes):
         for attempt in range(max_retries):
             try:
                 response = model.generate_content(prompt)
-                clean_json = response.text.strip().removeprefix("```json").removesuffix("```").strip()
+                clean_json = extract_json_from_text(response.text)
                 data = json.loads(clean_json)
                 
                 # 배열을 딕셔너리로 변환하여 code로 O(1) 접근

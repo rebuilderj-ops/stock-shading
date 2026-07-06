@@ -18,6 +18,8 @@ except ImportError:
     def get_refined_stock_news_and_board(stock_name, code):
         return f"[Fallback] {stock_name} 정보 수집 에러"
 
+from json_utils import extract_json_from_text, trim_to_length
+
 # 환경변수 로드
 load_dotenv('.env.local')
 
@@ -75,6 +77,41 @@ def load_today_krx_shadowing(target_date):
             print(f"섀도잉 데이터 로드 에러: {e}")
     return today_stocks
 
+def get_overtime_price_info(code):
+    """네이버 실시간 시세 API로부터 실제 시간외 단일가 체결 정보를 가져옵니다.
+
+    기존 로직은 시간외 등락률을 Gemini가 뉴스 문맥만 보고 '10% 이상 상승' 식으로
+    추정하도록 시켰기 때문에 실제 체결가와 무관한 값이 나올 수 있었습니다.
+    여기서는 네이버 금융이 제공하는 실시간 폴링 API의 overMarketPriceInfo
+    (시간외 단일가 세션 체결 데이터)를 직접 조회해 실제 가격/등락률을 사용합니다.
+    실제 체결 거래량이 0이면(시간외 거래가 없었던 종목) None을 반환해 제외시킵니다.
+    """
+    url = f"https://polling.finance.naver.com/api/realtime/domestic/stock/{code}"
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=8) as response:
+            data = json.loads(response.read().decode('utf-8'))
+            item = (data.get('datas') or [{}])[0]
+            over = item.get('overMarketPriceInfo') or {}
+            if not over:
+                return None
+
+            volume = int(str(over.get('accumulatedTradingVolumeRaw', 0) or 0))
+            if volume <= 0:
+                return None
+
+            over_price = int(str(over.get('overPrice', '0')).replace(',', '') or 0)
+            change_pct = float(over.get('fluctuationsRatio', 0) or 0)
+
+            return {
+                "price": over_price,
+                "change": round(change_pct, 2)
+            }
+    except Exception as e:
+        print(f"시간외 단일가 실시간 조회 실패 ({code}): {e}")
+        return None
+
+
 def extract_kr_after_market_stocks(news_text, name_to_code):
     """뉴스 목록에서 한국 시장(코스피/코스닥)에 상장된 시간외/공시 특징주 종목만 AI로 1차 추출 후 매핑 검증합니다."""
     if not GEMINI_API_KEY:
@@ -104,8 +141,7 @@ def extract_kr_after_market_stocks(news_text, name_to_code):
     for attempt in range(max_retries):
         try:
             response = model.generate_content(prompt)
-            # 마크다운 블록이 붙어 나올 경우를 위해 정제
-            clean_json = response.text.strip().removeprefix("```json").removesuffix("```").strip()
+            clean_json = extract_json_from_text(response.text)
             extracted_names = json.loads(clean_json)
             
             # 2차 검증: krx_desc.json에 존재하는 종목인지 확인하여 해외 종목 유입 원천 차단
@@ -140,6 +176,43 @@ def extract_kr_after_market_stocks(news_text, name_to_code):
                 time.sleep(2)
     return []
 
+POSITIVE_DIRECTION_KEYWORDS = ['급등', '폭등', '상승세', '강세', '매수세 집중', '반등', '급상승']
+NEGATIVE_DIRECTION_KEYWORDS = ['급락', '폭락', '하락세', '약세', '매도세', '실망 매물', '투매', '급하락']
+
+
+def reason_matches_direction(reason, change):
+    """AI가 생성한 사유 텍스트의 방향성(상승/하락 뉘앙스)이 실제 시간외 등락률의
+    부호와 모순되는지 검사합니다. 실측 검증 결과, 프롬프트로 '실제 부호와 일치시켜라'라고
+    지시해도 모델이 뉴스 문맥(예: 수주 실패 악재)에 이끌려 실제로는 +6% 상승인 종목을
+    '급락'으로 서술하는 등 모순된 문장을 만드는 사례가 있어, 코드 레벨의 방어 검증이 필요합니다.
+    """
+    if change is None or not reason:
+        return True
+    has_positive = any(kw in reason for kw in POSITIVE_DIRECTION_KEYWORDS)
+    has_negative = any(kw in reason for kw in NEGATIVE_DIRECTION_KEYWORDS)
+    if change > 0 and has_negative and not has_positive:
+        return False
+    if change < 0 and has_positive and not has_negative:
+        return False
+    return True
+
+
+def build_after_stocks_context(after_market_stocks_info):
+    """시간외 특징주 정보를 프롬프트용 텍스트로 변환합니다.
+
+    'overtime_price'/'overtime_change'는 네이버 실시간 API에서 조회한 실제
+    체결 데이터이며, AI는 이 수치를 그대로 인용해야 하고 임의로 등락률을
+    추정해서는 안 됩니다.
+    """
+    lines = []
+    for s in after_market_stocks_info:
+        change = s.get('overtime_change')
+        price = s.get('overtime_price')
+        real_data = f"[실제 시간외 단일가: {price:,}원 / 정규장 종가 대비 {change:+.2f}%]" if change is not None else ""
+        lines.append(f"- {s['name']}({s['code']}) {real_data}: {s.get('raw_info', '')}")
+    return "\n".join(lines)
+
+
 def generate_kr_bull_perspective(today_stocks, after_market_stocks_info):
     """오늘 정규장 주도주와 시간외 종목 정보를 토대로 황소(낙관적) 관점의 분석 리포트를 생성합니다."""
     if not GEMINI_API_KEY:
@@ -152,9 +225,7 @@ def generate_kr_bull_perspective(today_stocks, after_market_stocks_info):
     for s in today_stocks:
         stocks_str += f"- {s.get('name')}({s.get('code')}): 등락률 {s.get('change_rate')}%, 테마: {s.get('keywordName')}, 사유: {s.get('reason')}\n"
 
-    after_stocks_str = ""
-    for s in after_market_stocks_info:
-        after_stocks_str += f"- {s['name']}({s['code']}): {s.get('raw_info', '')}\n"
+    after_stocks_str = build_after_stocks_context(after_market_stocks_info)
 
     prompt = f"""당신은 한국 주식 시장의 전문 황소(Bull, 극도로 낙관적이고 공격적인 투자 성향) 에이전트입니다.
 오늘 장 마감 후 취합된 국내 정규장 주도주 정보와 시간외/공시 특징주의 실시간 수집 정보를 바탕으로, 시장의 상승 동력과 내일 아침 공략해야 할 매수 전략을 강력하고 긍정적인 관점에서 작성해 주세요.
@@ -194,9 +265,7 @@ def generate_kr_bear_perspective(today_stocks, after_market_stocks_info):
     for s in today_stocks:
         stocks_str += f"- {s.get('name')}({s.get('code')}): 등락률 {s.get('change_rate')}%, 테마: {s.get('keywordName')}, 사유: {s.get('reason')}\n"
 
-    after_stocks_str = ""
-    for s in after_market_stocks_info:
-        after_stocks_str += f"- {s['name']}({s['code']}): {s.get('raw_info', '')}\n"
+    after_stocks_str = build_after_stocks_context(after_market_stocks_info)
 
     prompt = f"""당신은 한국 주식 시장의 전문 곰(Bear, 극도로 보수적이고 리스크 중심의 투자 성향) 에이전트입니다.
 오늘 장 마감 후 취합된 국내 정규장 주도주 정보와 시간외/공시 특징주의 실시간 수집 정보를 바탕으로, 시장의 하락 리스크와 내일 아침 조심해야 할 함정들을 보수적인 관점에서 작성해 주세요.
@@ -240,9 +309,7 @@ def analyze_kr_market_moderator(today_stocks, after_market_stocks_info, bull_opi
     for s in today_stocks:
         stocks_str += f"- {s.get('name')}({s.get('code')}): 등락률 {s.get('change_rate')}%, 테마: {s.get('keywordName')}, 사유: {s.get('reason')}\n"
 
-    after_stocks_str = ""
-    for s in after_market_stocks_info:
-        after_stocks_str += f"- {s['name']}({s['code']}): {s.get('raw_info', '')}\n"
+    after_stocks_str = build_after_stocks_context(after_market_stocks_info)
 
     prompt = f"""당신은 한국 주식 마켓 분석팀의 수석 조정자(Moderator)이자 최종 의사결정자입니다.
 상반된 성향을 가진 황소(Bull) 에이전트와 곰(Bear) 에이전트의 시장 관점 보고서, 그리고 오늘 장마감 후의 실제 특징주 데이터를 바탕으로 투자자들이 참고할 최종 국장 마감 리포트와 시간외 종목 분석을 작성해 주세요.
@@ -263,8 +330,8 @@ def analyze_kr_market_moderator(today_stocks, after_market_stocks_info, bull_opi
 1. 황소의 공격적인 아이디어와 곰의 리스크 관리 조언을 합리적으로 절충하여 데이트레이더를 위한 최적의 조율안을 'market_summary'에 녹여내세요. (공백 제외 150~200자 내외로 상세하게 작성)
 2. 오늘 가장 강했던 핵심 주도 테마들을 분석하여 2~3개 선정하고, 'top_sectors'에 넣어주세요.
 3. 시간외 특징주 목록인 'after_market_stocks'를 완성해 주세요.
-   - 각 종목의 'change_rate'는 제공된 뉴스 내용이나 정황상 예상되는 대략적인 상승률 혹은 등락 추정치(예: '상한가', '5.4% 상승', '급상승' 등)로 채우세요.
-   - 각 종목의 'reason'은 네이버 종목토론방 실시간 글 제목과 최신 3일 내의 구글 뉴스에서 공통적으로 언급되는 실시간 실제 상승 원인을 한 문장(50자 내외)으로 압축하여 명확하고 정확하게 채워주세요. (구글 뉴스에 과거 날짜 왜곡이 있더라도 네이버 토론방의 실시간 호재 글들을 적극 조율 및 필터링하여 오늘자 진짜 사유로 만들어야 합니다.)
+   - 각 종목마다 이미 '[실제 시간외 단일가: N원 / 정규장 종가 대비 +-N.NN%]' 형태로 실제 체결 데이터가 주어져 있습니다. 이 등락률의 부호(상승/하락)와 절대 일치하는 방향으로 'reason'을 작성하세요. 등락률 수치 자체는 절대 새로 추정하거나 다른 값으로 바꾸지 마세요 (별도 필드로 시스템이 그대로 사용합니다).
+   - 각 종목의 'reason'은 네이버 종목토론방 실시간 글 제목과 최신 3일 내의 구글 뉴스에서 공통적으로 언급되는 실시간 실제 상승/하락 원인을 한 문장(50자 내외)으로 압축하여 명확하고 정확하게 채워주세요. (구글 뉴스에 과거 날짜 왜곡이 있더라도 네이버 토론방의 실시간 호재/악재 글들을 적극 조율 및 필터링하여 오늘자 진짜 사유로 만들어야 합니다.)
    - 절대 우리나라에 상장되지 않은 종목은 포함해서는 안 됩니다.
 4. 오직 JSON 형식으로만 응답해야 합니다. 마크다운 기호(```json 등)나 다른 설명 텍스트를 절대 붙이지 마세요.
 
@@ -280,8 +347,7 @@ def analyze_kr_market_moderator(today_stocks, after_market_stocks_info, bull_opi
     {{
       "name": "종목명",
       "code": "6자리 종목코드",
-      "change_rate": "상승 수준 (예: '상한가' 또는 '6.5% 상승')",
-      "reason": "[핵심키워드] 구글 뉴스 및 종목토론방을 종합 분석한 정확한 오늘의 상승 원인 (1문장)"
+      "reason": "[핵심키워드] 구글 뉴스 및 종목토론방을 종합 분석한, 실제 등락 방향과 일치하는 정확한 오늘의 원인 (1문장)"
     }}
   ],
   "market_summary": "황소와 곰의 의견을 융합한, 내일 아침 집중해야 할 공략 포인트 및 리스크 관리 가이드라인 리포트"
@@ -291,8 +357,10 @@ def analyze_kr_market_moderator(today_stocks, after_market_stocks_info, bull_opi
     for attempt in range(max_retries):
         try:
             response = model.generate_content(prompt)
-            clean_json = response.text.strip().removeprefix("```json").removesuffix("```").strip()
-            return json.loads(clean_json)
+            clean_json = extract_json_from_text(response.text)
+            result = json.loads(clean_json)
+            result["market_summary"] = trim_to_length(result.get("market_summary", ""), 220)
+            return result
         except Exception as e:
             print(f"Moderator 에이전트 최종 분석 중 에러 (시도 {attempt+1}/{max_retries}): {e}")
             if attempt < max_retries - 1:
@@ -312,7 +380,13 @@ def main():
     print(" [오후 9시] 국내장 및 시간외/공시 분석 파이프라인 가동 (AI 토론형)")
     print("====================================")
     
-    today_formatted = datetime.now().strftime("%Y-%m-%d")
+    # 백필(backfill) 실행 시 update_us_macro.py가 대상 날짜를 인자로 넘겨줍니다.
+    # 인자가 없으면(평시 9시 정시 실행) 오늘 날짜를 그대로 사용합니다.
+    if len(sys.argv) > 1:
+        today_formatted = sys.argv[1]
+        print(f"[Backfill 모드] 지정된 대상 날짜로 실행합니다: {today_formatted}")
+    else:
+        today_formatted = datetime.now().strftime("%Y-%m-%d")
     print(f"대상 날짜: {today_formatted}")
     
     # 0. 국장 상장 정보 krx_desc.json 로드
@@ -343,9 +417,24 @@ def main():
     
     # 3. 뉴스 텍스트에서 국장에 상장된 특징주 종목 추출 및 검증
     print("Gemini AI를 사용하여 국장 시간외/공시 특징주 종목 1차 추출 중...")
-    after_market_stocks = extract_kr_after_market_stocks(combined_news, name_to_code)
-    print(f"추출된 검증 완료 국장 종목: {[s['name'] for s in after_market_stocks]}")
-    
+    candidate_stocks = extract_kr_after_market_stocks(combined_news, name_to_code)
+    print(f"추출된 검증 완료 국장 종목: {[s['name'] for s in candidate_stocks]}")
+
+    # 3.5 [신규] 뉴스 기반 후보 종목들의 실제 시간외 단일가 체결 데이터를 네이버 실시간 API로 검증
+    #     실제 시간외 거래 체결이 없는 종목(뉴스는 있으나 시간외 거래는 없었던 경우)은 제외합니다.
+    #     이렇게 하면 AI가 등락률을 추정해서 지어내는 대신 실제 체결 데이터를 사용하게 됩니다.
+    after_market_stocks = []
+    for s in candidate_stocks:
+        overtime_info = get_overtime_price_info(s['code'])
+        time.sleep(0.5)
+        if overtime_info is None:
+            print(f"[Filter] 실제 시간외 체결 데이터 없음으로 제외: {s['name']}({s['code']})")
+            continue
+        s['overtime_price'] = overtime_info['price']
+        s['overtime_change'] = overtime_info['change']
+        after_market_stocks.append(s)
+    print(f"실제 시간외 체결 데이터로 검증된 종목: {[s['name'] for s in after_market_stocks]}")
+
     # 4. 추출된 특징주들에 대해 개별 실시간 여론 및 뉴스 수집 (3일 이내 기사 + 네이버 종목 토론실)
     after_market_stocks_info = []
     for s in after_market_stocks:
@@ -354,7 +443,7 @@ def main():
         s['raw_info'] = raw_info
         after_market_stocks_info.append(s)
         time.sleep(2) # 네이버 금융 차단 방지 및 API Rate Limit 예방 대기
-        
+
     # 5. AI 토론 프로세스 가동 (황소 vs 곰 -> 모더레이터)
     print("황소(Bull) 에이전트 의견 작성 중...")
     bull_opinion = generate_kr_bull_perspective(today_stocks, after_market_stocks_info)
@@ -366,7 +455,34 @@ def main():
     
     print("수석 조정자(Moderator) 최종 조율 및 마감 리포트 작성 중...")
     analysis_result = analyze_kr_market_moderator(today_stocks, after_market_stocks_info, bull_opinion, bear_opinion)
-    
+
+    # 5.5 [신규] AI가 생성한 'reason' 텍스트는 채택하되, 등락률/가격은 항상 3.5단계에서
+    #      조회한 실제 시간외 체결 데이터로 덮어써서 AI의 추정치가 최종 결과에 섞이지 않도록 합니다.
+    overtime_lookup = {s['code']: s for s in after_market_stocks_info}
+    ai_reason_lookup = {
+        item.get("code"): item.get("reason", "")
+        for item in analysis_result.get("after_market_stocks", [])
+        if item.get("code")
+    }
+    final_after_market_stocks = []
+    for code, s in overtime_lookup.items():
+        change = s.get('overtime_change')
+        reason = ai_reason_lookup.get(code)
+        if not reason or not reason_matches_direction(reason, change):
+            direction_word = "상승" if (change or 0) >= 0 else "하락"
+            print(f"[Filter] AI 사유가 실제 등락 방향과 모순되어 안전한 기본 문구로 대체: {s['name']}({code}) - {reason}")
+            reason = f"시간외 단일가 기준 정규장 종가 대비 {direction_word} {abs(change):.2f}% 기록 (세부 사유 자동 요약 실패로 방향성 정보만 표기합니다)"
+        final_after_market_stocks.append({
+            "name": s['name'],
+            "code": code,
+            "price": s.get('overtime_price'),
+            "change": change,
+            "reason": reason
+        })
+    # 등락률(절대값) 기준 내림차순 정렬 - 변동성이 큰 종목을 상단에 노출
+    final_after_market_stocks.sort(key=lambda x: abs(x.get('change') or 0), reverse=True)
+    analysis_result["after_market_stocks"] = final_after_market_stocks
+
     # 6. 독립적인 daily_briefing.json 파일 관리
     briefing_file = 'public/data/daily_briefing.json'
     
