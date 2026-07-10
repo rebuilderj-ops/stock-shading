@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Search, Plus, Trash2, Edit, Tag, X, Info, ChevronDown, ChevronRight, Crown, Award, Link2, ChevronsDownUp, ChevronsUpDown } from 'lucide-react';
+import { Search, Plus, Trash2, Edit, Tag, X, Info, ChevronDown, ChevronRight, Crown, Award, Link2, ChevronsDownUp, ChevronsUpDown, AlertTriangle } from 'lucide-react';
 import { INITIAL_KEYWORDS, INITIAL_STOCKS } from '../lib/mockData';
-import { THEME_VALUE_CHAINS } from '../data/theme_value_chains';
+import { CURATED_THEMES } from '../data/theme_value_chains';
 
 const CHART_TYPES = [
   { key: 'month3', label: '3개월 차트' },
@@ -12,13 +12,79 @@ const CHART_TYPES = [
 // 종목 코드로 네이버 증권 영역 차트 이미지를 만드는 헬퍼
 const chartUrl = (code, key) => `https://ssl.pstatic.net/imgfinance/chart/item/area/${key}/${code}.png?sidcode=${Date.now()}`;
 
+// [큐레이션 주입] 자동 병합된 테마/종목 위에 큐레이션(대장주/2등주/밸류체인/정치테마)을 얹어
+// 증강된 keywords/stocks 배열을 만듭니다. 모듈 로드 시 1회 실행.
+// - CURATED_THEMES에만 있는 테마(정치 테마 등)는 신규 키워드로 생성
+// - 로스터 종목이 데이터에 없으면 주입, 있으면 해당 테마 소속(keyword_ids) 추가 → 멀티테마 중복 노출
+function augmentThemes(baseKeywords, baseStocks) {
+  const keywords = baseKeywords.map(k => ({ ...k }));
+  const stocks = baseStocks.map(s => ({ ...s, keyword_ids: s.keyword_ids ? [...s.keyword_ids] : [s.keyword_id] }));
+  const nameToKw = new Map(keywords.map(k => [k.name, k]));
+  const codeToStock = new Map();
+  stocks.forEach(s => { if (s.code) codeToStock.set(s.code, s); });
+  let maxKwId = keywords.reduce((m, k) => Math.max(m, k.id), 0);
+  let maxStId = stocks.reduce((m, s) => Math.max(m, s.id), 0);
+
+  Object.entries(CURATED_THEMES).forEach(([themeName, cfg]) => {
+    let kw = nameToKw.get(themeName);
+    if (!kw) {
+      kw = {
+        id: ++maxKwId, name: themeName,
+        description: cfg.description || 'AI 분석 기반 큐레이션 테마',
+        color: cfg.isPolitical ? 'red' : 'blue', created_at: '2026-01-01',
+        isPolitical: !!cfg.isPolitical,
+      };
+      keywords.push(kw); nameToKw.set(themeName, kw);
+    } else if (cfg.isPolitical) {
+      kw.isPolitical = true;
+      if (cfg.description) kw.description = cfg.description;
+    }
+
+    // 로스터(이름 보유): members + leader + second → 없으면 주입, 있으면 소속 추가
+    const roster = new Map();
+    (cfg.members || []).forEach(m => roster.set(m.code, m.name));
+    if (cfg.leader) roster.set(cfg.leader.code, cfg.leader.name);
+    if (cfg.second) roster.set(cfg.second.code, cfg.second.name);
+    roster.forEach((name, code) => {
+      let st = codeToStock.get(code);
+      if (!st) {
+        st = { id: ++maxStId, code, name, keyword_ids: [kw.id], is_leader: false };
+        stocks.push(st); codeToStock.set(code, st);
+      } else {
+        if (!st.keyword_ids.includes(kw.id)) st.keyword_ids.push(kw.id);
+        if (!st.name && name) st.name = name;
+      }
+    });
+
+    // 밸류체인에 나열됐지만 데이터에만 존재하는 종목도 이 테마 소속으로 편입
+    (cfg.chains || []).forEach(c => c.codes.forEach(code => {
+      const st = codeToStock.get(code);
+      if (st && !st.keyword_ids.includes(kw.id)) st.keyword_ids.push(kw.id);
+    }));
+  });
+
+  // 큐레이션된 주요 테마(정의 순서)를 상단으로, 나머지 자동생성 테마는 뒤로 정렬
+  const order = Object.keys(CURATED_THEMES);
+  keywords.sort((a, b) => {
+    const ia = order.indexOf(a.name), ib = order.indexOf(b.name);
+    if (ia === -1 && ib === -1) return 0;
+    if (ia === -1) return 1;
+    if (ib === -1) return -1;
+    return ia - ib;
+  });
+
+  return { keywords, stocks };
+}
+
+const { keywords: AUGMENTED_KEYWORDS, stocks: AUGMENTED_STOCKS } = augmentThemes(INITIAL_KEYWORDS, INITIAL_STOCKS);
+
 // 테마 하나에 대해 대장주/2등주/밸류체인 그룹/기타 종목을 계산합니다.
 function buildThemeGroups(keyword, keywordStocks) {
-  const curation = THEME_VALUE_CHAINS[keyword.name];
+  const curation = CURATED_THEMES[keyword.name];
   const byCode = new Map(keywordStocks.map(s => [s.code, s]));
 
-  let leader = (curation?.leaderCode && byCode.get(curation.leaderCode)) || null;
-  let second = (curation?.secondCode && byCode.get(curation.secondCode)) || null;
+  let leader = (curation?.leader && byCode.get(curation.leader.code)) || null;
+  let second = (curation?.second && byCode.get(curation.second.code)) || null;
 
   // 큐레이션 데이터가 없는(자동 생성된) 테마는 기존 is_leader 플래그로만 대장주를 표시합니다.
   if (!leader) {
@@ -37,8 +103,8 @@ function buildThemeGroups(keyword, keywordStocks) {
 }
 
 const KeywordEncyclopedia = () => {
-  const [keywords, setKeywords] = useState(INITIAL_KEYWORDS);
-  const [stocks, setStocks] = useState(INITIAL_STOCKS);
+  const [keywords, setKeywords] = useState(AUGMENTED_KEYWORDS);
+  const [stocks, setStocks] = useState(AUGMENTED_STOCKS);
   const [searchTerm, setSearchTerm] = useState('');
 
   // 모바일 화면 가로보기 권장 뱃지 상태
@@ -329,9 +395,14 @@ const KeywordEncyclopedia = () => {
                   <div className="min-w-0">
                     <div className="flex items-center gap-3 mb-1 flex-wrap">
                       <h2 className="text-2xl font-bold text-slate-100 flex items-center gap-2">
-                        <Tag size={20} className="text-emerald-400" />
+                        <Tag size={20} className={keyword.isPolitical ? 'text-red-400' : 'text-emerald-400'} />
                         {keyword.name}
                       </h2>
+                      {keyword.isPolitical && (
+                        <span className="flex items-center gap-1 text-[11px] font-bold text-red-400 bg-red-500/10 border border-red-500/30 rounded-full px-2.5 py-0.5">
+                          <AlertTriangle size={11} /> 정치·고위험
+                        </span>
+                      )}
                       <span className="text-[11px] font-semibold text-slate-400 bg-slate-900/60 border border-slate-700 rounded-full px-2.5 py-0.5">
                         {keywordStocks.length}개 종목
                       </span>

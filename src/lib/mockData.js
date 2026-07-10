@@ -264,12 +264,19 @@ if (realHistoryData && realHistoryData.length > 0) {
       stock = {
         id: maxStId,
         keyword_id: kw.id,
+        keyword_ids: [kw.id],
         name: item.name,
         code: item.code,
         reason: item.reason,
         is_leader: false
       };
       INITIAL_STOCKS.push(stock);
+    } else {
+      // [멀티테마] 동일 종목이 서로 다른 테마(keywordName)로 급등 이력이 있으면
+      // 모든 테마에 소속시켜 여러 테마에서 중복 노출되도록 합니다.
+      // (예: 삼성전자는 'IT'로 처음 잡혔지만 '반도체'에서도 여러 번 급등 → 두 테마 모두 노출)
+      if (!stock.keyword_ids) stock.keyword_ids = [stock.keyword_id];
+      if (!stock.keyword_ids.includes(kw.id)) stock.keyword_ids.push(kw.id);
     }
 
     finalDailyRecords.push({
