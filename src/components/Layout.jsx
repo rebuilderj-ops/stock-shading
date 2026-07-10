@@ -69,7 +69,7 @@ const Layout = () => {
       {/* 모바일용 상단 헤더바 */}
       <header className="lg:hidden flex items-center justify-between px-6 py-4 bg-slate-900 border-b border-slate-800/80 absolute top-0 left-0 right-0 z-30 shadow-md">
         <h1 className="text-xl font-black tracking-tighter bg-gradient-to-br from-white to-slate-400 text-transparent bg-clip-text">
-          Indie Investors
+          Indie Traders
         </h1>
         <button 
           onClick={() => setIsSidebarOpen(true)}
@@ -95,7 +95,7 @@ const Layout = () => {
         <div className="p-4 py-5 flex justify-between items-center border-b border-slate-800/40 lg:border-b-0">
           <div>
             <h1 className="text-2xl font-black tracking-tighter bg-gradient-to-br from-white to-slate-400 text-transparent bg-clip-text">
-              Indie Investors
+              Indie Traders
             </h1>
             <p className="text-xs text-slate-500 font-medium tracking-wide mt-1 uppercase">Pro Dashboard</p>
           </div>
