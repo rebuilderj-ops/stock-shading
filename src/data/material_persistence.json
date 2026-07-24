@@ -1,0 +1,7943 @@
+{
+  "generated_at": "2026-07-24 16:29:40",
+  "trading_days": 48,
+  "date_range": [
+    "2026-05-15",
+    "2026-07-23"
+  ],
+  "category_definition": {
+    "당일소멸": "연속 1거래일",
+    "단기(2~4일)": "연속 2~4거래일",
+    "지속(5일+)": "연속 5거래일 이상 (시장급 재료 후보)"
+  },
+  "theme_persistence": [
+    {
+      "theme": "반도체",
+      "appeared_days": 43,
+      "run_count": 6,
+      "max_run": 24,
+      "avg_run": 7.17,
+      "category_dist": {
+        "지속(5일+)": 3,
+        "단기(2~4일)": 2,
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-05-15",
+          "end": "2026-06-18",
+          "length": 24,
+          "peak_change": 30.0,
+          "record_count": 266
+        },
+        {
+          "start": "2026-06-22",
+          "end": "2026-07-01",
+          "length": 8,
+          "peak_change": 30.0,
+          "record_count": 81
+        },
+        {
+          "start": "2026-07-09",
+          "end": "2026-07-15",
+          "length": 5,
+          "peak_change": 29.93,
+          "record_count": 73
+        },
+        {
+          "start": "2026-07-03",
+          "end": "2026-07-07",
+          "length": 3,
+          "peak_change": 30.0,
+          "record_count": 10
+        },
+        {
+          "start": "2026-07-20",
+          "end": "2026-07-21",
+          "length": 2,
+          "peak_change": 29.86,
+          "record_count": 5
+        },
+        {
+          "start": "2026-07-23",
+          "end": "2026-07-23",
+          "length": 1,
+          "peak_change": 8.44,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "AI",
+      "appeared_days": 40,
+      "run_count": 6,
+      "max_run": 21,
+      "avg_run": 6.67,
+      "category_dist": {
+        "지속(5일+)": 3,
+        "단기(2~4일)": 3
+      },
+      "runs": [
+        {
+          "start": "2026-05-15",
+          "end": "2026-06-15",
+          "length": 21,
+          "peak_change": 30.0,
+          "record_count": 91
+        },
+        {
+          "start": "2026-06-25",
+          "end": "2026-07-02",
+          "length": 6,
+          "peak_change": 30.0,
+          "record_count": 8
+        },
+        {
+          "start": "2026-07-09",
+          "end": "2026-07-15",
+          "length": 5,
+          "peak_change": 29.97,
+          "record_count": 8
+        },
+        {
+          "start": "2026-06-18",
+          "end": "2026-06-22",
+          "length": 3,
+          "peak_change": 17.92,
+          "record_count": 4
+        },
+        {
+          "start": "2026-07-21",
+          "end": "2026-07-23",
+          "length": 3,
+          "peak_change": 29.99,
+          "record_count": 4
+        },
+        {
+          "start": "2026-07-06",
+          "end": "2026-07-07",
+          "length": 2,
+          "peak_change": 29.91,
+          "record_count": 3
+        }
+      ]
+    },
+    {
+      "theme": "로봇",
+      "appeared_days": 35,
+      "run_count": 6,
+      "max_run": 20,
+      "avg_run": 5.83,
+      "category_dist": {
+        "당일소멸": 2,
+        "지속(5일+)": 2,
+        "단기(2~4일)": 2
+      },
+      "runs": [
+        {
+          "start": "2026-05-19",
+          "end": "2026-06-16",
+          "length": 20,
+          "peak_change": 300.0,
+          "record_count": 103
+        },
+        {
+          "start": "2026-06-23",
+          "end": "2026-07-02",
+          "length": 8,
+          "peak_change": 29.99,
+          "record_count": 21
+        },
+        {
+          "start": "2026-07-21",
+          "end": "2026-07-23",
+          "length": 3,
+          "peak_change": 30.0,
+          "record_count": 26
+        },
+        {
+          "start": "2026-07-15",
+          "end": "2026-07-16",
+          "length": 2,
+          "peak_change": 30.0,
+          "record_count": 2
+        },
+        {
+          "start": "2026-05-15",
+          "end": "2026-05-15",
+          "length": 1,
+          "peak_change": 29.97,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-09",
+          "end": "2026-07-09",
+          "length": 1,
+          "peak_change": 8.76,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "금융",
+      "appeared_days": 31,
+      "run_count": 11,
+      "max_run": 16,
+      "avg_run": 2.82,
+      "category_dist": {
+        "당일소멸": 7,
+        "단기(2~4일)": 3,
+        "지속(5일+)": 1
+      },
+      "runs": [
+        {
+          "start": "2026-05-29",
+          "end": "2026-06-22",
+          "length": 16,
+          "peak_change": 17.07,
+          "record_count": 32
+        },
+        {
+          "start": "2026-05-21",
+          "end": "2026-05-26",
+          "length": 4,
+          "peak_change": 29.86,
+          "record_count": 6
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-30",
+          "length": 2,
+          "peak_change": 29.84,
+          "record_count": 4
+        },
+        {
+          "start": "2026-07-02",
+          "end": "2026-07-03",
+          "length": 2,
+          "peak_change": 10.38,
+          "record_count": 4
+        },
+        {
+          "start": "2026-05-15",
+          "end": "2026-05-15",
+          "length": 1,
+          "peak_change": 14.11,
+          "record_count": 1
+        },
+        {
+          "start": "2026-05-19",
+          "end": "2026-05-19",
+          "length": 1,
+          "peak_change": 29.95,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-25",
+          "end": "2026-06-25",
+          "length": 1,
+          "peak_change": 13.77,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-07",
+          "end": "2026-07-07",
+          "length": 1,
+          "peak_change": 29.87,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 7.42,
+          "record_count": 3
+        },
+        {
+          "start": "2026-07-15",
+          "end": "2026-07-15",
+          "length": 1,
+          "peak_change": 9.03,
+          "record_count": 4
+        },
+        {
+          "start": "2026-07-21",
+          "end": "2026-07-21",
+          "length": 1,
+          "peak_change": 6.46,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "바이오",
+      "appeared_days": 39,
+      "run_count": 8,
+      "max_run": 10,
+      "avg_run": 4.88,
+      "category_dist": {
+        "당일소멸": 3,
+        "지속(5일+)": 4,
+        "단기(2~4일)": 1
+      },
+      "runs": [
+        {
+          "start": "2026-07-09",
+          "end": "2026-07-23",
+          "length": 10,
+          "peak_change": 42.75,
+          "record_count": 40
+        },
+        {
+          "start": "2026-06-15",
+          "end": "2026-06-25",
+          "length": 9,
+          "peak_change": 29.98,
+          "record_count": 38
+        },
+        {
+          "start": "2026-05-19",
+          "end": "2026-05-28",
+          "length": 8,
+          "peak_change": 30.0,
+          "record_count": 58
+        },
+        {
+          "start": "2026-07-01",
+          "end": "2026-07-07",
+          "length": 5,
+          "peak_change": 29.96,
+          "record_count": 14
+        },
+        {
+          "start": "2026-06-01",
+          "end": "2026-06-05",
+          "length": 4,
+          "peak_change": 29.94,
+          "record_count": 8
+        },
+        {
+          "start": "2026-05-15",
+          "end": "2026-05-15",
+          "length": 1,
+          "peak_change": 13.07,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 13.99,
+          "record_count": 4
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 29.8,
+          "record_count": 16
+        }
+      ]
+    },
+    {
+      "theme": "우주항공",
+      "appeared_days": 23,
+      "run_count": 8,
+      "max_run": 9,
+      "avg_run": 2.88,
+      "category_dist": {
+        "지속(5일+)": 2,
+        "당일소멸": 4,
+        "단기(2~4일)": 2
+      },
+      "runs": [
+        {
+          "start": "2026-05-18",
+          "end": "2026-05-28",
+          "length": 9,
+          "peak_change": 29.96,
+          "record_count": 28
+        },
+        {
+          "start": "2026-06-08",
+          "end": "2026-06-15",
+          "length": 6,
+          "peak_change": 27.03,
+          "record_count": 13
+        },
+        {
+          "start": "2026-06-30",
+          "end": "2026-07-01",
+          "length": 2,
+          "peak_change": 20.13,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-16",
+          "end": "2026-07-20",
+          "length": 2,
+          "peak_change": 18.93,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-04",
+          "end": "2026-06-04",
+          "length": 1,
+          "peak_change": 29.92,
+          "record_count": 3
+        },
+        {
+          "start": "2026-06-18",
+          "end": "2026-06-18",
+          "length": 1,
+          "peak_change": 6.74,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-22",
+          "end": "2026-06-22",
+          "length": 1,
+          "peak_change": 16.29,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-23",
+          "end": "2026-07-23",
+          "length": 1,
+          "peak_change": 29.86,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "전력설비",
+      "appeared_days": 32,
+      "run_count": 8,
+      "max_run": 8,
+      "avg_run": 4.0,
+      "category_dist": {
+        "당일소멸": 2,
+        "지속(5일+)": 3,
+        "단기(2~4일)": 3
+      },
+      "runs": [
+        {
+          "start": "2026-06-26",
+          "end": "2026-07-07",
+          "length": 8,
+          "peak_change": 75.53,
+          "record_count": 32
+        },
+        {
+          "start": "2026-06-08",
+          "end": "2026-06-15",
+          "length": 6,
+          "peak_change": 16.63,
+          "record_count": 14
+        },
+        {
+          "start": "2026-05-20",
+          "end": "2026-05-26",
+          "length": 5,
+          "peak_change": 30.0,
+          "record_count": 19
+        },
+        {
+          "start": "2026-06-17",
+          "end": "2026-06-22",
+          "length": 4,
+          "peak_change": 30.0,
+          "record_count": 10
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-15",
+          "length": 4,
+          "peak_change": 27.29,
+          "record_count": 13
+        },
+        {
+          "start": "2026-07-21",
+          "end": "2026-07-23",
+          "length": 3,
+          "peak_change": 29.97,
+          "record_count": 11
+        },
+        {
+          "start": "2026-05-18",
+          "end": "2026-05-18",
+          "length": 1,
+          "peak_change": 12.26,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-01",
+          "end": "2026-06-01",
+          "length": 1,
+          "peak_change": 14.29,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "건설",
+      "appeared_days": 31,
+      "run_count": 10,
+      "max_run": 8,
+      "avg_run": 3.1,
+      "category_dist": {
+        "당일소멸": 3,
+        "단기(2~4일)": 5,
+        "지속(5일+)": 2
+      },
+      "runs": [
+        {
+          "start": "2026-06-29",
+          "end": "2026-07-08",
+          "length": 8,
+          "peak_change": 30.0,
+          "record_count": 58
+        },
+        {
+          "start": "2026-06-10",
+          "end": "2026-06-18",
+          "length": 7,
+          "peak_change": 30.0,
+          "record_count": 20
+        },
+        {
+          "start": "2026-06-22",
+          "end": "2026-06-24",
+          "length": 3,
+          "peak_change": 30.0,
+          "record_count": 12
+        },
+        {
+          "start": "2026-07-14",
+          "end": "2026-07-16",
+          "length": 3,
+          "peak_change": 29.98,
+          "record_count": 4
+        },
+        {
+          "start": "2026-07-21",
+          "end": "2026-07-23",
+          "length": 3,
+          "peak_change": 28.9,
+          "record_count": 5
+        },
+        {
+          "start": "2026-05-28",
+          "end": "2026-05-29",
+          "length": 2,
+          "peak_change": 29.85,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-02",
+          "end": "2026-06-04",
+          "length": 2,
+          "peak_change": 10.2,
+          "record_count": 2
+        },
+        {
+          "start": "2026-05-21",
+          "end": "2026-05-21",
+          "length": 1,
+          "peak_change": 8.23,
+          "record_count": 3
+        },
+        {
+          "start": "2026-06-08",
+          "end": "2026-06-08",
+          "length": 1,
+          "peak_change": 10.61,
+          "record_count": 3
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 17.34,
+          "record_count": 6
+        }
+      ]
+    },
+    {
+      "theme": "조선",
+      "appeared_days": 28,
+      "run_count": 12,
+      "max_run": 8,
+      "avg_run": 2.33,
+      "category_dist": {
+        "당일소멸": 7,
+        "지속(5일+)": 2,
+        "단기(2~4일)": 3
+      },
+      "runs": [
+        {
+          "start": "2026-05-19",
+          "end": "2026-05-28",
+          "length": 8,
+          "peak_change": 29.98,
+          "record_count": 27
+        },
+        {
+          "start": "2026-06-08",
+          "end": "2026-06-15",
+          "length": 6,
+          "peak_change": 13.51,
+          "record_count": 8
+        },
+        {
+          "start": "2026-07-21",
+          "end": "2026-07-23",
+          "length": 3,
+          "peak_change": 29.9,
+          "record_count": 4
+        },
+        {
+          "start": "2026-07-03",
+          "end": "2026-07-06",
+          "length": 2,
+          "peak_change": 25.43,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-09",
+          "end": "2026-07-10",
+          "length": 2,
+          "peak_change": 12.15,
+          "record_count": 5
+        },
+        {
+          "start": "2026-05-15",
+          "end": "2026-05-15",
+          "length": 1,
+          "peak_change": 20.08,
+          "record_count": 5
+        },
+        {
+          "start": "2026-06-02",
+          "end": "2026-06-02",
+          "length": 1,
+          "peak_change": 7.17,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-17",
+          "end": "2026-06-17",
+          "length": 1,
+          "peak_change": 29.95,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-24",
+          "end": "2026-06-24",
+          "length": 1,
+          "peak_change": 7.09,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 40.24,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-01",
+          "end": "2026-07-01",
+          "length": 1,
+          "peak_change": 7.84,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-15",
+          "end": "2026-07-15",
+          "length": 1,
+          "peak_change": 8.62,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "IT",
+      "appeared_days": 25,
+      "run_count": 11,
+      "max_run": 8,
+      "avg_run": 2.27,
+      "category_dist": {
+        "당일소멸": 7,
+        "지속(5일+)": 2,
+        "단기(2~4일)": 2
+      },
+      "runs": [
+        {
+          "start": "2026-05-26",
+          "end": "2026-06-05",
+          "length": 8,
+          "peak_change": 29.98,
+          "record_count": 15
+        },
+        {
+          "start": "2026-07-16",
+          "end": "2026-07-23",
+          "length": 5,
+          "peak_change": 30.0,
+          "record_count": 13
+        },
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-16",
+          "length": 3,
+          "peak_change": 12.98,
+          "record_count": 6
+        },
+        {
+          "start": "2026-06-18",
+          "end": "2026-06-19",
+          "length": 2,
+          "peak_change": 29.86,
+          "record_count": 5
+        },
+        {
+          "start": "2026-05-21",
+          "end": "2026-05-21",
+          "length": 1,
+          "peak_change": 13.78,
+          "record_count": 3
+        },
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 9.73,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 8.14,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-01",
+          "end": "2026-07-01",
+          "length": 1,
+          "peak_change": 29.98,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-07",
+          "end": "2026-07-07",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 14.88,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-14",
+          "end": "2026-07-14",
+          "length": 1,
+          "peak_change": 29.9,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "2차전지",
+      "appeared_days": 34,
+      "run_count": 10,
+      "max_run": 7,
+      "avg_run": 3.4,
+      "category_dist": {
+        "당일소멸": 4,
+        "지속(5일+)": 4,
+        "단기(2~4일)": 2
+      },
+      "runs": [
+        {
+          "start": "2026-06-08",
+          "end": "2026-06-16",
+          "length": 7,
+          "peak_change": 29.93,
+          "record_count": 23
+        },
+        {
+          "start": "2026-06-25",
+          "end": "2026-07-03",
+          "length": 7,
+          "peak_change": 30.0,
+          "record_count": 20
+        },
+        {
+          "start": "2026-05-19",
+          "end": "2026-05-26",
+          "length": 6,
+          "peak_change": 29.85,
+          "record_count": 23
+        },
+        {
+          "start": "2026-05-28",
+          "end": "2026-06-04",
+          "length": 5,
+          "peak_change": 29.98,
+          "record_count": 15
+        },
+        {
+          "start": "2026-06-18",
+          "end": "2026-06-22",
+          "length": 3,
+          "peak_change": 30.0,
+          "record_count": 8
+        },
+        {
+          "start": "2026-07-22",
+          "end": "2026-07-23",
+          "length": 2,
+          "peak_change": 29.91,
+          "record_count": 4
+        },
+        {
+          "start": "2026-05-15",
+          "end": "2026-05-15",
+          "length": 1,
+          "peak_change": 8.84,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-07",
+          "end": "2026-07-07",
+          "length": 1,
+          "peak_change": 7.15,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 9.84,
+          "record_count": 3
+        },
+        {
+          "start": "2026-07-15",
+          "end": "2026-07-15",
+          "length": 1,
+          "peak_change": 11.53,
+          "record_count": 5
+        }
+      ]
+    },
+    {
+      "theme": "통신",
+      "appeared_days": 23,
+      "run_count": 8,
+      "max_run": 6,
+      "avg_run": 2.88,
+      "category_dist": {
+        "단기(2~4일)": 3,
+        "지속(5일+)": 2,
+        "당일소멸": 3
+      },
+      "runs": [
+        {
+          "start": "2026-05-28",
+          "end": "2026-06-05",
+          "length": 6,
+          "peak_change": 30.0,
+          "record_count": 13
+        },
+        {
+          "start": "2026-07-09",
+          "end": "2026-07-15",
+          "length": 5,
+          "peak_change": 29.92,
+          "record_count": 13
+        },
+        {
+          "start": "2026-05-15",
+          "end": "2026-05-20",
+          "length": 4,
+          "peak_change": 29.97,
+          "record_count": 4
+        },
+        {
+          "start": "2026-05-22",
+          "end": "2026-05-26",
+          "length": 3,
+          "peak_change": 29.97,
+          "record_count": 12
+        },
+        {
+          "start": "2026-07-21",
+          "end": "2026-07-22",
+          "length": 2,
+          "peak_change": 29.89,
+          "record_count": 4
+        },
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 14.53,
+          "record_count": 4
+        },
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-12",
+          "length": 1,
+          "peak_change": 11.54,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-16",
+          "end": "2026-06-16",
+          "length": 1,
+          "peak_change": 8.05,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "뷰티",
+      "appeared_days": 20,
+      "run_count": 11,
+      "max_run": 5,
+      "avg_run": 1.82,
+      "category_dist": {
+        "당일소멸": 6,
+        "단기(2~4일)": 4,
+        "지속(5일+)": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-08",
+          "end": "2026-06-12",
+          "length": 5,
+          "peak_change": 29.93,
+          "record_count": 5
+        },
+        {
+          "start": "2026-06-01",
+          "end": "2026-06-04",
+          "length": 3,
+          "peak_change": 7.84,
+          "record_count": 3
+        },
+        {
+          "start": "2026-06-23",
+          "end": "2026-06-24",
+          "length": 2,
+          "peak_change": 29.98,
+          "record_count": 4
+        },
+        {
+          "start": "2026-07-01",
+          "end": "2026-07-02",
+          "length": 2,
+          "peak_change": 7.47,
+          "record_count": 3
+        },
+        {
+          "start": "2026-07-07",
+          "end": "2026-07-08",
+          "length": 2,
+          "peak_change": 29.9,
+          "record_count": 2
+        },
+        {
+          "start": "2026-05-19",
+          "end": "2026-05-19",
+          "length": 1,
+          "peak_change": 29.9,
+          "record_count": 1
+        },
+        {
+          "start": "2026-05-27",
+          "end": "2026-05-27",
+          "length": 1,
+          "peak_change": 8.97,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-17",
+          "end": "2026-06-17",
+          "length": 1,
+          "peak_change": 29.84,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 5
+        },
+        {
+          "start": "2026-07-21",
+          "end": "2026-07-21",
+          "length": 1,
+          "peak_change": 8.76,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-23",
+          "end": "2026-07-23",
+          "length": 1,
+          "peak_change": 29.93,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "자동차",
+      "appeared_days": 20,
+      "run_count": 11,
+      "max_run": 5,
+      "avg_run": 1.82,
+      "category_dist": {
+        "당일소멸": 7,
+        "지속(5일+)": 1,
+        "단기(2~4일)": 3
+      },
+      "runs": [
+        {
+          "start": "2026-05-26",
+          "end": "2026-06-01",
+          "length": 5,
+          "peak_change": 29.99,
+          "record_count": 9
+        },
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-16",
+          "length": 3,
+          "peak_change": 29.97,
+          "record_count": 8
+        },
+        {
+          "start": "2026-07-14",
+          "end": "2026-07-16",
+          "length": 3,
+          "peak_change": 29.86,
+          "record_count": 4
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-30",
+          "length": 2,
+          "peak_change": 29.9,
+          "record_count": 2
+        },
+        {
+          "start": "2026-05-21",
+          "end": "2026-05-21",
+          "length": 1,
+          "peak_change": 12.79,
+          "record_count": 4
+        },
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 8.96,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-19",
+          "end": "2026-06-19",
+          "length": 1,
+          "peak_change": 19.12,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-06",
+          "end": "2026-07-06",
+          "length": 1,
+          "peak_change": 29.96,
+          "record_count": 3
+        },
+        {
+          "start": "2026-07-08",
+          "end": "2026-07-08",
+          "length": 1,
+          "peak_change": 12.92,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-21",
+          "end": "2026-07-21",
+          "length": 1,
+          "peak_change": 29.85,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "유통",
+      "appeared_days": 17,
+      "run_count": 10,
+      "max_run": 5,
+      "avg_run": 1.7,
+      "category_dist": {
+        "당일소멸": 7,
+        "단기(2~4일)": 2,
+        "지속(5일+)": 1
+      },
+      "runs": [
+        {
+          "start": "2026-07-14",
+          "end": "2026-07-21",
+          "length": 5,
+          "peak_change": 30.0,
+          "record_count": 10
+        },
+        {
+          "start": "2026-06-01",
+          "end": "2026-06-04",
+          "length": 3,
+          "peak_change": 15.82,
+          "record_count": 6
+        },
+        {
+          "start": "2026-06-24",
+          "end": "2026-06-25",
+          "length": 2,
+          "peak_change": 25.26,
+          "record_count": 3
+        },
+        {
+          "start": "2026-05-21",
+          "end": "2026-05-21",
+          "length": 1,
+          "peak_change": 16.89,
+          "record_count": 1
+        },
+        {
+          "start": "2026-05-28",
+          "end": "2026-05-28",
+          "length": 1,
+          "peak_change": 29.86,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 12.25,
+          "record_count": 4
+        },
+        {
+          "start": "2026-06-16",
+          "end": "2026-06-16",
+          "length": 1,
+          "peak_change": 8.79,
+          "record_count": 3
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 29.96,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-06",
+          "end": "2026-07-06",
+          "length": 1,
+          "peak_change": 29.82,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 19.71,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "신재생에너지",
+      "appeared_days": 16,
+      "run_count": 10,
+      "max_run": 4,
+      "avg_run": 1.6,
+      "category_dist": {
+        "단기(2~4일)": 2,
+        "당일소멸": 8
+      },
+      "runs": [
+        {
+          "start": "2026-05-22",
+          "end": "2026-05-27",
+          "length": 4,
+          "peak_change": 17.6,
+          "record_count": 5
+        },
+        {
+          "start": "2026-07-20",
+          "end": "2026-07-23",
+          "length": 4,
+          "peak_change": 30.0,
+          "record_count": 8
+        },
+        {
+          "start": "2026-06-04",
+          "end": "2026-06-04",
+          "length": 1,
+          "peak_change": 8.83,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-12",
+          "length": 1,
+          "peak_change": 9.35,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-16",
+          "end": "2026-06-16",
+          "length": 1,
+          "peak_change": 29.83,
+          "record_count": 6
+        },
+        {
+          "start": "2026-06-25",
+          "end": "2026-06-25",
+          "length": 1,
+          "peak_change": 29.94,
+          "record_count": 5
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 15.74,
+          "record_count": 4
+        },
+        {
+          "start": "2026-07-01",
+          "end": "2026-07-01",
+          "length": 1,
+          "peak_change": 14.89,
+          "record_count": 8
+        },
+        {
+          "start": "2026-07-09",
+          "end": "2026-07-09",
+          "length": 1,
+          "peak_change": 6.03,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-15",
+          "end": "2026-07-15",
+          "length": 1,
+          "peak_change": 18.91,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "양자암호",
+      "appeared_days": 8,
+      "run_count": 4,
+      "max_run": 4,
+      "avg_run": 2.0,
+      "category_dist": {
+        "단기(2~4일)": 2,
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-05-22",
+          "end": "2026-05-27",
+          "length": 4,
+          "peak_change": 30.0,
+          "record_count": 15
+        },
+        {
+          "start": "2026-06-23",
+          "end": "2026-06-24",
+          "length": 2,
+          "peak_change": 21.54,
+          "record_count": 2
+        },
+        {
+          "start": "2026-05-29",
+          "end": "2026-05-29",
+          "length": 1,
+          "peak_change": 7.34,
+          "record_count": 3
+        },
+        {
+          "start": "2026-06-04",
+          "end": "2026-06-04",
+          "length": 1,
+          "peak_change": 6.08,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "화학",
+      "appeared_days": 14,
+      "run_count": 9,
+      "max_run": 3,
+      "avg_run": 1.56,
+      "category_dist": {
+        "당일소멸": 5,
+        "단기(2~4일)": 4
+      },
+      "runs": [
+        {
+          "start": "2026-07-15",
+          "end": "2026-07-20",
+          "length": 3,
+          "peak_change": 29.92,
+          "record_count": 4
+        },
+        {
+          "start": "2026-06-17",
+          "end": "2026-06-18",
+          "length": 2,
+          "peak_change": 29.87,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-06",
+          "end": "2026-07-07",
+          "length": 2,
+          "peak_change": 29.84,
+          "record_count": 3
+        },
+        {
+          "start": "2026-07-22",
+          "end": "2026-07-23",
+          "length": 2,
+          "peak_change": 29.92,
+          "record_count": 7
+        },
+        {
+          "start": "2026-05-26",
+          "end": "2026-05-26",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 3
+        },
+        {
+          "start": "2026-06-04",
+          "end": "2026-06-04",
+          "length": 1,
+          "peak_change": 29.92,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-25",
+          "end": "2026-06-25",
+          "length": 1,
+          "peak_change": 11.27,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 13.65,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-13",
+          "end": "2026-07-13",
+          "length": 1,
+          "peak_change": 10.5,
+          "record_count": 3
+        }
+      ]
+    },
+    {
+      "theme": "기타",
+      "appeared_days": 11,
+      "run_count": 7,
+      "max_run": 3,
+      "avg_run": 1.57,
+      "category_dist": {
+        "당일소멸": 4,
+        "단기(2~4일)": 3
+      },
+      "runs": [
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-16",
+          "length": 3,
+          "peak_change": 29.89,
+          "record_count": 4
+        },
+        {
+          "start": "2026-05-19",
+          "end": "2026-05-20",
+          "length": 2,
+          "peak_change": 29.98,
+          "record_count": 3
+        },
+        {
+          "start": "2026-05-22",
+          "end": "2026-05-23",
+          "length": 2,
+          "peak_change": 29.94,
+          "record_count": 7
+        },
+        {
+          "start": "2026-05-15",
+          "end": "2026-05-15",
+          "length": 1,
+          "peak_change": 29.84,
+          "record_count": 3
+        },
+        {
+          "start": "2026-06-23",
+          "end": "2026-06-23",
+          "length": 1,
+          "peak_change": 177.78,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-07",
+          "end": "2026-07-07",
+          "length": 1,
+          "peak_change": 29.98,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-15",
+          "end": "2026-07-15",
+          "length": 1,
+          "peak_change": 8.68,
+          "record_count": 3
+        }
+      ]
+    },
+    {
+      "theme": "기계",
+      "appeared_days": 11,
+      "run_count": 8,
+      "max_run": 3,
+      "avg_run": 1.38,
+      "category_dist": {
+        "당일소멸": 6,
+        "단기(2~4일)": 2
+      },
+      "runs": [
+        {
+          "start": "2026-07-21",
+          "end": "2026-07-23",
+          "length": 3,
+          "peak_change": 29.97,
+          "record_count": 3
+        },
+        {
+          "start": "2026-07-15",
+          "end": "2026-07-16",
+          "length": 2,
+          "peak_change": 29.81,
+          "record_count": 3
+        },
+        {
+          "start": "2026-05-26",
+          "end": "2026-05-26",
+          "length": 1,
+          "peak_change": 29.85,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-01",
+          "end": "2026-06-01",
+          "length": 1,
+          "peak_change": 29.87,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-24",
+          "end": "2026-06-24",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 8.17,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-06",
+          "end": "2026-07-06",
+          "length": 1,
+          "peak_change": 29.87,
+          "record_count": 3
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 7.51,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "식음료",
+      "appeared_days": 11,
+      "run_count": 7,
+      "max_run": 3,
+      "avg_run": 1.57,
+      "category_dist": {
+        "당일소멸": 4,
+        "단기(2~4일)": 3
+      },
+      "runs": [
+        {
+          "start": "2026-07-13",
+          "end": "2026-07-15",
+          "length": 3,
+          "peak_change": 30.0,
+          "record_count": 6
+        },
+        {
+          "start": "2026-06-24",
+          "end": "2026-06-25",
+          "length": 2,
+          "peak_change": 29.95,
+          "record_count": 4
+        },
+        {
+          "start": "2026-07-20",
+          "end": "2026-07-21",
+          "length": 2,
+          "peak_change": 29.99,
+          "record_count": 5
+        },
+        {
+          "start": "2026-05-29",
+          "end": "2026-05-29",
+          "length": 1,
+          "peak_change": 29.94,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-01",
+          "end": "2026-07-01",
+          "length": 1,
+          "peak_change": 29.83,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-07",
+          "end": "2026-07-07",
+          "length": 1,
+          "peak_change": 11.02,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-23",
+          "end": "2026-07-23",
+          "length": 1,
+          "peak_change": 29.85,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "철강",
+      "appeared_days": 10,
+      "run_count": 6,
+      "max_run": 3,
+      "avg_run": 1.67,
+      "category_dist": {
+        "단기(2~4일)": 2,
+        "당일소멸": 4
+      },
+      "runs": [
+        {
+          "start": "2026-05-21",
+          "end": "2026-05-23",
+          "length": 3,
+          "peak_change": 29.93,
+          "record_count": 4
+        },
+        {
+          "start": "2026-06-16",
+          "end": "2026-06-18",
+          "length": 3,
+          "peak_change": 29.9,
+          "record_count": 6
+        },
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-12",
+          "length": 1,
+          "peak_change": 8.71,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-22",
+          "end": "2026-06-22",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 9.18,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-21",
+          "end": "2026-07-21",
+          "length": 1,
+          "peak_change": 29.59,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "엔터",
+      "appeared_days": 9,
+      "run_count": 6,
+      "max_run": 3,
+      "avg_run": 1.5,
+      "category_dist": {
+        "당일소멸": 4,
+        "단기(2~4일)": 2
+      },
+      "runs": [
+        {
+          "start": "2026-06-29",
+          "end": "2026-07-01",
+          "length": 3,
+          "peak_change": 30.0,
+          "record_count": 5
+        },
+        {
+          "start": "2026-07-06",
+          "end": "2026-07-07",
+          "length": 2,
+          "peak_change": 29.88,
+          "record_count": 2
+        },
+        {
+          "start": "2026-05-19",
+          "end": "2026-05-19",
+          "length": 1,
+          "peak_change": 29.75,
+          "record_count": 1
+        },
+        {
+          "start": "2026-05-28",
+          "end": "2026-05-28",
+          "length": 1,
+          "peak_change": 29.97,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-24",
+          "end": "2026-06-24",
+          "length": 1,
+          "peak_change": 29.86,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-13",
+          "end": "2026-07-13",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "원전",
+      "appeared_days": 9,
+      "run_count": 7,
+      "max_run": 3,
+      "avg_run": 1.29,
+      "category_dist": {
+        "당일소멸": 6,
+        "단기(2~4일)": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-16",
+          "length": 3,
+          "peak_change": 29.96,
+          "record_count": 7
+        },
+        {
+          "start": "2026-05-21",
+          "end": "2026-05-21",
+          "length": 1,
+          "peak_change": 17.02,
+          "record_count": 6
+        },
+        {
+          "start": "2026-06-04",
+          "end": "2026-06-04",
+          "length": 1,
+          "peak_change": 7.84,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 7.58,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 12.18,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 11.54,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-23",
+          "end": "2026-07-23",
+          "length": 1,
+          "peak_change": 7.11,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "게임",
+      "appeared_days": 8,
+      "run_count": 5,
+      "max_run": 3,
+      "avg_run": 1.6,
+      "category_dist": {
+        "당일소멸": 3,
+        "단기(2~4일)": 2
+      },
+      "runs": [
+        {
+          "start": "2026-07-16",
+          "end": "2026-07-21",
+          "length": 3,
+          "peak_change": 29.99,
+          "record_count": 4
+        },
+        {
+          "start": "2026-07-01",
+          "end": "2026-07-02",
+          "length": 2,
+          "peak_change": 29.97,
+          "record_count": 4
+        },
+        {
+          "start": "2026-06-02",
+          "end": "2026-06-02",
+          "length": 1,
+          "peak_change": 14.38,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-19",
+          "end": "2026-06-19",
+          "length": 1,
+          "peak_change": 7.16,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 29.96,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "시멘트/레미콘",
+      "appeared_days": 5,
+      "run_count": 3,
+      "max_run": 3,
+      "avg_run": 1.67,
+      "category_dist": {
+        "당일소멸": 2,
+        "단기(2~4일)": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-17",
+          "end": "2026-06-19",
+          "length": 3,
+          "peak_change": 30.0,
+          "record_count": 3
+        },
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-12",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-01",
+          "end": "2026-07-01",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "패션",
+      "appeared_days": 5,
+      "run_count": 3,
+      "max_run": 3,
+      "avg_run": 1.67,
+      "category_dist": {
+        "당일소멸": 2,
+        "단기(2~4일)": 1
+      },
+      "runs": [
+        {
+          "start": "2026-07-14",
+          "end": "2026-07-16",
+          "length": 3,
+          "peak_change": 30.0,
+          "record_count": 8
+        },
+        {
+          "start": "2026-06-23",
+          "end": "2026-06-23",
+          "length": 1,
+          "peak_change": 29.94,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-30",
+          "end": "2026-06-30",
+          "length": 1,
+          "peak_change": 29.94,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "해운",
+      "appeared_days": 5,
+      "run_count": 3,
+      "max_run": 3,
+      "avg_run": 1.67,
+      "category_dist": {
+        "단기(2~4일)": 1,
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-07-13",
+          "end": "2026-07-15",
+          "length": 3,
+          "peak_change": 29.99,
+          "record_count": 4
+        },
+        {
+          "start": "2026-07-20",
+          "end": "2026-07-20",
+          "length": 1,
+          "peak_change": 29.98,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-22",
+          "end": "2026-07-22",
+          "length": 1,
+          "peak_change": 24.19,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "자동차부품",
+      "appeared_days": 4,
+      "run_count": 2,
+      "max_run": 3,
+      "avg_run": 2.0,
+      "category_dist": {
+        "당일소멸": 1,
+        "단기(2~4일)": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-16",
+          "length": 3,
+          "peak_change": 29.85,
+          "record_count": 3
+        },
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 29.9,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "고체산화물 연료전지(SOFC)",
+      "appeared_days": 3,
+      "run_count": 1,
+      "max_run": 3,
+      "avg_run": 3.0,
+      "category_dist": {
+        "단기(2~4일)": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-16",
+          "length": 3,
+          "peak_change": 14.23,
+          "record_count": 3
+        }
+      ]
+    },
+    {
+      "theme": "로봇(산업용/협동로봇 등)",
+      "appeared_days": 5,
+      "run_count": 4,
+      "max_run": 2,
+      "avg_run": 1.25,
+      "category_dist": {
+        "단기(2~4일)": 1,
+        "당일소멸": 3
+      },
+      "runs": [
+        {
+          "start": "2026-06-01",
+          "end": "2026-06-02",
+          "length": 2,
+          "peak_change": 22.01,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 24.68,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-12",
+          "length": 1,
+          "peak_change": 29.97,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-19",
+          "end": "2026-06-19",
+          "length": 1,
+          "peak_change": 29.88,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "밸류업(25년 기업가치 제고계획 발표)",
+      "appeared_days": 5,
+      "run_count": 4,
+      "max_run": 2,
+      "avg_run": 1.25,
+      "category_dist": {
+        "당일소멸": 3,
+        "단기(2~4일)": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-15",
+          "length": 2,
+          "peak_change": 29.61,
+          "record_count": 3
+        },
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-02",
+          "end": "2026-07-02",
+          "length": 1,
+          "peak_change": 6.91,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 6.35,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "HBM(고대역폭메모리)",
+      "appeared_days": 4,
+      "run_count": 2,
+      "max_run": 2,
+      "avg_run": 2.0,
+      "category_dist": {
+        "단기(2~4일)": 2
+      },
+      "runs": [
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-15",
+          "length": 2,
+          "peak_change": 29.81,
+          "record_count": 3
+        },
+        {
+          "start": "2026-06-26",
+          "end": "2026-06-29",
+          "length": 2,
+          "peak_change": 9.92,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "5G(5세대 이동통신)",
+      "appeared_days": 3,
+      "run_count": 2,
+      "max_run": 2,
+      "avg_run": 1.5,
+      "category_dist": {
+        "단기(2~4일)": 1,
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-01",
+          "end": "2026-06-02",
+          "length": 2,
+          "peak_change": 11.59,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-03",
+          "end": "2026-07-03",
+          "length": 1,
+          "peak_change": 29.98,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "STO(토큰증권 발행)",
+      "appeared_days": 3,
+      "run_count": 2,
+      "max_run": 2,
+      "avg_run": 1.5,
+      "category_dist": {
+        "단기(2~4일)": 1,
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-15",
+          "length": 2,
+          "peak_change": 16.15,
+          "record_count": 3
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 7.58,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "UAM(도심항공모빌리티)",
+      "appeared_days": 3,
+      "run_count": 2,
+      "max_run": 2,
+      "avg_run": 1.5,
+      "category_dist": {
+        "단기(2~4일)": 1,
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-15",
+          "length": 2,
+          "peak_change": 18.66,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 6.21,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "LNG(액화천연가스)",
+      "appeared_days": 3,
+      "run_count": 2,
+      "max_run": 2,
+      "avg_run": 1.5,
+      "category_dist": {
+        "단기(2~4일)": 1,
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-15",
+          "length": 2,
+          "peak_change": 30.0,
+          "record_count": 6
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 6.3,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "갤럭시 부품주",
+      "appeared_days": 3,
+      "run_count": 2,
+      "max_run": 2,
+      "avg_run": 1.5,
+      "category_dist": {
+        "당일소멸": 1,
+        "단기(2~4일)": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-19",
+          "end": "2026-06-22",
+          "length": 2,
+          "peak_change": 29.95,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-12",
+          "length": 1,
+          "peak_change": 29.79,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "부동산 보유 자산주",
+      "appeared_days": 2,
+      "run_count": 1,
+      "max_run": 2,
+      "avg_run": 2.0,
+      "category_dist": {
+        "단기(2~4일)": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-02",
+          "end": "2026-06-04",
+          "length": 2,
+          "peak_change": 10.04,
+          "record_count": 3
+        }
+      ]
+    },
+    {
+      "theme": "2026 상반기 신규상장",
+      "appeared_days": 2,
+      "run_count": 1,
+      "max_run": 2,
+      "avg_run": 2.0,
+      "category_dist": {
+        "단기(2~4일)": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-15",
+          "length": 2,
+          "peak_change": 29.97,
+          "record_count": 4
+        }
+      ]
+    },
+    {
+      "theme": "여름",
+      "appeared_days": 2,
+      "run_count": 1,
+      "max_run": 2,
+      "avg_run": 2.0,
+      "category_dist": {
+        "단기(2~4일)": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-19",
+          "end": "2026-06-22",
+          "length": 2,
+          "peak_change": 29.88,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "타이어",
+      "appeared_days": 2,
+      "run_count": 1,
+      "max_run": 2,
+      "avg_run": 2.0,
+      "category_dist": {
+        "단기(2~4일)": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-26",
+          "end": "2026-06-29",
+          "length": 2,
+          "peak_change": 11.38,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "GTX(수도권 광역급행철도)",
+      "appeared_days": 2,
+      "run_count": 1,
+      "max_run": 2,
+      "avg_run": 2.0,
+      "category_dist": {
+        "단기(2~4일)": 1
+      },
+      "runs": [
+        {
+          "start": "2026-07-02",
+          "end": "2026-07-03",
+          "length": 2,
+          "peak_change": 15.83,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "방산",
+      "appeared_days": 12,
+      "run_count": 12,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 12
+      },
+      "runs": [
+        {
+          "start": "2026-05-21",
+          "end": "2026-05-21",
+          "length": 1,
+          "peak_change": 7.83,
+          "record_count": 1
+        },
+        {
+          "start": "2026-05-26",
+          "end": "2026-05-26",
+          "length": 1,
+          "peak_change": 8.01,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-01",
+          "end": "2026-06-01",
+          "length": 1,
+          "peak_change": 6.23,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-04",
+          "end": "2026-06-04",
+          "length": 1,
+          "peak_change": 9.5,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-12",
+          "length": 1,
+          "peak_change": 10.67,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-16",
+          "end": "2026-06-16",
+          "length": 1,
+          "peak_change": 18.58,
+          "record_count": 4
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 8.89,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-01",
+          "end": "2026-07-01",
+          "length": 1,
+          "peak_change": 9.71,
+          "record_count": 3
+        },
+        {
+          "start": "2026-07-06",
+          "end": "2026-07-06",
+          "length": 1,
+          "peak_change": 29.93,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 11.39,
+          "record_count": 3
+        },
+        {
+          "start": "2026-07-15",
+          "end": "2026-07-15",
+          "length": 1,
+          "peak_change": 13.83,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-23",
+          "end": "2026-07-23",
+          "length": 1,
+          "peak_change": 9.9,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "디스플레이",
+      "appeared_days": 6,
+      "run_count": 6,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 6
+      },
+      "runs": [
+        {
+          "start": "2026-05-27",
+          "end": "2026-05-27",
+          "length": 1,
+          "peak_change": 12.72,
+          "record_count": 1
+        },
+        {
+          "start": "2026-05-29",
+          "end": "2026-05-29",
+          "length": 1,
+          "peak_change": 11.58,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-04",
+          "end": "2026-06-04",
+          "length": 1,
+          "peak_change": 26.82,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-12",
+          "length": 1,
+          "peak_change": 8.17,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-07",
+          "end": "2026-07-07",
+          "length": 1,
+          "peak_change": 29.73,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-20",
+          "end": "2026-07-20",
+          "length": 1,
+          "peak_change": 29.88,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "바이오시밀러(복제 바이오의약품)",
+      "appeared_days": 4,
+      "run_count": 4,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 4
+      },
+      "runs": [
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 12.78,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-18",
+          "end": "2026-06-18",
+          "length": 1,
+          "peak_change": 29.88,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 13.3,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-20",
+          "end": "2026-07-20",
+          "length": 1,
+          "peak_change": 29.82,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "건설 중소형",
+      "appeared_days": 4,
+      "run_count": 4,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 4
+      },
+      "runs": [
+        {
+          "start": "2026-06-16",
+          "end": "2026-06-16",
+          "length": 1,
+          "peak_change": 13.02,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-18",
+          "end": "2026-06-18",
+          "length": 1,
+          "peak_change": 29.99,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-01",
+          "end": "2026-07-01",
+          "length": 1,
+          "peak_change": 29.91,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-03",
+          "end": "2026-07-03",
+          "length": 1,
+          "peak_change": 29.9,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "반도체 장비",
+      "appeared_days": 3,
+      "run_count": 3,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 3
+      },
+      "runs": [
+        {
+          "start": "2026-05-18",
+          "end": "2026-05-18",
+          "length": 1,
+          "peak_change": 29.88,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-12",
+          "length": 1,
+          "peak_change": 28.6,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-01",
+          "end": "2026-07-01",
+          "length": 1,
+          "peak_change": 26.52,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "시스템반도체",
+      "appeared_days": 3,
+      "run_count": 3,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 3
+      },
+      "runs": [
+        {
+          "start": "2026-05-18",
+          "end": "2026-05-18",
+          "length": 1,
+          "peak_change": 7.63,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-12",
+          "length": 1,
+          "peak_change": 14.98,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-09",
+          "end": "2026-07-09",
+          "length": 1,
+          "peak_change": 29.91,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "제약업체",
+      "appeared_days": 3,
+      "run_count": 3,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 3
+      },
+      "runs": [
+        {
+          "start": "2026-06-02",
+          "end": "2026-06-02",
+          "length": 1,
+          "peak_change": 29.82,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-05",
+          "end": "2026-06-05",
+          "length": 1,
+          "peak_change": 15.28,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 11.53,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "밸류업(24년 기업가치 제고계획 발표)",
+      "appeared_days": 3,
+      "run_count": 3,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 3
+      },
+      "runs": [
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 7.25,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-12",
+          "length": 1,
+          "peak_change": 29.98,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 6.02,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "남북경협",
+      "appeared_days": 3,
+      "run_count": 3,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 3
+      },
+      "runs": [
+        {
+          "start": "2026-06-15",
+          "end": "2026-06-15",
+          "length": 1,
+          "peak_change": 29.89,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-19",
+          "end": "2026-06-19",
+          "length": 1,
+          "peak_change": 29.96,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-02",
+          "end": "2026-07-02",
+          "length": 1,
+          "peak_change": 7.03,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "LED",
+      "appeared_days": 3,
+      "run_count": 3,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 3
+      },
+      "runs": [
+        {
+          "start": "2026-06-17",
+          "end": "2026-06-17",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-22",
+          "end": "2026-06-22",
+          "length": 1,
+          "peak_change": 18.2,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-25",
+          "end": "2026-06-25",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "태양광에너지",
+      "appeared_days": 2,
+      "run_count": 2,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-05-18",
+          "end": "2026-05-18",
+          "length": 1,
+          "peak_change": 9.28,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-17",
+          "end": "2026-06-17",
+          "length": 1,
+          "peak_change": 7.98,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "공작기계",
+      "appeared_days": 2,
+      "run_count": 2,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-05-18",
+          "end": "2026-05-18",
+          "length": 1,
+          "peak_change": 9.47,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-17",
+          "end": "2026-06-17",
+          "length": 1,
+          "peak_change": 13.53,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "드론",
+      "appeared_days": 2,
+      "run_count": 2,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-05-18",
+          "end": "2026-05-18",
+          "length": 1,
+          "peak_change": 29.94,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-22",
+          "end": "2026-06-22",
+          "length": 1,
+          "peak_change": 29.94,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "DMZ 평화공원",
+      "appeared_days": 2,
+      "run_count": 2,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-05-29",
+          "end": "2026-05-29",
+          "length": 1,
+          "peak_change": 29.9,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-16",
+          "end": "2026-06-16",
+          "length": 1,
+          "peak_change": 9.81,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "특징주",
+      "appeared_days": 2,
+      "run_count": 2,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-06-01",
+          "end": "2026-06-01",
+          "length": 1,
+          "peak_change": 11.08,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-09",
+          "end": "2026-07-09",
+          "length": 1,
+          "peak_change": 9.77,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "고령화 사회(노인복지)",
+      "appeared_days": 2,
+      "run_count": 2,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-06-02",
+          "end": "2026-06-02",
+          "length": 1,
+          "peak_change": 15.26,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 15.23,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "가상화폐(비트코인 등)",
+      "appeared_days": 2,
+      "run_count": 2,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-06-02",
+          "end": "2026-06-02",
+          "length": 1,
+          "peak_change": 7.91,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-18",
+          "end": "2026-06-18",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "NFT(대체불가토큰)",
+      "appeared_days": 2,
+      "run_count": 2,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-06-02",
+          "end": "2026-06-02",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-22",
+          "end": "2026-06-22",
+          "length": 1,
+          "peak_change": 13.96,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "국내 상장 중국기업",
+      "appeared_days": 2,
+      "run_count": 2,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-06-02",
+          "end": "2026-06-02",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-03",
+          "end": "2026-07-03",
+          "length": 1,
+          "peak_change": 29.98,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "건설기계",
+      "appeared_days": 2,
+      "run_count": 2,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 8.36,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-15",
+          "end": "2026-06-15",
+          "length": 1,
+          "peak_change": 8.35,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "수소에너지(수소차/연료전지 등)",
+      "appeared_days": 2,
+      "run_count": 2,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 29.87,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-08",
+          "end": "2026-07-08",
+          "length": 1,
+          "peak_change": 29.74,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "PCB(FPCB 등)",
+      "appeared_days": 2,
+      "run_count": 2,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 29.92,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 29.9,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "마이코플라스마 폐렴",
+      "appeared_days": 2,
+      "run_count": 2,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-06-17",
+          "end": "2026-06-17",
+          "length": 1,
+          "peak_change": 11.68,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-19",
+          "end": "2026-06-19",
+          "length": 1,
+          "peak_change": 13.59,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "리비안(RIVIAN)",
+      "appeared_days": 2,
+      "run_count": 2,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-06-18",
+          "end": "2026-06-18",
+          "length": 1,
+          "peak_change": 29.98,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 29.95,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "리모델링/인테리어",
+      "appeared_days": 2,
+      "run_count": 2,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-06-22",
+          "end": "2026-06-22",
+          "length": 1,
+          "peak_change": 29.96,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-16",
+          "end": "2026-07-16",
+          "length": 1,
+          "peak_change": 29.96,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "공기청정기",
+      "appeared_days": 2,
+      "run_count": 2,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-06-22",
+          "end": "2026-06-22",
+          "length": 1,
+          "peak_change": 29.89,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-15",
+          "end": "2026-07-15",
+          "length": 1,
+          "peak_change": 15.85,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "가구",
+      "appeared_days": 2,
+      "run_count": 2,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-06-22",
+          "end": "2026-06-22",
+          "length": 1,
+          "peak_change": 29.92,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-22",
+          "end": "2026-07-22",
+          "length": 1,
+          "peak_change": 29.94,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "LPG(액화석유가스)",
+      "appeared_days": 2,
+      "run_count": 2,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 11.27,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-13",
+          "end": "2026-07-13",
+          "length": 1,
+          "peak_change": 10.89,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "메타버스",
+      "appeared_days": 2,
+      "run_count": 2,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 29.88,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-20",
+          "end": "2026-07-20",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "면세점",
+      "appeared_days": 2,
+      "run_count": 2,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-07-02",
+          "end": "2026-07-02",
+          "length": 1,
+          "peak_change": 6.79,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-07",
+          "end": "2026-07-07",
+          "length": 1,
+          "peak_change": 6.07,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "건강기능식품",
+      "appeared_days": 2,
+      "run_count": 2,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-07-02",
+          "end": "2026-07-02",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-07",
+          "end": "2026-07-07",
+          "length": 1,
+          "peak_change": 6.26,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "스페이스X",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-05-18",
+          "end": "2026-05-18",
+          "length": 1,
+          "peak_change": 29.81,
+          "record_count": 5
+        }
+      ]
+    },
+    {
+      "theme": "손해보험",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-05-18",
+          "end": "2026-05-18",
+          "length": 1,
+          "peak_change": 14.99,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "전선",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-05-18",
+          "end": "2026-05-18",
+          "length": 1,
+          "peak_change": 6.84,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "HBM (AI 반도체)",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-05-18",
+          "end": "2026-05-18",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 4
+        }
+      ]
+    },
+    {
+      "theme": "전고체 배터리",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-05-18",
+          "end": "2026-05-18",
+          "length": 1,
+          "peak_change": 7.79,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "반도체 재료",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-05-18",
+          "end": "2026-05-18",
+          "length": 1,
+          "peak_change": 9.34,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "전력저장장치",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-05-18",
+          "end": "2026-05-18",
+          "length": 1,
+          "peak_change": 6.69,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "중국반도체",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-05-18",
+          "end": "2026-05-18",
+          "length": 1,
+          "peak_change": 10.61,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "자원개발",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-05-27",
+          "end": "2026-05-27",
+          "length": 1,
+          "peak_change": 29.89,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "인테리어",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-05-27",
+          "end": "2026-05-27",
+          "length": 1,
+          "peak_change": 29.89,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "딥페이크(deepfake)",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-02",
+          "end": "2026-06-02",
+          "length": 1,
+          "peak_change": 29.92,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "교육/온라인 교육",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-02",
+          "end": "2026-06-02",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "생명보험",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 15.0,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "마이크로바이옴",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "모바일솔루션(스마트폰)",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 29.77,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "사료",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 29.92,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "SI(시스템통합)",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-12",
+          "length": 1,
+          "peak_change": 8.35,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "냉각시스템(액침냉각 등)",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-12",
+          "length": 1,
+          "peak_change": 8.17,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "삼성페이",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-12",
+          "length": 1,
+          "peak_change": 9.23,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "2025 하반기 신규상장",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-12",
+          "length": 1,
+          "peak_change": 7.41,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "석유화학",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-15",
+          "end": "2026-06-15",
+          "length": 1,
+          "peak_change": 10.89,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "낙태/피임",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-15",
+          "end": "2026-06-15",
+          "length": 1,
+          "peak_change": 29.84,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "탈모 치료",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-15",
+          "end": "2026-06-15",
+          "length": 1,
+          "peak_change": 29.96,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "스마트카(SMART CAR)",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-15",
+          "end": "2026-06-15",
+          "length": 1,
+          "peak_change": 29.85,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "전기차",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-17",
+          "end": "2026-06-17",
+          "length": 1,
+          "peak_change": 17.29,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "mRNA(메신저 리보핵산)",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-17",
+          "end": "2026-06-17",
+          "length": 1,
+          "peak_change": 7.17,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "스마트그리드(지능형전력망)",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-18",
+          "end": "2026-06-18",
+          "length": 1,
+          "peak_change": 29.98,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "엔터테인먼트",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-18",
+          "end": "2026-06-18",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "AI 챗봇(챗GPT 등)",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-18",
+          "end": "2026-06-18",
+          "length": 1,
+          "peak_change": 29.91,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "미용기기",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-19",
+          "end": "2026-06-19",
+          "length": 1,
+          "peak_change": 6.73,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "패션/의류",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-19",
+          "end": "2026-06-19",
+          "length": 1,
+          "peak_change": 29.94,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "의료기기",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-19",
+          "end": "2026-06-19",
+          "length": 1,
+          "peak_change": 29.96,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "자율주행차",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-22",
+          "end": "2026-06-22",
+          "length": 1,
+          "peak_change": 29.93,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "마스크",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-22",
+          "end": "2026-06-22",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "뉴로모픽 반도체",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 29.81,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "조선기자재",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-07-01",
+          "end": "2026-07-01",
+          "length": 1,
+          "peak_change": 17.41,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "겨울",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-07-03",
+          "end": "2026-07-03",
+          "length": 1,
+          "peak_change": 13.4,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "마이크로 LED",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-07-03",
+          "end": "2026-07-03",
+          "length": 1,
+          "peak_change": 29.93,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "구제역/광우병 수혜",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 29.95,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "줄기세포",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 29.94,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "유전자 치료제/분석",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "백화점",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 29.97,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "가전",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-07-13",
+          "end": "2026-07-13",
+          "length": 1,
+          "peak_change": 29.68,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "에너지",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-07-14",
+          "end": "2026-07-14",
+          "length": 1,
+          "peak_change": 8.93,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "디플레이",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-07-21",
+          "end": "2026-07-21",
+          "length": 1,
+          "peak_change": 29.84,
+          "record_count": 1
+        }
+      ]
+    }
+  ],
+  "material_persistence": [
+    {
+      "tag": "반도체",
+      "is_theme_name": true,
+      "first_date": "2026-05-19",
+      "last_date": "2026-07-23",
+      "max_run": 16,
+      "span_trading_days": 46,
+      "days_appeared": 34,
+      "stock_count": 93,
+      "themes": [
+        "반도체"
+      ],
+      "sample_stocks": [
+        "DB하이텍",
+        "HPSP",
+        "ISC",
+        "KODEX AI반도체핵심장비",
+        "LG이노텍",
+        "PKC",
+        "SFA반도체",
+        "SK"
+      ],
+      "peak_change": 30.0,
+      "category": "지속(5일+)"
+    },
+    {
+      "tag": "AI",
+      "is_theme_name": true,
+      "first_date": "2026-05-27",
+      "last_date": "2026-07-23",
+      "max_run": 13,
+      "span_trading_days": 40,
+      "days_appeared": 29,
+      "stock_count": 34,
+      "themes": [
+        "AI"
+      ],
+      "sample_stocks": [
+        "DSC인베스트먼트",
+        "HD현대일렉트릭",
+        "LG",
+        "LG씨엔에스",
+        "LG전자",
+        "LG전자우",
+        "LS",
+        "M83"
+      ],
+      "peak_change": 30.0,
+      "category": "지속(5일+)"
+    },
+    {
+      "tag": "금융",
+      "is_theme_name": true,
+      "first_date": "2026-05-19",
+      "last_date": "2026-07-15",
+      "max_run": 11,
+      "span_trading_days": 41,
+      "days_appeared": 23,
+      "stock_count": 16,
+      "themes": [
+        "금융"
+      ],
+      "sample_stocks": [
+        "SK",
+        "SK스퀘어",
+        "골프존홀딩스",
+        "롯데손해보험",
+        "메이슨캐피탈",
+        "미래에셋생명",
+        "미래에셋증권",
+        "미래에셋증권2우B"
+      ],
+      "peak_change": 29.95,
+      "category": "지속(5일+)"
+    },
+    {
+      "tag": "2차전지",
+      "is_theme_name": true,
+      "first_date": "2026-05-15",
+      "last_date": "2026-07-23",
+      "max_run": 7,
+      "span_trading_days": 48,
+      "days_appeared": 26,
+      "stock_count": 33,
+      "themes": [
+        "2차전지"
+      ],
+      "sample_stocks": [
+        "LG에너지솔루션",
+        "LG화학",
+        "POSCO홀딩스",
+        "SKC",
+        "SK이노베이션",
+        "고려아연",
+        "글로벌에스엠",
+        "대보마그네틱"
+      ],
+      "peak_change": 30.0,
+      "category": "지속(5일+)"
+    },
+    {
+      "tag": "로봇",
+      "is_theme_name": true,
+      "first_date": "2026-05-27",
+      "last_date": "2026-07-23",
+      "max_run": 7,
+      "span_trading_days": 40,
+      "days_appeared": 24,
+      "stock_count": 40,
+      "themes": [
+        "로봇"
+      ],
+      "sample_stocks": [
+        "HL만도",
+        "LG씨엔에스",
+        "계양전기",
+        "계양전기우",
+        "다이나믹솔루션",
+        "두산",
+        "두산로보틱스",
+        "두산우"
+      ],
+      "peak_change": 30.0,
+      "category": "지속(5일+)"
+    },
+    {
+      "tag": "전력설비",
+      "is_theme_name": true,
+      "first_date": "2026-05-18",
+      "last_date": "2026-07-23",
+      "max_run": 7,
+      "span_trading_days": 47,
+      "days_appeared": 23,
+      "stock_count": 29,
+      "themes": [
+        "전력설비"
+      ],
+      "sample_stocks": [
+        "HD현대일렉트릭",
+        "KBI메탈",
+        "KODEX 200선물인버스2X",
+        "KODEX 인버스",
+        "LS",
+        "LS ELECTRIC",
+        "NPX",
+        "PLUS 삼성전자선물단일종목인버스2X"
+      ],
+      "peak_change": 75.53,
+      "category": "지속(5일+)"
+    },
+    {
+      "tag": "IT",
+      "is_theme_name": true,
+      "first_date": "2026-05-27",
+      "last_date": "2026-07-23",
+      "max_run": 7,
+      "span_trading_days": 40,
+      "days_appeared": 18,
+      "stock_count": 24,
+      "themes": [
+        "IT"
+      ],
+      "sample_stocks": [
+        "LG씨엔에스",
+        "LG이노텍",
+        "NHN",
+        "NHN KCP",
+        "PS일렉트로닉스",
+        "나무기술",
+        "다날",
+        "두산"
+      ],
+      "peak_change": 29.98,
+      "category": "지속(5일+)"
+    },
+    {
+      "tag": "건설",
+      "is_theme_name": true,
+      "first_date": "2026-05-28",
+      "last_date": "2026-07-23",
+      "max_run": 6,
+      "span_trading_days": 39,
+      "days_appeared": 23,
+      "stock_count": 35,
+      "themes": [
+        "건설"
+      ],
+      "sample_stocks": [
+        "GS건설",
+        "강동씨앤엘",
+        "계룡건설",
+        "광진실업",
+        "금호건설",
+        "금호건설우",
+        "금호전기",
+        "남광토건"
+      ],
+      "peak_change": 30.0,
+      "category": "지속(5일+)"
+    },
+    {
+      "tag": "우주항공",
+      "is_theme_name": true,
+      "first_date": "2026-05-19",
+      "last_date": "2026-07-23",
+      "max_run": 6,
+      "span_trading_days": 46,
+      "days_appeared": 17,
+      "stock_count": 14,
+      "themes": [
+        "우주항공"
+      ],
+      "sample_stocks": [
+        "LIG디펜스앤에어로스페이스",
+        "LK삼양",
+        "기가레인",
+        "나노팀",
+        "대한항공",
+        "미래에셋벤처투자",
+        "미래에셋증권",
+        "브이엠"
+      ],
+      "peak_change": 29.93,
+      "category": "지속(5일+)"
+    },
+    {
+      "tag": "통신",
+      "is_theme_name": true,
+      "first_date": "2026-05-28",
+      "last_date": "2026-07-21",
+      "max_run": 6,
+      "span_trading_days": 37,
+      "days_appeared": 13,
+      "stock_count": 13,
+      "themes": [
+        "통신"
+      ],
+      "sample_stocks": [
+        "LG헬로비전",
+        "RFHIC",
+        "기가레인",
+        "대한광통신",
+        "라이콤",
+        "빛과전자",
+        "서울전자통신",
+        "성호전자"
+      ],
+      "peak_change": 30.0,
+      "category": "지속(5일+)"
+    },
+    {
+      "tag": "바이오",
+      "is_theme_name": true,
+      "first_date": "2026-05-27",
+      "last_date": "2026-07-23",
+      "max_run": 5,
+      "span_trading_days": 40,
+      "days_appeared": 24,
+      "stock_count": 49,
+      "themes": [
+        "바이오"
+      ],
+      "sample_stocks": [
+        "HLB",
+        "HLB바이오스텝",
+        "HLB생명과학",
+        "HLB이노베이션",
+        "HLB제넥스",
+        "HLB제약",
+        "HLB테라퓨틱스",
+        "HLB파나진"
+      ],
+      "peak_change": 30.0,
+      "category": "지속(5일+)"
+    },
+    {
+      "tag": "자동차",
+      "is_theme_name": true,
+      "first_date": "2026-05-21",
+      "last_date": "2026-07-21",
+      "max_run": 4,
+      "span_trading_days": 42,
+      "days_appeared": 16,
+      "stock_count": 15,
+      "themes": [
+        "자동차"
+      ],
+      "sample_stocks": [
+        "PS일렉트로닉스",
+        "금호타이어",
+        "모바일어플라이언스",
+        "삼성공조",
+        "스트라드비젼",
+        "에이엔피",
+        "체시스",
+        "키움증권"
+      ],
+      "peak_change": 30.0,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "시멘트/레미콘",
+      "is_theme_name": true,
+      "first_date": "2026-06-12",
+      "last_date": "2026-07-01",
+      "max_run": 4,
+      "span_trading_days": 14,
+      "days_appeared": 6,
+      "stock_count": 3,
+      "themes": [
+        "건설",
+        "시멘트/레미콘"
+      ],
+      "sample_stocks": [
+        "HC보광산업",
+        "강동씨앤엘",
+        "서산"
+      ],
+      "peak_change": 30.0,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "로봇 / 지능형 AI",
+      "is_theme_name": false,
+      "first_date": "2026-05-19",
+      "last_date": "2026-05-22",
+      "max_run": 4,
+      "span_trading_days": 4,
+      "days_appeared": 4,
+      "stock_count": 24,
+      "themes": [
+        "로봇"
+      ],
+      "sample_stocks": [
+        "LG",
+        "LG씨엔에스",
+        "LG전자",
+        "LG전자우",
+        "계양전기",
+        "두산로보틱스",
+        "디아이씨",
+        "라온로보틱스"
+      ],
+      "peak_change": 300.0,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "조선",
+      "is_theme_name": true,
+      "first_date": "2026-05-27",
+      "last_date": "2026-07-23",
+      "max_run": 3,
+      "span_trading_days": 40,
+      "days_appeared": 18,
+      "stock_count": 14,
+      "themes": [
+        "조선"
+      ],
+      "sample_stocks": [
+        "HD한국조선해양",
+        "HD현대",
+        "HD현대마린솔루션",
+        "HD현대중공업",
+        "KODEX SK하이닉스단일종목레버리지",
+        "SK스퀘어",
+        "SOL SK하이닉스단일종목레버리지",
+        "TIGER SK하이닉스단일종목레버리지"
+      ],
+      "peak_change": 40.24,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "뷰티",
+      "is_theme_name": true,
+      "first_date": "2026-05-27",
+      "last_date": "2026-07-23",
+      "max_run": 3,
+      "span_trading_days": 40,
+      "days_appeared": 16,
+      "stock_count": 10,
+      "themes": [
+        "뷰티"
+      ],
+      "sample_stocks": [
+        "CSA 코스믹",
+        "달바글로벌",
+        "뷰티스킨",
+        "아모레퍼시픽",
+        "에이피알",
+        "엘앤씨바이오",
+        "졸스",
+        "차AI헬스케어"
+      ],
+      "peak_change": 30.0,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "유통",
+      "is_theme_name": true,
+      "first_date": "2026-05-28",
+      "last_date": "2026-07-21",
+      "max_run": 3,
+      "span_trading_days": 37,
+      "days_appeared": 12,
+      "stock_count": 11,
+      "themes": [
+        "유통"
+      ],
+      "sample_stocks": [
+        "CJ",
+        "HLB글로벌",
+        "골프존홀딩스",
+        "광주신세계",
+        "대한항공",
+        "롯데쇼핑",
+        "신세계",
+        "엑시온그룹"
+      ],
+      "peak_change": 29.99,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "신재생에너지",
+      "is_theme_name": true,
+      "first_date": "2026-05-27",
+      "last_date": "2026-07-23",
+      "max_run": 3,
+      "span_trading_days": 40,
+      "days_appeared": 10,
+      "stock_count": 12,
+      "themes": [
+        "신재생에너지",
+        "조선"
+      ],
+      "sample_stocks": [
+        "HD현대",
+        "HD현대에너지솔루션",
+        "OCI홀딩스",
+        "SK오션플랜트",
+        "SK이터닉스",
+        "뉴인텍",
+        "다스코",
+        "두산퓨얼셀"
+      ],
+      "peak_change": 30.0,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "반도체 장비",
+      "is_theme_name": true,
+      "first_date": "2026-05-20",
+      "last_date": "2026-07-01",
+      "max_run": 3,
+      "span_trading_days": 30,
+      "days_appeared": 6,
+      "stock_count": 15,
+      "themes": [
+        "반도체",
+        "반도체 장비"
+      ],
+      "sample_stocks": [
+        "HPSP",
+        "SFA반도체",
+        "고영",
+        "리노공업",
+        "브이엠",
+        "원익IPS",
+        "저스템",
+        "주성엔지니어링"
+      ],
+      "peak_change": 29.99,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "엔터",
+      "is_theme_name": true,
+      "first_date": "2026-05-28",
+      "last_date": "2026-07-06",
+      "max_run": 3,
+      "span_trading_days": 27,
+      "days_appeared": 6,
+      "stock_count": 4,
+      "themes": [
+        "엔터"
+      ],
+      "sample_stocks": [
+        "아센디오",
+        "아이오케이이엔엠",
+        "코퍼스코리아",
+        "하이브"
+      ],
+      "peak_change": 30.0,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "자동차부품",
+      "is_theme_name": true,
+      "first_date": "2026-05-21",
+      "last_date": "2026-07-16",
+      "max_run": 3,
+      "span_trading_days": 40,
+      "days_appeared": 6,
+      "stock_count": 3,
+      "themes": [
+        "자동차",
+        "자동차부품"
+      ],
+      "sample_stocks": [
+        "에이엔피",
+        "한온시스템",
+        "화신정공"
+      ],
+      "peak_change": 29.9,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "고체산화물 연료전지(SOFC)",
+      "is_theme_name": true,
+      "first_date": "2026-05-15",
+      "last_date": "2026-06-16",
+      "max_run": 3,
+      "span_trading_days": 22,
+      "days_appeared": 5,
+      "stock_count": 3,
+      "themes": [
+        "고체산화물 연료전지(SOFC)",
+        "반도체",
+        "조선"
+      ],
+      "sample_stocks": [
+        "SK이터닉스",
+        "엘티씨",
+        "한선엔지니어링"
+      ],
+      "peak_change": 19.18,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "반도체 기판",
+      "is_theme_name": false,
+      "first_date": "2026-05-20",
+      "last_date": "2026-05-26",
+      "max_run": 3,
+      "span_trading_days": 5,
+      "days_appeared": 4,
+      "stock_count": 5,
+      "themes": [
+        "반도체"
+      ],
+      "sample_stocks": [
+        "LG이노텍",
+        "대덕전자",
+        "심텍",
+        "심텍홀딩스",
+        "코리아써키트"
+      ],
+      "peak_change": 29.94,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "의료기기",
+      "is_theme_name": true,
+      "first_date": "2026-05-20",
+      "last_date": "2026-06-19",
+      "max_run": 3,
+      "span_trading_days": 22,
+      "days_appeared": 4,
+      "stock_count": 4,
+      "themes": [
+        "바이오",
+        "반도체",
+        "의료기기"
+      ],
+      "sample_stocks": [
+        "리브스메드",
+        "시지메드텍",
+        "원텍",
+        "피플바이오"
+      ],
+      "peak_change": 29.97,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "면역항암제",
+      "is_theme_name": false,
+      "first_date": "2026-05-22",
+      "last_date": "2026-05-26",
+      "max_run": 3,
+      "span_trading_days": 3,
+      "days_appeared": 3,
+      "stock_count": 4,
+      "themes": [
+        "바이오"
+      ],
+      "sample_stocks": [
+        "HLB",
+        "바이젠셀",
+        "에이비엘바이오",
+        "지아이이노베이션"
+      ],
+      "peak_change": 21.43,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "전고체 배터리",
+      "is_theme_name": true,
+      "first_date": "2026-05-19",
+      "last_date": "2026-05-21",
+      "max_run": 3,
+      "span_trading_days": 3,
+      "days_appeared": 3,
+      "stock_count": 2,
+      "themes": [
+        "2차전지"
+      ],
+      "sample_stocks": [
+        "이수화학",
+        "포스코퓨처엠"
+      ],
+      "peak_change": 15.41,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "화학",
+      "is_theme_name": true,
+      "first_date": "2026-06-04",
+      "last_date": "2026-07-23",
+      "max_run": 2,
+      "span_trading_days": 35,
+      "days_appeared": 8,
+      "stock_count": 10,
+      "themes": [
+        "화학"
+      ],
+      "sample_stocks": [
+        "GS",
+        "KCC",
+        "LG화학",
+        "S-Oil",
+        "삼성E&A",
+        "에스아이리소스",
+        "진양화학",
+        "포스코인터내셔널"
+      ],
+      "peak_change": 29.92,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "식음료",
+      "is_theme_name": true,
+      "first_date": "2026-05-29",
+      "last_date": "2026-07-23",
+      "max_run": 2,
+      "span_trading_days": 38,
+      "days_appeared": 7,
+      "stock_count": 10,
+      "themes": [
+        "식음료"
+      ],
+      "sample_stocks": [
+        "CJ씨푸드1우",
+        "국순당",
+        "대한제당우",
+        "모나미",
+        "보해양조",
+        "삼양식품",
+        "서울식품우",
+        "신라에스지"
+      ],
+      "peak_change": 30.0,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "로봇(산업용/협동로봇 등)",
+      "is_theme_name": true,
+      "first_date": "2026-05-15",
+      "last_date": "2026-06-19",
+      "max_run": 2,
+      "span_trading_days": 25,
+      "days_appeared": 7,
+      "stock_count": 7,
+      "themes": [
+        "로봇",
+        "로봇(산업용/협동로봇 등)"
+      ],
+      "sample_stocks": [
+        "싸이맥스",
+        "씨피시스템",
+        "에브리봇",
+        "엔젤로보틱스",
+        "유일로보틱스",
+        "티피씨글로벌",
+        "한국피아이엠"
+      ],
+      "peak_change": 29.97,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "철강",
+      "is_theme_name": true,
+      "first_date": "2026-05-21",
+      "last_date": "2026-06-29",
+      "max_run": 2,
+      "span_trading_days": 27,
+      "days_appeared": 7,
+      "stock_count": 7,
+      "themes": [
+        "철강"
+      ],
+      "sample_stocks": [
+        "KBI동양철관",
+        "POSCO홀딩스",
+        "광진실업",
+        "넥스틸",
+        "율촌",
+        "키스트론",
+        "현대제철"
+      ],
+      "peak_change": 30.0,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "원전",
+      "is_theme_name": true,
+      "first_date": "2026-06-04",
+      "last_date": "2026-07-23",
+      "max_run": 2,
+      "span_trading_days": 35,
+      "days_appeared": 7,
+      "stock_count": 4,
+      "themes": [
+        "원전"
+      ],
+      "sample_stocks": [
+        "DL이앤씨",
+        "두산에너빌리티",
+        "우리기술",
+        "한국전력"
+      ],
+      "peak_change": 29.96,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "5G(5세대 이동통신)",
+      "is_theme_name": true,
+      "first_date": "2026-05-15",
+      "last_date": "2026-07-03",
+      "max_run": 2,
+      "span_trading_days": 35,
+      "days_appeared": 6,
+      "stock_count": 6,
+      "themes": [
+        "5G(5세대 이동통신)",
+        "로봇",
+        "반도체",
+        "방산",
+        "통신"
+      ],
+      "sample_stocks": [
+        "CS",
+        "PS일렉트로닉스",
+        "RFHIC",
+        "SK텔레콤",
+        "삼지전자",
+        "서진시스템"
+      ],
+      "peak_change": 29.98,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "게임",
+      "is_theme_name": true,
+      "first_date": "2026-06-02",
+      "last_date": "2026-07-21",
+      "max_run": 2,
+      "span_trading_days": 34,
+      "days_appeared": 6,
+      "stock_count": 6,
+      "themes": [
+        "게임"
+      ],
+      "sample_stocks": [
+        "NC",
+        "데브시스터즈",
+        "썸에이지",
+        "위메이드",
+        "위메이드맥스",
+        "위메이드플레이"
+      ],
+      "peak_change": 29.97,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "HBM(고대역폭메모리)",
+      "is_theme_name": true,
+      "first_date": "2026-05-21",
+      "last_date": "2026-06-29",
+      "max_run": 2,
+      "span_trading_days": 27,
+      "days_appeared": 5,
+      "stock_count": 4,
+      "themes": [
+        "HBM(고대역폭메모리)",
+        "반도체"
+      ],
+      "sample_stocks": [
+        "ISC",
+        "와이씨",
+        "윈팩",
+        "케이씨텍"
+      ],
+      "peak_change": 29.81,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "밸류업(25년 기업가치 제고계획 발표)",
+      "is_theme_name": true,
+      "first_date": "2026-06-09",
+      "last_date": "2026-07-10",
+      "max_run": 2,
+      "span_trading_days": 24,
+      "days_appeared": 5,
+      "stock_count": 4,
+      "themes": [
+        "밸류업(25년 기업가치 제고계획 발표)"
+      ],
+      "sample_stocks": [
+        "DB손해보험",
+        "HMM",
+        "솔트웨어",
+        "한전KPS"
+      ],
+      "peak_change": 30.0,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "2차전지 소재",
+      "is_theme_name": false,
+      "first_date": "2026-05-22",
+      "last_date": "2026-06-16",
+      "max_run": 2,
+      "span_trading_days": 17,
+      "days_appeared": 5,
+      "stock_count": 3,
+      "themes": [
+        "2차전지"
+      ],
+      "sample_stocks": [
+        "대주전자재료",
+        "유진테크놀로지",
+        "후성"
+      ],
+      "peak_change": 29.86,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "애국테마",
+      "is_theme_name": false,
+      "first_date": "2026-07-13",
+      "last_date": "2026-07-20",
+      "max_run": 2,
+      "span_trading_days": 5,
+      "days_appeared": 4,
+      "stock_count": 9,
+      "themes": [
+        "건설",
+        "게임",
+        "기계",
+        "메타버스",
+        "식음료",
+        "유통",
+        "패션"
+      ],
+      "sample_stocks": [
+        "PN풍년",
+        "모나미",
+        "비비안",
+        "손오공",
+        "에넥스",
+        "좋은사람들",
+        "주연테크",
+        "한성기업"
+      ],
+      "peak_change": 30.0,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "광통신",
+      "is_theme_name": false,
+      "first_date": "2026-05-19",
+      "last_date": "2026-05-26",
+      "max_run": 2,
+      "span_trading_days": 6,
+      "days_appeared": 4,
+      "stock_count": 5,
+      "themes": [
+        "AI",
+        "조선",
+        "통신"
+      ],
+      "sample_stocks": [
+        "빛과전자",
+        "빛샘전자",
+        "이노인스트루먼트",
+        "티엠씨",
+        "한국첨단소재"
+      ],
+      "peak_change": 29.86,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "STO(토큰증권 발행)",
+      "is_theme_name": true,
+      "first_date": "2026-05-21",
+      "last_date": "2026-07-10",
+      "max_run": 2,
+      "span_trading_days": 36,
+      "days_appeared": 4,
+      "stock_count": 4,
+      "themes": [
+        "STO(토큰증권 발행)",
+        "금융"
+      ],
+      "sample_stocks": [
+        "KB금융",
+        "SK증권",
+        "하나금융지주",
+        "한국금융지주"
+      ],
+      "peak_change": 16.15,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "갤럭시 부품주",
+      "is_theme_name": true,
+      "first_date": "2026-05-15",
+      "last_date": "2026-06-22",
+      "max_run": 2,
+      "span_trading_days": 26,
+      "days_appeared": 4,
+      "stock_count": 3,
+      "themes": [
+        "갤럭시 부품주",
+        "조선"
+      ],
+      "sample_stocks": [
+        "드림텍",
+        "자화전자",
+        "제이앤티씨"
+      ],
+      "peak_change": 29.95,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "HBM (AI 반도체)",
+      "is_theme_name": true,
+      "first_date": "2026-05-19",
+      "last_date": "2026-05-22",
+      "max_run": 2,
+      "span_trading_days": 4,
+      "days_appeared": 3,
+      "stock_count": 10,
+      "themes": [
+        "반도체"
+      ],
+      "sample_stocks": [
+        "SK하이닉스",
+        "덕산하이메탈",
+        "신성이엔지",
+        "엠케이전자",
+        "이오테크닉스",
+        "테크윙",
+        "티이엠씨",
+        "피에스케이"
+      ],
+      "peak_change": 18.83,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "유리기판",
+      "is_theme_name": false,
+      "first_date": "2026-05-21",
+      "last_date": "2026-05-26",
+      "max_run": 2,
+      "span_trading_days": 4,
+      "days_appeared": 3,
+      "stock_count": 4,
+      "themes": [
+        "반도체"
+      ],
+      "sample_stocks": [
+        "SKC",
+        "기가비스",
+        "와이씨켐",
+        "인텍플러스"
+      ],
+      "peak_change": 26.68,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "LNG(액화천연가스)",
+      "is_theme_name": true,
+      "first_date": "2026-06-12",
+      "last_date": "2026-06-29",
+      "max_run": 2,
+      "span_trading_days": 12,
+      "days_appeared": 3,
+      "stock_count": 4,
+      "themes": [
+        "LNG(액화천연가스)"
+      ],
+      "sample_stocks": [
+        "HD한국조선해양",
+        "비에이치아이",
+        "삼성중공업",
+        "한화엔진"
+      ],
+      "peak_change": 30.0,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "패션",
+      "is_theme_name": true,
+      "first_date": "2026-06-30",
+      "last_date": "2026-07-16",
+      "max_run": 2,
+      "span_trading_days": 13,
+      "days_appeared": 3,
+      "stock_count": 4,
+      "themes": [
+        "패션"
+      ],
+      "sample_stocks": [
+        "비비안",
+        "원풍물산",
+        "형지I&C",
+        "형지글로벌"
+      ],
+      "peak_change": 30.0,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "UAM(도심항공모빌리티)",
+      "is_theme_name": true,
+      "first_date": "2026-06-12",
+      "last_date": "2026-06-29",
+      "max_run": 2,
+      "span_trading_days": 12,
+      "days_appeared": 3,
+      "stock_count": 3,
+      "themes": [
+        "UAM(도심항공모빌리티)"
+      ],
+      "sample_stocks": [
+        "제주항공",
+        "한국항공우주",
+        "한화에어로스페이스"
+      ],
+      "peak_change": 18.66,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "부동산 보유 자산주",
+      "is_theme_name": true,
+      "first_date": "2026-05-15",
+      "last_date": "2026-06-04",
+      "max_run": 2,
+      "span_trading_days": 14,
+      "days_appeared": 3,
+      "stock_count": 2,
+      "themes": [
+        "기타",
+        "부동산 보유 자산주"
+      ],
+      "sample_stocks": [
+        "동양고속",
+        "천일고속"
+      ],
+      "peak_change": 12.03,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "GTX(수도권 광역급행철도)",
+      "is_theme_name": true,
+      "first_date": "2026-05-21",
+      "last_date": "2026-07-03",
+      "max_run": 2,
+      "span_trading_days": 31,
+      "days_appeared": 3,
+      "stock_count": 2,
+      "themes": [
+        "GTX(수도권 광역급행철도)",
+        "건설"
+      ],
+      "sample_stocks": [
+        "GS건설",
+        "우원개발"
+      ],
+      "peak_change": 15.83,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "전력설비 / 변압기",
+      "is_theme_name": false,
+      "first_date": "2026-05-21",
+      "last_date": "2026-05-22",
+      "max_run": 2,
+      "span_trading_days": 2,
+      "days_appeared": 2,
+      "stock_count": 16,
+      "themes": [
+        "AI",
+        "원전",
+        "전력설비"
+      ],
+      "sample_stocks": [
+        "HD현대일렉트릭",
+        "KBI메탈",
+        "LS ELECTRIC",
+        "LS머트리얼즈",
+        "LS에코에너지",
+        "가온전선",
+        "계양전기우",
+        "대원전선"
+      ],
+      "peak_change": 30.0,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "2026 상반기 신규상장",
+      "is_theme_name": true,
+      "first_date": "2026-06-12",
+      "last_date": "2026-06-15",
+      "max_run": 2,
+      "span_trading_days": 2,
+      "days_appeared": 2,
+      "stock_count": 3,
+      "themes": [
+        "2026 상반기 신규상장"
+      ],
+      "sample_stocks": [
+        "세미티에스",
+        "케이뱅크",
+        "피스피스스튜디오"
+      ],
+      "peak_change": 29.97,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "전력저장장치",
+      "is_theme_name": true,
+      "first_date": "2026-05-21",
+      "last_date": "2026-05-22",
+      "max_run": 2,
+      "span_trading_days": 2,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "로봇",
+        "전력설비"
+      ],
+      "sample_stocks": [
+        "비나텍",
+        "서진시스템"
+      ],
+      "peak_change": 19.1,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "증권",
+      "is_theme_name": false,
+      "first_date": "2026-05-21",
+      "last_date": "2026-05-22",
+      "max_run": 2,
+      "span_trading_days": 2,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "금융",
+        "자동차"
+      ],
+      "sample_stocks": [
+        "삼성증권",
+        "키움증권"
+      ],
+      "peak_change": 12.79,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "여름",
+      "is_theme_name": true,
+      "first_date": "2026-06-19",
+      "last_date": "2026-06-22",
+      "max_run": 2,
+      "span_trading_days": 2,
+      "days_appeared": 2,
+      "stock_count": 1,
+      "themes": [
+        "여름"
+      ],
+      "sample_stocks": [
+        "보해양조"
+      ],
+      "peak_change": 29.88,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "전남 반도체",
+      "is_theme_name": false,
+      "first_date": "2026-06-22",
+      "last_date": "2026-06-23",
+      "max_run": 2,
+      "span_trading_days": 2,
+      "days_appeared": 2,
+      "stock_count": 1,
+      "themes": [
+        "반도체"
+      ],
+      "sample_stocks": [
+        "부국철강"
+      ],
+      "peak_change": 29.93,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "타이어",
+      "is_theme_name": true,
+      "first_date": "2026-06-26",
+      "last_date": "2026-06-29",
+      "max_run": 2,
+      "span_trading_days": 2,
+      "days_appeared": 2,
+      "stock_count": 1,
+      "themes": [
+        "타이어"
+      ],
+      "sample_stocks": [
+        "금호타이어"
+      ],
+      "peak_change": 11.38,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "방산",
+      "is_theme_name": true,
+      "first_date": "2026-06-01",
+      "last_date": "2026-07-23",
+      "max_run": 1,
+      "span_trading_days": 37,
+      "days_appeared": 9,
+      "stock_count": 6,
+      "themes": [
+        "방산"
+      ],
+      "sample_stocks": [
+        "LIG디펜스앤에어로스페이스",
+        "엠앤씨솔루션",
+        "한화",
+        "한화시스템",
+        "한화에어로스페이스",
+        "현대로템"
+      ],
+      "peak_change": 29.93,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "기계",
+      "is_theme_name": true,
+      "first_date": "2026-06-01",
+      "last_date": "2026-07-23",
+      "max_run": 1,
+      "span_trading_days": 37,
+      "days_appeared": 8,
+      "stock_count": 8,
+      "themes": [
+        "기계"
+      ],
+      "sample_stocks": [
+        "HD건설기계",
+        "비케이홀딩스",
+        "삼성공조",
+        "서암기계공업",
+        "신일전자",
+        "와이지-원",
+        "크레오에스지",
+        "파세코"
+      ],
+      "peak_change": 30.0,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "밸류업(24년 기업가치 제고계획 발표)",
+      "is_theme_name": true,
+      "first_date": "2026-05-21",
+      "last_date": "2026-07-10",
+      "max_run": 1,
+      "span_trading_days": 36,
+      "days_appeared": 4,
+      "stock_count": 4,
+      "themes": [
+        "밸류업(24년 기업가치 제고계획 발표)",
+        "조선"
+      ],
+      "sample_stocks": [
+        "HD현대",
+        "메리츠금융지주",
+        "카카오뱅크",
+        "한전기술"
+      ],
+      "peak_change": 29.98,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "양자암호",
+      "is_theme_name": true,
+      "first_date": "2026-05-27",
+      "last_date": "2026-06-24",
+      "max_run": 1,
+      "span_trading_days": 20,
+      "days_appeared": 4,
+      "stock_count": 4,
+      "themes": [
+        "양자암호"
+      ],
+      "sample_stocks": [
+        "LG유플러스",
+        "아이씨티케이",
+        "엑스게이트",
+        "포톤"
+      ],
+      "peak_change": 29.9,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "바이오시밀러(복제 바이오의약품)",
+      "is_theme_name": true,
+      "first_date": "2026-06-09",
+      "last_date": "2026-07-20",
+      "max_run": 1,
+      "span_trading_days": 29,
+      "days_appeared": 4,
+      "stock_count": 4,
+      "themes": [
+        "바이오시밀러(복제 바이오의약품)"
+      ],
+      "sample_stocks": [
+        "삼천당제약",
+        "선바이오",
+        "셀트리온",
+        "알테오젠"
+      ],
+      "peak_change": 29.88,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "건설 중소형",
+      "is_theme_name": true,
+      "first_date": "2026-06-16",
+      "last_date": "2026-07-03",
+      "max_run": 1,
+      "span_trading_days": 14,
+      "days_appeared": 4,
+      "stock_count": 4,
+      "themes": [
+        "건설 중소형"
+      ],
+      "sample_stocks": [
+        "남화토건",
+        "동원개발",
+        "삼호개발",
+        "상지건설"
+      ],
+      "peak_change": 29.99,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "LED",
+      "is_theme_name": true,
+      "first_date": "2026-05-15",
+      "last_date": "2026-06-25",
+      "max_run": 1,
+      "span_trading_days": 29,
+      "days_appeared": 4,
+      "stock_count": 3,
+      "themes": [
+        "LED",
+        "기타"
+      ],
+      "sample_stocks": [
+        "금호전기",
+        "소룩스",
+        "한솔테크닉스"
+      ],
+      "peak_change": 30.0,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "MLCC",
+      "is_theme_name": false,
+      "first_date": "2026-05-20",
+      "last_date": "2026-07-20",
+      "max_run": 1,
+      "span_trading_days": 42,
+      "days_appeared": 3,
+      "stock_count": 7,
+      "themes": [
+        "AI",
+        "기타",
+        "반도체",
+        "전력설비"
+      ],
+      "sample_stocks": [
+        "삼성전기",
+        "삼화전기",
+        "삼화전자",
+        "삼화콘덴서",
+        "아모텍",
+        "코칩",
+        "한울반도체"
+      ],
+      "peak_change": 29.94,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "반도체 소부장",
+      "is_theme_name": false,
+      "first_date": "2026-05-21",
+      "last_date": "2026-06-10",
+      "max_run": 1,
+      "span_trading_days": 14,
+      "days_appeared": 3,
+      "stock_count": 6,
+      "themes": [
+        "반도체"
+      ],
+      "sample_stocks": [
+        "KX하이텍",
+        "SFA반도체",
+        "동진쎄미켐",
+        "엠케이전자",
+        "원익IPS",
+        "유니트론텍"
+      ],
+      "peak_change": 29.86,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "지주사",
+      "is_theme_name": false,
+      "first_date": "2026-05-15",
+      "last_date": "2026-07-21",
+      "max_run": 1,
+      "span_trading_days": 46,
+      "days_appeared": 3,
+      "stock_count": 4,
+      "themes": [
+        "금융",
+        "기타"
+      ],
+      "sample_stocks": [
+        "LG",
+        "SK",
+        "SK스퀘어",
+        "오리온홀딩스"
+      ],
+      "peak_change": 14.11,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "시스템반도체",
+      "is_theme_name": true,
+      "first_date": "2026-05-21",
+      "last_date": "2026-07-09",
+      "max_run": 1,
+      "span_trading_days": 35,
+      "days_appeared": 3,
+      "stock_count": 4,
+      "themes": [
+        "반도체",
+        "시스템반도체"
+      ],
+      "sample_stocks": [
+        "DB하이텍",
+        "가온칩스",
+        "두산테스나",
+        "에이디테크놀로지"
+      ],
+      "peak_change": 29.91,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "엔터테인먼트",
+      "is_theme_name": true,
+      "first_date": "2026-05-15",
+      "last_date": "2026-07-07",
+      "max_run": 1,
+      "span_trading_days": 37,
+      "days_appeared": 3,
+      "stock_count": 3,
+      "themes": [
+        "엔터",
+        "엔터테인먼트",
+        "조선"
+      ],
+      "sample_stocks": [
+        "JYP Ent.",
+        "삼화네트웍스",
+        "하이브"
+      ],
+      "peak_change": 30.0,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "건강기능식품",
+      "is_theme_name": true,
+      "first_date": "2026-05-15",
+      "last_date": "2026-07-07",
+      "max_run": 1,
+      "span_trading_days": 37,
+      "days_appeared": 3,
+      "stock_count": 3,
+      "themes": [
+        "AI",
+        "건강기능식품"
+      ],
+      "sample_stocks": [
+        "KT&G",
+        "사토시홀딩스",
+        "프롬바이오"
+      ],
+      "peak_change": 30.0,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "통신장비",
+      "is_theme_name": false,
+      "first_date": "2026-05-19",
+      "last_date": "2026-07-14",
+      "max_run": 1,
+      "span_trading_days": 40,
+      "days_appeared": 3,
+      "stock_count": 3,
+      "themes": [
+        "로봇",
+        "반도체",
+        "통신"
+      ],
+      "sample_stocks": [
+        "CS",
+        "가온그룹",
+        "쏠리드"
+      ],
+      "peak_change": 29.73,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "유상증자",
+      "is_theme_name": false,
+      "first_date": "2026-05-19",
+      "last_date": "2026-07-16",
+      "max_run": 1,
+      "span_trading_days": 42,
+      "days_appeared": 3,
+      "stock_count": 3,
+      "themes": [
+        "금융",
+        "엔터",
+        "유통"
+      ],
+      "sample_stocks": [
+        "엑시온그룹",
+        "졸스",
+        "케이피엠테크"
+      ],
+      "peak_change": 30.0,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "전기차",
+      "is_theme_name": true,
+      "first_date": "2026-05-21",
+      "last_date": "2026-07-07",
+      "max_run": 1,
+      "span_trading_days": 33,
+      "days_appeared": 3,
+      "stock_count": 3,
+      "themes": [
+        "2차전지",
+        "전기차",
+        "전력설비"
+      ],
+      "sample_stocks": [
+        "SK이노베이션",
+        "기아",
+        "포스코스틸리온"
+      ],
+      "peak_change": 17.29,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "리모델링/인테리어",
+      "is_theme_name": true,
+      "first_date": "2026-05-27",
+      "last_date": "2026-07-16",
+      "max_run": 1,
+      "span_trading_days": 36,
+      "days_appeared": 3,
+      "stock_count": 3,
+      "themes": [
+        "리모델링/인테리어",
+        "인테리어"
+      ],
+      "sample_stocks": [
+        "유니드비티플러스",
+        "조이웍스앤코",
+        "진영"
+      ],
+      "peak_change": 29.96,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "중동 재건",
+      "is_theme_name": false,
+      "first_date": "2026-06-08",
+      "last_date": "2026-06-12",
+      "max_run": 1,
+      "span_trading_days": 5,
+      "days_appeared": 3,
+      "stock_count": 3,
+      "themes": [
+        "건설"
+      ],
+      "sample_stocks": [
+        "대우건설",
+        "삼성E&A",
+        "삼성물산"
+      ],
+      "peak_change": 10.61,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "남북경협",
+      "is_theme_name": true,
+      "first_date": "2026-06-15",
+      "last_date": "2026-07-02",
+      "max_run": 1,
+      "span_trading_days": 14,
+      "days_appeared": 3,
+      "stock_count": 3,
+      "themes": [
+        "남북경협"
+      ],
+      "sample_stocks": [
+        "다스코",
+        "코데즈컴바인",
+        "희림"
+      ],
+      "peak_change": 29.96,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "비철금속",
+      "is_theme_name": false,
+      "first_date": "2026-05-19",
+      "last_date": "2026-05-26",
+      "max_run": 1,
+      "span_trading_days": 6,
+      "days_appeared": 3,
+      "stock_count": 2,
+      "themes": [
+        "자동차",
+        "조선"
+      ],
+      "sample_stocks": [
+        "삼아알미늄",
+        "한주라이트메탈"
+      ],
+      "peak_change": 29.99,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "고령화 사회(노인복지)",
+      "is_theme_name": true,
+      "first_date": "2026-05-21",
+      "last_date": "2026-06-09",
+      "max_run": 1,
+      "span_trading_days": 13,
+      "days_appeared": 3,
+      "stock_count": 2,
+      "themes": [
+        "고령화 사회(노인복지)",
+        "바이오"
+      ],
+      "sample_stocks": [
+        "앱클론",
+        "코오롱티슈진"
+      ],
+      "peak_change": 15.26,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "줄기세포",
+      "is_theme_name": true,
+      "first_date": "2026-05-22",
+      "last_date": "2026-07-10",
+      "max_run": 1,
+      "span_trading_days": 35,
+      "days_appeared": 3,
+      "stock_count": 2,
+      "themes": [
+        "바이오",
+        "줄기세포"
+      ],
+      "sample_stocks": [
+        "네이처셀",
+        "안트로젠"
+      ],
+      "peak_change": 30.0,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "마이코플라스마 폐렴",
+      "is_theme_name": true,
+      "first_date": "2026-05-27",
+      "last_date": "2026-06-19",
+      "max_run": 1,
+      "span_trading_days": 17,
+      "days_appeared": 3,
+      "stock_count": 2,
+      "themes": [
+        "마이코플라스마 폐렴",
+        "바이오"
+      ],
+      "sample_stocks": [
+        "위더스제약",
+        "젠큐릭스"
+      ],
+      "peak_change": 29.92,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "디스플레이",
+      "is_theme_name": true,
+      "first_date": "2026-05-29",
+      "last_date": "2026-06-12",
+      "max_run": 1,
+      "span_trading_days": 10,
+      "days_appeared": 3,
+      "stock_count": 2,
+      "themes": [
+        "디스플레이"
+      ],
+      "sample_stocks": [
+        "LG디스플레이",
+        "에이치엠넥스"
+      ],
+      "peak_change": 26.82,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "제약업체",
+      "is_theme_name": true,
+      "first_date": "2026-06-02",
+      "last_date": "2026-06-09",
+      "max_run": 1,
+      "span_trading_days": 5,
+      "days_appeared": 3,
+      "stock_count": 2,
+      "themes": [
+        "제약업체"
+      ],
+      "sample_stocks": [
+        "SK바이오팜",
+        "비보존 제약"
+      ],
+      "peak_change": 29.82,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "수급/테마편승",
+      "is_theme_name": false,
+      "first_date": "2026-05-18",
+      "last_date": "2026-05-23",
+      "max_run": 1,
+      "span_trading_days": 6,
+      "days_appeared": 2,
+      "stock_count": 25,
+      "themes": [
+        "AI",
+        "HBM (AI 반도체)",
+        "공작기계",
+        "기타",
+        "반도체",
+        "양자암호",
+        "우주항공",
+        "전고체 배터리",
+        "전력설비",
+        "조선",
+        "태양광에너지",
+        "통신"
+      ],
+      "sample_stocks": [
+        "KEC",
+        "OCI홀딩스",
+        "SFA반도체",
+        "드림시큐리티",
+        "레이저쎌",
+        "미래산업",
+        "브이엠",
+        "빛과전자"
+      ],
+      "peak_change": 30.0,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "대규모수주/공급계약",
+      "is_theme_name": false,
+      "first_date": "2026-05-18",
+      "last_date": "2026-05-23",
+      "max_run": 1,
+      "span_trading_days": 6,
+      "days_appeared": 2,
+      "stock_count": 21,
+      "themes": [
+        "2차전지",
+        "AI",
+        "기타",
+        "로봇",
+        "반도체",
+        "반도체 장비",
+        "스페이스X",
+        "신재생에너지",
+        "우주항공",
+        "전력설비",
+        "전력저장장치",
+        "조선",
+        "통신"
+      ],
+      "sample_stocks": [
+        "AP위성",
+        "LIG디펜스앤에어로스페이스",
+        "PS일렉트로닉스",
+        "STX엔진",
+        "기가레인",
+        "대주전자재료",
+        "덕산하이메탈",
+        "두산퓨얼셀"
+      ],
+      "peak_change": 29.88,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "실적/어닝서프라이즈",
+      "is_theme_name": false,
+      "first_date": "2026-05-18",
+      "last_date": "2026-05-23",
+      "max_run": 1,
+      "span_trading_days": 6,
+      "days_appeared": 2,
+      "stock_count": 16,
+      "themes": [
+        "2차전지",
+        "기타",
+        "로봇",
+        "반도체",
+        "반도체 장비",
+        "반도체 재료",
+        "손해보험",
+        "스페이스X",
+        "전력설비",
+        "조선",
+        "철강"
+      ],
+      "sample_stocks": [
+        "HD현대마린솔루션",
+        "HD현대에너지솔루션",
+        "광진실업",
+        "비나텍",
+        "삼화콘덴서",
+        "서진시스템",
+        "심텍홀딩스",
+        "아모텍"
+      ],
+      "peak_change": 29.94,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "정책수혜",
+      "is_theme_name": false,
+      "first_date": "2026-05-18",
+      "last_date": "2026-05-23",
+      "max_run": 1,
+      "span_trading_days": 6,
+      "days_appeared": 2,
+      "stock_count": 12,
+      "themes": [
+        "2차전지",
+        "금융",
+        "드론",
+        "바이오",
+        "반도체",
+        "손해보험",
+        "양자암호",
+        "태양광에너지",
+        "통신"
+      ],
+      "sample_stocks": [
+        "SGA솔루션즈",
+        "SK",
+        "네이처셀",
+        "베셀",
+        "신성이엔지",
+        "에코프로머티",
+        "엑스게이트",
+        "케이씨에스"
+      ],
+      "peak_change": 30.0,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "신규사업진출",
+      "is_theme_name": false,
+      "first_date": "2026-05-18",
+      "last_date": "2026-05-23",
+      "max_run": 1,
+      "span_trading_days": 6,
+      "days_appeared": 2,
+      "stock_count": 8,
+      "themes": [
+        "금융",
+        "바이오",
+        "반도체",
+        "스페이스X",
+        "전력설비",
+        "조선"
+      ],
+      "sample_stocks": [
+        "KBI메탈",
+        "리브스메드",
+        "삼성증권",
+        "세아베스틸지주",
+        "시지트로닉스",
+        "인텍플러스",
+        "티이엠씨",
+        "한국첨단소재"
+      ],
+      "peak_change": 29.99,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "스페이스X",
+      "is_theme_name": true,
+      "first_date": "2026-05-21",
+      "last_date": "2026-05-26",
+      "max_run": 1,
+      "span_trading_days": 4,
+      "days_appeared": 2,
+      "stock_count": 5,
+      "themes": [
+        "신재생에너지",
+        "우주항공",
+        "조선"
+      ],
+      "sample_stocks": [
+        "OCI홀딩스",
+        "미래에셋벤처투자",
+        "센서뷰",
+        "스피어",
+        "켄코아에어로스페이스"
+      ],
+      "peak_change": 20.18,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "피지컬 AI",
+      "is_theme_name": false,
+      "first_date": "2026-05-26",
+      "last_date": "2026-06-08",
+      "max_run": 1,
+      "span_trading_days": 9,
+      "days_appeared": 2,
+      "stock_count": 5,
+      "themes": [
+        "로봇"
+      ],
+      "sample_stocks": [
+        "HL만도",
+        "로보티즈",
+        "삼현",
+        "원익홀딩스",
+        "현대모비스"
+      ],
+      "peak_change": 26.8,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "지정학적수혜/리스크",
+      "is_theme_name": false,
+      "first_date": "2026-05-18",
+      "last_date": "2026-05-23",
+      "max_run": 1,
+      "span_trading_days": 6,
+      "days_appeared": 2,
+      "stock_count": 4,
+      "themes": [
+        "2차전지",
+        "우주항공",
+        "전선",
+        "중국반도체"
+      ],
+      "sample_stocks": [
+        "대원전선",
+        "삼아알미늄",
+        "알멕",
+        "피델릭스"
+      ],
+      "peak_change": 16.0,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "지분투자/투자유치",
+      "is_theme_name": false,
+      "first_date": "2026-05-18",
+      "last_date": "2026-05-23",
+      "max_run": 1,
+      "span_trading_days": 6,
+      "days_appeared": 2,
+      "stock_count": 4,
+      "themes": [
+        "2차전지",
+        "바이오",
+        "스페이스X",
+        "시스템반도체",
+        "우주항공"
+      ],
+      "sample_stocks": [
+        "HLB",
+        "세미파이브",
+        "켄코아에어로스페이스",
+        "피노"
+      ],
+      "peak_change": 29.81,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "HBM",
+      "is_theme_name": false,
+      "first_date": "2026-06-08",
+      "last_date": "2026-06-10",
+      "max_run": 1,
+      "span_trading_days": 3,
+      "days_appeared": 2,
+      "stock_count": 4,
+      "themes": [
+        "반도체"
+      ],
+      "sample_stocks": [
+        "SK하이닉스",
+        "삼성전자",
+        "삼성전자우",
+        "테크윙"
+      ],
+      "peak_change": 12.11,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "반도체 재료/부품",
+      "is_theme_name": false,
+      "first_date": "2026-05-15",
+      "last_date": "2026-05-22",
+      "max_run": 1,
+      "span_trading_days": 6,
+      "days_appeared": 2,
+      "stock_count": 3,
+      "themes": [
+        "반도체"
+      ],
+      "sample_stocks": [
+        "샘씨엔에스",
+        "에스에이엠티",
+        "하나머티리얼즈"
+      ],
+      "peak_change": 30.0,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "태양광에너지",
+      "is_theme_name": true,
+      "first_date": "2026-05-22",
+      "last_date": "2026-06-17",
+      "max_run": 1,
+      "span_trading_days": 18,
+      "days_appeared": 2,
+      "stock_count": 3,
+      "themes": [
+        "조선",
+        "태양광에너지"
+      ],
+      "sample_stocks": [
+        "HD현대에너지솔루션",
+        "OCI홀딩스",
+        "대명에너지"
+      ],
+      "peak_change": 12.12,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "조선기자재",
+      "is_theme_name": true,
+      "first_date": "2026-05-22",
+      "last_date": "2026-07-01",
+      "max_run": 1,
+      "span_trading_days": 28,
+      "days_appeared": 2,
+      "stock_count": 3,
+      "themes": [
+        "AI",
+        "조선",
+        "조선기자재"
+      ],
+      "sample_stocks": [
+        "HD현대마린솔루션",
+        "HD현대마린엔진",
+        "STX엔진"
+      ],
+      "peak_change": 17.41,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "신규상장",
+      "is_theme_name": false,
+      "first_date": "2026-07-07",
+      "last_date": "2026-07-13",
+      "max_run": 1,
+      "span_trading_days": 5,
+      "days_appeared": 2,
+      "stock_count": 3,
+      "themes": [
+        "AI",
+        "IT",
+        "바이오"
+      ],
+      "sample_stocks": [
+        "레메디",
+        "레몬헬스케어",
+        "매드업"
+      ],
+      "peak_change": 42.75,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "데이터센터",
+      "is_theme_name": false,
+      "first_date": "2026-07-07",
+      "last_date": "2026-07-14",
+      "max_run": 1,
+      "span_trading_days": 6,
+      "days_appeared": 2,
+      "stock_count": 3,
+      "themes": [
+        "건설",
+        "통신"
+      ],
+      "sample_stocks": [
+        "빛과전자",
+        "에스와이",
+        "에스와이스틸텍"
+      ],
+      "peak_change": 29.95,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "3D 프린터",
+      "is_theme_name": false,
+      "first_date": "2026-05-15",
+      "last_date": "2026-05-26",
+      "max_run": 1,
+      "span_trading_days": 8,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "기계",
+        "로봇"
+      ],
+      "sample_stocks": [
+        "디지아이",
+        "로보스타"
+      ],
+      "peak_change": 29.85,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "삼성페이",
+      "is_theme_name": true,
+      "first_date": "2026-05-15",
+      "last_date": "2026-06-12",
+      "max_run": 1,
+      "span_trading_days": 20,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "기타",
+        "삼성페이"
+      ],
+      "sample_stocks": [
+        "삼성카드",
+        "코나아이"
+      ],
+      "peak_change": 14.01,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "CXL 반도체",
+      "is_theme_name": false,
+      "first_date": "2026-05-19",
+      "last_date": "2026-05-22",
+      "max_run": 1,
+      "span_trading_days": 4,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "반도체"
+      ],
+      "sample_stocks": [
+        "티엘비",
+        "파두"
+      ],
+      "peak_change": 12.08,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "최대주주 변경",
+      "is_theme_name": false,
+      "first_date": "2026-05-19",
+      "last_date": "2026-07-22",
+      "max_run": 1,
+      "span_trading_days": 45,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "로봇",
+        "반도체"
+      ],
+      "sample_stocks": [
+        "피델릭스",
+        "휴림로봇"
+      ],
+      "peak_change": 9.94,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "K-조선 (슈퍼사이클)",
+      "is_theme_name": false,
+      "first_date": "2026-05-20",
+      "last_date": "2026-05-22",
+      "max_run": 1,
+      "span_trading_days": 3,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "조선"
+      ],
+      "sample_stocks": [
+        "HD현대중공업",
+        "한화오션"
+      ],
+      "peak_change": 7.57,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "온디바이스 AI",
+      "is_theme_name": false,
+      "first_date": "2026-05-21",
+      "last_date": "2026-05-26",
+      "max_run": 1,
+      "span_trading_days": 4,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "반도체"
+      ],
+      "sample_stocks": [
+        "대덕전자",
+        "제주반도체"
+      ],
+      "peak_change": 24.26,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "백화점",
+      "is_theme_name": true,
+      "first_date": "2026-05-21",
+      "last_date": "2026-07-10",
+      "max_run": 1,
+      "span_trading_days": 36,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "백화점",
+        "유통"
+      ],
+      "sample_stocks": [
+        "대구백화점",
+        "신세계"
+      ],
+      "peak_change": 29.97,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "자율주행차",
+      "is_theme_name": true,
+      "first_date": "2026-05-21",
+      "last_date": "2026-06-22",
+      "max_run": 1,
+      "span_trading_days": 22,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "로봇",
+        "자율주행차"
+      ],
+      "sample_stocks": [
+        "HL만도",
+        "에이테크솔루션"
+      ],
+      "peak_change": 29.93,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "뉴로모픽 반도체",
+      "is_theme_name": true,
+      "first_date": "2026-05-21",
+      "last_date": "2026-06-29",
+      "max_run": 1,
+      "span_trading_days": 27,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "뉴로모픽 반도체",
+        "반도체"
+      ],
+      "sample_stocks": [
+        "네패스",
+        "에이직랜드"
+      ],
+      "peak_change": 29.81,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "DMZ 평화공원",
+      "is_theme_name": true,
+      "first_date": "2026-05-29",
+      "last_date": "2026-06-16",
+      "max_run": 1,
+      "span_trading_days": 12,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "DMZ 평화공원"
+      ],
+      "sample_stocks": [
+        "누리플랜",
+        "퍼스텍"
+      ],
+      "peak_change": 29.9,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "특징주",
+      "is_theme_name": true,
+      "first_date": "2026-06-01",
+      "last_date": "2026-07-09",
+      "max_run": 1,
+      "span_trading_days": 28,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "특징주"
+      ],
+      "sample_stocks": [
+        "LG우",
+        "TIGER 미국필라델피아반도체레버리지(합성)"
+      ],
+      "peak_change": 11.08,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "가상화폐(비트코인 등)",
+      "is_theme_name": true,
+      "first_date": "2026-06-02",
+      "last_date": "2026-06-18",
+      "max_run": 1,
+      "span_trading_days": 12,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "가상화폐(비트코인 등)"
+      ],
+      "sample_stocks": [
+        "에이티넘인베스트",
+        "파라택시스이더리움"
+      ],
+      "peak_change": 30.0,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "NFT(대체불가토큰)",
+      "is_theme_name": true,
+      "first_date": "2026-06-02",
+      "last_date": "2026-06-22",
+      "max_run": 1,
+      "span_trading_days": 14,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "NFT(대체불가토큰)"
+      ],
+      "sample_stocks": [
+        "카카오게임즈",
+        "컴퍼니케이"
+      ],
+      "peak_change": 30.0,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "국내 상장 중국기업",
+      "is_theme_name": true,
+      "first_date": "2026-06-02",
+      "last_date": "2026-07-03",
+      "max_run": 1,
+      "span_trading_days": 23,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "국내 상장 중국기업"
+      ],
+      "sample_stocks": [
+        "오가닉티코스메틱",
+        "헝셩그룹"
+      ],
+      "peak_change": 30.0,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "수소에너지(수소차/연료전지 등)",
+      "is_theme_name": true,
+      "first_date": "2026-06-09",
+      "last_date": "2026-07-08",
+      "max_run": 1,
+      "span_trading_days": 22,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "수소에너지(수소차/연료전지 등)"
+      ],
+      "sample_stocks": [
+        "대원강업",
+        "에코심플렉스"
+      ],
+      "peak_change": 29.87,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "PCB(FPCB 등)",
+      "is_theme_name": true,
+      "first_date": "2026-06-09",
+      "last_date": "2026-07-10",
+      "max_run": 1,
+      "span_trading_days": 24,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "PCB(FPCB 등)"
+      ],
+      "sample_stocks": [
+        "에이엔피",
+        "타이거일렉"
+      ],
+      "peak_change": 29.92,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "휴머노이드 로봇",
+      "is_theme_name": false,
+      "first_date": "2026-06-10",
+      "last_date": "2026-07-22",
+      "max_run": 1,
+      "span_trading_days": 30,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "로봇"
+      ],
+      "sample_stocks": [
+        "로보티즈",
+        "현대모비스"
+      ],
+      "peak_change": 18.5,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "석유화학",
+      "is_theme_name": true,
+      "first_date": "2026-06-15",
+      "last_date": "2026-07-07",
+      "max_run": 1,
+      "span_trading_days": 17,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "석유화학",
+        "화학"
+      ],
+      "sample_stocks": [
+        "한화솔루션",
+        "효성화학"
+      ],
+      "peak_change": 29.84,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "리비안(RIVIAN)",
+      "is_theme_name": true,
+      "first_date": "2026-06-18",
+      "last_date": "2026-07-10",
+      "max_run": 1,
+      "span_trading_days": 17,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "리비안(RIVIAN)"
+      ],
+      "sample_stocks": [
+        "대원화성",
+        "디와이에이"
+      ],
+      "peak_change": 29.98,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "미용기기",
+      "is_theme_name": true,
+      "first_date": "2026-06-19",
+      "last_date": "2026-07-07",
+      "max_run": 1,
+      "span_trading_days": 13,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "미용기기",
+        "바이오"
+      ],
+      "sample_stocks": [
+        "달바글로벌",
+        "파마리서치"
+      ],
+      "peak_change": 7.32,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "공기청정기",
+      "is_theme_name": true,
+      "first_date": "2026-06-22",
+      "last_date": "2026-07-15",
+      "max_run": 1,
+      "span_trading_days": 18,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "공기청정기"
+      ],
+      "sample_stocks": [
+        "위닉스",
+        "크린앤사이언스"
+      ],
+      "peak_change": 29.89,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "LPG(액화석유가스)",
+      "is_theme_name": true,
+      "first_date": "2026-06-29",
+      "last_date": "2026-07-13",
+      "max_run": 1,
+      "span_trading_days": 11,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "LPG(액화석유가스)"
+      ],
+      "sample_stocks": [
+        "S-Oil",
+        "흥구석유"
+      ],
+      "peak_change": 11.27,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "국제유가",
+      "is_theme_name": false,
+      "first_date": "2026-07-14",
+      "last_date": "2026-07-20",
+      "max_run": 1,
+      "span_trading_days": 4,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "신재생에너지",
+        "에너지"
+      ],
+      "sample_stocks": [
+        "SK이터닉스",
+        "흥구석유"
+      ],
+      "peak_change": 8.93,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "흑자전환",
+      "is_theme_name": false,
+      "first_date": "2026-07-14",
+      "last_date": "2026-07-16",
+      "max_run": 1,
+      "span_trading_days": 3,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "IT",
+        "반도체"
+      ],
+      "sample_stocks": [
+        "주연테크",
+        "캠시스"
+      ],
+      "peak_change": 30.0,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "광반도체",
+      "is_theme_name": false,
+      "first_date": "2026-05-20",
+      "last_date": "2026-05-26",
+      "max_run": 1,
+      "span_trading_days": 5,
+      "days_appeared": 2,
+      "stock_count": 1,
+      "themes": [
+        "반도체"
+      ],
+      "sample_stocks": [
+        "우리로"
+      ],
+      "peak_change": 8.23,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "HBM 검사장비",
+      "is_theme_name": false,
+      "first_date": "2026-05-26",
+      "last_date": "2026-06-10",
+      "max_run": 1,
+      "span_trading_days": 11,
+      "days_appeared": 2,
+      "stock_count": 1,
+      "themes": [
+        "반도체"
+      ],
+      "sample_stocks": [
+        "테크윙"
+      ],
+      "peak_change": 12.11,
+      "category": "당일소멸"
+    }
+  ],
+  "long_lasting_themes": [
+    {
+      "theme": "반도체",
+      "appeared_days": 43,
+      "run_count": 6,
+      "max_run": 24,
+      "avg_run": 7.17,
+      "category_dist": {
+        "지속(5일+)": 3,
+        "단기(2~4일)": 2,
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-05-15",
+          "end": "2026-06-18",
+          "length": 24,
+          "peak_change": 30.0,
+          "record_count": 266
+        },
+        {
+          "start": "2026-06-22",
+          "end": "2026-07-01",
+          "length": 8,
+          "peak_change": 30.0,
+          "record_count": 81
+        },
+        {
+          "start": "2026-07-09",
+          "end": "2026-07-15",
+          "length": 5,
+          "peak_change": 29.93,
+          "record_count": 73
+        },
+        {
+          "start": "2026-07-03",
+          "end": "2026-07-07",
+          "length": 3,
+          "peak_change": 30.0,
+          "record_count": 10
+        },
+        {
+          "start": "2026-07-20",
+          "end": "2026-07-21",
+          "length": 2,
+          "peak_change": 29.86,
+          "record_count": 5
+        },
+        {
+          "start": "2026-07-23",
+          "end": "2026-07-23",
+          "length": 1,
+          "peak_change": 8.44,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "AI",
+      "appeared_days": 40,
+      "run_count": 6,
+      "max_run": 21,
+      "avg_run": 6.67,
+      "category_dist": {
+        "지속(5일+)": 3,
+        "단기(2~4일)": 3
+      },
+      "runs": [
+        {
+          "start": "2026-05-15",
+          "end": "2026-06-15",
+          "length": 21,
+          "peak_change": 30.0,
+          "record_count": 91
+        },
+        {
+          "start": "2026-06-25",
+          "end": "2026-07-02",
+          "length": 6,
+          "peak_change": 30.0,
+          "record_count": 8
+        },
+        {
+          "start": "2026-07-09",
+          "end": "2026-07-15",
+          "length": 5,
+          "peak_change": 29.97,
+          "record_count": 8
+        },
+        {
+          "start": "2026-06-18",
+          "end": "2026-06-22",
+          "length": 3,
+          "peak_change": 17.92,
+          "record_count": 4
+        },
+        {
+          "start": "2026-07-21",
+          "end": "2026-07-23",
+          "length": 3,
+          "peak_change": 29.99,
+          "record_count": 4
+        },
+        {
+          "start": "2026-07-06",
+          "end": "2026-07-07",
+          "length": 2,
+          "peak_change": 29.91,
+          "record_count": 3
+        }
+      ]
+    },
+    {
+      "theme": "로봇",
+      "appeared_days": 35,
+      "run_count": 6,
+      "max_run": 20,
+      "avg_run": 5.83,
+      "category_dist": {
+        "당일소멸": 2,
+        "지속(5일+)": 2,
+        "단기(2~4일)": 2
+      },
+      "runs": [
+        {
+          "start": "2026-05-19",
+          "end": "2026-06-16",
+          "length": 20,
+          "peak_change": 300.0,
+          "record_count": 103
+        },
+        {
+          "start": "2026-06-23",
+          "end": "2026-07-02",
+          "length": 8,
+          "peak_change": 29.99,
+          "record_count": 21
+        },
+        {
+          "start": "2026-07-21",
+          "end": "2026-07-23",
+          "length": 3,
+          "peak_change": 30.0,
+          "record_count": 26
+        },
+        {
+          "start": "2026-07-15",
+          "end": "2026-07-16",
+          "length": 2,
+          "peak_change": 30.0,
+          "record_count": 2
+        },
+        {
+          "start": "2026-05-15",
+          "end": "2026-05-15",
+          "length": 1,
+          "peak_change": 29.97,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-09",
+          "end": "2026-07-09",
+          "length": 1,
+          "peak_change": 8.76,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "금융",
+      "appeared_days": 31,
+      "run_count": 11,
+      "max_run": 16,
+      "avg_run": 2.82,
+      "category_dist": {
+        "당일소멸": 7,
+        "단기(2~4일)": 3,
+        "지속(5일+)": 1
+      },
+      "runs": [
+        {
+          "start": "2026-05-29",
+          "end": "2026-06-22",
+          "length": 16,
+          "peak_change": 17.07,
+          "record_count": 32
+        },
+        {
+          "start": "2026-05-21",
+          "end": "2026-05-26",
+          "length": 4,
+          "peak_change": 29.86,
+          "record_count": 6
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-30",
+          "length": 2,
+          "peak_change": 29.84,
+          "record_count": 4
+        },
+        {
+          "start": "2026-07-02",
+          "end": "2026-07-03",
+          "length": 2,
+          "peak_change": 10.38,
+          "record_count": 4
+        },
+        {
+          "start": "2026-05-15",
+          "end": "2026-05-15",
+          "length": 1,
+          "peak_change": 14.11,
+          "record_count": 1
+        },
+        {
+          "start": "2026-05-19",
+          "end": "2026-05-19",
+          "length": 1,
+          "peak_change": 29.95,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-25",
+          "end": "2026-06-25",
+          "length": 1,
+          "peak_change": 13.77,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-07",
+          "end": "2026-07-07",
+          "length": 1,
+          "peak_change": 29.87,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 7.42,
+          "record_count": 3
+        },
+        {
+          "start": "2026-07-15",
+          "end": "2026-07-15",
+          "length": 1,
+          "peak_change": 9.03,
+          "record_count": 4
+        },
+        {
+          "start": "2026-07-21",
+          "end": "2026-07-21",
+          "length": 1,
+          "peak_change": 6.46,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "바이오",
+      "appeared_days": 39,
+      "run_count": 8,
+      "max_run": 10,
+      "avg_run": 4.88,
+      "category_dist": {
+        "당일소멸": 3,
+        "지속(5일+)": 4,
+        "단기(2~4일)": 1
+      },
+      "runs": [
+        {
+          "start": "2026-07-09",
+          "end": "2026-07-23",
+          "length": 10,
+          "peak_change": 42.75,
+          "record_count": 40
+        },
+        {
+          "start": "2026-06-15",
+          "end": "2026-06-25",
+          "length": 9,
+          "peak_change": 29.98,
+          "record_count": 38
+        },
+        {
+          "start": "2026-05-19",
+          "end": "2026-05-28",
+          "length": 8,
+          "peak_change": 30.0,
+          "record_count": 58
+        },
+        {
+          "start": "2026-07-01",
+          "end": "2026-07-07",
+          "length": 5,
+          "peak_change": 29.96,
+          "record_count": 14
+        },
+        {
+          "start": "2026-06-01",
+          "end": "2026-06-05",
+          "length": 4,
+          "peak_change": 29.94,
+          "record_count": 8
+        },
+        {
+          "start": "2026-05-15",
+          "end": "2026-05-15",
+          "length": 1,
+          "peak_change": 13.07,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 13.99,
+          "record_count": 4
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 29.8,
+          "record_count": 16
+        }
+      ]
+    },
+    {
+      "theme": "우주항공",
+      "appeared_days": 23,
+      "run_count": 8,
+      "max_run": 9,
+      "avg_run": 2.88,
+      "category_dist": {
+        "지속(5일+)": 2,
+        "당일소멸": 4,
+        "단기(2~4일)": 2
+      },
+      "runs": [
+        {
+          "start": "2026-05-18",
+          "end": "2026-05-28",
+          "length": 9,
+          "peak_change": 29.96,
+          "record_count": 28
+        },
+        {
+          "start": "2026-06-08",
+          "end": "2026-06-15",
+          "length": 6,
+          "peak_change": 27.03,
+          "record_count": 13
+        },
+        {
+          "start": "2026-06-30",
+          "end": "2026-07-01",
+          "length": 2,
+          "peak_change": 20.13,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-16",
+          "end": "2026-07-20",
+          "length": 2,
+          "peak_change": 18.93,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-04",
+          "end": "2026-06-04",
+          "length": 1,
+          "peak_change": 29.92,
+          "record_count": 3
+        },
+        {
+          "start": "2026-06-18",
+          "end": "2026-06-18",
+          "length": 1,
+          "peak_change": 6.74,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-22",
+          "end": "2026-06-22",
+          "length": 1,
+          "peak_change": 16.29,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-23",
+          "end": "2026-07-23",
+          "length": 1,
+          "peak_change": 29.86,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "전력설비",
+      "appeared_days": 32,
+      "run_count": 8,
+      "max_run": 8,
+      "avg_run": 4.0,
+      "category_dist": {
+        "당일소멸": 2,
+        "지속(5일+)": 3,
+        "단기(2~4일)": 3
+      },
+      "runs": [
+        {
+          "start": "2026-06-26",
+          "end": "2026-07-07",
+          "length": 8,
+          "peak_change": 75.53,
+          "record_count": 32
+        },
+        {
+          "start": "2026-06-08",
+          "end": "2026-06-15",
+          "length": 6,
+          "peak_change": 16.63,
+          "record_count": 14
+        },
+        {
+          "start": "2026-05-20",
+          "end": "2026-05-26",
+          "length": 5,
+          "peak_change": 30.0,
+          "record_count": 19
+        },
+        {
+          "start": "2026-06-17",
+          "end": "2026-06-22",
+          "length": 4,
+          "peak_change": 30.0,
+          "record_count": 10
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-15",
+          "length": 4,
+          "peak_change": 27.29,
+          "record_count": 13
+        },
+        {
+          "start": "2026-07-21",
+          "end": "2026-07-23",
+          "length": 3,
+          "peak_change": 29.97,
+          "record_count": 11
+        },
+        {
+          "start": "2026-05-18",
+          "end": "2026-05-18",
+          "length": 1,
+          "peak_change": 12.26,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-01",
+          "end": "2026-06-01",
+          "length": 1,
+          "peak_change": 14.29,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "건설",
+      "appeared_days": 31,
+      "run_count": 10,
+      "max_run": 8,
+      "avg_run": 3.1,
+      "category_dist": {
+        "당일소멸": 3,
+        "단기(2~4일)": 5,
+        "지속(5일+)": 2
+      },
+      "runs": [
+        {
+          "start": "2026-06-29",
+          "end": "2026-07-08",
+          "length": 8,
+          "peak_change": 30.0,
+          "record_count": 58
+        },
+        {
+          "start": "2026-06-10",
+          "end": "2026-06-18",
+          "length": 7,
+          "peak_change": 30.0,
+          "record_count": 20
+        },
+        {
+          "start": "2026-06-22",
+          "end": "2026-06-24",
+          "length": 3,
+          "peak_change": 30.0,
+          "record_count": 12
+        },
+        {
+          "start": "2026-07-14",
+          "end": "2026-07-16",
+          "length": 3,
+          "peak_change": 29.98,
+          "record_count": 4
+        },
+        {
+          "start": "2026-07-21",
+          "end": "2026-07-23",
+          "length": 3,
+          "peak_change": 28.9,
+          "record_count": 5
+        },
+        {
+          "start": "2026-05-28",
+          "end": "2026-05-29",
+          "length": 2,
+          "peak_change": 29.85,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-02",
+          "end": "2026-06-04",
+          "length": 2,
+          "peak_change": 10.2,
+          "record_count": 2
+        },
+        {
+          "start": "2026-05-21",
+          "end": "2026-05-21",
+          "length": 1,
+          "peak_change": 8.23,
+          "record_count": 3
+        },
+        {
+          "start": "2026-06-08",
+          "end": "2026-06-08",
+          "length": 1,
+          "peak_change": 10.61,
+          "record_count": 3
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 17.34,
+          "record_count": 6
+        }
+      ]
+    },
+    {
+      "theme": "조선",
+      "appeared_days": 28,
+      "run_count": 12,
+      "max_run": 8,
+      "avg_run": 2.33,
+      "category_dist": {
+        "당일소멸": 7,
+        "지속(5일+)": 2,
+        "단기(2~4일)": 3
+      },
+      "runs": [
+        {
+          "start": "2026-05-19",
+          "end": "2026-05-28",
+          "length": 8,
+          "peak_change": 29.98,
+          "record_count": 27
+        },
+        {
+          "start": "2026-06-08",
+          "end": "2026-06-15",
+          "length": 6,
+          "peak_change": 13.51,
+          "record_count": 8
+        },
+        {
+          "start": "2026-07-21",
+          "end": "2026-07-23",
+          "length": 3,
+          "peak_change": 29.9,
+          "record_count": 4
+        },
+        {
+          "start": "2026-07-03",
+          "end": "2026-07-06",
+          "length": 2,
+          "peak_change": 25.43,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-09",
+          "end": "2026-07-10",
+          "length": 2,
+          "peak_change": 12.15,
+          "record_count": 5
+        },
+        {
+          "start": "2026-05-15",
+          "end": "2026-05-15",
+          "length": 1,
+          "peak_change": 20.08,
+          "record_count": 5
+        },
+        {
+          "start": "2026-06-02",
+          "end": "2026-06-02",
+          "length": 1,
+          "peak_change": 7.17,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-17",
+          "end": "2026-06-17",
+          "length": 1,
+          "peak_change": 29.95,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-24",
+          "end": "2026-06-24",
+          "length": 1,
+          "peak_change": 7.09,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 40.24,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-01",
+          "end": "2026-07-01",
+          "length": 1,
+          "peak_change": 7.84,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-15",
+          "end": "2026-07-15",
+          "length": 1,
+          "peak_change": 8.62,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "IT",
+      "appeared_days": 25,
+      "run_count": 11,
+      "max_run": 8,
+      "avg_run": 2.27,
+      "category_dist": {
+        "당일소멸": 7,
+        "지속(5일+)": 2,
+        "단기(2~4일)": 2
+      },
+      "runs": [
+        {
+          "start": "2026-05-26",
+          "end": "2026-06-05",
+          "length": 8,
+          "peak_change": 29.98,
+          "record_count": 15
+        },
+        {
+          "start": "2026-07-16",
+          "end": "2026-07-23",
+          "length": 5,
+          "peak_change": 30.0,
+          "record_count": 13
+        },
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-16",
+          "length": 3,
+          "peak_change": 12.98,
+          "record_count": 6
+        },
+        {
+          "start": "2026-06-18",
+          "end": "2026-06-19",
+          "length": 2,
+          "peak_change": 29.86,
+          "record_count": 5
+        },
+        {
+          "start": "2026-05-21",
+          "end": "2026-05-21",
+          "length": 1,
+          "peak_change": 13.78,
+          "record_count": 3
+        },
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 9.73,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 8.14,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-01",
+          "end": "2026-07-01",
+          "length": 1,
+          "peak_change": 29.98,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-07",
+          "end": "2026-07-07",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 14.88,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-14",
+          "end": "2026-07-14",
+          "length": 1,
+          "peak_change": 29.9,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "2차전지",
+      "appeared_days": 34,
+      "run_count": 10,
+      "max_run": 7,
+      "avg_run": 3.4,
+      "category_dist": {
+        "당일소멸": 4,
+        "지속(5일+)": 4,
+        "단기(2~4일)": 2
+      },
+      "runs": [
+        {
+          "start": "2026-06-08",
+          "end": "2026-06-16",
+          "length": 7,
+          "peak_change": 29.93,
+          "record_count": 23
+        },
+        {
+          "start": "2026-06-25",
+          "end": "2026-07-03",
+          "length": 7,
+          "peak_change": 30.0,
+          "record_count": 20
+        },
+        {
+          "start": "2026-05-19",
+          "end": "2026-05-26",
+          "length": 6,
+          "peak_change": 29.85,
+          "record_count": 23
+        },
+        {
+          "start": "2026-05-28",
+          "end": "2026-06-04",
+          "length": 5,
+          "peak_change": 29.98,
+          "record_count": 15
+        },
+        {
+          "start": "2026-06-18",
+          "end": "2026-06-22",
+          "length": 3,
+          "peak_change": 30.0,
+          "record_count": 8
+        },
+        {
+          "start": "2026-07-22",
+          "end": "2026-07-23",
+          "length": 2,
+          "peak_change": 29.91,
+          "record_count": 4
+        },
+        {
+          "start": "2026-05-15",
+          "end": "2026-05-15",
+          "length": 1,
+          "peak_change": 8.84,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-07",
+          "end": "2026-07-07",
+          "length": 1,
+          "peak_change": 7.15,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 9.84,
+          "record_count": 3
+        },
+        {
+          "start": "2026-07-15",
+          "end": "2026-07-15",
+          "length": 1,
+          "peak_change": 11.53,
+          "record_count": 5
+        }
+      ]
+    },
+    {
+      "theme": "통신",
+      "appeared_days": 23,
+      "run_count": 8,
+      "max_run": 6,
+      "avg_run": 2.88,
+      "category_dist": {
+        "단기(2~4일)": 3,
+        "지속(5일+)": 2,
+        "당일소멸": 3
+      },
+      "runs": [
+        {
+          "start": "2026-05-28",
+          "end": "2026-06-05",
+          "length": 6,
+          "peak_change": 30.0,
+          "record_count": 13
+        },
+        {
+          "start": "2026-07-09",
+          "end": "2026-07-15",
+          "length": 5,
+          "peak_change": 29.92,
+          "record_count": 13
+        },
+        {
+          "start": "2026-05-15",
+          "end": "2026-05-20",
+          "length": 4,
+          "peak_change": 29.97,
+          "record_count": 4
+        },
+        {
+          "start": "2026-05-22",
+          "end": "2026-05-26",
+          "length": 3,
+          "peak_change": 29.97,
+          "record_count": 12
+        },
+        {
+          "start": "2026-07-21",
+          "end": "2026-07-22",
+          "length": 2,
+          "peak_change": 29.89,
+          "record_count": 4
+        },
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 14.53,
+          "record_count": 4
+        },
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-12",
+          "length": 1,
+          "peak_change": 11.54,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-16",
+          "end": "2026-06-16",
+          "length": 1,
+          "peak_change": 8.05,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "뷰티",
+      "appeared_days": 20,
+      "run_count": 11,
+      "max_run": 5,
+      "avg_run": 1.82,
+      "category_dist": {
+        "당일소멸": 6,
+        "단기(2~4일)": 4,
+        "지속(5일+)": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-08",
+          "end": "2026-06-12",
+          "length": 5,
+          "peak_change": 29.93,
+          "record_count": 5
+        },
+        {
+          "start": "2026-06-01",
+          "end": "2026-06-04",
+          "length": 3,
+          "peak_change": 7.84,
+          "record_count": 3
+        },
+        {
+          "start": "2026-06-23",
+          "end": "2026-06-24",
+          "length": 2,
+          "peak_change": 29.98,
+          "record_count": 4
+        },
+        {
+          "start": "2026-07-01",
+          "end": "2026-07-02",
+          "length": 2,
+          "peak_change": 7.47,
+          "record_count": 3
+        },
+        {
+          "start": "2026-07-07",
+          "end": "2026-07-08",
+          "length": 2,
+          "peak_change": 29.9,
+          "record_count": 2
+        },
+        {
+          "start": "2026-05-19",
+          "end": "2026-05-19",
+          "length": 1,
+          "peak_change": 29.9,
+          "record_count": 1
+        },
+        {
+          "start": "2026-05-27",
+          "end": "2026-05-27",
+          "length": 1,
+          "peak_change": 8.97,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-17",
+          "end": "2026-06-17",
+          "length": 1,
+          "peak_change": 29.84,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 5
+        },
+        {
+          "start": "2026-07-21",
+          "end": "2026-07-21",
+          "length": 1,
+          "peak_change": 8.76,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-23",
+          "end": "2026-07-23",
+          "length": 1,
+          "peak_change": 29.93,
+          "record_count": 2
+        }
+      ]
+    },
+    {
+      "theme": "자동차",
+      "appeared_days": 20,
+      "run_count": 11,
+      "max_run": 5,
+      "avg_run": 1.82,
+      "category_dist": {
+        "당일소멸": 7,
+        "지속(5일+)": 1,
+        "단기(2~4일)": 3
+      },
+      "runs": [
+        {
+          "start": "2026-05-26",
+          "end": "2026-06-01",
+          "length": 5,
+          "peak_change": 29.99,
+          "record_count": 9
+        },
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-16",
+          "length": 3,
+          "peak_change": 29.97,
+          "record_count": 8
+        },
+        {
+          "start": "2026-07-14",
+          "end": "2026-07-16",
+          "length": 3,
+          "peak_change": 29.86,
+          "record_count": 4
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-30",
+          "length": 2,
+          "peak_change": 29.9,
+          "record_count": 2
+        },
+        {
+          "start": "2026-05-21",
+          "end": "2026-05-21",
+          "length": 1,
+          "peak_change": 12.79,
+          "record_count": 4
+        },
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 8.96,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-19",
+          "end": "2026-06-19",
+          "length": 1,
+          "peak_change": 19.12,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-06",
+          "end": "2026-07-06",
+          "length": 1,
+          "peak_change": 29.96,
+          "record_count": 3
+        },
+        {
+          "start": "2026-07-08",
+          "end": "2026-07-08",
+          "length": 1,
+          "peak_change": 12.92,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-21",
+          "end": "2026-07-21",
+          "length": 1,
+          "peak_change": 29.85,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "유통",
+      "appeared_days": 17,
+      "run_count": 10,
+      "max_run": 5,
+      "avg_run": 1.7,
+      "category_dist": {
+        "당일소멸": 7,
+        "단기(2~4일)": 2,
+        "지속(5일+)": 1
+      },
+      "runs": [
+        {
+          "start": "2026-07-14",
+          "end": "2026-07-21",
+          "length": 5,
+          "peak_change": 30.0,
+          "record_count": 10
+        },
+        {
+          "start": "2026-06-01",
+          "end": "2026-06-04",
+          "length": 3,
+          "peak_change": 15.82,
+          "record_count": 6
+        },
+        {
+          "start": "2026-06-24",
+          "end": "2026-06-25",
+          "length": 2,
+          "peak_change": 25.26,
+          "record_count": 3
+        },
+        {
+          "start": "2026-05-21",
+          "end": "2026-05-21",
+          "length": 1,
+          "peak_change": 16.89,
+          "record_count": 1
+        },
+        {
+          "start": "2026-05-28",
+          "end": "2026-05-28",
+          "length": 1,
+          "peak_change": 29.86,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 12.25,
+          "record_count": 4
+        },
+        {
+          "start": "2026-06-16",
+          "end": "2026-06-16",
+          "length": 1,
+          "peak_change": 8.79,
+          "record_count": 3
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 29.96,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-06",
+          "end": "2026-07-06",
+          "length": 1,
+          "peak_change": 29.82,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "length": 1,
+          "peak_change": 19.71,
+          "record_count": 1
+        }
+      ]
+    }
+  ],
+  "long_lasting_materials": []
+}
