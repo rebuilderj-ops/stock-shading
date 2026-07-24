@@ -77,6 +77,24 @@ def build_theme_stock_map(history):
     return result
 
 
+def build_code_stats(history):
+    """종목코드 → 과거 급등 통계(최고 등락률·등장일수·최근 테마). 특징주 뉴스로 확정된 종목 보강용."""
+    stats = {}
+    for r in history:
+        code = r.get('code')
+        if not code:
+            continue
+        st = stats.setdefault(code, {'name': r.get('name', ''), 'appear_days': 0, 'peak_change': 0.0, 'keyword': ''})
+        st['appear_days'] += 1
+        if (r.get('change_rate', 0) or 0) >= st['peak_change']:
+            st['peak_change'] = round(r.get('change_rate', 0) or 0, 1)
+        if r.get('name'):
+            st['name'] = r['name']
+        if r.get('keywordName'):
+            st['keyword'] = r['keywordName']
+    return stats
+
+
 def build_durability_baseline(persistence):
     """테마별 과거 최장 연속 지속 거래일(max_run) — durability 축 보정/표기용."""
     base = {}
@@ -153,6 +171,7 @@ def main():
     persistence = load_json(PERSISTENCE_FILE, {})
 
     theme_stock_map = build_theme_stock_map(history)
+    code_stats = build_code_stats(history)
     durability_base = build_durability_baseline(persistence)
 
     clusters = cluster_data['clusters'][:MAX_CLUSTERS]
@@ -169,8 +188,31 @@ def main():
         # 공시 포함 시 신뢰도 하한 보정
         if c.get('has_disclosure'):
             s['source_trust'] = max(s.get('source_trust', 1), 3)
-        # 4단계: 테마→종목 결정론적 조회 (LLM이 종목 지어내지 못하게)
-        mapped_stocks = theme_stock_map.get(theme, []) if theme in CANONICAL_THEMES else []
+        # 특징주 뉴스는 종목이 명시된 고신뢰 사전라벨 소스 → 신뢰도 보정
+        if c.get('has_feature'):
+            s['source_trust'] = max(s.get('source_trust', 1), 2)
+
+        # 4단계: 종목 매핑
+        #  (1) 특징주 뉴스가 종목을 '확정'한 경우 그 종목을 수혜주로 우선 사용 (추정 아님)
+        #  (2) 아니면 테마→종목 결정론적 조회 (LLM이 종목 지어내지 못하게)
+        confirmed = []
+        for ls in c.get('linked_stocks', []):
+            st = code_stats.get(ls['code'], {})
+            confirmed.append({
+                'code': ls['code'],
+                'name': ls.get('name') or st.get('name', ''),
+                'appear_days': st.get('appear_days', 0),
+                'peak_change': st.get('peak_change', 0.0),
+            })
+        if confirmed:
+            mapped_stocks = confirmed
+            stock_source = '뉴스확정'
+        elif theme in CANONICAL_THEMES:
+            mapped_stocks = theme_stock_map.get(theme, [])
+            stock_source = '테마추정'
+        else:
+            mapped_stocks = []
+            stock_source = '없음'
         item = {
             'event_summary': s.get('event_summary', c['representative_title']),
             'representative_title': c['representative_title'],
@@ -185,7 +227,9 @@ def main():
             'article_count': c['article_count'],
             'source_count': c['source_count'],
             'has_disclosure': c.get('has_disclosure', False),
+            'has_feature': c.get('has_feature', False),
             'mapped_stocks': mapped_stocks,
+            'stock_source': stock_source,  # 뉴스확정 / 테마추정 / 없음
             'theme_persistence': durability_base.get(theme),  # 과거 이 테마 최장 지속일
             'urls': c.get('urls', [])[:5],
         }

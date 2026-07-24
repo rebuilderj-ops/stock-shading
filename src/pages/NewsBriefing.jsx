@@ -74,7 +74,8 @@ const MarketCard = ({ item }) => {
 
       <div>
         <div className="flex items-center gap-1.5 text-[11px] text-slate-400 mb-1">
-          <TrendingUp size={12} className="text-rose-400" /> 예상 수혜 종목 (테마 실데이터 기준)
+          <TrendingUp size={12} className="text-rose-400" />
+          {item.stock_source === '뉴스확정' ? '뉴스 명시 종목 (확정)' : '예상 수혜 종목 (테마 실데이터 기준)'}
         </div>
         <StockChips stocks={item.mapped_stocks} />
       </div>
@@ -118,22 +119,33 @@ const SectorCard = ({ item }) => {
 };
 
 // 개별급(C) 리스트 행
-const IndividualRow = ({ item }) => (
-  <div className="flex items-start gap-3 py-2.5 border-b border-slate-800/50 last:border-0">
-    <span className="text-[10px] font-semibold text-slate-400 bg-slate-800/60 border border-slate-700 rounded px-1.5 py-0.5 mt-0.5 shrink-0">
-      {item.theme === '미분류' ? '개별' : item.theme}
-    </span>
-    <div className="min-w-0 flex-1">
-      <p className="text-sm text-slate-300 leading-snug">{item.event_summary}</p>
-      <span className="text-[10px] text-slate-500">{item.first_seen} · 기사 {item.article_count}</span>
+const IndividualRow = ({ item }) => {
+  const confirmed = item.stock_source === '뉴스확정' ? item.mapped_stocks : null;
+  return (
+    <div className="flex items-start gap-3 py-2.5 border-b border-slate-800/50 last:border-0">
+      <span className="text-[10px] font-semibold text-slate-400 bg-slate-800/60 border border-slate-700 rounded px-1.5 py-0.5 mt-0.5 shrink-0">
+        {item.theme === '미분류' ? '개별' : item.theme}
+      </span>
+      <div className="min-w-0 flex-1">
+        <p className="text-sm text-slate-300 leading-snug">{item.event_summary}</p>
+        <div className="flex items-center gap-1.5 flex-wrap mt-1">
+          {confirmed?.map(s => (
+            <span key={s.code} className="inline-flex items-center gap-1 text-[10px] font-medium bg-rose-500/10 border border-rose-500/20 text-rose-300 rounded px-1.5 py-0.5">
+              {s.name}{s.peak_change ? <span className="font-mono text-[9px] text-rose-400">과거 +{s.peak_change}%</span> : null}
+            </span>
+          ))}
+          <span className="text-[10px] text-slate-500">{item.first_seen} · 기사 {item.article_count}</span>
+          {item.has_disclosure && <span className="text-[9px] text-blue-400 flex items-center gap-0.5"><ShieldCheck size={9} />공시</span>}
+        </div>
+      </div>
+      {item.urls?.[0] && (
+        <a href={item.urls[0]} target="_blank" rel="noreferrer" className="text-blue-400 hover:text-blue-300 mt-0.5 shrink-0">
+          <ExternalLink size={13} />
+        </a>
+      )}
     </div>
-    {item.urls?.[0] && (
-      <a href={item.urls[0]} target="_blank" rel="noreferrer" className="text-blue-400 hover:text-blue-300 mt-0.5 shrink-0">
-        <ExternalLink size={13} />
-      </a>
-    )}
-  </div>
-);
+  );
+};
 
 const NewsBriefing = () => {
   const [data, setData] = useState(null);

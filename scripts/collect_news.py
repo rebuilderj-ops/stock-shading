@@ -47,6 +47,37 @@ RSS_SOURCES = [
 RAW_FILE = 'src/data/news_raw.json'
 CLUSTER_FILE = 'src/data/news_clusters.json'
 
+# 키움 종합시황뉴스의 '급등종목' 검색 결과와 동일 성격의, 종목이 명시된 특징주 뉴스 스트림.
+# (인포스탁·연합 등이 원소스이며 Google News RSS로 동일 콘텐츠 확보)
+FEATURE_QUERIES = ['특징주', '상한가', '급등주 특징주', '급등 종목']
+
+
+def load_krx_name_map():
+    """종목명 → 코드 매핑. 헤드라인에서 종목명 추출용. 긴 이름 우선 매칭을 위해 길이순 정렬 리스트도 반환."""
+    name_to_code = {}
+    if os.path.exists('krx_desc.json'):
+        try:
+            with open('krx_desc.json', 'r', encoding='utf-8') as f:
+                for it in json.load(f):
+                    if 'Code' in it and 'Name' in it:
+                        nm = str(it['Name']).strip()
+                        if len(nm) >= 2:
+                            name_to_code[nm] = str(it['Code']).zfill(6)
+        except Exception as e:
+            print(f"[krx_desc 로드 실패] {e}")
+    # 긴 이름부터 매칭(삼성바이오로직스가 삼성보다 먼저) - 오탐 감소
+    names_by_len = sorted(name_to_code.keys(), key=len, reverse=True)
+    return name_to_code, names_by_len
+
+
+def extract_stock_from_title(title, name_to_code, names_by_len):
+    """헤드라인에서 국내 상장 종목명을 추출해 (name, code) 반환. 없으면 None."""
+    for nm in names_by_len:
+        # 길이 2 종목명은 오탐이 많아 3자 이상만 substring 매칭
+        if len(nm) >= 3 and nm in title:
+            return nm, name_to_code[nm]
+    return None
+
 # 제목 토큰화 시 제거할 흔한 불용어/증권 상투어
 STOPWORDS = set("""
 특징주 종목 관련주 테마주 상승 하락 강세 약세 급등 급락 상한가 오늘 장중 마감 개장 증시 코스피 코스닥
@@ -141,6 +172,47 @@ def fetch_dart(days=1, limit=100):
     return items
 
 
+def fetch_feature_stock_news(name_to_code, names_by_len, limit=30):
+    """Google News RSS에서 특징주/상한가/급등 뉴스를 모아 종목을 매핑합니다.
+    종목이 명시된 고신뢰·사전라벨 소스로, Stage4 테마·종목 매핑을 '추정'이 아닌 '확정'으로 만듭니다."""
+    items = []
+    for q in FEATURE_QUERIES:
+        url = f'https://news.google.com/rss/search?q={urllib.parse.quote(q)}&hl=ko&gl=KR&ceid=KR:ko'
+        for attempt in range(2):
+            try:
+                req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+                raw = urllib.request.urlopen(req, timeout=12).read()
+                root = ET.fromstring(raw)
+                for it in root.findall('.//item')[:limit]:
+                    title = strip_html(it.findtext('title') or '')
+                    if ' - ' in title:
+                        title = title.rsplit(' - ', 1)[0]
+                    link = (it.findtext('link') or '').strip()
+                    pub = (it.findtext('pubDate') or '').strip()
+                    try:
+                        pub_dt = parsedate_to_datetime(pub).astimezone(KST) if pub else None
+                    except Exception:
+                        pub_dt = None
+                    if not title or not link:
+                        continue
+                    matched = extract_stock_from_title(title, name_to_code, names_by_len)
+                    items.append({
+                        'published_at': pub_dt.strftime('%Y-%m-%d %H:%M') if pub_dt else '',
+                        'source': '특징주뉴스',
+                        'title': title,
+                        'summary': title,
+                        'url': link,
+                        'category': '특징주',
+                        'linked_name': matched[0] if matched else None,
+                        'linked_code': matched[1] if matched else None,
+                    })
+                break
+            except Exception as e:
+                print(f"[특징주 RSS 재시도 {attempt+1}] {q}: {e}")
+                import time as _t; _t.sleep(1.2)
+    return items
+
+
 def tokenize(title):
     toks = {t for t in TOKEN_RE.findall(title) if t not in STOPWORDS and len(t) >= 2}
     return toks
@@ -183,6 +255,11 @@ def cluster_events(articles, threshold=0.4):
         sources = sorted(set(a['source'] for a in arts))
         # 대표 제목: 가장 긴(정보량 많은) 제목
         rep = max(arts, key=lambda a: len(a['title']))
+        # 특징주 뉴스에서 명시된 종목을 클러스터에 전파(수혜주 '확정')
+        linked_stocks = {}
+        for a in arts:
+            if a.get('linked_code'):
+                linked_stocks[a['linked_code']] = a.get('linked_name')
         result.append({
             'cluster_id': cid,
             'representative_title': rep['title'],
@@ -192,6 +269,8 @@ def cluster_events(articles, threshold=0.4):
             'source_count': len(sources),      # 매체 확산도
             'sources': sources,
             'has_disclosure': any(a['category'] == '공시' for a in arts),  # 공시 포함=신뢰도↑
+            'has_feature': any(a['category'] == '특징주' for a in arts),   # 특징주(종목명시) 뉴스 포함
+            'linked_stocks': [{'code': c, 'name': n} for c, n in linked_stocks.items()],
             'titles': [a['title'] for a in arts][:8],
             'urls': [a['url'] for a in arts][:8],
         })
@@ -214,6 +293,13 @@ def main():
     if dart:
         print(f"  DART 공시: {len(dart)}건")
     articles.extend(dart)
+
+    # 키움 급등종목 스타일: 종목 명시된 특징주 뉴스 스트림
+    name_to_code, names_by_len = load_krx_name_map()
+    feature = fetch_feature_stock_news(name_to_code, names_by_len)
+    linked = sum(1 for a in feature if a.get('linked_code'))
+    print(f"  특징주뉴스: {len(feature)}건 (종목 매핑 {linked}건)")
+    articles.extend(feature)
 
     # URL 기준 중복 제거
     seen = set()

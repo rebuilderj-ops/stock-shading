@@ -1,26 +1,27 @@
 {
-  "generated_at": "2026-07-24 16:36:16",
+  "generated_at": "2026-07-24 22:57:21",
   "source_cluster_count": 30,
   "tier_a_market": [
     {
-      "event_summary": "단일종목 레버리지 예탁금 기준이 3천만원으로 상향되어 이달 31일부터 시행됨",
-      "representative_title": "[속보] 단일종목 레버리지 예탁금 3000만원, 이달 31일부터 시행",
+      "event_summary": "국고채 금리 일제히 상승, 3년물 연 3.96% 기록",
+      "representative_title": "국고채 금리 일제히 상승…3년물 장중 연 3.963%",
       "theme": "금융",
       "grade": "A",
       "rubric": {
         "scope": 3,
         "specificity": 3,
         "durability": 2,
-        "novelty": 3,
+        "novelty": 2,
         "chain_depth": 3,
         "source_trust": 2
       },
-      "rubric_total": 16,
-      "reason": "증시 전체 투자 규제 변화로 시장 전반에 영향력을 미침",
-      "first_seen": "2026-07-24 08:17",
+      "rubric_total": 15,
+      "reason": "금리 상승은 채권 및 금융 시장 전체에 직접적 영향 미침",
+      "first_seen": "2026-07-24 11:42",
       "article_count": 2,
       "source_count": 1,
       "has_disclosure": false,
+      "has_feature": false,
       "mapped_stocks": [
         {
           "code": "402340",
@@ -53,42 +54,112 @@
           "peak_change": 8.3
         },
         {
-          "code": "039490",
-          "name": "키움증권",
+          "code": "000810",
+          "name": "삼성화재",
           "appear_days": 4,
-          "peak_change": 9.9
+          "peak_change": 13.9
         }
       ],
+      "stock_source": "테마추정",
       "theme_persistence": {
         "max_run": 16,
-        "avg_run": 2.82
+        "avg_run": 2.91
       },
       "urls": [
-        "https://www.hankyung.com/article/2026072433356",
-        "https://www.hankyung.com/article/2026072432857"
+        "https://www.yna.co.kr/view/AKR20260724144200008",
+        "https://www.yna.co.kr/view/AKR20260724081100008"
+      ]
+    },
+    {
+      "event_summary": "정부, 미국 무역대표부 관세 상한선 준수 입장 재확인",
+      "representative_title": "정부 \"미측, 한국 관세 15% 상한선 준수 입장 재확인\"(종합)",
+      "theme": "자동차",
+      "grade": "A",
+      "rubric": {
+        "scope": 3,
+        "specificity": 2,
+        "durability": 2,
+        "novelty": 2,
+        "chain_depth": 3,
+        "source_trust": 2
+      },
+      "rubric_total": 14,
+      "reason": "대미 수출 관세 관련 국가 간 통상 이슈로 시장 전체에 파급",
+      "first_seen": "2026-07-24 10:28",
+      "article_count": 2,
+      "source_count": 1,
+      "has_disclosure": false,
+      "has_feature": false,
+      "mapped_stocks": [
+        {
+          "code": "018880",
+          "name": "한온시스템",
+          "appear_days": 4,
+          "peak_change": 20.9
+        },
+        {
+          "code": "006660",
+          "name": "삼성공조",
+          "appear_days": 4,
+          "peak_change": 25.3
+        },
+        {
+          "code": "005387",
+          "name": "현대차2우B",
+          "appear_days": 3,
+          "peak_change": 8.6
+        },
+        {
+          "code": "039490",
+          "name": "키움증권",
+          "appear_days": 3,
+          "peak_change": 12.8
+        },
+        {
+          "code": "073240",
+          "name": "금호타이어",
+          "appear_days": 2,
+          "peak_change": 30.0
+        },
+        {
+          "code": "010690",
+          "name": "화신",
+          "appear_days": 2,
+          "peak_change": 30.0
+        }
+      ],
+      "stock_source": "테마추정",
+      "theme_persistence": {
+        "max_run": 5,
+        "avg_run": 1.82
+      },
+      "urls": [
+        "https://www.yna.co.kr/view/AKR20260724049251003",
+        "https://www.yna.co.kr/view/AKR20260724049200003"
       ]
     }
   ],
   "tier_b_sector": [
     {
-      "event_summary": "삼성과 현대차를 담은 피지컬AI 액티브 ETF 출시 등 로봇 ETF 경쟁이 격화됨",
-      "representative_title": "삼성·현대차 담은 '피지컬AI 액티브' 나온다…로봇 ETF 경쟁 격화",
+      "event_summary": "삼성 및 현대차 최대 비중 담은 로봇 ETF 신규 출시",
+      "representative_title": "삼전·현대차 최대비중 '로봇 ETF' 출시",
       "theme": "로봇",
       "grade": "B",
       "rubric": {
         "scope": 2,
-        "specificity": 2,
+        "specificity": 3,
         "durability": 2,
-        "novelty": 2,
+        "novelty": 3,
         "chain_depth": 2,
         "source_trust": 1
       },
-      "rubric_total": 11,
-      "reason": "로봇 및 AI 섹터 전반의 자금 유입과 상품 출시 테마임",
-      "first_seen": "2026-07-24 15:19",
+      "rubric_total": 13,
+      "reason": "대형주 중심의 신규 로봇 테마 ETF 출시로 관련 섹터 주목",
+      "first_seen": "2026-07-24 17:46",
       "article_count": 1,
       "source_count": 1,
       "has_disclosure": false,
+      "has_feature": false,
       "mapped_stocks": [
         {
           "code": "108490",
@@ -115,438 +186,425 @@
           "peak_change": 25.2
         },
         {
+          "code": "277810",
+          "name": "레인보우로보틱스",
+          "appear_days": 7,
+          "peak_change": 16.5
+        },
+        {
           "code": "454910",
           "name": "두산로보틱스",
           "appear_days": 6,
           "peak_change": 29.9
-        },
-        {
-          "code": "000150",
-          "name": "두산",
-          "appear_days": 6,
-          "peak_change": 18.8
         }
       ],
+      "stock_source": "테마추정",
       "theme_persistence": {
         "max_run": 20,
         "avg_run": 5.83
       },
       "urls": [
-        "https://www.hankyung.com/article/202607244282i"
+        "https://www.hankyung.com/article/2026072449661"
       ]
     },
     {
-      "event_summary": "브룩필드와 엔비디아 칩을 바탕으로 네이버가 AI 인프라주로 재조명됨",
-      "representative_title": "브룩필드 자본에 엔비디아 칩까지…네이버, AI 인프라株로 다시 뜬다",
-      "theme": "AI",
+      "event_summary": "레버리지 ETF 거래 시 현금예탁금 제도 강화 적용",
+      "representative_title": "31일부터 '현금 3천만원' 있어야 삼전닉스 레버리지ETF 거래",
+      "theme": "금융",
       "grade": "B",
       "rubric": {
-        "scope": 2,
-        "specificity": 2,
+        "scope": 3,
+        "specificity": 3,
         "durability": 2,
-        "novelty": 2,
-        "chain_depth": 2,
+        "novelty": 3,
+        "chain_depth": 1,
         "source_trust": 1
       },
-      "rubric_total": 11,
-      "reason": "AI 및 IT 인프라 관련 섹터 투자 심리에 긍정적 영향",
-      "first_seen": "2026-07-24 14:35",
+      "rubric_total": 13,
+      "reason": "파생상품 및 증시 전체 투자 규제 강화 관련 뉴스",
+      "first_seen": "2026-07-24 17:39",
       "article_count": 1,
       "source_count": 1,
       "has_disclosure": false,
+      "has_feature": false,
       "mapped_stocks": [
         {
-          "code": "001740",
-          "name": "SK네트웍스",
+          "code": "402340",
+          "name": "SK스퀘어",
+          "appear_days": 10,
+          "peak_change": 10.7
+        },
+        {
+          "code": "016360",
+          "name": "삼성증권",
           "appear_days": 7,
-          "peak_change": 30.0
+          "peak_change": 10.4
         },
         {
-          "code": "477850",
-          "name": "마키나락스",
+          "code": "071050",
+          "name": "한국금융지주",
           "appear_days": 7,
-          "peak_change": 29.9
+          "peak_change": 9.0
         },
         {
-          "code": "018260",
-          "name": "삼성에스디에스",
-          "appear_days": 6,
-          "peak_change": 29.8
-        },
-        {
-          "code": "009155",
-          "name": "삼성전기우",
-          "appear_days": 6,
-          "peak_change": 29.9
-        },
-        {
-          "code": "066570",
-          "name": "LG전자",
+          "code": "032830",
+          "name": "삼성생명",
           "appear_days": 5,
-          "peak_change": 29.9
+          "peak_change": 17.1
         },
         {
-          "code": "242040",
-          "name": "나무기술",
-          "appear_days": 5,
-          "peak_change": 24.8
-        }
-      ],
-      "theme_persistence": {
-        "max_run": 21,
-        "avg_run": 6.67
-      },
-      "urls": [
-        "https://www.hankyung.com/article/202607244285i"
-      ]
-    },
-    {
-      "event_summary": "통신 3사의 AI 데이터센터 메가프로젝트가 본격화되며 수혜주에 관심이 집중됨",
-      "representative_title": "통신 3사 'AI 데이터센터' 메가프로젝트 본격화…증시 달굴 수혜주는?",
-      "theme": "AI",
-      "grade": "B",
-      "rubric": {
-        "scope": 2,
-        "specificity": 2,
-        "durability": 2,
-        "novelty": 2,
-        "chain_depth": 2,
-        "source_trust": 1
-      },
-      "rubric_total": 11,
-      "reason": "통신 및 AI 인프라 섹터 전반의 중장기 모멘텀 형성",
-      "first_seen": "2026-07-24 10:28",
-      "article_count": 1,
-      "source_count": 1,
-      "has_disclosure": false,
-      "mapped_stocks": [
-        {
-          "code": "001740",
-          "name": "SK네트웍스",
-          "appear_days": 7,
-          "peak_change": 30.0
-        },
-        {
-          "code": "477850",
-          "name": "마키나락스",
-          "appear_days": 7,
-          "peak_change": 29.9
-        },
-        {
-          "code": "018260",
-          "name": "삼성에스디에스",
-          "appear_days": 6,
-          "peak_change": 29.8
-        },
-        {
-          "code": "009155",
-          "name": "삼성전기우",
-          "appear_days": 6,
-          "peak_change": 29.9
-        },
-        {
-          "code": "066570",
-          "name": "LG전자",
-          "appear_days": 5,
-          "peak_change": 29.9
-        },
-        {
-          "code": "242040",
-          "name": "나무기술",
-          "appear_days": 5,
-          "peak_change": 24.8
-        }
-      ],
-      "theme_persistence": {
-        "max_run": 21,
-        "avg_run": 6.67
-      },
-      "urls": [
-        "https://www.hankyung.com/article/202607243784i"
-      ]
-    },
-    {
-      "event_summary": "미국 록히드마틴 주가 상승 등에 힘입어 국내 방산 K종목이 급등함",
-      "representative_title": "트럼프의 분노…록히드마틴 주가 뛰자 100만원 돌파한 'K종목' [종목+]",
-      "theme": "방산",
-      "grade": "B",
-      "rubric": {
-        "scope": 2,
-        "specificity": 2,
-        "durability": 2,
-        "novelty": 2,
-        "chain_depth": 2,
-        "source_trust": 1
-      },
-      "rubric_total": 11,
-      "reason": "글로벌 방산 섹터 강세에 따른 국내 방산주 동반 상승 모멘텀",
-      "first_seen": "2026-07-24 09:35",
-      "article_count": 1,
-      "source_count": 1,
-      "has_disclosure": false,
-      "mapped_stocks": [
-        {
-          "code": "064350",
-          "name": "현대로템",
-          "appear_days": 6,
-          "peak_change": 11.4
-        },
-        {
-          "code": "079550",
-          "name": "LIG디펜스앤에어로스페이스",
-          "appear_days": 5,
-          "peak_change": 18.6
-        },
-        {
-          "code": "012450",
-          "name": "한화에어로스페이스",
+          "code": "055550",
+          "name": "신한지주",
           "appear_days": 4,
-          "peak_change": 9.7
+          "peak_change": 8.3
         },
         {
-          "code": "272210",
-          "name": "한화시스템",
-          "appear_days": 3,
-          "peak_change": 10.8
-        },
-        {
-          "code": "082920",
-          "name": "비츠로셀",
-          "appear_days": 1,
-          "peak_change": 8.0
-        },
-        {
-          "code": "000880",
-          "name": "한화",
-          "appear_days": 1,
-          "peak_change": 9.5
+          "code": "000810",
+          "name": "삼성화재",
+          "appear_days": 4,
+          "peak_change": 13.9
         }
       ],
+      "stock_source": "테마추정",
       "theme_persistence": {
-        "max_run": 1,
-        "avg_run": 1.0
+        "max_run": 16,
+        "avg_run": 2.91
       },
       "urls": [
-        "https://www.hankyung.com/article/2026072435696"
+        "https://www.hankyung.com/article/2026072449201"
       ]
     },
     {
-      "event_summary": "반도체의 대안으로 금융, 방산, 원전, 바이오 등이 거론되는 것에 대한 분석 제기",
-      "representative_title": "금융·방산·원전·바이오가 반도체 대안?…\"전제가 틀렸다\"",
+      "event_summary": "삼성전자 및 SK하이닉스 장 초반 4~5% 하락",
+      "representative_title": "[특징주] 삼성전자·SK하이닉스, 장 초반 4∼5% 하락",
       "theme": "반도체",
       "grade": "B",
       "rubric": {
         "scope": 2,
-        "specificity": 1,
-        "durability": 2,
+        "specificity": 2,
+        "durability": 1,
         "novelty": 2,
         "chain_depth": 2,
-        "source_trust": 1
+        "source_trust": 2
       },
-      "rubric_total": 10,
-      "reason": "시장 주도주 변화 가능성과 주요 대체 섹터들을 아우르는 분석 기사",
-      "first_seen": "2026-07-24 12:00",
-      "article_count": 1,
-      "source_count": 1,
+      "rubric_total": 11,
+      "reason": "국내 증시 대형 반도체주의 동반 하락으로 섹터 전체에 영향",
+      "first_seen": "2026-07-24 09:41",
+      "article_count": 2,
+      "source_count": 2,
       "has_disclosure": false,
+      "has_feature": true,
       "mapped_stocks": [
-        {
-          "code": "403870",
-          "name": "HPSP",
-          "appear_days": 14,
-          "peak_change": 30.0
-        },
-        {
-          "code": "089030",
-          "name": "테크윙",
-          "appear_days": 13,
-          "peak_change": 21.0
-        },
-        {
-          "code": "319660",
-          "name": "피에스케이",
-          "appear_days": 13,
-          "peak_change": 26.3
-        },
         {
           "code": "000660",
           "name": "SK하이닉스",
           "appear_days": 12,
           "peak_change": 15.9
-        },
-        {
-          "code": "440110",
-          "name": "파두",
-          "appear_days": 12,
-          "peak_change": 14.3
-        },
-        {
-          "code": "095610",
-          "name": "테스",
-          "appear_days": 12,
-          "peak_change": 29.9
         }
       ],
+      "stock_source": "뉴스확정",
       "theme_persistence": {
         "max_run": 24,
         "avg_run": 7.17
       },
       "urls": [
-        "https://www.hankyung.com/article/202607243582i"
+        "https://www.yna.co.kr/view/AKR20260724046100008",
+        "https://news.google.com/rss/articles/CBMiYEFVX3lxTE00TXpTR01QRjR4ZnhWZnhKaTRNbG9jY1dRdTZkMTVGaW9Sei1FWThJRFVNQVlTVEZzMm9QTmpEWUE0cGdTdXl6SzVfdWhCY3l4cVVDbmFGYUo5US1NcGxDYdIBYEFVX3lxTE00TXpTR01QRjR4ZnhWZnhKaTRNbG9jY1dRdTZkMTVGaW9Sei1FWThJRFVNQVlTVEZzMm9QTmpEWUE0cGdTdXl6SzVfdWhCY3l4cVVDbmFGYUo5US1NcGxDYQ?oc=5"
       ]
     },
     {
-      "event_summary": "스페이스X 급락 여파로 관련 고편입 ETF 간의 수익률 격차가 커짐",
-      "representative_title": "스페이스X 급락 후폭풍…'고편입 ETF' 수익률 격차 커진다",
-      "theme": "우주항공",
+      "event_summary": "레버리지 상품 급등 후 반납 및 거래대금 감소 추세",
+      "representative_title": "단일 레버리지 급등 뒤 상승분 반납…거래대금 10조원대로 다소 줄어",
+      "theme": "금융",
+      "grade": "B",
+      "rubric": {
+        "scope": 3,
+        "specificity": 2,
+        "durability": 1,
+        "novelty": 2,
+        "chain_depth": 1,
+        "source_trust": 2
+      },
+      "rubric_total": 11,
+      "reason": "시장 전체의 수급 및 투자 심리를 반영하는 동향",
+      "first_seen": "2026-07-22 16:59",
+      "article_count": 2,
+      "source_count": 1,
+      "has_disclosure": false,
+      "has_feature": true,
+      "mapped_stocks": [
+        {
+          "code": "402340",
+          "name": "SK스퀘어",
+          "appear_days": 10,
+          "peak_change": 10.7
+        },
+        {
+          "code": "016360",
+          "name": "삼성증권",
+          "appear_days": 7,
+          "peak_change": 10.4
+        },
+        {
+          "code": "071050",
+          "name": "한국금융지주",
+          "appear_days": 7,
+          "peak_change": 9.0
+        },
+        {
+          "code": "032830",
+          "name": "삼성생명",
+          "appear_days": 5,
+          "peak_change": 17.1
+        },
+        {
+          "code": "055550",
+          "name": "신한지주",
+          "appear_days": 4,
+          "peak_change": 8.3
+        },
+        {
+          "code": "000810",
+          "name": "삼성화재",
+          "appear_days": 4,
+          "peak_change": 13.9
+        }
+      ],
+      "stock_source": "테마추정",
+      "theme_persistence": {
+        "max_run": 16,
+        "avg_run": 2.91
+      },
+      "urls": [
+        "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBnMHRxWkd4ZHRGem01a05sbWFZNVVjTWgzWnJTWWFCbzV2VGMxQUdQbm1IQTNvYUdJUkcxWHcwdnZZa2ZFWjVHb2dKWVhaOWl3aDh5RkFwUWhiQ0ZiMG0tNkEwaGtRMFU?oc=5",
+        "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1NMzFLbTNFc0dsUkRwWTdYVDdZeFlOMW1YUmdpcGJtM3BTelBDN05aZVhhVHNGYXZROW1IRldRNHpVWlZOU3RTclB4MEVmbG9XRTJrdVp0c1BHSTRMODV6RtIBYEFVX3lxTE1NMzFLbTNFc0dsUkRwWTdYVDdZeFlOMW1YUmdpcGJtM3BTelBDN05aZVhhVHNGYXZROW1IRldRNHpVWlZOU3RTclB4MEVmbG9XRTJrdVp0c1BHSTRMODV6Rg?oc=5"
+      ]
+    },
+    {
+      "event_summary": "빅테크 기업들의 AI 투자가치 대비 현금 흐름 우려 부각",
+      "representative_title": "\"돈 벌어도 현금이 마른다\"…AI 투자 청구서 받은 빅테크",
+      "theme": "AI",
       "grade": "B",
       "rubric": {
         "scope": 2,
         "specificity": 2,
-        "durability": 1,
+        "durability": 2,
         "novelty": 2,
         "chain_depth": 2,
         "source_trust": 1
       },
-      "rubric_total": 10,
-      "reason": "우주항공 테마 및 관련 ETF 상품군의 변동성 확대",
-      "first_seen": "2026-07-24 09:40",
+      "rubric_total": 11,
+      "reason": "글로벌 AI 테마 전반의 투자 심리에 영향을 줄 수 있는 재료",
+      "first_seen": "2026-07-24 17:45",
       "article_count": 1,
       "source_count": 1,
       "has_disclosure": false,
+      "has_feature": false,
       "mapped_stocks": [
         {
-          "code": "089970",
-          "name": "브이엠",
+          "code": "001740",
+          "name": "SK네트웍스",
           "appear_days": 7,
-          "peak_change": 28.2
-        },
-        {
-          "code": "347700",
-          "name": "스피어",
-          "appear_days": 6,
-          "peak_change": 20.1
-        },
-        {
-          "code": "100790",
-          "name": "미래에셋벤처투자",
-          "appear_days": 4,
-          "peak_change": 22.8
-        },
-        {
-          "code": "006800",
-          "name": "미래에셋증권",
-          "appear_days": 4,
-          "peak_change": 7.3
-        },
-        {
-          "code": "004870",
-          "name": "티웨이홀딩스",
-          "appear_days": 4,
           "peak_change": 30.0
         },
         {
-          "code": "003490",
-          "name": "대한항공",
-          "appear_days": 3,
-          "peak_change": 12.8
-        }
-      ],
-      "theme_persistence": {
-        "max_run": 9,
-        "avg_run": 2.88
-      },
-      "urls": [
-        "https://www.hankyung.com/article/202607243472i"
-      ]
-    },
-    {
-      "event_summary": "기대감을 모았던 바이오주가 다시 하락세를 보인 배경을 분석함",
-      "representative_title": "\"이번엔 진짜 간다\"더니…바이오주가 또 무너진 까닭",
-      "theme": "바이오",
-      "grade": "B",
-      "rubric": {
-        "scope": 2,
-        "specificity": 1,
-        "durability": 1,
-        "novelty": 1,
-        "chain_depth": 2,
-        "source_trust": 1
-      },
-      "rubric_total": 8,
-      "reason": "바이오 섹터 전반의 투자 심리 악화와 하락 원인 진단",
-      "first_seen": "2026-07-24 09:45",
-      "article_count": 1,
-      "source_count": 1,
-      "has_disclosure": false,
-      "mapped_stocks": [
-        {
-          "code": "347850",
-          "name": "디앤디파마텍",
-          "appear_days": 14,
-          "peak_change": 30.0
-        },
-        {
-          "code": "226950",
-          "name": "올릭스",
-          "appear_days": 9,
-          "peak_change": 24.2
-        },
-        {
-          "code": "067290",
-          "name": "JW신약",
-          "appear_days": 8,
+          "code": "477850",
+          "name": "마키나락스",
+          "appear_days": 7,
           "peak_change": 29.9
         },
         {
-          "code": "028300",
-          "name": "HLB",
-          "appear_days": 8,
+          "code": "018260",
+          "name": "삼성에스디에스",
+          "appear_days": 6,
+          "peak_change": 29.8
+        },
+        {
+          "code": "009155",
+          "name": "삼성전기우",
+          "appear_days": 6,
+          "peak_change": 29.9
+        },
+        {
+          "code": "066570",
+          "name": "LG전자",
+          "appear_days": 5,
+          "peak_change": 29.9
+        },
+        {
+          "code": "242040",
+          "name": "나무기술",
+          "appear_days": 5,
+          "peak_change": 24.8
+        }
+      ],
+      "stock_source": "테마추정",
+      "theme_persistence": {
+        "max_run": 21,
+        "avg_run": 6.67
+      },
+      "urls": [
+        "https://www.hankyung.com/article/2026072449227"
+      ]
+    },
+    {
+      "event_summary": "삼성 주도 로봇 붐에 따라 관련 ETF 시장 활황",
+      "representative_title": "삼성發 로봇 붐…ETF 시장도 들썩 [한경 프리미엄9 TODAY]",
+      "theme": "로봇",
+      "grade": "B",
+      "rubric": {
+        "scope": 2,
+        "specificity": 2,
+        "durability": 2,
+        "novelty": 2,
+        "chain_depth": 2,
+        "source_trust": 1
+      },
+      "rubric_total": 11,
+      "reason": "로봇 섹터 전반의 투자 열기를 반영하는 테마성 기사",
+      "first_seen": "2026-07-24 17:38",
+      "article_count": 1,
+      "source_count": 1,
+      "has_disclosure": false,
+      "has_feature": false,
+      "mapped_stocks": [
+        {
+          "code": "108490",
+          "name": "로보티즈",
+          "appear_days": 10,
+          "peak_change": 23.7
+        },
+        {
+          "code": "090360",
+          "name": "로보스타",
+          "appear_days": 9,
           "peak_change": 30.0
         },
         {
-          "code": "087010",
-          "name": "펩트론",
-          "appear_days": 8,
-          "peak_change": 19.6
+          "code": "204320",
+          "name": "HL만도",
+          "appear_days": 9,
+          "peak_change": 30.0
         },
         {
-          "code": "141080",
-          "name": "리가켐바이오",
+          "code": "012330",
+          "name": "현대모비스",
           "appear_days": 7,
-          "peak_change": 14.0
+          "peak_change": 25.2
+        },
+        {
+          "code": "277810",
+          "name": "레인보우로보틱스",
+          "appear_days": 7,
+          "peak_change": 16.5
+        },
+        {
+          "code": "454910",
+          "name": "두산로보틱스",
+          "appear_days": 6,
+          "peak_change": 29.9
         }
       ],
+      "stock_source": "테마추정",
       "theme_persistence": {
-        "max_run": 10,
-        "avg_run": 4.88
+        "max_run": 20,
+        "avg_run": 5.83
       },
       "urls": [
-        "https://www.hankyung.com/article/202607243509i"
+        "https://www.hankyung.com/article/2026072449181"
+      ]
+    },
+    {
+      "event_summary": "개인 투자자 레버리지 투자 행태 및 리스크 분석",
+      "representative_title": "\"실시간 돈 삭제\" 개미들 레버리지 쓸어담더니…확 달라졌다 [분석+]",
+      "theme": "금융",
+      "grade": "B",
+      "rubric": {
+        "scope": 3,
+        "specificity": 2,
+        "durability": 1,
+        "novelty": 2,
+        "chain_depth": 1,
+        "source_trust": 1
+      },
+      "rubric_total": 10,
+      "reason": "증시 참여자들의 투자 동향을 다룬 분석 기사",
+      "first_seen": "2026-07-24 22:00",
+      "article_count": 1,
+      "source_count": 1,
+      "has_disclosure": false,
+      "has_feature": false,
+      "mapped_stocks": [
+        {
+          "code": "402340",
+          "name": "SK스퀘어",
+          "appear_days": 10,
+          "peak_change": 10.7
+        },
+        {
+          "code": "016360",
+          "name": "삼성증권",
+          "appear_days": 7,
+          "peak_change": 10.4
+        },
+        {
+          "code": "071050",
+          "name": "한국금융지주",
+          "appear_days": 7,
+          "peak_change": 9.0
+        },
+        {
+          "code": "032830",
+          "name": "삼성생명",
+          "appear_days": 5,
+          "peak_change": 17.1
+        },
+        {
+          "code": "055550",
+          "name": "신한지주",
+          "appear_days": 4,
+          "peak_change": 8.3
+        },
+        {
+          "code": "000810",
+          "name": "삼성화재",
+          "appear_days": 4,
+          "peak_change": 13.9
+        }
+      ],
+      "stock_source": "테마추정",
+      "theme_persistence": {
+        "max_run": 16,
+        "avg_run": 2.91
+      },
+      "urls": [
+        "https://www.hankyung.com/article/2026072447376"
       ]
     }
   ],
   "tier_c_individual": [
     {
-      "event_summary": "중동발 유가 급등 여파로 코스피와 코스닥에 매도 사이드카가 발동됨",
+      "event_summary": "중동발 유가 급등으로 코스피·코스닥 매도 사이드카 발동",
       "representative_title": "중동발 유가 급등에 급락…코스피·코스닥 '매도 사이드카' [종합]",
       "theme": "미분류",
       "grade": "A",
       "rubric": {
         "scope": 3,
-        "specificity": 3,
+        "specificity": 2,
         "durability": 2,
-        "novelty": 2,
+        "novelty": 3,
         "chain_depth": 3,
         "source_trust": 2
       },
       "rubric_total": 15,
-      "reason": "시장 전체에 충격을 준 대형 매크로 이벤트로 사이드카가 발동됨",
+      "reason": "지정학적 리스크와 유가 급등으로 시장 전체에 서킷브레이커급 파급",
       "first_seen": "2026-07-24 11:58",
       "article_count": 2,
       "source_count": 2,
       "has_disclosure": false,
+      "has_feature": false,
       "mapped_stocks": [],
+      "stock_source": "없음",
       "theme_persistence": null,
       "urls": [
         "https://www.hankyung.com/article/2026072441676",
@@ -554,33 +612,7 @@
       ]
     },
     {
-      "event_summary": "국제유가 100달러 돌파로 인해 코스피 시장에 매도 사이드카가 발동됨",
-      "representative_title": "기름값 100달러 돌파에…코스피 또 '매도 사이드카' 발동",
-      "theme": "미분류",
-      "grade": "A",
-      "rubric": {
-        "scope": 3,
-        "specificity": 3,
-        "durability": 2,
-        "novelty": 2,
-        "chain_depth": 3,
-        "source_trust": 2
-      },
-      "rubric_total": 15,
-      "reason": "유가 급등과 지수 급락으로 인한 시장 전체의 사이드카 발동 재료임",
-      "first_seen": "2026-07-24 11:29",
-      "article_count": 2,
-      "source_count": 1,
-      "has_disclosure": false,
-      "mapped_stocks": [],
-      "theme_persistence": null,
-      "urls": [
-        "https://www.hankyung.com/article/202607244028i",
-        "https://www.hankyung.com/article/2026072440256"
-      ]
-    },
-    {
-      "event_summary": "중동 긴장 및 유가 급등으로 코스피와 코스닥이 큰 폭으로 폭락함",
+      "event_summary": "유가 급등 여파로 코스피·코스닥 5%대 급락 마감",
       "representative_title": "또 '블랙데이'…유가급등에 코스피 5.7%·코스닥 5.3% 급락(종합)",
       "theme": "미분류",
       "grade": "A",
@@ -593,12 +625,14 @@
         "source_trust": 2
       },
       "rubric_total": 15,
-      "reason": "증시 전반에 걸친 대폭락을 야기한 거시경제적 악재임",
+      "reason": "시장 전체의 폭락을 다룬 거시 경제 대형 이슈",
       "first_seen": "2026-07-24 15:36",
       "article_count": 2,
       "source_count": 1,
       "has_disclosure": false,
+      "has_feature": false,
       "mapped_stocks": [],
+      "stock_source": "없음",
       "theme_persistence": null,
       "urls": [
         "https://www.yna.co.kr/view/AKR20260724134500008",
@@ -606,7 +640,7 @@
       ]
     },
     {
-      "event_summary": "유가 100달러 돌파 및 중동 정세 악화로 국내 증시가 연일 타격을 받음",
+      "event_summary": "중동 정세 격화 및 유가 상승으로 국내 증시 급락세 지속",
       "representative_title": "코스피, 중동정세 격화·유가상승에 다시 털썩…이번주 내내 사이드카(종합)",
       "theme": "미분류",
       "grade": "A",
@@ -619,12 +653,14 @@
         "source_trust": 2
       },
       "rubric_total": 14,
-      "reason": "지속되는 중동 리스크와 유가 상승이 전체 증시를 압박함",
+      "reason": "증시 전반에 지속적인 하방 압력을 가하는 거시 재료",
       "first_seen": "2026-07-24 13:55",
       "article_count": 2,
       "source_count": 1,
       "has_disclosure": false,
+      "has_feature": false,
       "mapped_stocks": [],
+      "stock_source": "없음",
       "theme_persistence": null,
       "urls": [
         "https://www.yna.co.kr/view/AKR20260724095651008",
@@ -632,175 +668,92 @@
       ]
     },
     {
-      "event_summary": "코스피가 5.73% 급락하고 코스닥도 하락하며 장을 마감함",
-      "representative_title": "[속보] 코스피 5.73% 급락 6690.02 마감…코스닥도 5.32%↓",
+      "event_summary": "기기값 100달러 돌파로 코스피 매도 사이드카 발동",
+      "representative_title": "기름값 100달러 돌파에…코스피 또 '매도 사이드카' 발동",
       "theme": "미분류",
       "grade": "A",
       "rubric": {
         "scope": 3,
-        "specificity": 3,
-        "durability": 1,
-        "novelty": 2,
-        "chain_depth": 3,
-        "source_trust": 1
-      },
-      "rubric_total": 13,
-      "reason": "지수 폭락 마감이라는 시장 전체의 핵심 지표 변화를 다룸",
-      "first_seen": "2026-07-24 15:31",
-      "article_count": 1,
-      "source_count": 1,
-      "has_disclosure": false,
-      "mapped_stocks": [],
-      "theme_persistence": null,
-      "urls": [
-        "https://www.hankyung.com/article/2026072445416"
-      ]
-    },
-    {
-      "event_summary": "코스피에 이어 코스닥 시장에도 급락으로 인한 매도 사이드카가 발동됨",
-      "representative_title": "[속보] 코스피 이어 코스닥도 급락에 매도 사이드카",
-      "theme": "미분류",
-      "grade": "A",
-      "rubric": {
-        "scope": 3,
-        "specificity": 3,
-        "durability": 1,
-        "novelty": 2,
-        "chain_depth": 3,
-        "source_trust": 1
-      },
-      "rubric_total": 13,
-      "reason": "시장 전체의 투매 현상과 사이드카 발동 상황을 다룸",
-      "first_seen": "2026-07-24 11:53",
-      "article_count": 1,
-      "source_count": 1,
-      "has_disclosure": false,
-      "mapped_stocks": [],
-      "theme_persistence": null,
-      "urls": [
-        "https://www.hankyung.com/article/2026072440726"
-      ]
-    },
-    {
-      "event_summary": "미국 무역대표부가 한국에 대한 관세 15% 상한선 준수 입장을 재확인함",
-      "representative_title": "정부 \"미측, 한국 관세 15% 상한선 준수 입장 재확인\"(종합)",
-      "theme": "미분류",
-      "grade": "B",
-      "rubric": {
-        "scope": 2,
         "specificity": 2,
         "durability": 2,
         "novelty": 2,
-        "chain_depth": 2,
-        "source_trust": 2
+        "chain_depth": 3,
+        "source_trust": 1
       },
-      "rubric_total": 12,
-      "reason": "대외 무역 정책과 관련하여 특정 수출 섹터 전반에 영향을 미침",
-      "first_seen": "2026-07-24 10:28",
+      "rubric_total": 13,
+      "reason": "유가 급등에 따른 시장 전체 매도 사이드카 발동 대형 재료",
+      "first_seen": "2026-07-24 11:29",
       "article_count": 2,
       "source_count": 1,
       "has_disclosure": false,
+      "has_feature": false,
       "mapped_stocks": [],
+      "stock_source": "없음",
       "theme_persistence": null,
       "urls": [
-        "https://www.yna.co.kr/view/AKR20260724049251003",
-        "https://www.yna.co.kr/view/AKR20260724049200003"
+        "https://www.hankyung.com/article/202607244028i",
+        "https://www.hankyung.com/article/2026072440256"
       ]
     },
     {
-      "event_summary": "삼성E&A가 시장 기대치를 웃도는 2분기 호실적을 발표하며 하락장 속 상승 마감함",
-      "representative_title": "[특징주] 삼성E&A, 2분기 호실적에 하락장서도 2% 상승 마감(종합)",
-      "theme": "건설",
-      "grade": "C",
+      "event_summary": "유가 상승 여파로 코스피 7000선 하루 만에 붕괴",
+      "representative_title": "유가 뛰자 7천피 하루 만에 붕괴",
+      "theme": "미분류",
+      "grade": "A",
       "rubric": {
-        "scope": 1,
-        "specificity": 3,
-        "durability": 1,
-        "novelty": 3,
-        "chain_depth": 1,
-        "source_trust": 2
+        "scope": 3,
+        "specificity": 2,
+        "durability": 2,
+        "novelty": 2,
+        "chain_depth": 3,
+        "source_trust": 1
       },
-      "rubric_total": 11,
-      "reason": "개별 기업의 호실적 발표 및 주가 방어 사례임",
-      "first_seen": "2026-07-24 09:18",
-      "article_count": 2,
+      "rubric_total": 13,
+      "reason": "지수 붕괴 및 거시 악재로 시장 전체에 지대한 영향",
+      "first_seen": "2026-07-24 17:49",
+      "article_count": 1,
       "source_count": 1,
       "has_disclosure": false,
-      "mapped_stocks": [
-        {
-          "code": "028260",
-          "name": "삼성물산",
-          "appear_days": 9,
-          "peak_change": 14.6
-        },
-        {
-          "code": "028050",
-          "name": "삼성E&A",
-          "appear_days": 9,
-          "peak_change": 15.0
-        },
-        {
-          "code": "079650",
-          "name": "서산",
-          "appear_days": 9,
-          "peak_change": 30.0
-        },
-        {
-          "code": "047040",
-          "name": "대우건설",
-          "appear_days": 7,
-          "peak_change": 19.9
-        },
-        {
-          "code": "002990",
-          "name": "금호건설",
-          "appear_days": 7,
-          "peak_change": 30.0
-        },
-        {
-          "code": "006360",
-          "name": "GS건설",
-          "appear_days": 7,
-          "peak_change": 19.9
-        }
-      ],
-      "theme_persistence": {
-        "max_run": 8,
-        "avg_run": 3.1
-      },
+      "has_feature": false,
+      "mapped_stocks": [],
+      "stock_source": "없음",
+      "theme_persistence": null,
       "urls": [
-        "https://www.yna.co.kr/view/AKR20260724038751008",
-        "https://www.yna.co.kr/view/AKR20260724038700008"
+        "https://www.hankyung.com/article/2026072449671"
       ]
     },
     {
-      "event_summary": "외국인이 나흘간 대규모 순매수를 기록한 가운데 자금이 특정 두 종목에 집중됨",
-      "representative_title": "외국인 나흘간 5.6조원 매수…80%는 '이 두 종목'",
+      "event_summary": "여당, 검찰 직접수사 폐지 형소법 개정 당론 추인",
+      "representative_title": "[연합뉴스 이 시각 헤드라인] - 18:00",
       "theme": "미분류",
       "grade": "B",
       "rubric": {
-        "scope": 2,
-        "specificity": 3,
+        "scope": 3,
+        "specificity": 2,
         "durability": 2,
         "novelty": 2,
         "chain_depth": 1,
-        "source_trust": 1
+        "source_trust": 2
       },
-      "rubric_total": 11,
-      "reason": "외국인 수급의 대규모 유입과 집중도를 다룬 시장 분석",
-      "first_seen": "2026-07-24 10:11",
-      "article_count": 1,
+      "rubric_total": 12,
+      "reason": "정치적 입법 사안으로 시장 전반의 정책 불확실성 유발 가능",
+      "first_seen": "2026-07-24 10:30",
+      "article_count": 3,
       "source_count": 1,
       "has_disclosure": false,
+      "has_feature": false,
       "mapped_stocks": [],
+      "stock_source": "없음",
       "theme_persistence": null,
       "urls": [
-        "https://www.hankyung.com/article/202607243548i"
+        "https://www.yna.co.kr/view/AKR20260724155900011",
+        "https://www.yna.co.kr/view/AKR20260724104300011",
+        "https://www.yna.co.kr/view/AKR20260724059800011"
       ]
     },
     {
-      "event_summary": "코오롱티슈진이 임상 실패 여파로 주가가 대폭 하락하는 충격을 받음",
-      "representative_title": "한 달 만에 10만원→1.4만원…코오롱티슈진 쓰디쓴 임상 실패",
+      "event_summary": "듀켐바이오, 美 FDA 원료의약품 등록 소식에 상한가",
+      "representative_title": "[특징주] 듀켐바이오, 美 FDA 원료의약품 등록에 상한가",
       "theme": "바이오",
       "grade": "C",
       "rubric": {
@@ -809,63 +762,36 @@
         "durability": 2,
         "novelty": 3,
         "chain_depth": 1,
-        "source_trust": 1
+        "source_trust": 2
       },
-      "rubric_total": 11,
-      "reason": "개별 바이오 기업의 치명적인 임상 실패 악재 발생",
-      "first_seen": "2026-07-24 09:38",
-      "article_count": 1,
+      "rubric_total": 12,
+      "reason": "개별 바이오 기업의 글로벌 규제 승인 단일 호재",
+      "first_seen": "2026-07-24 15:11",
+      "article_count": 2,
       "source_count": 1,
       "has_disclosure": false,
+      "has_feature": true,
       "mapped_stocks": [
         {
-          "code": "347850",
-          "name": "디앤디파마텍",
-          "appear_days": 14,
-          "peak_change": 30.0
-        },
-        {
-          "code": "226950",
-          "name": "올릭스",
-          "appear_days": 9,
-          "peak_change": 24.2
-        },
-        {
-          "code": "067290",
-          "name": "JW신약",
-          "appear_days": 8,
-          "peak_change": 29.9
-        },
-        {
-          "code": "028300",
-          "name": "HLB",
-          "appear_days": 8,
-          "peak_change": 30.0
-        },
-        {
-          "code": "087010",
-          "name": "펩트론",
-          "appear_days": 8,
-          "peak_change": 19.6
-        },
-        {
-          "code": "141080",
-          "name": "리가켐바이오",
-          "appear_days": 7,
-          "peak_change": 14.0
+          "code": "176750",
+          "name": "듀켐바이오",
+          "appear_days": 1,
+          "peak_change": 29.8
         }
       ],
+      "stock_source": "뉴스확정",
       "theme_persistence": {
-        "max_run": 10,
-        "avg_run": 4.88
+        "max_run": 11,
+        "avg_run": 5.0
       },
       "urls": [
-        "https://www.hankyung.com/article/2026072435576"
+        "https://news.google.com/rss/articles/CBMibEFVX3lxTE9IeDdkREpZa0pWczMzb2d2cExsbVAzYmNlWUc4UTltdTRJMHZwMm50ZXlCSWY1clVSc1owUkpXcXdHSFpZZU9VQjdFSWd1V1F4TDJQRFQ1S1N4eWxWd096S0g1ME83a1BrN1BOVw?oc=5",
+        "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBiX2dkWHZhZ2hkZmk4XzQ0eVBFTmh2a3dIdVhmWWdac2hfUGNrZk9JV0VCMS1leS1jS2l4S3dkSnlZY1M3N0tNN19GaFdSTnVXa1l0TlRvZjZzQQ?oc=5"
       ]
     },
     {
-      "event_summary": "듀켐바이오가 미국 FDA에 원료의약품을 등록했다는 소식에 상한가를 기록함",
-      "representative_title": "듀켐바이오, 미 FDA에 원료의약품 등록 소식에 '上'",
+      "event_summary": "듀켐바이오, 파킨슨병 진단제 FDA 등록 완료로 상한가",
+      "representative_title": "[특징주] 듀켐바이오, 파킨슨병 진단제 FDA 등록 완료 '상한가'",
       "theme": "바이오",
       "grade": "C",
       "rubric": {
@@ -874,62 +800,73 @@
         "durability": 2,
         "novelty": 3,
         "chain_depth": 1,
-        "source_trust": 1
+        "source_trust": 2
       },
-      "rubric_total": 11,
-      "reason": "개별 바이오 기업의 규제기관 등록이라는 확실한 호재성 수주·승인 이벤트",
-      "first_seen": "2026-07-24 09:20",
-      "article_count": 1,
+      "rubric_total": 12,
+      "reason": "개별 제약·바이오 기업의 구체적 신약 관련 성과",
+      "first_seen": "2026-07-24 09:34",
+      "article_count": 2,
       "source_count": 1,
       "has_disclosure": false,
+      "has_feature": true,
       "mapped_stocks": [
         {
-          "code": "347850",
-          "name": "디앤디파마텍",
-          "appear_days": 14,
-          "peak_change": 30.0
-        },
-        {
-          "code": "226950",
-          "name": "올릭스",
-          "appear_days": 9,
-          "peak_change": 24.2
-        },
-        {
-          "code": "067290",
-          "name": "JW신약",
-          "appear_days": 8,
-          "peak_change": 29.9
-        },
-        {
-          "code": "028300",
-          "name": "HLB",
-          "appear_days": 8,
-          "peak_change": 30.0
-        },
-        {
-          "code": "087010",
-          "name": "펩트론",
-          "appear_days": 8,
-          "peak_change": 19.6
-        },
-        {
-          "code": "141080",
-          "name": "리가켐바이오",
-          "appear_days": 7,
-          "peak_change": 14.0
+          "code": "176750",
+          "name": "듀켐바이오",
+          "appear_days": 1,
+          "peak_change": 29.8
         }
       ],
+      "stock_source": "뉴스확정",
       "theme_persistence": {
-        "max_run": 10,
-        "avg_run": 4.88
+        "max_run": 11,
+        "avg_run": 5.0
       },
       "urls": [
-        "https://www.hankyung.com/article/2026072435346"
+        "https://news.google.com/rss/articles/CBMibkFVX3lxTE9nOTNGZUFZTDMwUEhpc1Awa2lvMDVhUUU3eXRRMW5GZDgtcDdrVjdEeGI0Q2dvQWJnMUd2cmo2b2J3MVZuYnJIZHRnUkhBU0U0MnZKSERIYjJ6c19VTmVLRU1rR24waFZhWlRaN0hB?oc=5",
+        "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOTVo0aUlaVXg1bWRlb1B3RGFDamVmTFVQeXlJcDVBWDRzRmU0eHg0ZlR1ZWlzVlJLcmdLcWtKeC1sWFlGVzJ6OVV1X0RidjVHQlphcW1qajd2enZHeTVnNkwydGhYQlNWb3VzZmd0YWhmRHlONGYwbEJENERGOUY4QWlwNHFIdlVX?oc=5"
       ]
     },
     {
-      "event_summary": "한국투자증권이 현대커머셜의 위안화 김치본드 발행에 인수단으로 참여함",
+      "event_summary": "가비아, 맥쿼리운용 공개매수 소식에 상한가",
+      "representative_title": "[특징주] 가비아, 맥쿼리운용 공개매수에 상한가…매수가 근접(종합)",
+      "theme": "IT",
+      "grade": "C",
+      "rubric": {
+        "scope": 1,
+        "specificity": 3,
+        "durability": 2,
+        "novelty": 3,
+        "chain_depth": 1,
+        "source_trust": 2
+      },
+      "rubric_total": 12,
+      "reason": "M&A 및 공개매수라는 개별 기업의 중대형 이벤트",
+      "first_seen": "2026-07-20 13:58",
+      "article_count": 2,
+      "source_count": 1,
+      "has_disclosure": false,
+      "has_feature": true,
+      "mapped_stocks": [
+        {
+          "code": "079940",
+          "name": "가비아",
+          "appear_days": 1,
+          "peak_change": 29.9
+        }
+      ],
+      "stock_source": "뉴스확정",
+      "theme_persistence": {
+        "max_run": 8,
+        "avg_run": 2.36
+      },
+      "urls": [
+        "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBObkVLQ1NYOUhCd0NrQnNvY0ktLUIyeEVleG5TWjRBekJkVjBKekZmdmlubjlJN3BHNFRtd3VVeXA2OHdxSXppclJmUDhlNzg?oc=5",
+        "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5rNUViUkdFQUJxUjJOMkQxbkJtS2Z3S3BfbEZORU5TYm9DcGl3UmhsZm1DOTJHeHdyX3VYak5pVHdnNVJuempvZFd5V2lSV1k?oc=5"
+      ]
+    },
+    {
+      "event_summary": "한국투자증권, 현대커머셜 위안화 김치본드 인수 참여",
       "representative_title": "한투증권, 현대커머셜 발행 '위안화 김치본드' 인수 참여",
       "theme": "금융",
       "grade": "C",
@@ -937,16 +874,17 @@
         "scope": 1,
         "specificity": 3,
         "durability": 1,
-        "novelty": 2,
+        "novelty": 3,
         "chain_depth": 1,
         "source_trust": 2
       },
-      "rubric_total": 10,
-      "reason": "개별 증권사의 채권 인수 참여 건으로 파급 범위가 제한적임",
+      "rubric_total": 11,
+      "reason": "특정 증권사의 단일 채권 인수 계약 건임",
       "first_seen": "2026-07-24 13:43",
       "article_count": 2,
       "source_count": 2,
       "has_disclosure": false,
+      "has_feature": false,
       "mapped_stocks": [
         {
           "code": "402340",
@@ -979,15 +917,16 @@
           "peak_change": 8.3
         },
         {
-          "code": "039490",
-          "name": "키움증권",
+          "code": "000810",
+          "name": "삼성화재",
           "appear_days": 4,
-          "peak_change": 9.9
+          "peak_change": 13.9
         }
       ],
+      "stock_source": "테마추정",
       "theme_persistence": {
         "max_run": 16,
-        "avg_run": 2.82
+        "avg_run": 2.91
       },
       "urls": [
         "https://www.hankyung.com/article/2026072442156",
@@ -995,163 +934,103 @@
       ]
     },
     {
-      "event_summary": "법원이 최태원 회장의 노소영 관장과의 재산분할금 지급 판결을 내림",
-      "representative_title": "[연합뉴스 이 시각 헤드라인] - 14:30",
-      "theme": "미분류",
+      "event_summary": "증권가, LS일렉트릭 목표가 상향 및 AI 투자 우려 해소 분석",
+      "representative_title": "증권가, LS일렉트릭 목표가 줄상향...\"AI 투자 둔화 우려 해소\"",
+      "theme": "전력설비",
       "grade": "C",
       "rubric": {
         "scope": 1,
         "specificity": 3,
+        "durability": 2,
+        "novelty": 2,
+        "chain_depth": 1,
+        "source_trust": 1
+      },
+      "rubric_total": 10,
+      "reason": "특정 기업에 대한 증권사 목표가 상향 리포트",
+      "first_seen": "2026-07-24 17:14",
+      "article_count": 1,
+      "source_count": 1,
+      "has_disclosure": false,
+      "has_feature": false,
+      "mapped_stocks": [
+        {
+          "code": "010120",
+          "name": "LS ELECTRIC",
+          "appear_days": 10,
+          "peak_change": 17.3
+        },
+        {
+          "code": "000500",
+          "name": "가온전선",
+          "appear_days": 9,
+          "peak_change": 29.9
+        },
+        {
+          "code": "024840",
+          "name": "KBI메탈",
+          "appear_days": 8,
+          "peak_change": 30.0
+        },
+        {
+          "code": "009150",
+          "name": "삼성전기",
+          "appear_days": 7,
+          "peak_change": 16.6
+        },
+        {
+          "code": "298040",
+          "name": "효성중공업",
+          "appear_days": 7,
+          "peak_change": 11.1
+        },
+        {
+          "code": "062040",
+          "name": "산일전기",
+          "appear_days": 7,
+          "peak_change": 12.4
+        }
+      ],
+      "stock_source": "테마추정",
+      "theme_persistence": {
+        "max_run": 8,
+        "avg_run": 4.0
+      },
+      "urls": [
+        "https://www.hankyung.com/article/202607244108i"
+      ]
+    },
+    {
+      "event_summary": "에이치엘지노믹스 코스닥 상장 첫날 급락",
+      "representative_title": "[특징주] 에이치엘지노믹스, 코스닥 상장 첫날 28% '급락'",
+      "theme": "미분류",
+      "grade": "C",
+      "rubric": {
+        "scope": 1,
+        "specificity": 2,
         "durability": 1,
         "novelty": 2,
         "chain_depth": 1,
         "source_trust": 2
       },
-      "rubric_total": 10,
-      "reason": "그룹 총수 관련 소송 결과로 특정 대기업 지배구조 이슈에 국한됨",
-      "first_seen": "2026-07-24 10:30",
-      "article_count": 2,
-      "source_count": 1,
+      "rubric_total": 9,
+      "reason": "개별 종목의 상장 첫날 주가 변동 이벤트임",
+      "first_seen": "2026-07-24 09:19",
+      "article_count": 3,
+      "source_count": 2,
       "has_disclosure": false,
+      "has_feature": true,
       "mapped_stocks": [],
+      "stock_source": "없음",
       "theme_persistence": null,
       "urls": [
-        "https://www.yna.co.kr/view/AKR20260724104300011",
-        "https://www.yna.co.kr/view/AKR20260724059800011"
+        "https://www.hankyung.com/article/2026072434496",
+        "https://news.google.com/rss/articles/CBMib0FVX3lxTE96M2U1ZW9fQlhzX054VVdVMUhpd24weEp2QUZjVWdZYk1VRHlmMjc3Q04yalJJNG1UUEllNUQyd1Roa0ZDRUlQUEY4OXVvV1BhaFFpSWp0Z19sUnE4X1VSYlp5djVhN2FFRElENkdjUdIBc0FVX3lxTE15X21naDQtRmg4Q1R1SXVrVlNHMVp2MFpEbWV4Ylo0eC1BdllkYUV1TUhJRzZnT1RzRWIyb1E0OTA1UUZzb0ZnUElWb2JKc2Zwekd0cGUzRE85UW9yMzUyTm5GYXJrSndnbWE1eERHV2ZpZVk?oc=5",
+        "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5qZndvTER5QjJ3X2pDT0JsMmR4UExwR0tqT0wyeGZHdHU2V0o4OHoxMW5Wb0RvUFd4aU1VNEk4NEdYNXdiWHI3RnkxQmRUOHZVbGNyQm5wdFZMWEtuYlZLUQ?oc=5"
       ]
     },
     {
-      "event_summary": "한국투자증권이 인베스팅닷컴 계좌 개설 연동 서비스를 출시함",
-      "representative_title": "한국투자증권, 인베스팅닷컴 계좌 개설 연동 서비스 출시",
-      "theme": "금융",
-      "grade": "C",
-      "rubric": {
-        "scope": 1,
-        "specificity": 3,
-        "durability": 1,
-        "novelty": 3,
-        "chain_depth": 1,
-        "source_trust": 1
-      },
-      "rubric_total": 10,
-      "reason": "개별 증권사의 서비스 출시 이벤트임",
-      "first_seen": "2026-07-24 09:46",
-      "article_count": 1,
-      "source_count": 1,
-      "has_disclosure": false,
-      "mapped_stocks": [
-        {
-          "code": "402340",
-          "name": "SK스퀘어",
-          "appear_days": 10,
-          "peak_change": 10.7
-        },
-        {
-          "code": "016360",
-          "name": "삼성증권",
-          "appear_days": 7,
-          "peak_change": 10.4
-        },
-        {
-          "code": "071050",
-          "name": "한국금융지주",
-          "appear_days": 7,
-          "peak_change": 9.0
-        },
-        {
-          "code": "032830",
-          "name": "삼성생명",
-          "appear_days": 5,
-          "peak_change": 17.1
-        },
-        {
-          "code": "055550",
-          "name": "신한지주",
-          "appear_days": 4,
-          "peak_change": 8.3
-        },
-        {
-          "code": "039490",
-          "name": "키움증권",
-          "appear_days": 4,
-          "peak_change": 9.9
-        }
-      ],
-      "theme_persistence": {
-        "max_run": 16,
-        "avg_run": 2.82
-      },
-      "urls": [
-        "https://www.hankyung.com/article/2026072436566"
-      ]
-    },
-    {
-      "event_summary": "더핑크퐁컴퍼니가 자사주 매입 및 소각 소식에 힘입어 주가가 강세를 보임",
-      "representative_title": "'아기상어' 더핑크퐁컴퍼니, 자사주 매입·소각 소식에 강세",
-      "theme": "엔터",
-      "grade": "C",
-      "rubric": {
-        "scope": 1,
-        "specificity": 3,
-        "durability": 1,
-        "novelty": 3,
-        "chain_depth": 1,
-        "source_trust": 1
-      },
-      "rubric_total": 10,
-      "reason": "개별 기업의 주주환원 정책(자사주 소각) 발표에 따른 주가 반응",
-      "first_seen": "2026-07-24 09:30",
-      "article_count": 1,
-      "source_count": 1,
-      "has_disclosure": false,
-      "mapped_stocks": [
-        {
-          "code": "352820",
-          "name": "하이브",
-          "appear_days": 3,
-          "peak_change": 9.8
-        },
-        {
-          "code": "322780",
-          "name": "코퍼스코리아",
-          "appear_days": 3,
-          "peak_change": 30.0
-        },
-        {
-          "code": "012170",
-          "name": "아센디오",
-          "appear_days": 2,
-          "peak_change": 30.0
-        },
-        {
-          "code": "036420",
-          "name": "콘텐트리중앙",
-          "appear_days": 1,
-          "peak_change": 30.0
-        },
-        {
-          "code": "018700",
-          "name": "졸스",
-          "appear_days": 1,
-          "peak_change": 29.8
-        },
-        {
-          "code": "078860",
-          "name": "아이오케이이엔엠",
-          "appear_days": 1,
-          "peak_change": 29.9
-        }
-      ],
-      "theme_persistence": {
-        "max_run": 3,
-        "avg_run": 1.5
-      },
-      "urls": [
-        "https://www.hankyung.com/article/2026072435796"
-      ]
-    },
-    {
-      "event_summary": "무안군이 광주 군공항 이전 후보지 선정회의에 불참하며 회의가 연기됨",
+      "event_summary": "무안군 군공항 이전 후보지 선정회의 불참으로 연기",
       "representative_title": "무안군, 군공항 이전 후보지 선정회의 또 불참…회의 연기(종합)",
       "theme": "건설",
       "grade": "C",
@@ -1164,11 +1043,12 @@
         "source_trust": 2
       },
       "rubric_total": 9,
-      "reason": "지역 현안 및 개별 지자체 회의 연기로 증시 영향은 제한적임",
+      "reason": "지역 현안 및 특정 지자체 관련 이슈",
       "first_seen": "2026-07-24 10:21",
       "article_count": 2,
       "source_count": 1,
       "has_disclosure": false,
+      "has_feature": false,
       "mapped_stocks": [
         {
           "code": "028260",
@@ -1191,7 +1071,7 @@
         {
           "code": "047040",
           "name": "대우건설",
-          "appear_days": 7,
+          "appear_days": 8,
           "peak_change": 19.9
         },
         {
@@ -1207,9 +1087,10 @@
           "peak_change": 19.9
         }
       ],
+      "stock_source": "테마추정",
       "theme_persistence": {
         "max_run": 8,
-        "avg_run": 3.1
+        "avg_run": 3.2
       },
       "urls": [
         "https://www.yna.co.kr/view/AKR20260724059551054",
@@ -1217,8 +1098,36 @@
       ]
     },
     {
-      "event_summary": "폭락장 속에서도 삼성바이오로직스가 급등세를 보이며 증권가의 주목을 받음",
-      "representative_title": "코스피 폭락에도 삼성바이오 10% 급등…증권가가 주목한 이유는",
+      "event_summary": "에이치엘지노믹스 코스닥 입성 첫날 12%대 상승",
+      "representative_title": "[특징주] 에이치엘지노믹스, 코스닥 입성 첫날 12%대 상승 - 조선비즈",
+      "theme": "미분류",
+      "grade": "C",
+      "rubric": {
+        "scope": 1,
+        "specificity": 2,
+        "durability": 1,
+        "novelty": 2,
+        "chain_depth": 1,
+        "source_trust": 2
+      },
+      "rubric_total": 9,
+      "reason": "신규 상장 종목의 개별 주가 움직임",
+      "first_seen": "2026-07-24 09:21",
+      "article_count": 2,
+      "source_count": 1,
+      "has_disclosure": false,
+      "has_feature": true,
+      "mapped_stocks": [],
+      "stock_source": "없음",
+      "theme_persistence": null,
+      "urls": [
+        "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOTWhXNDh3UjRCNGRqSkR3a1pEVDdqcEFJeFhzZnhGYU1MZHItVUVLcG8zVGpDRTJvdkh0UVVYQ2NSamY2VXROZEdLUWQyY3NrTk0yTDFmeUNSZXNuOVNNOUJBaklNZWY1Nm41dXFaZ1J3dE91bnI1ZEQ5UmRJR0JnMlNnZzFPNWZG0gGcAUFVX3lxTFBFSHo5VF83Zjg1TnVDRkZhWTl2YWFxZXdzQ3hIRXd6WWpxdDNuM2lUd1VzM3FuR0FNYnlOa2FkQ0RaTzZnUUxIbkhPS2RQdTRNY1RMbi1FeExUOWxreGhiVFhVQ1J6OFRob0l3dWdwRFhBVDlyNk5MRWNDVWdLQ0VjMndrbVpzNzA2Y1N2R3dpQnlKZHJqeXE5bUpuLQ?oc=5",
+        "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1mdzRIbi14OV9ua3YwOTkyVDJYd1MxZFlWMU5DekxhV1JVdG5MRTl4b2lkdlB0NGRxM2s3OWVINFZocm1FalR3V2U0eGpkZk5uVk9LZnlXME9EOTVWMUh3VNIBYEFVX3lxTE1mdzRIbi14OV9ua3YwOTkyVDJYd1MxZFlWMU5DekxhV1JVdG5MRTl4b2lkdlB0NGRxM2s3OWVINFZocm1FalR3V2U0eGpkZk5uVk9LZnlXME9EOTVWMUh3VA?oc=5"
+      ]
+    },
+    {
+      "event_summary": "삼천당제약 주가 하루 만에 상한가에서 하한가로 급변",
+      "representative_title": "천당서 지옥 직행한 삼천당제약 주주…하루 만에 상한가→하한가[핫종목]",
       "theme": "바이오",
       "grade": "C",
       "rubric": {
@@ -1227,79 +1136,53 @@
         "durability": 1,
         "novelty": 2,
         "chain_depth": 1,
-        "source_trust": 1
+        "source_trust": 2
       },
-      "rubric_total": 8,
-      "reason": "하락장 내 개별 종목의 방어적 수급 집중 현상임",
-      "first_seen": "2026-07-24 15:21",
-      "article_count": 1,
+      "rubric_total": 9,
+      "reason": "특정 개별 종목의 극심한 변동성 발생",
+      "first_seen": "2026-07-21 16:23",
+      "article_count": 2,
       "source_count": 1,
       "has_disclosure": false,
+      "has_feature": true,
       "mapped_stocks": [
         {
-          "code": "347850",
-          "name": "디앤디파마텍",
-          "appear_days": 14,
-          "peak_change": 30.0
-        },
-        {
-          "code": "226950",
-          "name": "올릭스",
-          "appear_days": 9,
-          "peak_change": 24.2
-        },
-        {
-          "code": "067290",
-          "name": "JW신약",
-          "appear_days": 8,
-          "peak_change": 29.9
-        },
-        {
-          "code": "028300",
-          "name": "HLB",
-          "appear_days": 8,
-          "peak_change": 30.0
-        },
-        {
-          "code": "087010",
-          "name": "펩트론",
-          "appear_days": 8,
-          "peak_change": 19.6
-        },
-        {
-          "code": "141080",
-          "name": "리가켐바이오",
-          "appear_days": 7,
-          "peak_change": 14.0
+          "code": "000250",
+          "name": "삼천당제약",
+          "appear_days": 3,
+          "peak_change": 29.8
         }
       ],
+      "stock_source": "뉴스확정",
       "theme_persistence": {
-        "max_run": 10,
-        "avg_run": 4.88
+        "max_run": 11,
+        "avg_run": 5.0
       },
       "urls": [
-        "https://www.hankyung.com/article/202607244481i"
+        "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5kTWlMa05HNjNPR0d4TlRWdjFsRm0xczNxQlc1MkpnSHVERGJmbFNlamN5OXJTaXhrcUZOenVCUVJlbkhxUUZEUnZPYzVYYkhkRWRN?oc=5",
+        "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5vYWpFQUl1aEIzQkxTQjdGel84M3NvSVM4cnVVakdHYW1sc3ZhcUU2ZnFkd1ZqQ1RaYU5tSmxVTWZNRWpWMUwtR1A4ZnhVOXN1TkdNSzNENHBwLVduS0dF?oc=5"
       ]
     },
     {
-      "event_summary": "조 단위의 세기말적 재산분할 판결에 따른 관련 주식 투자 전략이 제기됨",
-      "representative_title": "1조원 달하는 세기의 재산분할 판결…\"SK 팔고 텔레콤 사라\"",
+      "event_summary": "최태원 회장 재산분할 관련 SK텔레콤 배당 확대 관측",
+      "representative_title": "재산분할금 필요한 최태원…\"SKT 배당확대 유력\"",
       "theme": "통신",
       "grade": "C",
       "rubric": {
         "scope": 1,
         "specificity": 2,
-        "durability": 1,
+        "durability": 2,
         "novelty": 2,
         "chain_depth": 1,
         "source_trust": 1
       },
-      "rubric_total": 8,
-      "reason": "특정 그룹주 지배구조 및 지분 관련 이슈임",
-      "first_seen": "2026-07-24 14:55",
+      "rubric_total": 9,
+      "reason": "특정 대기업 지배구조 및 배당 관련 개별 이슈",
+      "first_seen": "2026-07-24 17:48",
       "article_count": 1,
       "source_count": 1,
       "has_disclosure": false,
+      "has_feature": false,
       "mapped_stocks": [
         {
           "code": "069540",
@@ -1308,22 +1191,22 @@
           "peak_change": 29.9
         },
         {
+          "code": "010170",
+          "name": "대한광통신",
+          "appear_days": 6,
+          "peak_change": 18.3
+        },
+        {
           "code": "032500",
           "name": "케이엠더블유",
           "appear_days": 6,
           "peak_change": 14.1
         },
         {
-          "code": "010170",
-          "name": "대한광통신",
-          "appear_days": 5,
-          "peak_change": 18.3
-        },
-        {
           "code": "049080",
           "name": "기가레인",
-          "appear_days": 4,
-          "peak_change": 29.9
+          "appear_days": 5,
+          "peak_change": 30.0
         },
         {
           "code": "215790",
@@ -1338,82 +1221,57 @@
           "peak_change": 11.0
         }
       ],
+      "stock_source": "테마추정",
       "theme_persistence": {
         "max_run": 6,
-        "avg_run": 2.88
+        "avg_run": 3.0
       },
       "urls": [
-        "https://www.hankyung.com/article/202607244375i"
+        "https://www.hankyung.com/article/2026072449631"
       ]
     },
     {
-      "event_summary": "초고수 투자자들이 삼성전자 우선주를 팔고 보통주로 손바꿈하는 현상 포착",
-      "representative_title": "삼전 우선주 팔고 보통주로…손바꿈 나선 상위 1% 초고수들",
-      "theme": "반도체",
+      "event_summary": "삼천당제약 상한가 달성 등 상승 종목 30선 발표",
+      "representative_title": "[EBN 데이터센터] 20일 상승 종목 30選…삼천당제약 상한가 달성",
+      "theme": "바이오",
       "grade": "C",
       "rubric": {
         "scope": 1,
         "specificity": 2,
         "durability": 1,
-        "novelty": 2,
+        "novelty": 1,
         "chain_depth": 1,
-        "source_trust": 1
+        "source_trust": 2
       },
       "rubric_total": 8,
-      "reason": "고액 자산가들의 개별 종목 매매 동향 분석임",
-      "first_seen": "2026-07-24 11:28",
-      "article_count": 1,
+      "reason": "개별 종목 상승 특징을 다룬 단순 데이터 리포트임",
+      "first_seen": "2026-07-20 16:00",
+      "article_count": 3,
       "source_count": 1,
       "has_disclosure": false,
+      "has_feature": true,
       "mapped_stocks": [
         {
-          "code": "403870",
-          "name": "HPSP",
-          "appear_days": 14,
-          "peak_change": 30.0
-        },
-        {
-          "code": "089030",
-          "name": "테크윙",
-          "appear_days": 13,
-          "peak_change": 21.0
-        },
-        {
-          "code": "319660",
-          "name": "피에스케이",
-          "appear_days": 13,
-          "peak_change": 26.3
-        },
-        {
-          "code": "000660",
-          "name": "SK하이닉스",
-          "appear_days": 12,
-          "peak_change": 15.9
-        },
-        {
-          "code": "440110",
-          "name": "파두",
-          "appear_days": 12,
-          "peak_change": 14.3
-        },
-        {
-          "code": "095610",
-          "name": "테스",
-          "appear_days": 12,
-          "peak_change": 29.9
+          "code": "000250",
+          "name": "삼천당제약",
+          "appear_days": 3,
+          "peak_change": 29.8
         }
       ],
+      "stock_source": "뉴스확정",
       "theme_persistence": {
-        "max_run": 24,
-        "avg_run": 7.17
+        "max_run": 11,
+        "avg_run": 5.0
       },
       "urls": [
-        "https://www.hankyung.com/article/202607243894i"
+        "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5oNEpLMkFIamdrdlprM2I1TGxyeVJDblhjTEYtaHRyWGR1cEsxZnBvMWJCRDkwWGxFX3NxaDk5aU4waXhtUE9FdFR1TVBiRl9GMnQyZ1h1dGM4Y19xS3NpVDMydjhEZDVM?oc=5",
+        "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBoN0NMLUp5SGVzSGNMOWVOVWJFaV83ODBYcC1WR2pwYkc0M0pxWmtNeC03am5iTnJUYzhRRFRNeEJMTUNHNTJqZEZETFBNRGdfU0QwenlZNHVScTh0c0prcWVhRHlMWHMz?oc=5",
+        "https://news.google.com/rss/articles/CBMiaEFVX3lxTFB2UFpTT3ZTWVZPUllER1IzbjlJVjdJWFRhS2RkZUYtZXRjcnc4ZXVkMzRhYllPNzdjcE11d25oUkhPRHZvbWZmQkxFdGJjU3ZkcTcta21WVzhBaHVESHREempENkwwdktD?oc=5"
       ]
     },
     {
-      "event_summary": "상장 한 달 만에 하락세를 겪는 종목과 관련해 일론 머스크가 공매도에 경고함",
-      "representative_title": "\"상장 한 달 만에 반토막 위기\"…머스크, 공매도에 경고",
+      "event_summary": "코스피 급락 장세 속 나홀로 급등 종목 발생",
+      "representative_title": "코스피 5% 넘게 빠지는데…'이 종목'만은 나홀로 급등",
       "theme": "미분류",
       "grade": "C",
       "rubric": {
@@ -1422,161 +1280,135 @@
         "durability": 1,
         "novelty": 2,
         "chain_depth": 1,
-        "source_trust": 1
+        "source_trust": 2
       },
-      "rubric_total": 7,
-      "reason": "특정 인물의 발언과 개별 기업 이슈에 그침",
-      "first_seen": "2026-07-24 15:08",
-      "article_count": 1,
-      "source_count": 1,
+      "rubric_total": 8,
+      "reason": "시장 하락 속 개별 종목의 단기 등락 현상",
+      "first_seen": "2026-07-24 14:47",
+      "article_count": 2,
+      "source_count": 2,
       "has_disclosure": false,
+      "has_feature": true,
       "mapped_stocks": [],
+      "stock_source": "없음",
       "theme_persistence": null,
       "urls": [
-        "https://www.hankyung.com/article/2026072444517"
+        "https://www.hankyung.com/article/202607244239i",
+        "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9qb3ZOUFRaWHhpTTczbFFvNnBaazU1YkhNak1PbE1JR21mT2VGX3QwUlpsR3ZLWk0wclhjX3NQTGlOVEp3M2J3NFk4RWR6VEtVcjFwVnBJYlpWUQ?oc=5"
       ]
     },
     {
-      "event_summary": "증시 폭락 속에서 특정 종목만 나홀로 급등세를 연출함",
-      "representative_title": "코스피 5% 넘게 빠지는데…'이 종목'만은 나홀로 급등",
-      "theme": "바이오",
-      "grade": "C",
+      "event_summary": "특정일 오전장 특징 테마 및 종목 동향 요약",
+      "representative_title": "7월 23일 오전장 특징테마/특징주",
+      "theme": "미분류",
+      "grade": "B",
       "rubric": {
-        "scope": 1,
-        "specificity": 2,
+        "scope": 2,
+        "specificity": 1,
         "durability": 1,
         "novelty": 1,
         "chain_depth": 1,
-        "source_trust": 1
+        "source_trust": 2
       },
-      "rubric_total": 7,
-      "reason": "개별 종목의 단기 수급 쏠림 현상임",
-      "first_seen": "2026-07-24 14:47",
-      "article_count": 1,
+      "rubric_total": 8,
+      "reason": "특정 섹터 및 테마 전반의 흐름을 정리한 기사",
+      "first_seen": "2026-07-23 11:24",
+      "article_count": 2,
       "source_count": 1,
       "has_disclosure": false,
-      "mapped_stocks": [
-        {
-          "code": "347850",
-          "name": "디앤디파마텍",
-          "appear_days": 14,
-          "peak_change": 30.0
-        },
-        {
-          "code": "226950",
-          "name": "올릭스",
-          "appear_days": 9,
-          "peak_change": 24.2
-        },
-        {
-          "code": "067290",
-          "name": "JW신약",
-          "appear_days": 8,
-          "peak_change": 29.9
-        },
-        {
-          "code": "028300",
-          "name": "HLB",
-          "appear_days": 8,
-          "peak_change": 30.0
-        },
-        {
-          "code": "087010",
-          "name": "펩트론",
-          "appear_days": 8,
-          "peak_change": 19.6
-        },
-        {
-          "code": "141080",
-          "name": "리가켐바이오",
-          "appear_days": 7,
-          "peak_change": 14.0
-        }
-      ],
-      "theme_persistence": {
-        "max_run": 10,
-        "avg_run": 4.88
-      },
+      "has_feature": true,
+      "mapped_stocks": [],
+      "stock_source": "없음",
+      "theme_persistence": null,
       "urls": [
-        "https://www.hankyung.com/article/202607244239i"
+        "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNbUpDUlI3RVhiVW45SElvT0Y4S2I0b1kwbU5Ic3N6WDV0b2lVck5GcTF4alotdTN3QTV3V3dlR2dCQUNwVktIcXctZUFoZUotOWpuMkFyLVNYS2ZPWGlRUHBjTnlwNHYyYzRieTFWVGdoM1JXcXlYQ2RacjVibTdqbmhQRjRzV0oyNGY4?oc=5",
+        "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNVGg3RVJLd1JpSG1HMFlSblZoNXVVcWo4TmpPUWlaNl9uN2FZS3gwUjZyMFgzb1dYS1RJZzdUU015QWx6TGd1OTUxNHNSb0gxcWo5akpBcGtSdmdvcW1LbjA0X2VRbzJIQzdYT09yeUlfTWJENVJiZFZ6eXBuejhSTGxucFEtbF9NVkNV?oc=5"
       ]
     },
     {
-      "event_summary": "코스피 급락세 속에서도 삼성바이오로직스가 나홀로 급등함",
-      "representative_title": "코스피 5% 하락하는데 나홀로 9% 급등... '삼성바이오' 함박웃음",
-      "theme": "바이오",
+      "event_summary": "해성옵틱스 주가 상한가 배경 분석",
+      "representative_title": "해성옵틱스 주가, 상한가... 어떤 회사길래?",
+      "theme": "IT",
       "grade": "C",
       "rubric": {
         "scope": 1,
-        "specificity": 2,
+        "specificity": 1,
+        "durability": 1,
+        "novelty": 2,
+        "chain_depth": 1,
+        "source_trust": 2
+      },
+      "rubric_total": 8,
+      "reason": "개별 종목 급등 원인을 다룬 단순 특징주 뉴스",
+      "first_seen": "2026-07-22 15:18",
+      "article_count": 2,
+      "source_count": 1,
+      "has_disclosure": false,
+      "has_feature": true,
+      "mapped_stocks": [
+        {
+          "code": "076610",
+          "name": "해성옵틱스",
+          "appear_days": 1,
+          "peak_change": 30.0
+        },
+        {
+          "code": "140430",
+          "name": "카티스",
+          "appear_days": 1,
+          "peak_change": 30.0
+        }
+      ],
+      "stock_source": "뉴스확정",
+      "theme_persistence": {
+        "max_run": 8,
+        "avg_run": 2.36
+      },
+      "urls": [
+        "https://news.google.com/rss/articles/CBMiakFVX3lxTE5MYV84QXBGaklVYUJNTmNjV3BROWRYVkdLY0pBVVV1NDE2ZkZkR1ZLWWFIMHBaWDlLRE01cFV1SzFLZGhtbGZxMk93T1RlRmtZbTRvQ2xUakNXeVNKeTBsVFJFQldqTjFMN2c?oc=5",
+        "https://news.google.com/rss/articles/CBMiakFVX3lxTE43SzN2WTU1bTUtNmozM3VuMGtONEl1aWNiZVlUOWhjeU0yeXdBc3JiRVZSSWFCN1NuVFE0eU1nTmVKR0ZSR0JGUjF2MEdETWp1YW5LR2huS29FYWtZYnp0ckRvQnVuSHhwNGc?oc=5"
+      ]
+    },
+    {
+      "event_summary": "개장 직후 인기 검색 종목 20선 안내",
+      "representative_title": "[서울데이터랩]개장 직후 인기 검색 종목 20選",
+      "theme": "미분류",
+      "grade": "C",
+      "rubric": {
+        "scope": 1,
+        "specificity": 1,
         "durability": 1,
         "novelty": 1,
         "chain_depth": 1,
-        "source_trust": 1
+        "source_trust": 2
       },
       "rubric_total": 7,
-      "reason": "개별 종목의 반사이익 및 방어주 성격의 흐름임",
-      "first_seen": "2026-07-24 12:29",
-      "article_count": 1,
+      "reason": "단순 검색 순위 집계 정보",
+      "first_seen": "2026-07-23 16:19",
+      "article_count": 2,
       "source_count": 1,
       "has_disclosure": false,
-      "mapped_stocks": [
-        {
-          "code": "347850",
-          "name": "디앤디파마텍",
-          "appear_days": 14,
-          "peak_change": 30.0
-        },
-        {
-          "code": "226950",
-          "name": "올릭스",
-          "appear_days": 9,
-          "peak_change": 24.2
-        },
-        {
-          "code": "067290",
-          "name": "JW신약",
-          "appear_days": 8,
-          "peak_change": 29.9
-        },
-        {
-          "code": "028300",
-          "name": "HLB",
-          "appear_days": 8,
-          "peak_change": 30.0
-        },
-        {
-          "code": "087010",
-          "name": "펩트론",
-          "appear_days": 8,
-          "peak_change": 19.6
-        },
-        {
-          "code": "141080",
-          "name": "리가켐바이오",
-          "appear_days": 7,
-          "peak_change": 14.0
-        }
-      ],
-      "theme_persistence": {
-        "max_run": 10,
-        "avg_run": 4.88
-      },
+      "has_feature": true,
+      "mapped_stocks": [],
+      "stock_source": "없음",
+      "theme_persistence": null,
       "urls": [
-        "https://www.hankyung.com/article/202607244110i"
+        "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5USXB1dVRiOV96SzhDTG9mek9HYktvVXI5dlE1cU80NkRsSERqUHBXQ2ExLWV1RERmQ1FNTExaWWxqdDkxYTBHX2VXT0hzUDNwS3BrOFNlOGVjV3lzRl80aXJncw?oc=5",
+        "https://news.google.com/rss/articles/CBMiY0FVX3lxTE54MUZaeUVJYm5EWUhhYmI0SDJyRXlsbm5JRmp4THV5V3d1LWR2ZXpWdFNVRVQwWWtmVWFxUUhjcTFzN0tSc0VOMnhsNVFEanpJM3BTa3BJdkdXSFh4cGZyT3g4OA?oc=5"
       ]
     }
   ],
   "new_theme_candidates": [
+    "[특징주] 에이치엘지노믹스, 코스닥 상장 첫날 28% '급락'",
+    "[연합뉴스 이 시각 헤드라인] - 18:00",
+    "코스피 5% 넘게 빠지는데…'이 종목'만은 나홀로 급등",
     "중동발 유가 급등에 급락…코스피·코스닥 '매도 사이드카' [종합]",
     "기름값 100달러 돌파에…코스피 또 '매도 사이드카' 발동",
     "또 '블랙데이'…유가급등에 코스피 5.7%·코스닥 5.3% 급락(종합)",
     "코스피, 중동정세 격화·유가상승에 다시 털썩…이번주 내내 사이드카(종합)",
-    "[연합뉴스 이 시각 헤드라인] - 14:30",
-    "정부 \"미측, 한국 관세 15% 상한선 준수 입장 재확인\"(종합)",
-    "[속보] 코스피 5.73% 급락 6690.02 마감…코스닥도 5.32%↓",
-    "\"상장 한 달 만에 반토막 위기\"…머스크, 공매도에 경고",
-    "[속보] 코스피 이어 코스닥도 급락에 매도 사이드카",
-    "외국인 나흘간 5.6조원 매수…80%는 '이 두 종목'"
+    "7월 23일 오전장 특징테마/특징주",
+    "[특징주] 에이치엘지노믹스, 코스닥 입성 첫날 12%대 상승 - 조선비즈",
+    "[서울데이터랩]개장 직후 인기 검색 종목 20選",
+    "유가 뛰자 7천피 하루 만에 붕괴"
   ]
 }
