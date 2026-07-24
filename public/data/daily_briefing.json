@@ -1,6 +1,6 @@
 {
   "last_updated_kr": "2026-07-23 16:02:59",
-  "last_updated_us": "2026-07-24 08:30:27",
+  "last_updated_us": "2026-07-24 22:09:42",
   "kr_data": {
     "date": "2026-07-23",
     "top_sectors": [
@@ -54,40 +54,40 @@
     },
     "futures": {
       "Nasdaq_100_Futures": {
-        "price": 28697.0,
-        "change": -1.66,
+        "price": 28589.5,
+        "change": -0.11,
         "status": "Success"
       },
       "Gold_Futures": {
-        "price": 4049.5,
-        "change": -2.35,
+        "price": 4057.0,
+        "change": 0.26,
         "status": "Success"
       },
       "Crude_Oil_Futures": {
-        "price": 92.18,
-        "change": 6.16,
+        "price": 89.36,
+        "change": -3.07,
         "status": "Success"
       },
       "Bitcoin_USD": {
-        "price": 65130.55,
-        "change": -1.47,
+        "price": 64334.89,
+        "change": -1.09,
         "status": "Success"
       },
       "USD_JPY": {
-        "price": 163.81,
-        "change": 0.45,
+        "price": 163.87,
+        "change": 0.48,
         "status": "Success"
       },
       "EUR_USD": {
         "price": 1.14,
-        "change": -0.25,
+        "change": -0.35,
         "status": "Success"
       }
     },
     "macro": {
       "USD_KRW": {
-        "price": 1474.55,
-        "change": -0.07,
+        "price": 1462.79,
+        "change": -0.87,
         "status": "Success"
       },
       "MSCI_South_Korea_ETF(EWY)": {
@@ -96,18 +96,18 @@
         "status": "Success"
       },
       "VIX": {
-        "price": 18.7,
-        "change": 12.38,
+        "price": 18.84,
+        "change": 0.75,
         "status": "Success"
       },
       "US10Y_Yield": {
-        "price": 4.7,
-        "change": 0.99,
+        "price": 4.68,
+        "change": -0.47,
         "status": "Success"
       },
       "Dollar_Index": {
-        "price": 101.44,
-        "change": 0.29,
+        "price": 101.49,
+        "change": 0.06,
         "status": "Success"
       }
     },
@@ -163,18 +163,18 @@
         "status": "Success"
       }
     },
-    "us_market_summary": "나스닥 2.15% 하락 등 미국 3대 지수가 일제히 하락했습니다. 테슬라가 14.5% 폭락했고, 원유선물이 6.16% 급등하여 92달러를 돌파했으며 미 국채 10년물 금리는 4.7%로 상승했습니다.",
-    "today_strategy": "미국 기술주 급락과 고유가·고금리 여파로 국내 증시는 시초가 갭하락 출발이 예상됩니다. 다만 MSCI 한국 ETF의 강세와 개별 호재를 감안하여, 추격매수를 자제하고 장 초반 변동성 진정 후 저가 매수세가 유입되는 주도주 위주로 선별 접근해야 합니다.",
+    "us_market_summary": "미증시는 AI 고평가 부담과 미-이란 충돌 우려로 나스닥이 2.15% 급락하는 등 일제히 하락 마감했습니다. 원유 선물은 3%대 하락했으나 VIX는 소폭 상승하며 변동성이 확대되었습니다.",
+    "today_strategy": "미증시 급락 여파로 갭하락 출발이 예상되나, MSCI 한국 ETF의 2%대 상승과 원달러 환율 하락은 긍정적입니다. 시초가 무리한 추격매수를 자제하고 장 초반 낙폭 과대 우량주와 전고체·전력설비 주도주의 눌림목을 공략해야 합니다.",
     "watchlist": [
       {
         "name": "에코프로비엠",
         "code": "247540",
-        "reason": "삼성SDI 전고체 배터리 양산 가속화 및 소재 풀라인업 기대감으로 시간외 강세를 보였으나 시초가 눌림목 공략 필요"
+        "reason": "전고체 배터리 양산 기대감과 시간외 수급 유입을 바탕으로 장 초반 변동성 속 눌림목 반등을 공략합니다."
       },
       {
         "name": "LS ELECTRIC",
         "code": "010120",
-        "reason": "글로벌 전력망 투자 확대와 AI 데이터센터 전력 수요 급증 수혜로 장중 수급 유입 시 단기 트레이딩 유효"
+        "reason": "글로벌 전력망 투자 확대로 구조적 성장이 부각되는 전력설비 대장주로, 지수 조정 시 저가 매수세 유입이 기대됩니다."
       }
     ]
   }

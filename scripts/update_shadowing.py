@@ -462,8 +462,20 @@ if __name__ == "__main__":
             
         final_output.append(s)
         
+    # [수정] 오늘 데이터를 '통째로 교체'하면, 장 마감 직후 아직 데이터가 덜 정산됐을 때
+    # 실행된 불완전한 수집이 이미 저장된 완전한 수집(또는 그 반대)을 덮어써서
+    # 상한가 종목이 누락되는 문제가 있었습니다(예: 위닉스·아이씨에이치 상한가 누락).
+    # → 오늘자 '기존 + 신규'를 종목코드 기준 union 으로 병합해, 어느 실행에서든 한 번
+    #   포착된 종목은 보존합니다. 동일 종목은 등락률이 더 높은(더 정산된) 레코드를 채택.
+    today_existing = {d['code']: d for d in existing_data if d.get('date') == yyyymmdd_formatted}
     existing_data = [d for d in existing_data if d.get('date') != yyyymmdd_formatted]
-    existing_data.extend(final_output)
+    merged_today = dict(today_existing)
+    for r in final_output:
+        prev = merged_today.get(r['code'])
+        # 신규 레코드를 기본 채택하되, 기존이 더 높은 등락률(더 정산된 값)이면 유지
+        if prev is None or (r.get('change_rate', 0) or 0) >= (prev.get('change_rate', 0) or 0):
+            merged_today[r['code']] = r
+    existing_data.extend(merged_today.values())
 
     if not os.path.exists('src/data'):
         os.makedirs('src/data')
