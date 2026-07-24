@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24 16:29:40",
+  "generated_at": "2026-07-24 16:45:32",
   "trading_days": 48,
   "date_range": [
     "2026-05-15",
@@ -42,7 +42,7 @@
           "end": "2026-07-15",
           "length": 5,
           "peak_change": 29.93,
-          "record_count": 73
+          "record_count": 75
         },
         {
           "start": "2026-07-03",
@@ -56,14 +56,14 @@
           "end": "2026-07-21",
           "length": 2,
           "peak_change": 29.86,
-          "record_count": 5
+          "record_count": 6
         },
         {
           "start": "2026-07-23",
           "end": "2026-07-23",
           "length": 1,
           "peak_change": 8.44,
-          "record_count": 1
+          "record_count": 4
         }
       ]
     },
@@ -153,7 +153,7 @@
           "end": "2026-07-23",
           "length": 3,
           "peak_change": 30.0,
-          "record_count": 26
+          "record_count": 28
         },
         {
           "start": "2026-07-15",
@@ -180,13 +180,13 @@
     },
     {
       "theme": "금융",
-      "appeared_days": 31,
+      "appeared_days": 32,
       "run_count": 11,
       "max_run": 16,
-      "avg_run": 2.82,
+      "avg_run": 2.91,
       "category_dist": {
-        "당일소멸": 7,
-        "단기(2~4일)": 3,
+        "당일소멸": 6,
+        "단기(2~4일)": 4,
         "지속(5일+)": 1
       },
       "runs": [
@@ -217,6 +217,13 @@
           "length": 2,
           "peak_change": 10.38,
           "record_count": 4
+        },
+        {
+          "start": "2026-07-15",
+          "end": "2026-07-16",
+          "length": 2,
+          "peak_change": 9.03,
+          "record_count": 5
         },
         {
           "start": "2026-05-15",
@@ -254,13 +261,6 @@
           "record_count": 3
         },
         {
-          "start": "2026-07-15",
-          "end": "2026-07-15",
-          "length": 1,
-          "peak_change": 9.03,
-          "record_count": 4
-        },
-        {
           "start": "2026-07-21",
           "end": "2026-07-21",
           "length": 1,
@@ -286,7 +286,7 @@
           "end": "2026-07-23",
           "length": 10,
           "peak_change": 42.75,
-          "record_count": 40
+          "record_count": 41
         },
         {
           "start": "2026-06-15",
@@ -461,7 +461,7 @@
           "end": "2026-07-23",
           "length": 3,
           "peak_change": 29.97,
-          "record_count": 11
+          "record_count": 14
         },
         {
           "start": "2026-05-18",
@@ -524,7 +524,7 @@
           "end": "2026-07-23",
           "length": 3,
           "peak_change": 28.9,
-          "record_count": 5
+          "record_count": 8
         },
         {
           "start": "2026-05-28",
@@ -565,14 +565,14 @@
     },
     {
       "theme": "조선",
-      "appeared_days": 28,
+      "appeared_days": 29,
       "run_count": 12,
       "max_run": 8,
-      "avg_run": 2.33,
+      "avg_run": 2.42,
       "category_dist": {
-        "당일소멸": 7,
+        "당일소멸": 6,
         "지속(5일+)": 2,
-        "단기(2~4일)": 3
+        "단기(2~4일)": 4
       },
       "runs": [
         {
@@ -594,7 +594,7 @@
           "end": "2026-07-23",
           "length": 3,
           "peak_change": 29.9,
-          "record_count": 4
+          "record_count": 8
         },
         {
           "start": "2026-07-03",
@@ -609,6 +609,13 @@
           "length": 2,
           "peak_change": 12.15,
           "record_count": 5
+        },
+        {
+          "start": "2026-07-15",
+          "end": "2026-07-16",
+          "length": 2,
+          "peak_change": 30.0,
+          "record_count": 4
         },
         {
           "start": "2026-05-15",
@@ -651,13 +658,6 @@
           "length": 1,
           "peak_change": 7.84,
           "record_count": 1
-        },
-        {
-          "start": "2026-07-15",
-          "end": "2026-07-15",
-          "length": 1,
-          "peak_change": 8.62,
-          "record_count": 2
         }
       ]
     },
@@ -685,7 +685,7 @@
           "end": "2026-07-23",
           "length": 5,
           "peak_change": 30.0,
-          "record_count": 13
+          "record_count": 12
         },
         {
           "start": "2026-06-12",
@@ -804,7 +804,7 @@
           "end": "2026-07-23",
           "length": 2,
           "peak_change": 29.91,
-          "record_count": 4
+          "record_count": 6
         },
         {
           "start": "2026-05-15",
@@ -838,10 +838,10 @@
     },
     {
       "theme": "통신",
-      "appeared_days": 23,
+      "appeared_days": 24,
       "run_count": 8,
       "max_run": 6,
-      "avg_run": 2.88,
+      "avg_run": 3.0,
       "category_dist": {
         "단기(2~4일)": 3,
         "지속(5일+)": 2,
@@ -859,8 +859,8 @@
           "start": "2026-07-09",
           "end": "2026-07-15",
           "length": 5,
-          "peak_change": 29.92,
-          "record_count": 13
+          "peak_change": 29.98,
+          "record_count": 14
         },
         {
           "start": "2026-05-15",
@@ -878,10 +878,10 @@
         },
         {
           "start": "2026-07-21",
-          "end": "2026-07-22",
-          "length": 2,
+          "end": "2026-07-23",
+          "length": 3,
           "peak_change": 29.89,
-          "record_count": 4
+          "record_count": 5
         },
         {
           "start": "2026-06-09",
@@ -908,12 +908,12 @@
     },
     {
       "theme": "뷰티",
-      "appeared_days": 20,
-      "run_count": 11,
+      "appeared_days": 21,
+      "run_count": 12,
       "max_run": 5,
-      "avg_run": 1.82,
+      "avg_run": 1.75,
       "category_dist": {
-        "당일소멸": 6,
+        "당일소멸": 7,
         "단기(2~4일)": 4,
         "지속(5일+)": 1
       },
@@ -980,6 +980,13 @@
           "length": 1,
           "peak_change": 30.0,
           "record_count": 5
+        },
+        {
+          "start": "2026-07-13",
+          "end": "2026-07-13",
+          "length": 1,
+          "peak_change": 8.73,
+          "record_count": 1
         },
         {
           "start": "2026-07-21",
@@ -1195,7 +1202,7 @@
           "end": "2026-07-23",
           "length": 4,
           "peak_change": 30.0,
-          "record_count": 8
+          "record_count": 9
         },
         {
           "start": "2026-06-04",
@@ -1333,7 +1340,7 @@
           "end": "2026-07-23",
           "length": 2,
           "peak_change": 29.92,
-          "record_count": 7
+          "record_count": 8
         },
         {
           "start": "2026-05-26",
@@ -1368,6 +1375,75 @@
           "end": "2026-07-13",
           "length": 1,
           "peak_change": 10.5,
+          "record_count": 3
+        }
+      ]
+    },
+    {
+      "theme": "기계",
+      "appeared_days": 12,
+      "run_count": 8,
+      "max_run": 3,
+      "avg_run": 1.5,
+      "category_dist": {
+        "당일소멸": 5,
+        "단기(2~4일)": 3
+      },
+      "runs": [
+        {
+          "start": "2026-07-21",
+          "end": "2026-07-23",
+          "length": 3,
+          "peak_change": 29.97,
+          "record_count": 3
+        },
+        {
+          "start": "2026-07-10",
+          "end": "2026-07-13",
+          "length": 2,
+          "peak_change": 9.83,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-15",
+          "end": "2026-07-16",
+          "length": 2,
+          "peak_change": 29.81,
+          "record_count": 3
+        },
+        {
+          "start": "2026-05-26",
+          "end": "2026-05-26",
+          "length": 1,
+          "peak_change": 29.85,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-01",
+          "end": "2026-06-01",
+          "length": 1,
+          "peak_change": 29.87,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-24",
+          "end": "2026-06-24",
+          "length": 1,
+          "peak_change": 30.0,
+          "record_count": 1
+        },
+        {
+          "start": "2026-06-29",
+          "end": "2026-06-29",
+          "length": 1,
+          "peak_change": 8.17,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-06",
+          "end": "2026-07-06",
+          "length": 1,
+          "peak_change": 29.87,
           "record_count": 3
         }
       ]
@@ -1435,47 +1511,40 @@
       ]
     },
     {
-      "theme": "기계",
+      "theme": "철강",
       "appeared_days": 11,
-      "run_count": 8,
+      "run_count": 7,
       "max_run": 3,
-      "avg_run": 1.38,
+      "avg_run": 1.57,
       "category_dist": {
-        "당일소멸": 6,
-        "단기(2~4일)": 2
+        "단기(2~4일)": 2,
+        "당일소멸": 5
       },
       "runs": [
         {
-          "start": "2026-07-21",
-          "end": "2026-07-23",
+          "start": "2026-05-21",
+          "end": "2026-05-23",
           "length": 3,
-          "peak_change": 29.97,
-          "record_count": 3
+          "peak_change": 29.93,
+          "record_count": 4
         },
         {
-          "start": "2026-07-15",
-          "end": "2026-07-16",
-          "length": 2,
-          "peak_change": 29.81,
-          "record_count": 3
+          "start": "2026-06-16",
+          "end": "2026-06-18",
+          "length": 3,
+          "peak_change": 29.9,
+          "record_count": 6
         },
         {
-          "start": "2026-05-26",
-          "end": "2026-05-26",
+          "start": "2026-06-12",
+          "end": "2026-06-12",
           "length": 1,
-          "peak_change": 29.85,
-          "record_count": 1
-        },
-        {
-          "start": "2026-06-01",
-          "end": "2026-06-01",
-          "length": 1,
-          "peak_change": 29.87,
+          "peak_change": 8.71,
           "record_count": 2
         },
         {
-          "start": "2026-06-24",
-          "end": "2026-06-24",
+          "start": "2026-06-22",
+          "end": "2026-06-22",
           "length": 1,
           "peak_change": 30.0,
           "record_count": 1
@@ -1484,33 +1553,33 @@
           "start": "2026-06-29",
           "end": "2026-06-29",
           "length": 1,
-          "peak_change": 8.17,
+          "peak_change": 9.18,
           "record_count": 1
         },
         {
-          "start": "2026-07-06",
-          "end": "2026-07-06",
+          "start": "2026-07-21",
+          "end": "2026-07-21",
           "length": 1,
-          "peak_change": 29.87,
-          "record_count": 3
+          "peak_change": 29.59,
+          "record_count": 1
         },
         {
-          "start": "2026-07-10",
-          "end": "2026-07-10",
+          "start": "2026-07-23",
+          "end": "2026-07-23",
           "length": 1,
-          "peak_change": 7.51,
+          "peak_change": 6.77,
           "record_count": 1
         }
       ]
     },
     {
       "theme": "식음료",
-      "appeared_days": 11,
-      "run_count": 7,
+      "appeared_days": 10,
+      "run_count": 6,
       "max_run": 3,
-      "avg_run": 1.57,
+      "avg_run": 1.67,
       "category_dist": {
-        "당일소멸": 4,
+        "당일소멸": 3,
         "단기(2~4일)": 3
       },
       "runs": [
@@ -1554,68 +1623,6 @@
           "end": "2026-07-07",
           "length": 1,
           "peak_change": 11.02,
-          "record_count": 1
-        },
-        {
-          "start": "2026-07-23",
-          "end": "2026-07-23",
-          "length": 1,
-          "peak_change": 29.85,
-          "record_count": 2
-        }
-      ]
-    },
-    {
-      "theme": "철강",
-      "appeared_days": 10,
-      "run_count": 6,
-      "max_run": 3,
-      "avg_run": 1.67,
-      "category_dist": {
-        "단기(2~4일)": 2,
-        "당일소멸": 4
-      },
-      "runs": [
-        {
-          "start": "2026-05-21",
-          "end": "2026-05-23",
-          "length": 3,
-          "peak_change": 29.93,
-          "record_count": 4
-        },
-        {
-          "start": "2026-06-16",
-          "end": "2026-06-18",
-          "length": 3,
-          "peak_change": 29.9,
-          "record_count": 6
-        },
-        {
-          "start": "2026-06-12",
-          "end": "2026-06-12",
-          "length": 1,
-          "peak_change": 8.71,
-          "record_count": 2
-        },
-        {
-          "start": "2026-06-22",
-          "end": "2026-06-22",
-          "length": 1,
-          "peak_change": 30.0,
-          "record_count": 1
-        },
-        {
-          "start": "2026-06-29",
-          "end": "2026-06-29",
-          "length": 1,
-          "peak_change": 9.18,
-          "record_count": 1
-        },
-        {
-          "start": "2026-07-21",
-          "end": "2026-07-21",
-          "length": 1,
-          "peak_change": 29.59,
           "record_count": 1
         }
       ]
@@ -1671,7 +1678,7 @@
           "end": "2026-07-13",
           "length": 1,
           "peak_change": 30.0,
-          "record_count": 1
+          "record_count": 2
         }
       ]
     },
@@ -1786,6 +1793,40 @@
       ]
     },
     {
+      "theme": "자동차부품",
+      "appeared_days": 5,
+      "run_count": 3,
+      "max_run": 3,
+      "avg_run": 1.67,
+      "category_dist": {
+        "당일소멸": 2,
+        "단기(2~4일)": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-12",
+          "end": "2026-06-16",
+          "length": 3,
+          "peak_change": 29.85,
+          "record_count": 3
+        },
+        {
+          "start": "2026-06-09",
+          "end": "2026-06-09",
+          "length": 1,
+          "peak_change": 29.9,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-23",
+          "end": "2026-07-23",
+          "length": 1,
+          "peak_change": 29.92,
+          "record_count": 1
+        }
+      ]
+    },
+    {
       "theme": "시멘트/레미콘",
       "appeared_days": 5,
       "run_count": 3,
@@ -1883,33 +1924,6 @@
           "end": "2026-07-22",
           "length": 1,
           "peak_change": 24.19,
-          "record_count": 1
-        }
-      ]
-    },
-    {
-      "theme": "자동차부품",
-      "appeared_days": 4,
-      "run_count": 2,
-      "max_run": 3,
-      "avg_run": 2.0,
-      "category_dist": {
-        "당일소멸": 1,
-        "단기(2~4일)": 1
-      },
-      "runs": [
-        {
-          "start": "2026-06-12",
-          "end": "2026-06-16",
-          "length": 3,
-          "peak_change": 29.85,
-          "record_count": 3
-        },
-        {
-          "start": "2026-06-09",
-          "end": "2026-06-09",
-          "length": 1,
-          "peak_change": 29.9,
           "record_count": 1
         }
       ]
@@ -2177,6 +2191,33 @@
       ]
     },
     {
+      "theme": "여름",
+      "appeared_days": 3,
+      "run_count": 2,
+      "max_run": 2,
+      "avg_run": 1.5,
+      "category_dist": {
+        "단기(2~4일)": 1,
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-06-19",
+          "end": "2026-06-22",
+          "length": 2,
+          "peak_change": 29.88,
+          "record_count": 2
+        },
+        {
+          "start": "2026-07-16",
+          "end": "2026-07-16",
+          "length": 1,
+          "peak_change": 6.01,
+          "record_count": 1
+        }
+      ]
+    },
+    {
       "theme": "부동산 보유 자산주",
       "appeared_days": 2,
       "run_count": 1,
@@ -2211,25 +2252,6 @@
           "length": 2,
           "peak_change": 29.97,
           "record_count": 4
-        }
-      ]
-    },
-    {
-      "theme": "여름",
-      "appeared_days": 2,
-      "run_count": 1,
-      "max_run": 2,
-      "avg_run": 2.0,
-      "category_dist": {
-        "단기(2~4일)": 1
-      },
-      "runs": [
-        {
-          "start": "2026-06-19",
-          "end": "2026-06-22",
-          "length": 2,
-          "peak_change": 29.88,
-          "record_count": 2
         }
       ]
     },
@@ -2362,8 +2384,8 @@
           "start": "2026-07-23",
           "end": "2026-07-23",
           "length": 1,
-          "peak_change": 9.9,
-          "record_count": 2
+          "peak_change": 12.6,
+          "record_count": 4
         }
       ]
     },
@@ -2423,12 +2445,12 @@
     },
     {
       "theme": "바이오시밀러(복제 바이오의약품)",
-      "appeared_days": 4,
-      "run_count": 4,
+      "appeared_days": 5,
+      "run_count": 5,
       "max_run": 1,
       "avg_run": 1.0,
       "category_dist": {
-        "당일소멸": 4
+        "당일소멸": 5
       },
       "runs": [
         {
@@ -2457,6 +2479,13 @@
           "end": "2026-07-20",
           "length": 1,
           "peak_change": 29.82,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-23",
+          "end": "2026-07-23",
+          "length": 1,
+          "peak_change": 8.7,
           "record_count": 1
         }
       ]
@@ -2497,6 +2526,39 @@
           "end": "2026-07-03",
           "length": 1,
           "peak_change": 29.9,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "태양광에너지",
+      "appeared_days": 3,
+      "run_count": 3,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 3
+      },
+      "runs": [
+        {
+          "start": "2026-05-18",
+          "end": "2026-05-18",
+          "length": 1,
+          "peak_change": 9.28,
+          "record_count": 2
+        },
+        {
+          "start": "2026-06-17",
+          "end": "2026-06-17",
+          "length": 1,
+          "peak_change": 7.98,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-23",
+          "end": "2026-07-23",
+          "length": 1,
+          "peak_change": 15.06,
           "record_count": 1
         }
       ]
@@ -2700,27 +2762,34 @@
       ]
     },
     {
-      "theme": "태양광에너지",
-      "appeared_days": 2,
-      "run_count": 2,
+      "theme": "리모델링/인테리어",
+      "appeared_days": 3,
+      "run_count": 3,
       "max_run": 1,
       "avg_run": 1.0,
       "category_dist": {
-        "당일소멸": 2
+        "당일소멸": 3
       },
       "runs": [
         {
-          "start": "2026-05-18",
-          "end": "2026-05-18",
+          "start": "2026-06-22",
+          "end": "2026-06-22",
           "length": 1,
-          "peak_change": 9.28,
-          "record_count": 2
+          "peak_change": 29.96,
+          "record_count": 1
         },
         {
-          "start": "2026-06-17",
-          "end": "2026-06-17",
+          "start": "2026-07-13",
+          "end": "2026-07-13",
           "length": 1,
-          "peak_change": 7.98,
+          "peak_change": 29.92,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-16",
+          "end": "2026-07-16",
+          "length": 1,
+          "peak_change": 29.96,
           "record_count": 1
         }
       ]
@@ -3064,32 +3133,6 @@
       ]
     },
     {
-      "theme": "리모델링/인테리어",
-      "appeared_days": 2,
-      "run_count": 2,
-      "max_run": 1,
-      "avg_run": 1.0,
-      "category_dist": {
-        "당일소멸": 2
-      },
-      "runs": [
-        {
-          "start": "2026-06-22",
-          "end": "2026-06-22",
-          "length": 1,
-          "peak_change": 29.96,
-          "record_count": 1
-        },
-        {
-          "start": "2026-07-16",
-          "end": "2026-07-16",
-          "length": 1,
-          "peak_change": 29.96,
-          "record_count": 1
-        }
-      ]
-    },
-    {
       "theme": "공기청정기",
       "appeared_days": 2,
       "run_count": 2,
@@ -3189,6 +3232,32 @@
           "end": "2026-07-20",
           "length": 1,
           "peak_change": 30.0,
+          "record_count": 1
+        }
+      ]
+    },
+    {
+      "theme": "조선기자재",
+      "appeared_days": 2,
+      "run_count": 2,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 2
+      },
+      "runs": [
+        {
+          "start": "2026-07-01",
+          "end": "2026-07-01",
+          "length": 1,
+          "peak_change": 17.41,
+          "record_count": 1
+        },
+        {
+          "start": "2026-07-20",
+          "end": "2026-07-20",
+          "length": 1,
+          "peak_change": 13.34,
           "record_count": 1
         }
       ]
@@ -3911,25 +3980,6 @@
       ]
     },
     {
-      "theme": "조선기자재",
-      "appeared_days": 1,
-      "run_count": 1,
-      "max_run": 1,
-      "avg_run": 1.0,
-      "category_dist": {
-        "당일소멸": 1
-      },
-      "runs": [
-        {
-          "start": "2026-07-01",
-          "end": "2026-07-01",
-          "length": 1,
-          "peak_change": 17.41,
-          "record_count": 1
-        }
-      ]
-    },
-    {
       "theme": "겨울",
       "appeared_days": 1,
       "run_count": 1,
@@ -4082,6 +4132,25 @@
       ]
     },
     {
+      "theme": "OLED(유기 발광 다이오드)",
+      "appeared_days": 1,
+      "run_count": 1,
+      "max_run": 1,
+      "avg_run": 1.0,
+      "category_dist": {
+        "당일소멸": 1
+      },
+      "runs": [
+        {
+          "start": "2026-07-20",
+          "end": "2026-07-20",
+          "length": 1,
+          "peak_change": 29.93,
+          "record_count": 1
+        }
+      ]
+    },
+    {
       "theme": "디플레이",
       "appeared_days": 1,
       "run_count": 1,
@@ -4109,7 +4178,7 @@
       "last_date": "2026-07-23",
       "max_run": 16,
       "span_trading_days": 46,
-      "days_appeared": 34,
+      "days_appeared": 35,
       "stock_count": 93,
       "themes": [
         "반도체"
@@ -4156,10 +4225,10 @@
       "tag": "금융",
       "is_theme_name": true,
       "first_date": "2026-05-19",
-      "last_date": "2026-07-15",
+      "last_date": "2026-07-16",
       "max_run": 11,
-      "span_trading_days": 41,
-      "days_appeared": 23,
+      "span_trading_days": 42,
+      "days_appeared": 24,
       "stock_count": 16,
       "themes": [
         "금융"
@@ -4210,7 +4279,7 @@
       "max_run": 7,
       "span_trading_days": 40,
       "days_appeared": 24,
-      "stock_count": 40,
+      "stock_count": 39,
       "themes": [
         "로봇"
       ],
@@ -4260,7 +4329,7 @@
       "max_run": 7,
       "span_trading_days": 40,
       "days_appeared": 18,
-      "stock_count": 24,
+      "stock_count": 23,
       "themes": [
         "IT"
       ],
@@ -4331,10 +4400,10 @@
       "tag": "통신",
       "is_theme_name": true,
       "first_date": "2026-05-28",
-      "last_date": "2026-07-21",
+      "last_date": "2026-07-23",
       "max_run": 6,
-      "span_trading_days": 37,
-      "days_appeared": 13,
+      "span_trading_days": 39,
+      "days_appeared": 15,
       "stock_count": 13,
       "themes": [
         "통신"
@@ -4359,8 +4428,8 @@
       "last_date": "2026-07-23",
       "max_run": 5,
       "span_trading_days": 40,
-      "days_appeared": 24,
-      "stock_count": 49,
+      "days_appeared": 25,
+      "stock_count": 50,
       "themes": [
         "바이오"
       ],
@@ -4455,7 +4524,7 @@
       "last_date": "2026-07-23",
       "max_run": 3,
       "span_trading_days": 40,
-      "days_appeared": 18,
+      "days_appeared": 19,
       "stock_count": 14,
       "themes": [
         "조선"
@@ -4480,7 +4549,7 @@
       "last_date": "2026-07-23",
       "max_run": 3,
       "span_trading_days": 40,
-      "days_appeared": 16,
+      "days_appeared": 17,
       "stock_count": 10,
       "themes": [
         "뷰티"
@@ -4550,6 +4619,49 @@
       "category": "단기(2~4일)"
     },
     {
+      "tag": "자동차부품",
+      "is_theme_name": true,
+      "first_date": "2026-05-21",
+      "last_date": "2026-07-23",
+      "max_run": 3,
+      "span_trading_days": 44,
+      "days_appeared": 7,
+      "stock_count": 4,
+      "themes": [
+        "자동차",
+        "자동차부품"
+      ],
+      "sample_stocks": [
+        "에이엔피",
+        "한온시스템",
+        "화신정공",
+        "휴림에이텍"
+      ],
+      "peak_change": 29.92,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "엔터",
+      "is_theme_name": true,
+      "first_date": "2026-05-28",
+      "last_date": "2026-07-13",
+      "max_run": 3,
+      "span_trading_days": 32,
+      "days_appeared": 7,
+      "stock_count": 4,
+      "themes": [
+        "엔터"
+      ],
+      "sample_stocks": [
+        "아센디오",
+        "아이오케이이엔엠",
+        "코퍼스코리아",
+        "하이브"
+      ],
+      "peak_change": 30.0,
+      "category": "단기(2~4일)"
+    },
+    {
       "tag": "반도체 장비",
       "is_theme_name": true,
       "first_date": "2026-05-20",
@@ -4573,48 +4685,6 @@
         "주성엔지니어링"
       ],
       "peak_change": 29.99,
-      "category": "단기(2~4일)"
-    },
-    {
-      "tag": "엔터",
-      "is_theme_name": true,
-      "first_date": "2026-05-28",
-      "last_date": "2026-07-06",
-      "max_run": 3,
-      "span_trading_days": 27,
-      "days_appeared": 6,
-      "stock_count": 4,
-      "themes": [
-        "엔터"
-      ],
-      "sample_stocks": [
-        "아센디오",
-        "아이오케이이엔엠",
-        "코퍼스코리아",
-        "하이브"
-      ],
-      "peak_change": 30.0,
-      "category": "단기(2~4일)"
-    },
-    {
-      "tag": "자동차부품",
-      "is_theme_name": true,
-      "first_date": "2026-05-21",
-      "last_date": "2026-07-16",
-      "max_run": 3,
-      "span_trading_days": 40,
-      "days_appeared": 6,
-      "stock_count": 3,
-      "themes": [
-        "자동차",
-        "자동차부품"
-      ],
-      "sample_stocks": [
-        "에이엔피",
-        "한온시스템",
-        "화신정공"
-      ],
-      "peak_change": 29.9,
       "category": "단기(2~4일)"
     },
     {
@@ -4725,6 +4795,31 @@
       "category": "단기(2~4일)"
     },
     {
+      "tag": "기계",
+      "is_theme_name": true,
+      "first_date": "2026-06-01",
+      "last_date": "2026-07-23",
+      "max_run": 2,
+      "span_trading_days": 37,
+      "days_appeared": 9,
+      "stock_count": 8,
+      "themes": [
+        "기계"
+      ],
+      "sample_stocks": [
+        "HD건설기계",
+        "비케이홀딩스",
+        "삼성공조",
+        "서암기계공업",
+        "신일전자",
+        "와이지-원",
+        "크레오에스지",
+        "파세코"
+      ],
+      "peak_change": 30.0,
+      "category": "단기(2~4일)"
+    },
+    {
       "tag": "화학",
       "is_theme_name": true,
       "first_date": "2026-06-04",
@@ -4750,26 +4845,25 @@
       "category": "단기(2~4일)"
     },
     {
-      "tag": "식음료",
+      "tag": "철강",
       "is_theme_name": true,
-      "first_date": "2026-05-29",
+      "first_date": "2026-05-21",
       "last_date": "2026-07-23",
       "max_run": 2,
-      "span_trading_days": 38,
-      "days_appeared": 7,
-      "stock_count": 10,
+      "span_trading_days": 44,
+      "days_appeared": 8,
+      "stock_count": 7,
       "themes": [
-        "식음료"
+        "철강"
       ],
       "sample_stocks": [
-        "CJ씨푸드1우",
-        "국순당",
-        "대한제당우",
-        "모나미",
-        "보해양조",
-        "삼양식품",
-        "서울식품우",
-        "신라에스지"
+        "KBI동양철관",
+        "POSCO홀딩스",
+        "광진실업",
+        "넥스틸",
+        "율촌",
+        "키스트론",
+        "현대제철"
       ],
       "peak_change": 30.0,
       "category": "단기(2~4일)"
@@ -4800,30 +4894,6 @@
       "category": "단기(2~4일)"
     },
     {
-      "tag": "철강",
-      "is_theme_name": true,
-      "first_date": "2026-05-21",
-      "last_date": "2026-06-29",
-      "max_run": 2,
-      "span_trading_days": 27,
-      "days_appeared": 7,
-      "stock_count": 7,
-      "themes": [
-        "철강"
-      ],
-      "sample_stocks": [
-        "KBI동양철관",
-        "POSCO홀딩스",
-        "광진실업",
-        "넥스틸",
-        "율촌",
-        "키스트론",
-        "현대제철"
-      ],
-      "peak_change": 30.0,
-      "category": "단기(2~4일)"
-    },
-    {
       "tag": "원전",
       "is_theme_name": true,
       "first_date": "2026-06-04",
@@ -4842,6 +4912,31 @@
         "한국전력"
       ],
       "peak_change": 29.96,
+      "category": "단기(2~4일)"
+    },
+    {
+      "tag": "식음료",
+      "is_theme_name": true,
+      "first_date": "2026-05-29",
+      "last_date": "2026-07-21",
+      "max_run": 2,
+      "span_trading_days": 36,
+      "days_appeared": 6,
+      "stock_count": 9,
+      "themes": [
+        "식음료"
+      ],
+      "sample_stocks": [
+        "국순당",
+        "대한제당우",
+        "모나미",
+        "보해양조",
+        "삼양식품",
+        "서울식품우",
+        "신라에스지",
+        "오에스피"
+      ],
+      "peak_change": 30.0,
       "category": "단기(2~4일)"
     },
     {
@@ -5204,6 +5299,25 @@
       "category": "단기(2~4일)"
     },
     {
+      "tag": "여름",
+      "is_theme_name": true,
+      "first_date": "2026-06-19",
+      "last_date": "2026-07-16",
+      "max_run": 2,
+      "span_trading_days": 20,
+      "days_appeared": 3,
+      "stock_count": 2,
+      "themes": [
+        "여름"
+      ],
+      "sample_stocks": [
+        "보해양조",
+        "에스씨디"
+      ],
+      "peak_change": 29.88,
+      "category": "단기(2~4일)"
+    },
+    {
       "tag": "전력설비 / 변압기",
       "is_theme_name": false,
       "first_date": "2026-05-21",
@@ -5291,24 +5405,6 @@
       "category": "단기(2~4일)"
     },
     {
-      "tag": "여름",
-      "is_theme_name": true,
-      "first_date": "2026-06-19",
-      "last_date": "2026-06-22",
-      "max_run": 2,
-      "span_trading_days": 2,
-      "days_appeared": 2,
-      "stock_count": 1,
-      "themes": [
-        "여름"
-      ],
-      "sample_stocks": [
-        "보해양조"
-      ],
-      "peak_change": 29.88,
-      "category": "단기(2~4일)"
-    },
-    {
       "tag": "전남 반도체",
       "is_theme_name": false,
       "first_date": "2026-06-22",
@@ -5368,28 +5464,24 @@
       "category": "당일소멸"
     },
     {
-      "tag": "기계",
+      "tag": "바이오시밀러(복제 바이오의약품)",
       "is_theme_name": true,
-      "first_date": "2026-06-01",
+      "first_date": "2026-06-09",
       "last_date": "2026-07-23",
       "max_run": 1,
-      "span_trading_days": 37,
-      "days_appeared": 8,
-      "stock_count": 8,
+      "span_trading_days": 32,
+      "days_appeared": 5,
+      "stock_count": 4,
       "themes": [
-        "기계"
+        "바이오시밀러(복제 바이오의약품)"
       ],
       "sample_stocks": [
-        "HD건설기계",
-        "비케이홀딩스",
-        "삼성공조",
-        "서암기계공업",
-        "신일전자",
-        "와이지-원",
-        "크레오에스지",
-        "파세코"
+        "삼천당제약",
+        "선바이오",
+        "셀트리온",
+        "알테오젠"
       ],
-      "peak_change": 30.0,
+      "peak_change": 29.88,
       "category": "당일소멸"
     },
     {
@@ -5436,24 +5528,25 @@
       "category": "당일소멸"
     },
     {
-      "tag": "바이오시밀러(복제 바이오의약품)",
+      "tag": "리모델링/인테리어",
       "is_theme_name": true,
-      "first_date": "2026-06-09",
-      "last_date": "2026-07-20",
+      "first_date": "2026-05-27",
+      "last_date": "2026-07-16",
       "max_run": 1,
-      "span_trading_days": 29,
+      "span_trading_days": 36,
       "days_appeared": 4,
       "stock_count": 4,
       "themes": [
-        "바이오시밀러(복제 바이오의약품)"
+        "리모델링/인테리어",
+        "인테리어"
       ],
       "sample_stocks": [
-        "삼천당제약",
-        "선바이오",
-        "셀트리온",
-        "알테오젠"
+        "에넥스",
+        "유니드비티플러스",
+        "조이웍스앤코",
+        "진영"
       ],
-      "peak_change": 29.88,
+      "peak_change": 29.96,
       "category": "당일소멸"
     },
     {
@@ -5593,6 +5686,29 @@
       "category": "당일소멸"
     },
     {
+      "tag": "조선기자재",
+      "is_theme_name": true,
+      "first_date": "2026-05-22",
+      "last_date": "2026-07-20",
+      "max_run": 1,
+      "span_trading_days": 40,
+      "days_appeared": 3,
+      "stock_count": 4,
+      "themes": [
+        "AI",
+        "조선",
+        "조선기자재"
+      ],
+      "sample_stocks": [
+        "HD현대마린솔루션",
+        "HD현대마린엔진",
+        "STX엔진",
+        "현대힘스"
+      ],
+      "peak_change": 17.41,
+      "category": "당일소멸"
+    },
+    {
       "tag": "엔터테인먼트",
       "is_theme_name": true,
       "first_date": "2026-05-15",
@@ -5702,24 +5818,24 @@
       "category": "당일소멸"
     },
     {
-      "tag": "리모델링/인테리어",
+      "tag": "태양광에너지",
       "is_theme_name": true,
-      "first_date": "2026-05-27",
-      "last_date": "2026-07-16",
+      "first_date": "2026-05-22",
+      "last_date": "2026-07-23",
       "max_run": 1,
-      "span_trading_days": 36,
+      "span_trading_days": 43,
       "days_appeared": 3,
       "stock_count": 3,
       "themes": [
-        "리모델링/인테리어",
-        "인테리어"
+        "조선",
+        "태양광에너지"
       ],
       "sample_stocks": [
-        "유니드비티플러스",
-        "조이웍스앤코",
-        "진영"
+        "HD현대에너지솔루션",
+        "OCI홀딩스",
+        "대명에너지"
       ],
-      "peak_change": 29.96,
+      "peak_change": 15.06,
       "category": "당일소멸"
     },
     {
@@ -6188,49 +6304,6 @@
       "category": "당일소멸"
     },
     {
-      "tag": "태양광에너지",
-      "is_theme_name": true,
-      "first_date": "2026-05-22",
-      "last_date": "2026-06-17",
-      "max_run": 1,
-      "span_trading_days": 18,
-      "days_appeared": 2,
-      "stock_count": 3,
-      "themes": [
-        "조선",
-        "태양광에너지"
-      ],
-      "sample_stocks": [
-        "HD현대에너지솔루션",
-        "OCI홀딩스",
-        "대명에너지"
-      ],
-      "peak_change": 12.12,
-      "category": "당일소멸"
-    },
-    {
-      "tag": "조선기자재",
-      "is_theme_name": true,
-      "first_date": "2026-05-22",
-      "last_date": "2026-07-01",
-      "max_run": 1,
-      "span_trading_days": 28,
-      "days_appeared": 2,
-      "stock_count": 3,
-      "themes": [
-        "AI",
-        "조선",
-        "조선기자재"
-      ],
-      "sample_stocks": [
-        "HD현대마린솔루션",
-        "HD현대마린엔진",
-        "STX엔진"
-      ],
-      "peak_change": 17.41,
-      "category": "당일소멸"
-    },
-    {
       "tag": "신규상장",
       "is_theme_name": false,
       "first_date": "2026-07-07",
@@ -6448,6 +6521,26 @@
         "에이직랜드"
       ],
       "peak_change": 29.81,
+      "category": "당일소멸"
+    },
+    {
+      "tag": "OLED(유기 발광 다이오드)",
+      "is_theme_name": true,
+      "first_date": "2026-05-27",
+      "last_date": "2026-07-20",
+      "max_run": 1,
+      "span_trading_days": 37,
+      "days_appeared": 2,
+      "stock_count": 2,
+      "themes": [
+        "OLED(유기 발광 다이오드)",
+        "디스플레이"
+      ],
+      "sample_stocks": [
+        "디바이스",
+        "인베니아"
+      ],
+      "peak_change": 29.93,
       "category": "당일소멸"
     },
     {
@@ -6756,24 +6849,6 @@
       ],
       "peak_change": 8.23,
       "category": "당일소멸"
-    },
-    {
-      "tag": "HBM 검사장비",
-      "is_theme_name": false,
-      "first_date": "2026-05-26",
-      "last_date": "2026-06-10",
-      "max_run": 1,
-      "span_trading_days": 11,
-      "days_appeared": 2,
-      "stock_count": 1,
-      "themes": [
-        "반도체"
-      ],
-      "sample_stocks": [
-        "테크윙"
-      ],
-      "peak_change": 12.11,
-      "category": "당일소멸"
     }
   ],
   "long_lasting_themes": [
@@ -6808,7 +6883,7 @@
           "end": "2026-07-15",
           "length": 5,
           "peak_change": 29.93,
-          "record_count": 73
+          "record_count": 75
         },
         {
           "start": "2026-07-03",
@@ -6822,14 +6897,14 @@
           "end": "2026-07-21",
           "length": 2,
           "peak_change": 29.86,
-          "record_count": 5
+          "record_count": 6
         },
         {
           "start": "2026-07-23",
           "end": "2026-07-23",
           "length": 1,
           "peak_change": 8.44,
-          "record_count": 1
+          "record_count": 4
         }
       ]
     },
@@ -6919,7 +6994,7 @@
           "end": "2026-07-23",
           "length": 3,
           "peak_change": 30.0,
-          "record_count": 26
+          "record_count": 28
         },
         {
           "start": "2026-07-15",
@@ -6946,13 +7021,13 @@
     },
     {
       "theme": "금융",
-      "appeared_days": 31,
+      "appeared_days": 32,
       "run_count": 11,
       "max_run": 16,
-      "avg_run": 2.82,
+      "avg_run": 2.91,
       "category_dist": {
-        "당일소멸": 7,
-        "단기(2~4일)": 3,
+        "당일소멸": 6,
+        "단기(2~4일)": 4,
         "지속(5일+)": 1
       },
       "runs": [
@@ -6983,6 +7058,13 @@
           "length": 2,
           "peak_change": 10.38,
           "record_count": 4
+        },
+        {
+          "start": "2026-07-15",
+          "end": "2026-07-16",
+          "length": 2,
+          "peak_change": 9.03,
+          "record_count": 5
         },
         {
           "start": "2026-05-15",
@@ -7020,13 +7102,6 @@
           "record_count": 3
         },
         {
-          "start": "2026-07-15",
-          "end": "2026-07-15",
-          "length": 1,
-          "peak_change": 9.03,
-          "record_count": 4
-        },
-        {
           "start": "2026-07-21",
           "end": "2026-07-21",
           "length": 1,
@@ -7052,7 +7127,7 @@
           "end": "2026-07-23",
           "length": 10,
           "peak_change": 42.75,
-          "record_count": 40
+          "record_count": 41
         },
         {
           "start": "2026-06-15",
@@ -7227,7 +7302,7 @@
           "end": "2026-07-23",
           "length": 3,
           "peak_change": 29.97,
-          "record_count": 11
+          "record_count": 14
         },
         {
           "start": "2026-05-18",
@@ -7290,7 +7365,7 @@
           "end": "2026-07-23",
           "length": 3,
           "peak_change": 28.9,
-          "record_count": 5
+          "record_count": 8
         },
         {
           "start": "2026-05-28",
@@ -7331,14 +7406,14 @@
     },
     {
       "theme": "조선",
-      "appeared_days": 28,
+      "appeared_days": 29,
       "run_count": 12,
       "max_run": 8,
-      "avg_run": 2.33,
+      "avg_run": 2.42,
       "category_dist": {
-        "당일소멸": 7,
+        "당일소멸": 6,
         "지속(5일+)": 2,
-        "단기(2~4일)": 3
+        "단기(2~4일)": 4
       },
       "runs": [
         {
@@ -7360,7 +7435,7 @@
           "end": "2026-07-23",
           "length": 3,
           "peak_change": 29.9,
-          "record_count": 4
+          "record_count": 8
         },
         {
           "start": "2026-07-03",
@@ -7375,6 +7450,13 @@
           "length": 2,
           "peak_change": 12.15,
           "record_count": 5
+        },
+        {
+          "start": "2026-07-15",
+          "end": "2026-07-16",
+          "length": 2,
+          "peak_change": 30.0,
+          "record_count": 4
         },
         {
           "start": "2026-05-15",
@@ -7417,13 +7499,6 @@
           "length": 1,
           "peak_change": 7.84,
           "record_count": 1
-        },
-        {
-          "start": "2026-07-15",
-          "end": "2026-07-15",
-          "length": 1,
-          "peak_change": 8.62,
-          "record_count": 2
         }
       ]
     },
@@ -7451,7 +7526,7 @@
           "end": "2026-07-23",
           "length": 5,
           "peak_change": 30.0,
-          "record_count": 13
+          "record_count": 12
         },
         {
           "start": "2026-06-12",
@@ -7570,7 +7645,7 @@
           "end": "2026-07-23",
           "length": 2,
           "peak_change": 29.91,
-          "record_count": 4
+          "record_count": 6
         },
         {
           "start": "2026-05-15",
@@ -7604,10 +7679,10 @@
     },
     {
       "theme": "통신",
-      "appeared_days": 23,
+      "appeared_days": 24,
       "run_count": 8,
       "max_run": 6,
-      "avg_run": 2.88,
+      "avg_run": 3.0,
       "category_dist": {
         "단기(2~4일)": 3,
         "지속(5일+)": 2,
@@ -7625,8 +7700,8 @@
           "start": "2026-07-09",
           "end": "2026-07-15",
           "length": 5,
-          "peak_change": 29.92,
-          "record_count": 13
+          "peak_change": 29.98,
+          "record_count": 14
         },
         {
           "start": "2026-05-15",
@@ -7644,10 +7719,10 @@
         },
         {
           "start": "2026-07-21",
-          "end": "2026-07-22",
-          "length": 2,
+          "end": "2026-07-23",
+          "length": 3,
           "peak_change": 29.89,
-          "record_count": 4
+          "record_count": 5
         },
         {
           "start": "2026-06-09",
@@ -7674,12 +7749,12 @@
     },
     {
       "theme": "뷰티",
-      "appeared_days": 20,
-      "run_count": 11,
+      "appeared_days": 21,
+      "run_count": 12,
       "max_run": 5,
-      "avg_run": 1.82,
+      "avg_run": 1.75,
       "category_dist": {
-        "당일소멸": 6,
+        "당일소멸": 7,
         "단기(2~4일)": 4,
         "지속(5일+)": 1
       },
@@ -7746,6 +7821,13 @@
           "length": 1,
           "peak_change": 30.0,
           "record_count": 5
+        },
+        {
+          "start": "2026-07-13",
+          "end": "2026-07-13",
+          "length": 1,
+          "peak_change": 8.73,
+          "record_count": 1
         },
         {
           "start": "2026-07-21",
