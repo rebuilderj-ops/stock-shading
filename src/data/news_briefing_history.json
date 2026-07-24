@@ -1,0 +1,108 @@
+{
+  "2026-07-24": [
+    {
+      "theme": "금융",
+      "grade": "A",
+      "event_summary": "단일종목 레버리지 예탁금 기준이 3천만원으로 상향되어 이달 31일부터 시행됨",
+      "rubric": {
+        "scope": 3,
+        "specificity": 3,
+        "durability": 2,
+        "novelty": 3,
+        "chain_depth": 3,
+        "source_trust": 2
+      }
+    },
+    {
+      "theme": "로봇",
+      "grade": "B",
+      "event_summary": "삼성과 현대차를 담은 피지컬AI 액티브 ETF 출시 등 로봇 ETF 경쟁이 격화됨",
+      "rubric": {
+        "scope": 2,
+        "specificity": 2,
+        "durability": 2,
+        "novelty": 2,
+        "chain_depth": 2,
+        "source_trust": 1
+      }
+    },
+    {
+      "theme": "AI",
+      "grade": "B",
+      "event_summary": "브룩필드와 엔비디아 칩을 바탕으로 네이버가 AI 인프라주로 재조명됨",
+      "rubric": {
+        "scope": 2,
+        "specificity": 2,
+        "durability": 2,
+        "novelty": 2,
+        "chain_depth": 2,
+        "source_trust": 1
+      }
+    },
+    {
+      "theme": "AI",
+      "grade": "B",
+      "event_summary": "통신 3사의 AI 데이터센터 메가프로젝트가 본격화되며 수혜주에 관심이 집중됨",
+      "rubric": {
+        "scope": 2,
+        "specificity": 2,
+        "durability": 2,
+        "novelty": 2,
+        "chain_depth": 2,
+        "source_trust": 1
+      }
+    },
+    {
+      "theme": "방산",
+      "grade": "B",
+      "event_summary": "미국 록히드마틴 주가 상승 등에 힘입어 국내 방산 K종목이 급등함",
+      "rubric": {
+        "scope": 2,
+        "specificity": 2,
+        "durability": 2,
+        "novelty": 2,
+        "chain_depth": 2,
+        "source_trust": 1
+      }
+    },
+    {
+      "theme": "반도체",
+      "grade": "B",
+      "event_summary": "반도체의 대안으로 금융, 방산, 원전, 바이오 등이 거론되는 것에 대한 분석 제기",
+      "rubric": {
+        "scope": 2,
+        "specificity": 1,
+        "durability": 2,
+        "novelty": 2,
+        "chain_depth": 2,
+        "source_trust": 1
+      }
+    },
+    {
+      "theme": "우주항공",
+      "grade": "B",
+      "event_summary": "스페이스X 급락 여파로 관련 고편입 ETF 간의 수익률 격차가 커짐",
+      "rubric": {
+        "scope": 2,
+        "specificity": 2,
+        "durability": 1,
+        "novelty": 2,
+        "chain_depth": 2,
+        "source_trust": 1
+      }
+    },
+    {
+      "theme": "바이오",
+      "grade": "B",
+      "event_summary": "기대감을 모았던 바이오주가 다시 하락세를 보인 배경을 분석함",
+      "rubric": {
+        "scope": 2,
+        "specificity": 1,
+        "durability": 1,
+        "novelty": 1,
+        "chain_depth": 2,
+        "source_trust": 1
+      }
+    }
+  ]
+}

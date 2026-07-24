@@ -31,3 +31,7 @@ dist-ssr
 # Python
 __pycache__/
 *.py[cod]
+
+# 뉴스 파이프라인 중간 산출물 (매일 재생성, 프론트 미소비)
+src/data/news_raw.json
+src/data/news_clusters.json
